@@ -1,0 +1,45 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="nodejs" audience="platform" href="/docs/node/index.html"}
+Programming with Node.js on IBM Cloud
+
+    {: .navgroup id="learn"}
+    index.md
+       
+    {: .topicgroup}
+    Related links
+        [Architecture Center](https://www.ibm.com/cloud/garage/category/architectures)
+        [Node.js Developer Center](https://developer.ibm.com/node/)
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    configuration.md
+    healthcheck.md
+    app_id.md
+    logging.md
+    tracing.md
+    appmetrics.md
+   
+    {: .topicgroup}
+    Storing and sharing data
+        cloudant.md
+        object_storage.md
+        [Using a Content Delivery Network(CDN)](../tutorials/static-files-cdn.html)
+
+    [Creating an app using a Continuous Delivery Pipeline](../tutorials/multi-region-webapp.html)
+    [Creating an app using the MEAN stack](../tutorials/mean-stack.html)
+    [Creating REST APIs](../tutorials/create-manage-secure-apis.html)
+    
+    deploying_apps.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    [API Docs](https://console.bluemix.net/apidocs)
+    [Sample apps on IBM Code](https://developer.ibm.com/code/technologies/node-js/)
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    slack.md
+    support.md
+    {: .navgroup-end}
