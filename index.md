@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-07-24"
+lastupdated: "2018-08-07"
 
 ---
 
@@ -15,27 +15,27 @@ lastupdated: "2018-07-24"
 
 # Getting started tutorial
 
-The following tutorial walks you through the steps to build, run locally, and deploy a Node.js app by using {{site.data.keyword.cloud_notm}} provided tools. You can use the [IBM Cloud Developer Tools CLI](https://console.bluemix.net/docs/cloudnative/dev_cli.html#add-cli) on the command line or the web-based [IBM Cloud App Service](https://console.bluemix.net/developer/appservice/dashboard) as shown in the following tutorial steps. By using either of these methods, you can generate a production-ready Node.js application in just minutes.
+The following tutorial walks you through the steps to build, run locally, and deploy a Spring app by using {{site.data.keyword.cloud_notm}} provided tools. You can use the [{{site.data.keyword.dev_cli_long}}](https://console.bluemix.net/docs/cloudnative/dev_cli.html#add-cli) on the command line or the web-based [{{site.data.keyword.cloud}} {{site.data.keyword.dev_console}}](https://console.bluemix.net/developer/appservice/dashboard) as shown in the following tutorial steps. By using either of these methods, you can generate a production-ready Node.js application in just minutes.
 
 ## Creating a Node.js app
 {: #create_project}
 
-1. From the [Starter Kits](https://console.bluemix.net/developer/appservice/starter-kits) page in the App Service, select a Starter Kit that is written in `Node.js`. You can also create a blank starter app by clicking **Create app** and selecting `Node.js` as the language.
+1. From the [Starter Kits](https://console.bluemix.net/developer/appservice/starter-kits) page in the {{site.data.keyword.dev_console}}, select a Starter Kit that is written in `Node.js`. You can also create a blank starter app by clicking **Create app** and selecting `Node.js` as the language.
 
     You must be logged in to an {{site.data.keyword.cloud_notm}} account to create a project. If you do not have an account, you can [register for a free account](https://console.bluemix.net/registration).
     {: tip}
 
 2. Click **Create app**.
-2. **Name** your app. A generic app name is provided if you want to use that.
-3. Enter a **unique host name**. The host name is used to access your application, for example: `expressjs-project.mybluemix.net`.
-4. Click **Create**. After your project is created, you can deploy by using a toolchain or you can continue to build, and deploy your project from the command line.
-5. If you choose to create a toolchain, click **Deploy to the cloud**, and select one of the following deployment methods.
+3. **Name** your app. A generic app name is provided if you want to use that.
+4. Enter a **unique host name**. The host name is used to access your application, for example: `expressjs-project.mybluemix.net`.
+5. Click **Create**. After your project is created, you can deploy by using a toolchain or you can continue to build, and deploy your project from the command line.
+6. If you choose to create a toolchain, click **Deploy to the cloud**, and select one of the following deployment methods.
     * **Cloud Foundry App** - You do not need to manage the underlying infrastructure.
     * **Kubernetes Cluster** - You must provision a set of worker nodes. For example, you can use VMs to deploy and manage highly available application containers. You can create a cluster or deploy to an existing cluster.
 
-6. Finalize your options, and then click **Create** to create the toolchain.
+7. Finalize your options, and then click **Create** to create the toolchain.
 
-7. If you choose to continue with the CLI instead of the toolchain, download the project to your local machine, `unzip`, and `cd` into the root directory. Now you can install the prerequisites by using your platforms command method:
+8. If you choose to continue with the CLI instead of the toolchain, download the project to your local machine, `unzip`, and `cd` into the root directory. Now you can install the prerequisites by using your platforms command method:
 
     MacOS:
     ```
@@ -52,8 +52,8 @@ The following tutorial walks you through the steps to build, run locally, and de
 ## Adding a service
 {: #add_service}
 
-1. Return to your project in the {{site.data.keyword.cloud_notm}} App Service.
-2. Click **Add Service**, select the category of the service you want to add, click **Next**, then choose your service. {{site.data.keyword.cloud_notm}} App Service provisions the service for you based on the selected plan.
+1. Return to your project in the {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}}.
+2. Click **Add Service**, select the category of the service you want to add, click **Next**, then choose your service. {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} provisions the service for you based on the selected plan.
 Note: If you previously provisioned the service that you plan to use, choose the **Existing** category.
 3. After the service is provisioned, click **Download Code** to regenerate the project with the SDK that connects to your service.
 

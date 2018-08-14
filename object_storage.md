@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-07-27"
+lastupdated: "2018-08-14"
 
 ---
 {:new_window: target="_blank"}
@@ -21,7 +21,7 @@ lastupdated: "2018-07-27"
 <!-- Object storage tutorial under the Storing and sharing data topicgroup:
 https://console.bluemix.net/docs/services/cloud-object-storage/about-cos.html#about-ibm-cloud-object-storage -->
 
-{{site.data.keyword.cos_full_notm}} is a fundamental component of cloud computing and provides powerful capabilities to Apple developers and their applications. Unlike storing information in a file hierarchy (such as Block or File storage), an object store consists only of the files and their metadata, which are stored in collections that are known as buckets. By definition, these objects are immutable, which makes them perfect for data such as images, videos, and other static documents. For data that changes often or is relational, you can use the [{{site.data.keyword.cloudant_short_notm}}](/docs/node/cloudant.html) database service.
+{{site.data.keyword.cos_full_notm}} is a fundamental component of cloud computing and provides powerful capabilities to Apple developers and their applications. Unlike storing information in a file hierarchy (such as Block or File storage), an object store consists only of the files and their metadata. These files are stored in collections that are known as buckets. By definition, these objects are immutable, which makes them perfect for data such as images, videos, and other static documents. For data that changes often or is relational, you can use the [{{site.data.keyword.cloudant_short_notm}}](/docs/node/cloudant.html) database service.
 
 {{site.data.keyword.cos_short}} (COS) is a storage system that can be used to store unstructured data that is flexible, cost-effective, and scalable. The data is accessible through SDKs or by using the IBM user interface. You can use {{site.data.keyword.cos_short}} to access your unstructured data through a self-service portal that is backed by RESTful APIs and SDKs.
 
@@ -56,7 +56,7 @@ npm install ibm-cos-sdk
 ## Step 3. Initializing the SDK
 {: #initialize}
 
-After you initialize the SDK in your app, you can begin using {{site.data.keyword.cos_short}} to store data. Initialize your connection by supplying your credentials and providing a callback function to run when everything is ready.
+After you initialize the SDK in your app, you can by using {{site.data.keyword.cos_short}} to store data. Initialize your connection by supplying your credentials and providing a callback function to run when everything is ready.
 
 1. Load the client library by adding the following `require` definitions to your `server.js` file.
   ```js
@@ -100,7 +100,7 @@ After you initialize the SDK in your app, you can begin using {{site.data.keywor
     </tr>
   </table>
 
-### Basic Operations
+### Managing data with basic operations
 {: #basic_operations}
 <!--Borrowed from https://github.com/ibm/ibm-cos-sdk-js#example-code-->
 
@@ -161,7 +161,7 @@ Check out the [full documentation](/docs/services/cloud-object-storage/libraries
 ## Step 4. Testing your app
 {: #test}
 
-Is everything set up correctly? Test it out!
+Is everything set-up correctly? Test it out!
 
 1. Run your application, making sure to start the initialization and respective operations, such as creating a bucket and adding data to the bucket.
 2. Return to the {{site.data.keyword.cos_short}} service instance that you previously created in your web browser, and open the service dashboard.
@@ -170,7 +170,7 @@ Is everything set up correctly? Test it out!
 Having trouble? Check out the [{{site.data.keyword.cos_short}} API Reference](/docs/services/cloud-object-storage/api-reference/about-api.html){:new_window}.
 
 ## Next steps
-{: #next}
+{: #next notoc}
 
 Great job! You added a level of secure persistence to your app. Keep the momentum by trying one of the following options:
 

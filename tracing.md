@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-07-30"
+lastupdated: "2018-08-14"
 
 ---
 {:new_window: target="_blank"}
@@ -29,13 +29,13 @@ npm install --save appmetrics-zipkin
 {: codeblock}
 
 Add the following line to your Node.js server code, **BEFORE** any other appmetrics `require` statements:
-```
+```js
 var appzip = require('appmetrics-zipkin');
 ```
 {: codeblock}
 
-This statement causes tracing to be added to your http and request method calls, and the data to be sent to the Zipkin server. By default, the module looks for the Zipkin server at `localhost` and `port 9411`, but you can change this as follows:
-```
+The following statement causes tracing to be added to your `HTTP` and `request` method calls, and the data to be sent to the Zipkin server. By default, the module looks for the Zipkin server at `localhost` and `port 9411`. You can change the hostname and port by using the following syntax:
+```js
 var appzip = require('appmetrics-zipkin')({
  host: "my.host.here",
  port: 12345, // changeme
@@ -53,7 +53,7 @@ http.request(options, callback).end();
 ## Step 2. Setting up a local Zipkin server
 {: #setup-zipkin-server}
 
-Before deploying to any cloud, you can test the e2e tracing capabilities locally (deploying Zipkin in a container by using Kubernetes is documented later in this tutorial).
+Prior to deploying to any cloud, you can test the e2e tracing capabilities locally (deploying Zipkin in a container by using Kubernetes is documented later in this tutorial).
 
 You now need a place to send your data to. Specifically, the traces, which are made up of spans. Fortunately, Zipkin is contained in a single `jar` file so you can download and run it using the following commands in a shell on the machine where you want Zipkin to be available:
 
@@ -69,10 +69,11 @@ java -jar zipkin.jar
 ```
 {: codeblock}
 
-The `wget` command downloads the Zipkin file we need, and the `java -jar` command runs the Zipkin server that it contains. You can download Zipkin from other locations too, but it’s important that you use version 1.x for this tutorial so the trace format matches what the Zipkin server is expecting.
+The `wget` command downloads the Zipkin file, and the `java -jar` command runs the Zipkin server that it contains. You can download Zipkin from other locations too, but it’s important that you use version 1.x for this tutorial so the trace format matches what the Zipkin server is expecting.
 If the output from this command is too verbose or you’d like to run Zipkin in the background, you can add `-q -O` for the `wget` command and `/dev/null 2>&1 &` for Zipkin. At this stage, you are simply downloading the Zipkin `.jar` file, and running the main method to start the Zipkin server.
 
-The following image shows the Zipkin server running on `localhost` on `port 9411`:
+The following image shows the Zipkin server that runs on `localhost` on `port 9411`:
+
 ![ZipkinNoData](images/ZipkinNoData.png)
 
 You can click **Find traces** and modify the search options to selectively show only traces within a certain time period. You can also filter to show traces that involve specific service names. The service names are specified when you instrument your code, and in the example scenario we use “getter” and “pusher”.
@@ -83,12 +84,12 @@ You can click **Find traces** and modify the search options to selectively show 
 If you follow the [Github project’s documentation](https://github.com/ibm-developer/nodejs-zipkin-tracing), you end up with the following sample application. It’s a simple set-up that involves tracing a request and response between two endpoints. The following images show the Zipkin server with collected trace data on display. The key point to remember is the inclusion of `require('appmetrics-zipkin')`, and optionally the Zipkin server configuration code. The following example scenario shows how you can quickly add Zipkin tracing into your existing Node.js applications.
 
 ### Tracing scenario overview:
-* A **front end**, known as the pusher, prompts the user for the length of a string to create and convert to lower case. The bigger the number, the bigger the string, and the longer it takes to handle the request. Available on `port 3000`.
+* A **front end**, which is known as the pusher, prompts the user for the length of a string to create and convert to lower case. The bigger the number, the bigger the string, and the longer it takes to handle the request. Available on `port 3000`.
 * A **back-end**, known as the getter, handles the request and is available on `port 3001`.
-* A **Zipkin server** running locally or on Kubernetes. (This is where you see your trace data.)
+* A **Zipkin server** runs locally or on Kubernetes. (This is where you see your trace data.)
 
 ### Front end app (pusher)
-The front end app (pusher) service sends the request (our simple front-end):
+The front end app (pusher) service sends the request (our simple front end):
 ![frontend_app](images/frontend_app.png)
 
 ### Back-end app (getter)
@@ -96,11 +97,11 @@ The back-end app (getter) receives the request, which is listening on a differen
 ![backend_app](images/Backend.png)
 
 ### Sending a request from the pusher to the getter
-This is how you can send a request from the pusher to the getter:
+Send a request from the pusher to the getter:
 ![500please](images/500Please.png)
 
 ### Viewing traces with the Zipkin web UI
-The trace data sent to Zipkin can be viewed with the Zipkin web UI at `localhost:9411`. You can see the **getter** receiving user input (they’re wanting to send a 500 character long message to the getter, by using the pusher service):
+The trace data sent to Zipkin can be viewed with the Zipkin web UI at `localhost:9411`. You can see that the **getter** receives user input (they’re wanting to send a 500 character long message to the getter, by using the pusher service):
 ![Getter500msg](images/Getter500Msg.png)
 
 The user request details are shown. Notice the “500” which is the parameter that is provided for the user’s request. They wanted to generate a string of 500 characters. You can see exactly what the user requested and how long it took to handle this request. The contents of the request (payload), returned from the server, is not visible. 
@@ -115,18 +116,18 @@ Here’s what a slow request would look like. The following user is requesting t
 Clicking this span leads to the following output. Again, you can see the expensive request that consumed much more time. A more realistic scenario would involve potentially many Node.js microservices receiving all manner of requests at various endpoints continuously. By having a high-level view of your endpoints, you can quickly determine which services are performing slowly, and exactly what users are requesting: 
 ![TookaWhile](images/TookAWhile.png)
 
-With this example, you now have the following:
+With this example, you now have the following scenario:
 
 * The pusher sends a message to the getter (one span).
 * The getter sends back a response (one span).
 * The end-to-end trace (consisting of the above two spans) visible on the Zipkin server deployed locally.
 
-As your applications become more complex, and your services become more popular, the desire to have such tracing in place becomes obvious. Being able to add tracing capabilities at an extremely high level provides value to developers so that problems can be identified and triaged quickly and effectively. There are plenty of alternatives available, but our approach is to make it as simple as possible while acting entirely in the open.
+As your applications become more complex, and your services become more popular, the desire to have such tracing in place becomes obvious. Being able to add tracing capabilities at a high level provides value to developers so that problems can be identified and triaged quickly and effectively. Plenty of alternatives are available, but our approach is to make it as simple as possible, and act entirely in the open.
 
 The tutorial finishes here for deployments outside of Kubernetes. Check out the next section if you would like to pursue tracing Node.js apps that run on Kubernetes.
 
 ## Next steps
 {: #next-steps}
 
-If you’re ready add tracing to your Node.js applications that run on Kubernetes, check out [tracing Node.js applications using Kubernetes](https://developer.ibm.com/node/tutorial-end-end-tracing-node-js-applications/#appservice).
+If you’re ready add tracing to your Node.js applications that run on Kubernetes, check out [tracing Node.js applications that use Kubernetes](https://developer.ibm.com/node/tutorial-end-end-tracing-node-js-applications/#appservice).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017-2018
-lastupdated: "2018-07-30"
+lastupdated: "2018-08-07"
 
 ---
 {:new_window: target="_blank"}
@@ -25,7 +25,7 @@ For more information, see [{{site.data.keyword.cloudant_short_notm}} Basics](/do
 
 Be sure that you have the following prerequisites ready to go:
  * <a href="https://github.com/cloudant/nodejs-cloudant" target="_blank">nodejs-cloudant <img src="../icons/launch-glyph.svg" alt="External link icon"></a> 2.3.0+ client library.
- * To access {{site.data.keyword.cloudant_short_notm}}, you must have either an <a href="https://www.ibm.com/cloud/cloudant" target="_blank">{{site.data.keyword.cloudant_short_notm}} account <img src="../icons/launch-glyph.svg" alt="External link icon"></a> or an <a href="https://www.ibm.com/cloud/" target="_blank">{{site.data.keyword.Bluemix}} account <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+ * To access {{site.data.keyword.cloudant_short_notm}}, you must have either an <a href="https://www.ibm.com/cloud/cloudant" target="_blank">{{site.data.keyword.cloudant_short_notm}} account <img src="../icons/launch-glyph.svg" alt="External link icon"></a> or an <a href="https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app" target="_blank">{{site.data.keyword.cloud}} account <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
  * The code snippets in these instructions use IAM authentication.
  
 ### Enabling IAM with {{site.data.keyword.cloudant_short_notm}}
@@ -94,7 +94,7 @@ After you initialize the SDK in your app, you can begin leveraging {{site.data.k
 Uppercase `Cloudant` is the package that you load by using `require()`, while lowercase `cloudant` represents an authenticated connection to your {{site.data.keyword.cloudant_short_notm}} service.
 {: tip}
 
-### Basic Operations
+### Managing data with basic operations
 {: #basic_operations}
 <!--Borrowed from https://github.com/cloudant/nodejs-cloudant/blob/master/example/crud.js-->
 
@@ -172,7 +172,7 @@ Is everything set-up correctly? Test it out!
 Having trouble? Check out the [{{site.data.keyword.cloudant_short_notm}} API Reference](/docs/services/Cloudant/api/index.html#api-reference-overview){:new_window}.
 
 ## Next steps
-{: #next}
+{: #next notoc}
 
 Great job! You added a level of secure persistence to your app. Keep the momentum by trying one of the following options:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-07-30"
+lastupdated: "2018-08-14"
 
 ---
 
@@ -13,15 +13,34 @@ lastupdated: "2018-07-30"
 {:pre: .pre}
 {:tip: .tip}
 
-# Monitoring Node.js application metrics
+# Using Application Metrics with Node.js apps
 {: #metrics}
 
-Learn how to install, access, and understand Node.js application metrics. You can monitor Node.js apps with the [Node Application Metrics](https://developer.ibm.com/open/openprojects/node-application-metrics) Dashboard to visualize the performance of your Node.js application by displaying performance metrics in a web based front end.
+Learn how to install, access, and understand Node.js application metrics. You can monitor Node.js apps with the [Node Application Metrics](https://developer.ibm.com/open/openprojects/node-application-metrics) Dashboard to visualize the performance of your Node.js application by displaying metrics in a web based front end.
+{: shortdesc}
 
-Add monitoring capabilities to existing Express applications with the [appmetrics-dash](https://github.com/RuntimeTools/appmetrics-dash) constructor that allows you to pass in a number of configuration options. For example, one of the options uses an existing server rather than have `appmetrics-dash` start an extra server.
+## Identifying problems visually
+{: #identify-problems}
 
-## Step 1. Installing the appmetrics dashboard
-{: #install-appmetrics}
+Application metrics are important for monitoring the performance of your application. Monitoring the performance of the environment (including CPU, Memory, Latency, and HTTP metrics), can seem like a monumental effort, but it is essential to ensure that your Node.js application is running effectively over time. Cloud Native services, such as autoscaling, can rely on these metrics to scale your app to perform under peak load and scale down to keep costs low. Ideally, these metrics would be provided programmatically through an API, but also visually in a built-in dashboard.
+
+The Application Metrics Dashboard can help you to identify common performance problems such as:
+
+* Slow HTTP response times on some or all routes
+* Poor throughput in the application
+* Spikes in demand causing slowdown
+* Higher than expected CPU usage for the level of throughput/load
+* High and/or growing memory usage (potential memory leak)
+* In addition, the ‘Other Requests’ chart shows database request duration for supported databases (MongoDB, MySQL, Postgres, LevelDB, and Redis). As well as Socket.IO and Riak events, which could help you further identify where time is being spent in your application.
+
+A Node Report or a Heap Snapshot can be generated from the dashboard at the click of a button to enable a more in-depth analysis.
+
+## Adding metrics to existing Node.js apps
+{: #add-appmetrics-existing}
+
+Add monitoring capabilities to existing Express applications with the [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) constructor that allows you to pass in a number of configuration options. For example, one of the options uses an existing server rather than have `appmetrics-dash` start an extra server.
+
+### Installing the dashboard
 
 1. For example, use the following simple “Hello World” express application:
   ```js
@@ -36,19 +55,19 @@ Add monitoring capabilities to existing Express applications with the [appmetric
   ```
   {: codeblock}
 
-2. Install the dashboard with the following command:
+2. Install the `appmetrics` dashboard with the following command:
   ```
   npm install appmetrics-dash
   ```
   {: codeblock}
 
-3. Add `appmetrics-dash` support to your app by adding the following code:
+3. Add `appmetrics-dash` support to your existing app by adding the following code:
   ```js
   var dash = require('appmetrics-dash').attach()
   ```
   {: codeblock}
 
-  This tells `appmetrics-dash` to use the server already created, and add an `appmetrics-dash` endpoint.
+  This tells `appmetrics-dash` to use the server that is already created, and add an `appmetrics-dash` endpoint.
 
   The revised code now looks like the following example:
   ```js
@@ -64,17 +83,28 @@ Add monitoring capabilities to existing Express applications with the [appmetric
   ```
   {: codeblock}
 
-## Step 2. Accessing the appmetrics dashboard
-{: access-dashboard}
+## Using metrics from Starter Kits
+{: #appmetrics-starterkits}
 
-After starting your application, navigate to **http://<hostname>:<port>/appmetrics-dash** in a browser.
+The Node.js applications that are created from Starter Kits automatically come with `appmetrics-dash`, and its dashboard by default.
+
+The appmetrics code can be found in `/Sources/Application/xxx.js`:
+```js
+appmetrics source here
+```
+{: codeblock}
+
+## Accessing the dashboard
+{: #access-dashboard}
+
+After starting your application, navigate to `http://<hostname>:<port>/appmetrics-dash` in a browser.
 
 Use the default `localhost:3001/appmetrics-dash` for apps running locally.
 {: tip}
 
 The Application Metrics for Node.js monitoring dashboard UI provides a range of metrics, including HTTP requests and event loop latency as seen in the following video [Monitoring Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be).
 
-## Step 3. Understanding the data
+## Understanding the data
 {: #understanding-data}
 
 ![Appmetrics Dashboard](images/appmetricsdash-1.png)
@@ -89,18 +119,6 @@ If a lot of data is being produced by the application being monitored, then the 
 
 ![Show Tooltip](images/tooltip-1.png)
 
-## Step 4. Diagnosing Problems
-{: #diagnosing-problems}
 
-The Application Metrics Dashboard can help you to identify common performance problems such as:
-
-* Slow HTTP response times on some or all routes
-* Poor throughput in the application
-* Spikes in demand causing slowdown
-* Higher than expected CPU usage for the level of throughput/load
-* High and/or growing memory usage (potential memory leak)
-* In addition, the ‘Other Requests’ chart shows database request duration for supported databases (MongoDB, MySQL, Postgres, LevelDB, and Redis). As well as Socket.IO and Riak events, which could help you further identify where time is being spent in your application.
-
-A Node Report or a Heap Snapshot can be generated from the dashboard at the click of a button to enable more in-depth analysis.
 
 
