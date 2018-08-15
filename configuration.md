@@ -17,7 +17,7 @@ lastupdated: "2018-08-14"
 
 Ideally, a Node.js application is able to move from one environment to another (for example, from testing into production) without changing code, or exercising otherwise untested code paths.
 
-The problem arises when significant differences exist in the way the config is presented, depending on the development environment. For example, CloudFoundry, which uses stringified JSON objects versus Kubernetes that uses either flat values or stringified JSON objects. Local development outside of Kube has different considerations as well. Credentials can be presented differently across public and private, which further make it difficult for apps to remain unchanged across environments.
+The problem arises when significant differences exist in the way the config is presented, depending on the development environment. For example, CloudFoundry, which uses stringified JSON objects versus Kubernetes that uses either flat values or stringified JSON objects. Local development outside of Kubernetes has different considerations as well. Credentials can be presented differently across public and private, which further make it difficult for apps to remain unchanged across environments.
 
 Whether you need to add Cloud support to existing applications or create apps with Starter kits, the goal is to provide maximum portability for Node.js apps regardless of the development platform.
 
@@ -29,7 +29,7 @@ Standardized guidelines are available to follow for developing Node.js applicati
 ### Understanding general requirements
 * Must be able to inject configuration at run time (minimally through an environment variable).
 * Application code can use or look up a value by using a consistent string key.
-* Application code can use credentials provided by the platform for the target environment.
+* Application code can use credentials that are provided by the platform for the target environment.
 * Helm charts that require service credentials can deploy to both public and private.
 
 ### Meeting {{site.data.keyword.cloud_notm}} requirements
@@ -122,7 +122,7 @@ Node.js apps that are created with [Starter Kits](https://console.bluemix.net/de
 
 ### Understanding service credentials
 
-Your application configuration information for services is stored in the `localdev-config.json` file in the `/server/config` directory. The file is in the `.gitignore` directory to prevent sensitive information from being stored in git. The connection information for any configured service that runs locally, such as username, password and hostname, is stored in this file.
+Your application configuration information for services is stored in the `localdev-config.json` file in the `/server/config` directory. The file is in the `.gitignore` directory to prevent sensitive information from being stored in Git. The connection information for any configured service that runs locally, such as user name, password, and host name, is stored in this file.
 
 The application uses the configuration manager to read the connection and configuration information from the environment, and this file. It uses a custom built `mappings.json`, found in the `server/config` directory, to communicate where the credentials can be found for each service.
 

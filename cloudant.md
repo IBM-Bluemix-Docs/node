@@ -15,7 +15,7 @@ lastupdated: "2018-08-07"
 # Storing documents in {{site.data.keyword.cloud_notm}}
 {: #cloudant}
 
-{{site.data.keyword.cloudantfull}} is a document-oriented DataBase as a Service (DBaaS). It stores data as documents in JSON format. It is built with scalability, high availability, and durability in mind, and it is easy to configure for use in Node.js applications. {{site.data.keyword.cloudant_short_notm}} comes with a wide variety of indexing options that include MapReduce, {{site.data.keyword.cloudant_short_notm}} Query, full-text indexing, and geospatial indexing. The replication capabilities make it easy to keep data in sync between database clusters, desktop PCs, and mobile devices.
+{{site.data.keyword.cloudantfull}} is a document-oriented Database as a Service (DBaaS). It stores data as documents in JSON format. {{site.data.keyword.cloudant_short_notm}} is built with scalability, high availability, and durability in mind, and is easy to configure for use in Node.js applications. It comes with a wide variety of indexing options that includes MapReduce, {{site.data.keyword.cloudant_short_notm}} Query, full-text indexing, and geospatial indexing. The replication capabilities make it easy to keep data in sync between database clusters, desktop PCs, and mobile devices.
 {:shortdesc}
 
 For more information, see [{{site.data.keyword.cloudant_short_notm}} Basics](/docs/services/Cloudant/basics/index.html#cloudant-nosql-db-basics){:new_window}.
@@ -24,7 +24,7 @@ For more information, see [{{site.data.keyword.cloudant_short_notm}} Basics](/do
 {: #before}
 
 Be sure that you have the following prerequisites ready to go:
- * <a href="https://github.com/cloudant/nodejs-cloudant" target="_blank">nodejs-cloudant <img src="../icons/launch-glyph.svg" alt="External link icon"></a> 2.3.0+ client library.
+ * <a href="https://github.com/cloudant/nodejs-cloudant" target="_blank">Nodejs-cloudant <img src="../icons/launch-glyph.svg" alt="External link icon"></a> 2.3.0+ client library.
  * To access {{site.data.keyword.cloudant_short_notm}}, you must have either an <a href="https://www.ibm.com/cloud/cloudant" target="_blank">{{site.data.keyword.cloudant_short_notm}} account <img src="../icons/launch-glyph.svg" alt="External link icon"></a> or an <a href="https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app" target="_blank">{{site.data.keyword.cloud}} account <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
  * The code snippets in these instructions use IAM authentication.
  
@@ -33,7 +33,7 @@ Be sure that you have the following prerequisites ready to go:
 
 Only new {{site.data.keyword.cloudant_short_notm}} service instances can be used with {{site.data.keyword.cloud_notm}} IAM.
 
-All new {{site.data.keyword.cloudant_short_notm}} service instances are enabled to use IAM when provisioned. When you provision a new instance from the {{site.data.keyword.cloud_notm}} catalog, choose the **Use only IAM** authentication method. This mode means that only IAM credentials are provided via service binding and credential generation. You can find more information at [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/services/Cloudant/guides/iam.html).
+All new {{site.data.keyword.cloudant_short_notm}} service instances are enabled to use {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) when provisioned. When you provision a new instance from the {{site.data.keyword.cloud_notm}} catalog, choose the **Use only IAM** authentication method. This mode means that only IAM credentials are provided by service binding and credential generation. You can find more information at [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/services/Cloudant/guides/iam.html).
 
 ## Step 1. Creating an instance of {{site.data.keyword.cloudant_short_notm}}
 {: #create-instance}
@@ -62,12 +62,12 @@ npm install --save @cloudant/cloudant
 ```
 {: pre}
 
-Notice that your package.json now reflects this package.
+Notice that your package.json now shows this package.
 
 ## Step 3. Initializing the SDK
 {: #initialize}
 
-After you initialize the SDK in your app, you can begin leveraging {{site.data.keyword.cloudant_short_notm}} to store data. Initialize your connection by supplying your credentials and providing a callback function to run when everything is ready.
+After you initialize the SDK in your app, you can use {{site.data.keyword.cloudant_short_notm}} to store data. To initialize your connection, enter your credentials and provide a callback function to run when everything is ready.
 
 1. Load the client library by adding the following `require` definition to your `server.js` file.
   ```js
@@ -91,7 +91,7 @@ After you initialize the SDK in your app, you can begin leveraging {{site.data.k
   ```
   {: codeblock}
 
-Uppercase `Cloudant` is the package that you load by using `require()`, while lowercase `cloudant` represents an authenticated connection to your {{site.data.keyword.cloudant_short_notm}} service.
+Uppercase `Cloudant` is the package that you load by using `require()`. Lowercase `cloudant` is the authenticated connection to your {{site.data.keyword.cloudant_short_notm}} service.
 {: tip}
 
 ### Managing data with basic operations
@@ -163,9 +163,9 @@ var deleteDocument = function(callback) {
 ## Step 4. Testing your app
 {: #test}
 
-Is everything set-up correctly? Test it out!
+Is everything set up correctly? Test it out!
 
-1. Run your application, making sure to invoke the initialization and respective operations, such as creating a document.
+1. Run your application, making sure to start the initialization and respective operations, such as creating a document.
 2. Return to the {{site.data.keyword.cloudant_short_notm}} service instance that you previously created in your web browser, and open the service dashboard.
 3. Select the database that is used to see your newly created documents in the dashboard.
 
@@ -178,5 +178,5 @@ Great job! You added a level of secure persistence to your app. Keep the momentu
 
 * View the <a href="https://github.com/cloudant/nodejs-cloudant" target="_blank">{{site.data.keyword.cloudant_short_notm}} SDK for Node.js <img src="../icons/launch-glyph.svg" alt="External link icon"></a> source code.
 * Check out the <a href="https://github.com/cloudant/nodejs-cloudant/tree/master/example" target="_blank">example code for database and document operations <img src="../icons/launch-glyph.svg" alt="External link icon"></a>
-* Starter Kits are one of the fastest ways to leverage the capabilities of IBM Cloud. View the available starter kits in the <a href="https://console.bluemix.net/developer/mobile/dashboard" target="_blank">Mobile developer dashboard <img src="../icons/launch-glyph.svg" alt="External link icon"></a>. Download the code. Run the app!
-* To learn more about and take advantage of all of the features that {{site.data.keyword.cloudant_short_notm}} has to offer, [check out the docs](/docs/services/Cloudant/getting-started.html)!
+* Starter Kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud}}. View the available starter kits in the <a href="https://console.bluemix.net/developer/mobile/dashboard" target="_blank">Mobile developer dashboard <img src="../icons/launch-glyph.svg" alt="External link icon"></a>. Download the code. Run the app!
+* To learn more about and take advantage of all of the features that {{site.data.keyword.cloudant_short_notm}} offers, [check out the docs](/docs/services/Cloudant/getting-started.html)!

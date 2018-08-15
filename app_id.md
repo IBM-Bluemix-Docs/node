@@ -19,7 +19,7 @@ lastupdated: "2018-08-15"
 
 Application security can be incredibly complicated. For most developers, it's one of the hardest parts of creating an app. How can you be sure that you are protecting your user's information? By integrating {{site.data.keyword.appid_full}} into your apps, you can secure resources and add authentication, even when you don't have much security experience.
 
-By requiring users to sign in to your app, you can store user data such as app preferences, or public social profiles. You can then leverage that data to customize each user's experience within the app. {{site.data.keyword.appid_short_notm}} provides a log-in framework for you, but you can also bring your own branded sign-in pages to use with Cloud Directory.
+By requiring users to sign in to your app, you can store user data such as app preferences, or public social profiles. You can then use that data to customize each user's experience within the app. {{site.data.keyword.appid_short_notm}} provides a log-in framework for you, but you can also bring your own branded sign-in pages to use with Cloud Directory.
 
 For more information about all of the ways that you can use {{site.data.keyword.appid_short_notm}} and architecture information, see [About {{site.data.keyword.appid_short_notm}}](/docs/services/appid/about.html).
 
@@ -47,11 +47,11 @@ Be sure that you have the following prerequisites ready to go:
 
     * **tenantID** - The tenant ID is a unique identifier that is used to initialize your app. You can find the value in the {{site.data.keyword.appid_short_notm}} service dashboard by clicking **View Credentials** in the **Service Credentials** tab.
     * **clientID**, **secret**, **oauth-server-url** - You can find these values by clicking **View Credentials** in the **Service Credentials** tab of your service dashboard.
+    * **CALLBACK_URL** - The URL for the page that users see after they log in.
     * **redirectUri** - The `redirectUri` value can be supplied in three ways:
       * Manually in new `WebAppStrategy({redirectUri: "...."})`
       * As an environment variable named `redirectUri`. 
-      * If the `redirectUri` value is not provided, the App ID SDK retrieves the `application_uri` of the application that is running on {{site.data.keyword.cloud_notm}}, and appends the default suffix`/ibm/cloud/appid/callback`.
-    * **CALLBACK_URL** - The URL for the page that users see after they log in.
+      * If the `redirectUri` value isn't provided, the App ID SDK retrieves the `application_uri` of the application that is running on {{site.data.keyword.cloud_notm}}, and appends the default suffix`/ibm/cloud/appid/callback`.
 
 ## Step 1. Creating an instance of {{site.data.keyword.appid_short_notm}}
 {: #create-instance}
@@ -145,7 +145,7 @@ For more information, see the <a href="https://github.com/ibm-cloud-security/app
 
 <!--The following content is similar to https://console.stage1.bluemix.net/docs/services/appid/login-widget.html#managing-the-sign-in-experience -->
 
-{{site.data.keyword.appid_full}} provides a login widget that lets you give your users secure sign-in options.
+{{site.data.keyword.appid_full}} provides a login widget for you to give your users secure sign-in options.
 
 When your app is configured to use an identity provider, visitors to your app are directed to a sign-in page by the login widget. By default, when only one provider is set to **On**, visitors are redirected to that identity provider's authentication page. With the login widget, you can display a default sign-in page or with cloud directory, you can reuse your existing UIs.
 
@@ -165,7 +165,7 @@ To configure social identity providers, complete the following steps:
 
 1. Open the {{site.data.keyword.appid_short_notm}} dashboard to **Identity Providers > Manage**.
 2. Set the identity providers that you want to use to **On**. You can use any combination of identity providers, but if you'd like to bring customized sign-on pages, enable cloud directory only.
-3. Update the [default configuration](/docs/services/appid/identity-providers.html) to your own credentials. {{site.data.keyword.appid_short_notm}} provides IBM credentials that you can use to try out the service, but before publishing your app, you need to update the configuration.
+3. Update the [default configuration](/docs/services/appid/identity-providers.html) to your own credentials. {{site.data.keyword.appid_short_notm}} provides IBM credentials that you can use to try out the service. Before you publish your app, you must update the configuration.
 4. [Customize the preconfigured sign-in page](#login-widget) to display the image and colors of your choice.
 
 ### Configuring cloud directory
@@ -278,7 +278,7 @@ Want to provide your users with a custom experience? Check out the [{{site.data.
 ## Step 5. Testing your app
 {: #test}
 
-Is everything set-up correctly? You can test it out!
+Is everything set up correctly? You can test it out!
 
 1. Install the dependencies and start your application server.
 2. Using the GUI, walk through the process of signing into your application. If you configured cloud directory, be sure that all of your pages are displaying how you intend.
@@ -293,4 +293,4 @@ Having trouble? Check out [troubleshooting {{site.data.keyword.appid_short_notm}
 Great job! You added an authentication step to your app. Keep the momentum by trying one of the following options:
 
 * To learn more about and take advantage of all of the features that {{site.data.keyword.appid_short_notm}} offers, [check out the docs](/docs/services/appid/index.html)!
-* Starter Kits are one of the fastest ways to leverage the capabilities of {{site.data.keyword.cloud_notm}}. View the available starter kits in the <a href="https://console.bluemix.net/developer/mobile/dashboard" target="_blank">Mobile developer dashboard <img src="../icons/launch-glyph.svg" alt="External link icon"></a>. Download the code. Run the app!
+* Starter Kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud_notm}}. View the available starter kits in the <a href="https://console.bluemix.net/developer/mobile/dashboard" target="_blank">Mobile developer dashboard <img src="../icons/launch-glyph.svg" alt="External link icon"></a>. Download the code. Run the app!

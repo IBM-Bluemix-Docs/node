@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-07-30"
+lastupdated: "2018-08-15"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-07-30"
 # Using Health check in Node.js apps
 {: #healthcheck}
 
-Health checks provide a simple mechanism to determine whether or not an application is behaving properly. You can add Health check support to an existing Node.js application or access native Health check support from Node.js apps that are created from {{site.data.keyword.cloud_notm}} [Starter Kits](https://console.bluemix.net/developer/appservice/starter-kits/).
+Health checks provide a simple mechanism to determine whether an application is behaving properly. You can add Health check support to an existing Node.js application or access native Health check support from Node.js apps that are created from {{site.data.keyword.cloud_notm}} [Starter Kits](https://console.bluemix.net/developer/appservice/starter-kits/).
 
 ## Health check overview
 {: #overview}
@@ -37,7 +37,7 @@ app.use("/health", router);
 
 Check the status of the app with a browser by accessing the `/health` endpoint.
 
-Health check is extensible, as you can add timestamps or other meaningful criteria.
+Health check is extensible, as you can add time stamps or other meaningful criteria.
 
 ## Accessing Health check from Node.js Starter Kit apps
 {: #healthcheck-starterkit}
