@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-08-07"
+lastupdated: "2018-08-15"
 
 ---
 
@@ -25,7 +25,7 @@ The following tutorial walks you through the steps to build, run locally, and de
     You must be logged in to an {{site.data.keyword.cloud_notm}} account to create a project. If you do not have an account, you can [register for a free account](https://console.bluemix.net/registration).
     {: tip}
 
-2. Click **Create app**.
+2. Click **Create App**.
 3. **Name** your app. A generic app name is provided if you want to use that.
 4. Enter a **unique host name**. The host name is used to access your application, for example: `expressjs-project.mybluemix.net`.
 5. Click **Create**. After your project is created, you can deploy by using a toolchain or you can continue to build, and deploy your project from the command line.
