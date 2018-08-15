@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-08-14"
+lastupdated: "2018-08-15"
 
 ---
 {:new_window: target="_blank"}
@@ -21,7 +21,7 @@ lastupdated: "2018-08-14"
 <!-- Object storage tutorial under the Storing and sharing data topicgroup:
 https://console.bluemix.net/docs/services/cloud-object-storage/about-cos.html#about-ibm-cloud-object-storage -->
 
-{{site.data.keyword.cos_full_notm}} is a fundamental component of cloud computing and provides powerful capabilities to Apple developers and their applications. Unlike storing information in a file hierarchy (such as Block or File storage), an object store consists only of the files and their metadata. These files are stored in collections that are known as buckets. By definition, these objects are immutable, which makes them perfect for data such as images, videos, and other static documents. For data that changes often or is relational, you can use the [{{site.data.keyword.cloudant_short_notm}}](/docs/node/cloudant.html) database service.
+{{site.data.keyword.cos_full_notm}} is a fundamental component of cloud computing and provides powerful capabilities to Apple developers and their applications. Unlike storing information in a file hierarchy (such as Block or File storage), an object store consists only of the files and their metadata. These files are stored in collections that are known as buckets. By definition, these objects are immutable, which makes them perfect for data such as images, videos, and other static documents. For data that either changes often or is relational data, you can use the [{{site.data.keyword.cloudant_short_notm}}](/docs/node/cloudant.html) database service.
 
 {{site.data.keyword.cos_short}} (COS) is a storage system that can be used to store unstructured data that is flexible, cost-effective, and scalable. The data is accessible through SDKs or by using the IBM user interface. You can use {{site.data.keyword.cos_short}} to access your unstructured data through a self-service portal that is backed by RESTful APIs and SDKs.
 
@@ -161,7 +161,7 @@ Check out the [full documentation](/docs/services/cloud-object-storage/libraries
 ## Step 4. Testing your app
 {: #test}
 
-Is everything set-up correctly? Test it out!
+Is everything set up correctly? Test it out!
 
 1. Run your application, making sure to start the initialization and respective operations, such as creating a bucket and adding data to the bucket.
 2. Return to the {{site.data.keyword.cos_short}} service instance that you previously created in your web browser, and open the service dashboard.
@@ -176,5 +176,5 @@ Great job! You added a level of secure persistence to your app. Keep the momentu
 
 * View the <a href="https://github.com/ibm/ibm-cos-sdk-js" target="_blank">{{site.data.keyword.cos_short}} SDK for Node.js <img src="../icons/launch-glyph.svg" alt="External link icon"></a> source code.
 * Check out the <a href="https://github.com/ibm/ibm-cos-sdk-js#example-code" target="_blank">example code for bucket and object operations <img src="../icons/launch-glyph.svg" alt="External link icon"></a>
-* Starter Kits are one of the fastest ways to leverage the capabilities of IBM Cloud. View the available starter kits in the <a href="https://console.bluemix.net/developer/mobile/dashboard" target="_blank">Mobile developer dashboard <img src="../icons/launch-glyph.svg" alt="External link icon"></a>. Download the code. Run the app!
-* To learn more about and take advantage of all of the features that {{site.data.keyword.cos_short}} has to offer, [check out the docs](/docs/services/cloud-object-storage/about-cos.html)!
+* Starter Kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud_notm}}. View the available starter kits in the <a href="https://console.bluemix.net/developer/mobile/dashboard" target="_blank">Mobile developer dashboard <img src="../icons/launch-glyph.svg" alt="External link icon"></a>. Download the code. Run the app!
+* To learn more about and take advantage of all of the features that {{site.data.keyword.cos_short}} offers, [check out the docs](/docs/services/cloud-object-storage/about-cos.html)!
