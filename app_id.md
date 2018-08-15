@@ -45,16 +45,13 @@ Be sure that you have the following prerequisites ready to go:
 
 5. Locate credential component values to be used later for SDK initialization:
 
-    **tenantID** - The tenant ID is a unique identifier that is used to initialize your app. You can find the value in the {{site.data.keyword.appid_short_notm}} service dashboard by clicking **View Credentials** in the **Service Credentials** tab.
-
-    **clientID**, **secret**, **oauth-server-url** - You can find these values by clicking **View Credentials** in the **Service Credentials** tab of your service dashboard.
-
-    **redirectUri** - The `redirectUri` value can be supplied in three ways:
-    * Manually in new `WebAppStrategy({redirectUri: "...."})`
-    * As an environment variable named `redirectUri`. 
-    * If the `redirectUri` value is not provided, the App ID SDK retrieves the `application_uri` of the application that is running on {{site.data.keyword.cloud_notm}}, and appends the default suffix`/ibm/cloud/appid/callback`.
-
-    **CALLBACK_URL** - The URL for the page that users see after they log in.
+    * **tenantID** - The tenant ID is a unique identifier that is used to initialize your app. You can find the value in the {{site.data.keyword.appid_short_notm}} service dashboard by clicking **View Credentials** in the **Service Credentials** tab.
+    * **clientID**, **secret**, **oauth-server-url** - You can find these values by clicking **View Credentials** in the **Service Credentials** tab of your service dashboard.
+    * **redirectUri** - The `redirectUri` value can be supplied in three ways:
+      * Manually in new `WebAppStrategy({redirectUri: "...."})`
+      * As an environment variable named `redirectUri`. 
+      * If the `redirectUri` value is not provided, the App ID SDK retrieves the `application_uri` of the application that is running on {{site.data.keyword.cloud_notm}}, and appends the default suffix`/ibm/cloud/appid/callback`.
+    * **CALLBACK_URL** - The URL for the page that users see after they log in.
 
 ## Step 1. Creating an instance of {{site.data.keyword.appid_short_notm}}
 {: #create-instance}
