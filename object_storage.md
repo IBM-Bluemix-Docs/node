@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-08-15"
+lastupdated: "2018-08-16"
 
 ---
 {:new_window: target="_blank"}
@@ -29,9 +29,14 @@ https://console.bluemix.net/docs/services/cloud-object-storage/about-cos.html#ab
 {: #before}
 
 Be sure that you have the following prerequisites ready to go:
-* <a href="https://github.com/ibm/ibm-cos-sdk-js" target="_blank">{{site.data.keyword.cos_short}} SDK for Node.js <img src="../icons/launch-glyph.svg" alt="External link icon"></a>
-* Node 4.x+
-* You must have an <a href="https://www.ibm.com/cloud/" target="_blank">{{site.data.keyword.Bluemix}} account <img src="../icons/launch-glyph.svg" alt="External link icon"></a>
+1. You must have an <a href="https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app" target="_blank">{{site.data.keyword.cloud_notm}} account <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+2. You must have the <a href="https://github.com/ibm/ibm-cos-sdk-js" target="_blank">{{site.data.keyword.cos_short}} SDK for Node.js <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+3. You must have Node 4.x+.
+4. Locate the credential key values to be used later for SDK initialization:
+
+    * _**endpoint**_ - The public endpoint for your Cloud Object Storage. The endpoint is available from the <a href="https://console.bluemix.net/dashboard/apps" target="_blank">{{site.data.keyword.cloud_notm}} Dashboard <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+    * _**api-key**_ - The API key that is generated when the service credentials are created. Write access is required for creation and deletion examples.
+    * _**resource-instance-id**_ - The resource ID for your Cloud Object Storage. The resource ID is available through the [{{site.data.keyword.cloud_notm}} CLI](../cli/index.html) or <a href="https://console.bluemix.net/dashboard/apps" target="_blank">{{site.data.keyword.cloud_notm}} Dashboard <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 ## Step 1. Creating an instance of {{site.data.keyword.cos_short}}
 {: #create-instance}
@@ -75,30 +80,14 @@ After you initialize the SDK in your app, you can by using {{site.data.keyword.c
   ```
   {: codeblock}
 
+  If you need help finding the credential key values for your app, check *step 4* of the [Before you begin](object_storage.html#before) section for details on where to find them.
+  {: tip}
+
 3. Add the following code to your `server.js` file.
   ```js
   var cos = new objectStore(config);
   ```
   {: codeblock}
-
-  <table summary="Command components: Node.js apps">
-  <caption>Command components for Node.js apps</caption>
-    <tr>
-      <th>Components</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><i>endpoint</i></td>
-      <td>The public endpoint for your Cloud Object Storage. The endpoint is available from the <a href="https://console.bluemix.net/dashboard/apps" target="_blank">{{site.data.keyword.cloud_notm}} Dashboard <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.</td>
-    </tr>
-    <tr><td><i>api-key</i></td>
-    <td>The API key that is generated when the service credentials are created. Write access is required for creation and deletion examples.</td>
-    </tr>
-    <tr>
-      <td><i>resource-instance-id</i></td>
-      <td>The resource ID for your cloud Object Storage. The resource ID is available through the [{{site.data.keyword.cloud_notm}} CLI](../cli/index.html) or <a href="https://console.bluemix.net/dashboard/apps" target="_blank">{{site.data.keyword.cloud_notm}} Dashboard <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.</td>
-    </tr>
-  </table>
 
 ### Managing data with basic operations
 {: #basic_operations}

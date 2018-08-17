@@ -1,15 +1,16 @@
-# node
+# Node
 
 ## To Do:
-* add videos to getting started
-* work with existing content owners on outline and content strategy
+* Add videos to getting started
+* Work with existing content owners on outline and content strategy
 
 
-## proposed outline:
+## Proposed outline
+
 ### Learn
 1. Getting Started (new)
   * Create Project (include what's in the project)
-  * Add Database
+  * Add database
   * Run Local
   * Deploy to Cloud
 2. Learn More
@@ -28,20 +29,20 @@
   * Alexa skill with Watson Conversation
   * Your Celebrity Match
   * Dark Vision App 
-  * Commercial Paper app with Blockchain
+  * Commercial Paper app with blockchain
   * Blue Chatter on Kubernetes
 3. Solution Tutorials
-  * Deploy a secure web applications across multiple regions
-  * Accelerate delivery of static files using a CDN
-  * Modern web application using MEAN stack
-  * Create, Secure and Manage REST APIs
+  * Deploy a secure web application across multiple regions
+  * Accelerate delivery of static files by using CDN
+  * Modern web application by using MEAN stack
+  * Create, Secure, and Manage REST APIs
 4. Resources
   * Architecture Center
   * Node.js Developer Center
-5. Node.js buildpacks (exists)
+5. Node.js build packs (exists)
 6. FIPS Mode (exists)
 7. Managing Liberty and Nodejs apps (exists)
-8. Starter applications and buildpacks (exists)
+8. Starter applications and build packs (exists)
 ### Help
 1. Support (new)
 2. Latest Updates to IBM SDK for Node (exists)

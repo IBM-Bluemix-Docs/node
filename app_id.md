@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-08-15"
+lastupdated: "2018-08-16"
 
 ---
 
@@ -43,12 +43,12 @@ Be sure that you have the following prerequisites ready to go:
 
   **Note**: Other frameworks use `Express` frameworks, such as LoopBack. You can use the {{site.data.keyword.appid_short_notm}} server SDK with any of these frameworks.
 
-5. Locate credential component values to be used later for SDK initialization:
+5. Locate the credential key values to be used later for SDK initialization:
 
-    * **tenantID** - The tenant ID is a unique identifier that is used to initialize your app. You can find the value in the {{site.data.keyword.appid_short_notm}} service dashboard by clicking **View Credentials** in the **Service Credentials** tab.
-    * **clientID**, **secret**, **oauth-server-url** - You can find these values by clicking **View Credentials** in the **Service Credentials** tab of your service dashboard.
-    * **CALLBACK_URL** - The URL for the page that users see after they log in.
-    * **redirectUri** - The `redirectUri` value can be supplied in three ways:
+    * _**tenantID**_ - The tenant ID is a unique identifier that is used to initialize your app. You can find the value in the {{site.data.keyword.appid_short_notm}} service dashboard by clicking **View Credentials** in the **Service Credentials** tab.
+    * _**clientID**_, _**secret**_, _**oauth-server-url**_ - You can find these values by clicking **View Credentials** in the **Service Credentials** tab of your service dashboard.
+    * _**CALLBACK_URL**_ - The URL for the page that users see after they log in.
+    * _**redirectUri**_ - The `redirectUri` value can be supplied in three ways:
       * Manually in new `WebAppStrategy({redirectUri: "...."})`
       * As an environment variable named `redirectUri`. 
       * If the `redirectUri` value isn't provided, the App ID SDK retrieves the `application_uri` of the application that is running on {{site.data.keyword.cloud_notm}}, and appends the default suffix`/ibm/cloud/appid/callback`.
@@ -109,7 +109,7 @@ Be sure that you have the following prerequisites ready to go:
     ```
     {: codeblock}
 
-    If you need help finding the credential components values for your app, check *step 5* of the [Before you begin](app_id.html#before) section for details on where to find them. 
+    If you need help finding the credential key values for your app, check *step 5* of the [Before you begin](app_id.html#before) section for details on where to find them. 
     {: tip}
 
 4. Configure passport with serialization and deserialization. This configuration step is required for authenticated session persistence across HTTP requests. For more information, see the <a href="http://passportjs.org/docs" target="_blank">passport docs <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
