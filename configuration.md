@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-08-14"
+lastupdated: "2018-08-20"
 
 ---
 {:new_window: target="_blank"}
@@ -25,18 +25,6 @@ Whether you need to add Cloud support to existing applications or create apps wi
 {: #nodejs-requirements}
 
 Standardized guidelines are available to follow for developing Node.js applications that help facilitate and maintain consistent portability. Considerations to make include credential management, saving data, storing data, and publishing content to the cloud.
-
-### Understanding general requirements
-* Must be able to inject configuration at run time (minimally through an environment variable).
-* Application code can use or look up a value by using a consistent string key.
-* Application code can use credentials that are provided by the platform for the target environment.
-* Helm charts that require service credentials can deploy to both public and private.
-
-### Meeting {{site.data.keyword.cloud_notm}} requirements
-* Consistent {{site.data.keyword.cloud_notm}} mechanism for providing credentials to applications, like service instances that use common (Open) service broker.
-* Consistent pattern for saving, storing, and publishing environment-specific configuration.
-  * `kubeconfig` and context elements.
-  * References to secrets (service instances) in helm, as seen in this [example](https://github.com/kubernetes/helm/issues/2780).
 
 ## Adding Cloud support to existing Node.js applications
 {: #addcloud-env}
