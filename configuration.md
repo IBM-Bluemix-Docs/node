@@ -21,11 +21,6 @@ The problem arises when significant differences exist in the way the config is p
 
 Whether you need to add Cloud support to existing applications or create apps with Starter kits, the goal is to provide maximum portability for Node.js apps regardless of the development platform.
 
-## Programming model for Node.js apps
-{: #nodejs-requirements}
-
-Standardized guidelines are available to follow for developing Node.js applications that help facilitate and maintain consistent portability. Considerations to make include credential management, saving data, storing data, and publishing content to the cloud.
-
 ## Adding Cloud support to existing Node.js applications
 {: #addcloud-env}
 
