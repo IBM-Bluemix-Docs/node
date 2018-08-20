@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017-2018
-lastupdated: "2018-08-07"
+lastupdated: "2018-08-20"
 
 ---
 {:new_window: target="_blank"}
@@ -40,15 +40,25 @@ All new {{site.data.keyword.cloudant_short_notm}} service instances are enabled 
 
 When you create an instance of {{site.data.keyword.cloudant_short_notm}}, you also create the database.
 
-1. In the [{{site.data.keyword.cloud_notm}} catalog](https://console.bluemix.net/catalog/), select the **Database** category, and click {{site.data.keyword.cloudant_short_notm}}. The service configuration page opens.
-2. Give your service instance a name, or use the preset name.
-3. Select **Use only IAM** for the authentication method.
-4. Select your pricing plan and click **Create**. The Cloudant NoSQL DB page opens.
-5. Click **Launch Cloudant Dashboard** and provide credentials, if required. The Monitoring page opens.
-6. From the navigation menu, click the **Databases** icon.
-7. Click **Create Database**, provide a database name, and then click **Create.** Your database page opens.
+1. Log in to your {{site.data.keyword.cloud}} account.
+2. From the {{site.data.keyword.cloud}} Dashboard, click **Create resource**. The {{site.data.keyword.cloud_notm}} catalog opens.
+3. In the [{{site.data.keyword.cloud_notm}} catalog](https://console.bluemix.net/catalog/), select the **Databases** category, and then click {{site.data.keyword.cloudant_short_notm}}. The service configuration page opens.
+4. Complete the information in the following fields:
+  * **Service name** - Either type a name for your service instance, or use the preset name.
+  * **Choose a region/location to deploy in** - Select a region in which to deploy your service.
+  * **Select a resource group** - Select a resource group, or accept the default.
+  * **Available authentication methods** - Select **Use only IAM** for the authentication method.
+5. Select your pricing plan, and then click **Create**. The page for your service instance opens.
+6. To create a service credential, complete these steps:
+  1. From the navigation menu, select **Service credentials**.
+  2. Click **New credential**. The Add new credential page opens.
+  3. In the Add new credential page, complete the fields, and then click **Add**. The new service credential is added to the service instance.
+  4. If you want to view the service credential details, click **View credentials** in the **Actions** column of the new credential.
+7. From the navigation menu, select **Manage**, and then click **Launch Cloudant Dashboard**. The Monitoring page opens.
+8. From the navigation menu, click the **Databases** icon.
+9. Click **Create Database**, provide a database name, and then click **Create.** Your database page opens.
 
-If you want to see related information about provisioning an instance of the {{site.data.keyword.cloud_notm}} service, see <a href="https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-nosql-db-instance-on-ibm-cloud" target="_blank">Creating a Cloudant NoSQL DB instance on IBM Cloud tutorial <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+If you want to see related information about provisioning an instance of the {{site.data.keyword.cloud_notm}} service, see <a href="https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-nosql-db-instance-on-ibm-cloud" target="_blank">Creating an IBM Cloudant instance on IBM Cloud tutorial <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 ## Step 2. Installing the SDK
 {: #install}
