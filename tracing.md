@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-08-15"
+lastupdated: "2018-08-28"
 
 ---
 {:new_window: target="_blank"}
@@ -50,28 +50,42 @@ http.request(options, callback).end();
 ```
 {: codeblock} 
 
-## Step 2. Setting up a local Zipkin server
+## Step 2. Setting up a Zipkin server
 {: #setup-zipkin-server}
 
-Before deploying to any cloud, you can test the e2e tracing capabilities locally (deploying Zipkin in a container by using Kubernetes is documented later in this tutorial).
+You now need a place to send your data to, specifically the traces, which are made up of spans. Before deploying to any cloud, you can test the e2e tracing capabilities by setting up a Zipkin server locally or in a container. 
 
-You now need a place to send your data to. Specifically, the traces, which are made up of spans. Fortunately, Zipkin is contained in a single `jar` file so you can download and run it using the following commands in a shell on the machine where you want Zipkin to be available:
+### Setting up Zipkin locally
 
-Downloading Zipkin:
+Zipkin is contained in a single `jar` file so you can download and run it using the following commands in a shell on the machine where you want Zipkin to be available:
+
+1. **Downloading Zipkin**:
+  ```
+  wget zipkin.jar 'https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=1.31.3&c=exec'
+  ```
+  {: codeblock}
+
+2. **Starting Zipkin**:
+  ```
+  java -jar zipkin.jar
+  ```
+  {: codeblock}
+
+  The `wget` command downloads the Zipkin file, and the `java -jar` command runs the Zipkin server that it contains. You can download Zipkin from other locations too, but it’s important that you use version 1.x for this tutorial so the trace format matches what the Zipkin server is expecting.
+
+  If the output from this command is too verbose or you’d like to run Zipkin in the background, you can add `-q -O` for the `wget` command and `/dev/null 2>&1 &` for Zipkin. At this stage, you are simply downloading the Zipkin `.jar` file, and running the main method to start the Zipkin server.
+
+### Setting up Zipkin in a Docker container
+
+You can optionally run a Zipkin server in a Docker container by running the following command:
 ```
-wget zipkin.jar 'https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=1.31.3&c=exec'
+docker run -d -p 9411:9411 openzipkin/zipkin
 ```
 {: codeblock}
 
-Starting Zipkin:
-```
-java -jar zipkin.jar
-```
-{: codeblock}
+The `openzipkin/zipkin` module is downloaded, installed, and started on port `9411` by using one simple command.
 
-The `wget` command downloads the Zipkin file, and the `java -jar` command runs the Zipkin server that it contains. You can download Zipkin from other locations too, but it’s important that you use version 1.x for this tutorial so the trace format matches what the Zipkin server is expecting.
-If the output from this command is too verbose or you’d like to run Zipkin in the background, you can add `-q -O` for the `wget` command and `/dev/null 2>&1 &` for Zipkin. At this stage, you are simply downloading the Zipkin `.jar` file, and running the main method to start the Zipkin server.
-
+### Accessing the Zipkin console
 The following image shows the Zipkin server that runs on `localhost` on `port 9411`:
 
 ![ZipkinNoData](images/ZipkinNoData.png)
@@ -129,5 +143,7 @@ The tutorial finishes here for deployments outside of Kubernetes. Check out the 
 ## Next steps
 {: #next-steps}
 
-If you’re ready add tracing to your Node.js applications that run on Kubernetes, check out [tracing Node.js applications that use Kubernetes](https://developer.ibm.com/node/tutorial-end-end-tracing-node-js-applications/#appservice).
+* Learn to build best-practice Cloud Native Node.js applications with the help of the [CloudNativeJS](https://www.cloudnativejs.io/) community project that provides assets and tools to help you deploy them to Docker and Kubernetes based clouds.
+
+* If you are ready to add tracing to your Node.js applications that run on Kubernetes, check out [tracing Node.js applications that use Kubernetes](https://developer.ibm.com/node/tutorial-end-end-tracing-node-js-applications/#appservice).
 
