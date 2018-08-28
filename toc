@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="nodejs" audience="platform" href="/docs/node/index.html"}
+{: .toc subcollection="nodejs" audience="platform" arm="4088035" href="/docs/node/index.html"}
 Programming with Node.js on IBM Cloud
 
     {: .navgroup id="learn"}
