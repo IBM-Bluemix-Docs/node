@@ -59,13 +59,13 @@ You now need a place to send your data to, specifically the traces, which are ma
 
 Zipkin is contained in a single `jar` file so you can download and run it using the following commands in a shell on the machine where you want Zipkin to be available:
 
-1. **Downloading Zipkin**:
+1. Downloading Zipkin:
   ```
   wget zipkin.jar 'https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=1.31.3&c=exec'
   ```
   {: codeblock}
 
-2. **Starting Zipkin**:
+2. Starting Zipkin:
   ```
   java -jar zipkin.jar
   ```
