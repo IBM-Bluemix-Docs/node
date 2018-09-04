@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-08-15"
+lastupdated: "2018-09-04"
 
 ---
 
@@ -86,11 +86,16 @@ Add monitoring capabilities to existing Express applications with the [`appmetri
 ## Using metrics from Starter Kits
 {: #appmetrics-starterkits}
 
-The Node.js applications that are created from Starter Kits automatically come with `appmetrics-dash`, and its dashboard by default.
+The Node.js applications that are created from Starter Kits automatically come with `appmetrics-dash`, and its dashboard by default. However, appmetrics is not enabled out of the box and must be uncommented to be enabled.
 
-The appmetrics code can be found in `/Sources/Application/xxx.js`:
+The appmetrics code can be found in the generated application source file named `/app_name/server/server.js`:
 ```js
-appmetrics source here
+// Uncomment following to enable zipkin tracing, tailor to fit your network configuration:
+var appzip = require('appmetrics-zipkin')({
+    host: 'localhost',
+    port: 9411,
+    serviceName:'frontend'
+});
 ```
 {: codeblock}
 
