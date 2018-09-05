@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-04"
+lastupdated: "2018-09-05"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-09-04"
 # Using Application Metrics with Node.js apps
 {: #metrics}
 
-Learn how to install, access, and understand Node.js application metrics. You can monitor Node.js apps with the [Node Application Metrics](https://developer.ibm.com/open/openprojects/node-application-metrics) Dashboard to visualize the performance of your Node.js application by displaying metrics in a web-based front end.
+Learn how to install, access, and understand Node.js application metrics. You can monitor Node.js apps with the [Node Application Metrics](https://developer.ibm.com/code/open/projects/node-application-metrics/) Dashboard to visualize the performance of your Node.js application by displaying metrics in a web-based front end.
 {: shortdesc}
 
 ## Identifying problems visually
