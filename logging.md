@@ -59,9 +59,9 @@ Node.js apps that are created by using the {{site.data.keyword.cloud_notm}} [App
 * In the logs for [CloudFoundry](https://console.bluemix.net/docs/cli/reference/bluemix_cli/bx_cli.html#ibmcloud_app_logs) and [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/) deployments, which are accessed by `ibmcloud app logs --recent <APP_NAME>` and `kubectl logs <deployment name>`.
 
 In the `server/server.js` file, you can see the following code:
-```javascript
-const logger = log4js.getLogger(appName);
-const app = express();
+```js
+var logger = log4js.getLogger(appName);
+var app = express();
 app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' }));
 ```
 {: codeblock}

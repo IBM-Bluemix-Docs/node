@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-08-16"
+lastupdated: "2018-09-05"
 
 ---
 
@@ -33,13 +33,13 @@ Be sure that you have the following prerequisites ready to go:
   ```
   npm install --save express
   ```
-  {: pre}
+  {: codeblock}
 
 4. Install Passport. Use the command line to open the directory with your Node.js app, and run the following command:
   ```
   npm install --save passport
   ```
-  {: pre}
+  {: codeblock}
 
   **Note**: Other frameworks use `Express` frameworks, such as LoopBack. You can use the {{site.data.keyword.appid_short_notm}} server SDK with any of these frameworks.
 
@@ -69,24 +69,24 @@ Be sure that you have the following prerequisites ready to go:
   ```
   npm install --save ibmcloud-appid
   ```
-  {: pre}
+  {: codeblock}
 
 ## Step 3. Initializing the SDK
 {: #initialize}
 
 1. Add the following `require` definitions to your `server.js` file.
     ```js
-    const express = require('express');
-    const session = require('express-session')
-    const passport = require('passport');
-    const WebAppStrategy = require("ibmcloud-appid").WebAppStrategy;
-    const CALLBACK_URL = "/ibm/cloud/appid/callback";
+    var express = require('express');
+    var session = require('express-session')
+    var passport = require('passport');
+    var WebAppStrategy = require("ibmcloud-appid").WebAppStrategy;
+    var CALLBACK_URL = "/ibm/cloud/appid/callback";
     ```
     {: codeblock}
 
 2. Set up your express app to use express-session middleware. **Note**: You must configure the middleware with the proper session storage for production environments. For more information, see the <a href="https://github.com/expressjs/session" target="_blank">expressjs docs <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
     ```js
-    const app = express();
+    var app = express();
     app.use(session({
         secret: "123456",
         resave: true,
@@ -100,11 +100,11 @@ Be sure that you have the following prerequisites ready to go:
 3. Pass the `tenant ID` and credentials to initialize the SDK.
     ```js
     passport.use(new WebAppStrategy({
-    tenantId: "{tenant-id}",
-    clientId: "{client-id}",
-    secret: "{secret}",
-    oauthServerUrl: "{oauth-server-url}",
-    redirectUri: "{app-url}" + CALLBACK_URL
+        tenantId: "{tenant-id}",
+        clientId: "{client-id}",
+        secret: "{secret}",
+        oauthServerUrl: "{oauth-server-url}",
+        redirectUri: "{app-url}" + CALLBACK_URL
     }));
     ```
     {: codeblock}
@@ -128,7 +128,7 @@ Be sure that you have the following prerequisites ready to go:
   ```js
   app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
   app.get("/protected", passport.authenticate(WebAppStrategy.STRATEGY_NAME)), function(req, res)
-       res.json(req.user);
+  res.json(req.user);
   }); 
   ```
   {: codeblock}

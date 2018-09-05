@@ -35,7 +35,7 @@ The [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) module agg
 
 2. Initialize the module in your code by referencing the `mappings.json` file that contains your mappings:
   ```js
-  const IBMCloudEnv = require('ibm-cloud-env');
+  var IBMCloudEnv = require('ibm-cloud-env');
   IBMCloudEnv.init("/path/to/the/mappings/file/relative/to/project/root");
   ```
   {: codeblock}
