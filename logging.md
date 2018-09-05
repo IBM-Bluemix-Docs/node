@@ -51,10 +51,10 @@ Apps can be designed to emit logs in JSON format natively so that the logs can b
 
 For more information about customizing the log messages with appenders, Log Levels, and configuration details, see the official [log4js-node documentation](https://log4js-node.github.io/log4js-node/).
 
-## Monitoring logs with AppService
+## Monitoring logs with App Service
 {: #monitoring}
 
-Node.js apps that are created by using the {{site.data.keyword.cloud_notm}} AppService come with Log4js by default. Running the app natively or in a Cloud environment produces output like: `2018-07-26 12:40:15.121] [INFO] MyAppName - MyAppName listening on http://localhost:3000`. You can view the output as follows:
+Node.js apps that are created by using the {{site.data.keyword.cloud_notm}} [App Service](https://console.bluemix.net/developer/appservice/dashboard) come with Log4js by default. Running the app natively or in a Cloud environment produces output like: `2018-07-26 12:40:15.121] [INFO] MyAppName - MyAppName listening on http://localhost:3000`. You can view the output as follows:
 * Use `stdout` when you run locally.
 * In the logs for [CloudFoundry](https://console.bluemix.net/docs/cli/reference/bluemix_cli/bx_cli.html#ibmcloud_app_logs) and [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/) deployments, which are accessed by `ibmcloud app logs --recent <APP_NAME>` and `kubectl logs <deployment name>`.
 
