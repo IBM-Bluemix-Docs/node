@@ -90,7 +90,7 @@ ibmcloud dev deploy –target container
 Continue checking out the topics the Node.js programming guide, or for more advanced deployments, you can learn to create a Kubernetes cluster and deploy your Node.js app to it.
 
 ### Set up a Kubernetes cluster
-Check out the tutorial steps [here](https://dev-console.bluemix.net/docs/containers/cs_cluster.html#cs_cluster) for more information on setting up a Kubernetes cluster in {{site.data.keyword.cloud_notm}}.
+For more information about setting up a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, check out the [tutorial steps](https://console.bluemix.net/docs/containers/cs_clusters.html#clusters).
 
 ### Deploy Node.js apps to Kubernetes cluster
 Learn how to [deploy Node.js apps to a Kubernetes cluster](../containers/cs_tutorials_apps.html).

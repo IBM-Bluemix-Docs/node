@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-05"
+lastupdated: "2018-09-06"
 
 ---
 
@@ -27,10 +27,10 @@ For more information about all of the ways that you can use {{site.data.keyword.
 {: #before}
 
 Be sure that you have the following prerequisites ready to go:
-1. You must have an <a href="https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app" target="_blank">{{site.data.keyword.cloud_notm}} account <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+1. You must have an [{{site.data.keyword.cloud_notm}} account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
 2. Install the [{{site.data.keyword.cloud_notm}} CLI](../cli/index.html).
-3. Install [npm](https://nodejs.org/) package management support.
-4. Implement your Node.js server with the <a href="http://expressjs.com/" target="_blank">Express framework <img src="../icons/launch-glyph.svg" alt="External link icon"></a>. To install the Express framework, use the command line to open the directory with your Node.js app, and run the following command:
+3. Install [npm ![External link icon](../icons/launch-glyph.svg "External link icon")](https://nodejs.org/){: new_window} package management support.
+4. Implement your Node.js server with the [Express framework ![External link icon](../icons/launch-glyph.svg "External link icon")](http://expressjs.com/){: new_window}. To install the Express framework, use the command line to open the directory with your Node.js app, and run the following command:
   ```
   npm install --save express
   ```
@@ -85,7 +85,7 @@ Be sure that you have the following prerequisites ready to go:
     ```
     {: codeblock}
 
-2. Set up your express app to use express-session middleware. **Note**: You must configure the middleware with the proper session storage for production environments. For more information, see the <a href="https://github.com/expressjs/session" target="_blank">expressjs docs <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+2. Set up your express app to use express-session middleware. **Note**: You must configure the middleware with the proper session storage for production environments. For more information, see the [expressjs docs ![External link icon](../icons/launch-glyph.svg "External link icon")](https://github.com/expressjs/session){: new_window}.
     ```js
     var app = express();
     app.use(session({
@@ -113,7 +113,7 @@ Be sure that you have the following prerequisites ready to go:
     If you need help finding the credential key values for your app, check *step 5* of the [Before you begin](app_id.html#before) section for details on where to find them. 
     {: tip}
 
-4. Configure passport with serialization and deserialization. This configuration step is required for authenticated session persistence across HTTP requests. For more information, see the <a href="http://passportjs.org/docs" target="_blank">passport docs <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+4. Configure passport with serialization and deserialization. This configuration step is required for authenticated session persistence across HTTP requests. For more information, see the [passport docs ![External link icon](../icons/launch-glyph.svg "External link icon")](http://passportjs.org/docs){: new_window}.
   ```js
   passport.serializeUser(function(user, cb) {
     cb(null, user);
@@ -139,7 +139,7 @@ Be sure that you have the following prerequisites ready to go:
   2. A successful redirect, as specified in `passport.authenticate(name, {successRedirect: "...."})`.
   3. The application root directory ("/").
 
-For more information, see the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}} Node.js GitHub repository <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+For more information, see the [{{site.data.keyword.appid_short_notm}} Node.js GitHub repository ![External link icon](../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window}.
 
 ## Step 4. Managing the sign-in experience
 {: #manage-sign-in}
@@ -155,7 +155,7 @@ An identity provider provides the authentication information for your users so t
 You can update your sign-in flow at any time, without changing your source code in any way!
 {: tip}
 
-The service uses `OAuth 2` grant types to map the authorization process. When you configure social identity providers such as Facebook, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Oauth2 Authorization Grant flow <img src="../icons/launch-glyph.svg" alt="External link icon"></a> is used to call the login widget. When you display your own UI pages, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Resource Owner Password Credentials flow <img src="../icons/launch-glyph.svg" alt="External link icon"></a> is used to log in and gain access and identity tokens.
+The service uses `OAuth 2` grant types to map the authorization process. When you configure social identity providers such as Facebook, the [Oauth2 Authorization Grant flow ![External link icon](../icons/launch-glyph.svg "External link icon")](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: new_window} is used to call the login widget. When you display your own UI pages, the [Resource Owner Password Credentials flow ![External link icon](../icons/launch-glyph.svg "External link icon")](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: new_window} is used to log in and gain access and identity tokens.
 
 After you configure the settings for [social identity providers](/docs/services/appid/identity-providers.html) and [Cloud Directory](/docs/services/appid/cloud-directory.html), you can start implementing the code.
 
@@ -294,4 +294,4 @@ Having trouble? Check out [troubleshooting {{site.data.keyword.appid_short_notm}
 Great job! You added an authentication step to your app. Keep the momentum by trying one of the following options:
 
 * To learn more about and take advantage of all of the features that {{site.data.keyword.appid_short_notm}} offers, [check out the docs](/docs/services/appid/index.html)!
-* Starter Kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud_notm}}. View the available starter kits in the <a href="https://console.bluemix.net/developer/mobile/dashboard" target="_blank">Mobile developer dashboard <img src="../icons/launch-glyph.svg" alt="External link icon"></a>. Download the code. Run the app!
+* Starter Kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud}}. View the available starter kits in the [Mobile developer dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/developer/mobile/dashboard){: new_window}. Download the code. Run the app!

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-08-16"
+lastupdated: "2018-09-06"
 
 ---
 {:new_window: target="_blank"}
@@ -29,14 +29,14 @@ https://console.bluemix.net/docs/services/cloud-object-storage/about-cos.html#ab
 {: #before}
 
 Be sure that you have the following prerequisites ready to go:
-1. You must have an <a href="https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app" target="_blank">{{site.data.keyword.cloud_notm}} account <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
-2. You must have the <a href="https://github.com/ibm/ibm-cos-sdk-js" target="_blank">{{site.data.keyword.cos_short}} SDK for Node.js <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+1. You must have an [{{site.data.keyword.cloud_notm}} account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
+2. You must have the [{{site.data.keyword.cos_short}} SDK for Node.js ![External link icon](../icons/launch-glyph.svg "External link icon")](https://github.com/ibm/ibm-cos-sdk-js){: new_window}.
 3. You must have Node 4.x+.
 4. Locate the credential key values to be used later for SDK initialization:
 
-    * _**endpoint**_ - The public endpoint for your Cloud Object Storage. The endpoint is available from the <a href="https://console.bluemix.net/dashboard/apps" target="_blank">{{site.data.keyword.cloud_notm}} Dashboard <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+    * _**endpoint**_ - The public endpoint for your Cloud Object Storage. The endpoint is available from the [{{site.data.keyword.cloud_notm}} Dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/dashboard/apps){: new_window}.
     * _**api-key**_ - The API key that is generated when the service credentials are created. Write access is required for creation and deletion examples.
-    * _**resource-instance-id**_ - The resource ID for your Cloud Object Storage. The resource ID is available through the [{{site.data.keyword.cloud_notm}} CLI](../cli/index.html) or <a href="https://console.bluemix.net/dashboard/apps" target="_blank">{{site.data.keyword.cloud_notm}} Dashboard <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+    * _**resource-instance-id**_ - The resource ID for your Cloud Object Storage. The resource ID is available through the [{{site.data.keyword.cloud_notm}} CLI](../cli/index.html) or [{{site.data.keyword.cloud_notm}} Dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/dashboard/apps){: new_window}.
 
 ## Step 1. Creating an instance of {{site.data.keyword.cos_short}}
 {: #create-instance}
@@ -162,7 +162,7 @@ Having trouble? Check out the [{{site.data.keyword.cos_short}} API Reference](/d
 
 Great job! You added a level of secure persistence to your app. Keep the momentum by trying one of the following options:
 
-* View the <a href="https://github.com/ibm/ibm-cos-sdk-js" target="_blank">{{site.data.keyword.cos_short}} SDK for Node.js <img src="../icons/launch-glyph.svg" alt="External link icon"></a> source code.
-* Check out the <a href="https://github.com/ibm/ibm-cos-sdk-js#example-code" target="_blank">example code for bucket and object operations <img src="../icons/launch-glyph.svg" alt="External link icon"></a>
-* Starter Kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud_notm}}. View the available starter kits in the <a href="https://console.bluemix.net/developer/mobile/dashboard" target="_blank">Mobile developer dashboard <img src="../icons/launch-glyph.svg" alt="External link icon"></a>. Download the code. Run the app!
+* View the [{{site.data.keyword.cos_short}} SDK for Node.js ![External link icon](../icons/launch-glyph.svg "External link icon")](https://github.com/ibm/ibm-cos-sdk-js){:new_window} source code.
+* Check out the [example code for bucket and object operations ![External link icon](../icons/launch-glyph.svg "External link icon")](https://github.com/ibm/ibm-cos-sdk-js#example-code){:new_window}.
+* Starter Kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud_notm}}. View the available starter kits in the [Mobile developer dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/developer/mobile/dashboard){:new_window}. Download the code. Run the app!
 * To learn more about and take advantage of all of the features that {{site.data.keyword.cos_short}} offers, [check out the docs](/docs/services/cloud-object-storage/about-cos.html)!

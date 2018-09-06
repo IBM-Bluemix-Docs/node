@@ -24,8 +24,8 @@ For more information, see [{{site.data.keyword.cloudant_short_notm}} Basics](/do
 {: #before}
 
 Be sure that you have the following prerequisites ready to go:
- * <a href="https://github.com/cloudant/nodejs-cloudant" target="_blank">Nodejs-cloudant <img src="../icons/launch-glyph.svg" alt="External link icon"></a> 2.3.0+ client library.
- * To access {{site.data.keyword.cloudant_short_notm}}, you must have either an <a href="https://www.ibm.com/cloud/cloudant" target="_blank">{{site.data.keyword.cloudant_short_notm}} account <img src="../icons/launch-glyph.svg" alt="External link icon"></a> or an <a href="https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app" target="_blank">{{site.data.keyword.cloud}} account <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+ * [Nodejs-cloudant ![External link icon](../icons/launch-glyph.svg "External link icon")](https://github.com/cloudant/nodejs-cloudant){:new_window} 2.3.0+ client library.
+ * To access {{site.data.keyword.cloudant_short_notm}}, you must have either an [{{site.data.keyword.cloudant_short_notm}} account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/cloudant){: new_window} or an [{{site.data.keyword.cloud_notm}} account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
  * The code snippets in these instructions use IAM authentication.
  
 ### Enabling IAM with {{site.data.keyword.cloudant_short_notm}}
@@ -58,7 +58,7 @@ When you create an instance of {{site.data.keyword.cloudant_short_notm}}, you al
 8. From the navigation menu, click the **Databases** icon.
 9. Click **Create Database**, provide a database name, and then click **Create.** Your database page opens.
 
-If you want to see related information about provisioning an instance of the {{site.data.keyword.cloud_notm}} service, see <a href="https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-nosql-db-instance-on-ibm-cloud" target="_blank">Creating an IBM Cloudant instance on IBM Cloud tutorial <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+If you want to see related information about provisioning an instance of the {{site.data.keyword.cloud_notm}} service, see [Creating an IBM Cloudant instance on IBM Cloud tutorial ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-nosql-db-instance-on-ibm-cloud){: new_window}.
 
 ## Step 2. Installing the SDK
 {: #install}
@@ -185,7 +185,7 @@ Having trouble? Check out the [{{site.data.keyword.cloudant_short_notm}} API Ref
 
 Great job! You added a level of secure persistence to your app. Keep the momentum by trying one of the following options:
 
-* View the <a href="https://github.com/cloudant/nodejs-cloudant" target="_blank">{{site.data.keyword.cloudant_short_notm}} SDK for Node.js <img src="../icons/launch-glyph.svg" alt="External link icon"></a> source code.
-* Check out the <a href="https://github.com/cloudant/nodejs-cloudant/tree/master/example" target="_blank">example code for database and document operations <img src="../icons/launch-glyph.svg" alt="External link icon"></a>
-* Starter Kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud}}. View the available starter kits in the <a href="https://console.bluemix.net/developer/mobile/dashboard" target="_blank">Mobile developer dashboard <img src="../icons/launch-glyph.svg" alt="External link icon"></a>. Download the code. Run the app!
+* View the [{{site.data.keyword.cloudant_short_notm}} SDK for Node.js ![External link icon](../icons/launch-glyph.svg "External link icon")](https://github.com/cloudant/nodejs-cloudant){: new_window} source code.
+* Check out the [example code for database and document operations ![External link icon](../icons/launch-glyph.svg "External link icon")](https://github.com/cloudant/nodejs-cloudant/tree/master/example){: new_window}.
+* Starter Kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud}}. View the available starter kits in the [Mobile developer dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/developer/mobile/dashboard){: new_window}. Download the code. Run the app!
 * To learn more about and take advantage of all of the features that {{site.data.keyword.cloudant_short_notm}} offers, [check out the docs](/docs/services/Cloudant/getting-started.html)!
