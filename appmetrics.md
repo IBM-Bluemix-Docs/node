@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-05"
+lastupdated: "2018-09-06"
 
 ---
 
@@ -55,7 +55,7 @@ Add monitoring capabilities to existing Express applications with the [`appmetri
   ```
   {: codeblock}
 
-2. Install the `appmetrics` dashboard with the following command:
+2. Install the `appmetrics` dashboard with the following [npm](https://nodejs.org/) command:
   ```
   npm install appmetrics-dash
   ```

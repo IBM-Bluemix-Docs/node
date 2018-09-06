@@ -29,13 +29,14 @@ For more information about all of the ways that you can use {{site.data.keyword.
 Be sure that you have the following prerequisites ready to go:
 1. You must have an <a href="https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app" target="_blank">{{site.data.keyword.cloud_notm}} account <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
 2. Install the [{{site.data.keyword.cloud_notm}} CLI](../cli/index.html).
-3. Implement your Node.js server with the <a href="http://expressjs.com/" target="_blank">Express framework <img src="../icons/launch-glyph.svg" alt="External link icon"></a>. To install the Express framework, use the command line to open the directory with your Node.js app, and run the following command:
+3. Install [npm](https://nodejs.org/) package management support.
+4. Implement your Node.js server with the <a href="http://expressjs.com/" target="_blank">Express framework <img src="../icons/launch-glyph.svg" alt="External link icon"></a>. To install the Express framework, use the command line to open the directory with your Node.js app, and run the following command:
   ```
   npm install --save express
   ```
   {: codeblock}
 
-4. Install Passport. Use the command line to open the directory with your Node.js app, and run the following command:
+5. Install Passport. Use the command line to open the directory with your Node.js app, and run the following command:
   ```
   npm install --save passport
   ```
@@ -43,7 +44,7 @@ Be sure that you have the following prerequisites ready to go:
 
   **Note**: Other frameworks use `Express` frameworks, such as LoopBack. You can use the {{site.data.keyword.appid_short_notm}} server SDK with any of these frameworks.
 
-5. Locate the credential key values to be used later for SDK initialization:
+6. Locate the credential key values to be used later for SDK initialization:
 
     * _**tenantID**_ - The tenant ID is a unique identifier that is used to initialize your app. You can find the value in the {{site.data.keyword.appid_short_notm}} service dashboard by clicking **View Credentials** in the **Service Credentials** tab.
     * _**clientID**_, _**secret**_, _**oauth-server-url**_ - You can find these values by clicking **View Credentials** in the **Service Credentials** tab of your service dashboard.
