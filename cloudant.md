@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017-2018
-lastupdated: "2018-08-20"
+lastupdated: "2018-09-06"
 
 ---
 {:new_window: target="_blank"}
@@ -65,14 +65,13 @@ If you want to see related information about provisioning an instance of the {{s
 
 <!--From github.com/cloudant/nodejs-cloudant#installation-and-usage-->
 
-Begin with your own Node.js project, and define this work as your dependency. In other words, put {{site.data.keyword.cloudant_short_notm}} in your package.json dependencies. Use the `npm` package manager from the command line:
-
+Begin with your own Node.js project, and define this work as your dependency. In other words, put {{site.data.keyword.cloudant_short_notm}} in your package.json dependencies. Use the [npm](https://nodejs.org/) package manager from the command line to install the SDK:
 ```
 npm install --save @cloudant/cloudant
 ```
-{: pre}
+{: codeblock}
 
-Notice that your package.json now shows this package.
+Notice that your `package.json` file now shows the Cloudant package.
 
 ## Step 3. Initializing the SDK
 {: #initialize}

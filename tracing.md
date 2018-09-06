@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-08-28"
+lastupdated: "2018-09-06"
 
 ---
 {:new_window: target="_blank"}
@@ -22,7 +22,7 @@ In the following steps, two small applications (one front end, one back end) are
 ## Step 1. Installing and enabling the appmetrics-zipkin module
 {: #install-zipkin}
 
-In the same location as your Node.js application’s `package.json` file, enter the following command to add the `appmetrics-zipkin` module into your dependency list:
+In the same location as your Node.js application’s `package.json` file, enter the following [npm](https://nodejs.org/) command to add the `appmetrics-zipkin` module into your dependency list:
 ```
 npm install --save appmetrics-zipkin
 ```

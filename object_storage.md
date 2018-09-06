@@ -51,8 +51,7 @@ Be sure that you have the following prerequisites ready to go:
 ## Step 2. Installing the SDK
 {: #install}
 
-Install the {{site.data.keyword.cos_short}} SDK for Node.js by using the `npm` package manager from the command line:
-
+Install the {{site.data.keyword.cos_short}} SDK for Node.js by using the [npm](https://nodejs.org/) package manager from the command line:
 ```
 npm install ibm-cos-sdk
 ```

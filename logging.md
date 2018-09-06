@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-05"
+lastupdated: "2018-09-06"
 
 ---
 {:new_window: target="_blank"}
@@ -28,7 +28,7 @@ Apps can be designed to emit logs in JSON format natively so that the logs can b
 * Configurable log message layout and patterns
 * Using Log Levels for different log categories
 
-1. To use Log4js, run the following command in the root directory of your application, which installs the package and adds it to your `package.json` file.
+1. To use Log4js, run the following [npm](https://nodejs.org/) command in the root directory of your application, which installs the package and adds it to your `package.json` file.
   ```bash
   npm install --save log4js
   ```
