@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017-2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-09-10"
 
 ---
 {:new_window: target="_blank"}
@@ -25,7 +25,8 @@ For more information, see [{{site.data.keyword.cloudant_short_notm}} Basics](/do
 
 Be sure that you have the following prerequisites ready to go:
  * [Nodejs-cloudant ![External link icon](../icons/launch-glyph.svg "External link icon")](https://github.com/cloudant/nodejs-cloudant){:new_window} 2.3.0+ client library.
- * To access {{site.data.keyword.cloudant_short_notm}}, you must have either an [{{site.data.keyword.cloudant_short_notm}} account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/cloudant){: new_window} or an [{{site.data.keyword.cloud_notm}} account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
+ * You must have an [{{site.data.keyword.cloud}} account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
+ * To access {{site.data.keyword.cloudant_short_notm}}, you must create a service in the [{{site.data.keyword.cloud_notm}} Dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/dashboard){: new_window}, and then launch the {{site.data.keyword.cloudant_short_notm}} Dashboard from that service instance.
  * The code snippets in these instructions use IAM authentication.
  
 ### Enabling IAM with {{site.data.keyword.cloudant_short_notm}}
@@ -33,16 +34,16 @@ Be sure that you have the following prerequisites ready to go:
 
 Only new {{site.data.keyword.cloudant_short_notm}} service instances can be used with {{site.data.keyword.cloud_notm}} IAM.
 
-All new {{site.data.keyword.cloudant_short_notm}} service instances are enabled to use {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) when provisioned. When you provision a new instance from the {{site.data.keyword.cloud_notm}} catalog, choose the **Use only IAM** authentication method. This mode means that only IAM credentials are provided by service binding and credential generation. You can find more information at [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/services/Cloudant/guides/iam.html).
+All new {{site.data.keyword.cloudant_short_notm}} service instances are enabled to use {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) when provisioned. When you provision a new instance from the {{site.data.keyword.cloud_notm}} Catalog, choose the **Use only IAM** authentication method. This mode means that only IAM credentials are provided by service binding and credential generation. You can find more information at [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/services/Cloudant/guides/iam.html).
 
 ## Step 1. Creating an instance of {{site.data.keyword.cloudant_short_notm}}
 {: #create-instance}
 
 When you create an instance of {{site.data.keyword.cloudant_short_notm}}, you also create the database.
 
-1. Log in to your {{site.data.keyword.cloud}} account.
-2. From the {{site.data.keyword.cloud}} Dashboard, click **Create resource**. The {{site.data.keyword.cloud_notm}} catalog opens.
-3. In the [{{site.data.keyword.cloud_notm}} catalog](https://console.bluemix.net/catalog/), select the **Databases** category, and then click {{site.data.keyword.cloudant_short_notm}}. The service configuration page opens.
+1. Log in to your {{site.data.keyword.cloud_notm}} account.
+2. From the [{{site.data.keyword.cloud_notm}} Dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/dashboard){: new_window}, click **Create resource**. The {{site.data.keyword.cloud_notm}} Catalog opens.
+3. In the [{{site.data.keyword.cloud_notm}} Catalog](https://console.bluemix.net/catalog/), select the **Databases** category, and then click {{site.data.keyword.cloudant_short_notm}}. The service configuration page opens.
 4. Complete the information in the following fields:
   * **Service name** - Either type a name for your service instance, or use the preset name.
   * **Choose a region/location to deploy in** - Select a region in which to deploy your service.
@@ -54,7 +55,7 @@ When you create an instance of {{site.data.keyword.cloudant_short_notm}}, you al
   2. Click **New credential**. The Add new credential page opens.
   3. In the Add new credential page, complete the fields, and then click **Add**. The new service credential is added to the service instance.
   4. If you want to view the service credential details, click **View credentials** in the **Actions** column of the new credential.
-7. From the navigation menu, select **Manage**, and then click **Launch Cloudant Dashboard**. The Monitoring page opens.
+7. From the navigation menu, select **Manage**, and then click **Launch Cloudant Dashboard**.
 8. From the navigation menu, click the **Databases** icon.
 9. Click **Create Database**, provide a database name, and then click **Create.** Your database page opens.
 
@@ -175,8 +176,8 @@ var deleteDocument = function(callback) {
 Is everything set up correctly? Test it out!
 
 1. Run your application, making sure to start the initialization and respective operations, such as creating a document.
-2. Return to the {{site.data.keyword.cloudant_short_notm}} service instance that you previously created in your web browser, and open the service dashboard.
-3. Select the database that is used to see your newly created documents in the dashboard.
+2. From the [{{site.data.keyword.cloud_notm}} Dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/dashboard){: new_window}, click the {{site.data.keyword.cloudant_short_notm}} service instance that you previously created. When the service instance opens, click **Launch Cloudant Dashboard**.
+3. In the {{site.data.keyword.cloudant_short_notm}} Dashboard, select the database where you created the new documents.
 
 Having trouble? Check out the [{{site.data.keyword.cloudant_short_notm}} API Reference](/docs/services/Cloudant/api/index.html#api-reference-overview){:new_window}.
 
