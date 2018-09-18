@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-09-18"
 
 ---
 {:new_window: target="_blank"}
@@ -15,9 +15,9 @@ lastupdated: "2018-09-06"
 # Logging in Node.js
 {: #logging_nodejs}
 
-Logs are required to diagnose how and why services either failed or are behaving erroneously. Given the transient nature of processes in Cloud environments, logs must be collected and sent elsewhere, usually to a centralized location for analysis. Unlike [`appmetrics`](appmetrics.html), logs are not meant to be used for measuring application performance. Ideally, applications emit logs as event streams, rely on the environment to collect them, and send them to the right places.
+Log messages are strings with contextual information about the state and activity of the microservice at the time that the log entry is made. Logs are required to diagnose how and why services fail, and plays a supporting role to [appmetrics](appmetrics.html) in monitoring application health.
 
-Apps can be designed to emit logs in JSON format natively so that the logs can be parsed independently of the log aggregation technology (or dashboards) that are used. Or, you might want to use a custom parser with custom dashboards for enhanced monitoring.
+Given the transient nature of processes in Cloud environments, logs must be collected and sent elsewhere, usually to a centralized location for analysis. The most consistent way to log in cloud environments is to send log entries to standard output and error streams, which leaves the infrastructure to handle the rest.
 
 ## Adding Log4js support to Node.js app
 {: #add_log4j}

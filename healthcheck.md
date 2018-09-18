@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-09-18"
 
 ---
 
@@ -21,11 +21,15 @@ Health checks provide a simple mechanism to determine whether a server-side appl
 ## Health check overview
 {: #overview}
 
-Health checks are typically accessed over HTTP, and use standard return codes for indicating `UP` or `DOWN` status. Examples include returning `200` for `UP`, and `5xx` for `DOWN`. To be specific, a `503` return code is used when the application can’t handle requests or isn't started yet, and a `500` is used when the server experiences an error condition. The return value of a health check is variable, but a minimal JSON response, like `{“status”: “UP”}` provides consistency.
+Health checks are typically accessed over `HTTP`, and use standard return codes for indicating `UP` or `DOWN` status. Examples include returning `200` for `UP`, and `5xx` for `DOWN`. For example, a `503` return code is used when the application can’t handle requests, and a `500` is used when the server experiences an error condition. The return value of a health check is variable, but a minimal JSON response, like `{“status”: “UP”}` provides consistency.
 
-Cloud Foundry uses one health endpoint to indicate whether a service instance can handle requests. In Kubernetes, a health check endpoint is known as a `readiness` endpoint. Your application must define this endpoint to help determine automatic routing decisions. The success or failure of this endpoint can include considerations for required downstream services if an acceptable fallback is available. If you do check downstream services, caching the result is sometimes useful, to minimize overall load on the system.
+Kubernetes defines both [liveness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) and [readiness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) probes:
 
-Kubernetes defines an extra [liveness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) endpoint, which allows the application to indicate whether the process is to be restarted. A subset of considerations applies here: a `liveness` check might fail if a memory threshold is reached, for example. If your app is running on Kubernetes, consider adding a `liveness` endpoint to ensure that your process is restarted when necessary.
+* The liveness probe allows an application to indicate whether the process can be restarted. A subset of considerations applies: a `liveness` check might fail if a memory threshold is reached, for example. If your app is running on Kubernetes, consider adding a `liveness` endpoint to ensure that your process is restarted when necessary.
+
+* The readiness probe is used for automatic routing decisions. The success or failure indicates whether the application can receive new work. This endpoint can include considerations for required downstream services. Consider caching the result of downstream service checks to minimize overall load on the system (for example, test database connectivity at most once per second).
+
+Cloud Foundry uses only one health endpoint. If this check fails, Cloud Foundry restarts the process. But if it succeeds, Cloud Foundry assumes that the process can handle new work. This health check makes the single endpoint something of a combination between liveness and readiness.
 
 ## Adding Health check to an existing Node.js app
 {: #add-healthcheck-existing}

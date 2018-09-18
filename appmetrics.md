@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-09-18"
 
 ---
 
@@ -22,23 +22,24 @@ Learn how to install, access, and understand Node.js application metrics. You ca
 ## Identifying problems visually
 {: #identify-problems}
 
-Application metrics are important for monitoring the performance of your application. Monitoring the performance of the environment (including CPU, Memory, Latency, and HTTP metrics), can seem like a monumental effort, but it is essential to ensure that your Node.js application is running effectively over time. Cloud Native services, such as autoscaling, can rely on these metrics to scale your app to perform under peak load and scale down to keep costs low. Ideally, these metrics would be provided programmatically through an API, but also visually in a built-in dashboard.
+Application metrics are important for monitoring the performance of your application. Having a live view of metrics like CPU, Memory, Latency, and HTTP metrics is essential to ensure that your application runs effectively over time. Kubernetes and Cloud Native services like [autoscaling](/docs/services/Auto-Scaling/index.html) rely on these metrics to determine when to add instances to handle peak load and when to scale down, or clean up, instances that are no longer needed to keep costs low.
 
-The Application Metrics Dashboard can help you to identify common performance problems such as:
+Application metrics are captured as time series data. Aggregating and visualizing captured metrics can help to identify common performance problems such as:
 
 * Slow HTTP response times on some or all routes
 * Poor throughput in the application
-* Spikes in demand, which causes slowdown
-* Higher than expected CPU usage for the level of throughput/load
-* High, growing, or high and growing memory usage (potential memory leak)
-* In addition, the ‘Other Requests’ chart shows the database request duration for supported databases (MongoDB, MySQL, Postgres, LevelDB, and Redis). The chart also shows Socket.IO and Riak events, which might help you further identify where time is being spent in your application.
+* Spikes in demand that cause slowdown
+* Higher than expected CPU usage
+* High or growing memory usage (potential memory leak)
+
+The built-in Application Metrics Dashboard ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash)) also includes a chart for ‘Other Requests’, which shows the database request duration for supported databases (MongoDB, MySQL, Postgres, LevelDB, and Redis), Socket.IO, and Riak events.
 
 A Node Report or a Heap Snapshot can be generated from the dashboard to enable a more in-depth analysis.
 
 ## Adding metrics to existing Node.js apps
 {: #add-appmetrics-existing}
 
-Add monitoring capabilities to existing Express applications with the [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) constructor to pass in a number of configuration options. For example, one of the options uses an existing server rather than have `appmetrics-dash` start an extra server.
+Add monitoring features to existing Express applications with the [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) constructor to pass in a number of configuration options. For example, one of the options uses an existing server rather than have `appmetrics-dash` start an extra server.
 
 ### Installing the dashboard
 
@@ -86,7 +87,7 @@ Add monitoring capabilities to existing Express applications with the [`appmetri
 ## Using metrics from Starter Kits
 {: #appmetrics-starterkits}
 
-The Node.js applications that are created from Starter Kits automatically come with `appmetrics-dash`, and its dashboard by default. However, appmetrics is not enabled out of the box and must be uncommented to be enabled.
+The Node.js applications that are created from Starter Kits automatically come with `appmetrics-dash`, and its dashboard by default but must be enabled for use.
 
 The appmetrics code can be found in the generated application source file named `/app_name/server/server.js`:
 ```js
@@ -102,7 +103,7 @@ var appzip = require('appmetrics-zipkin')({
 ## Accessing the dashboard
 {: #access-dashboard}
 
-After you start your application, navigate to `http://<hostname>:<port>/appmetrics-dash` in a browser.
+After you start your application, go to `http://<hostname>:<port>/appmetrics-dash` in a browser.
 
 Use the default `localhost:3001/appmetrics-dash` for apps that are running locally.
 {: tip}
@@ -114,13 +115,13 @@ The Application Metrics for Node.js monitoring dashboard UI provides a range of 
 
 ![Appmetrics Dashboard](images/appmetricsdash-1.png)
 
-Most of the data is plotted as line graphs. HTTP Incoming Requests, HTTP Outgoing Requests, and Other Requests show event duration against time. HTTP Throughput shows requests per second. Average Response Times shows the most-used five incoming HTTP requests that took the longest on average. CPU and Memory graphs show system and process usage over time. Heap shows the maximum heap size and used heap size over time. Event Loop Latency shows latency samples that are taken at intervals from the Node.js event loop, with one point for the shortest latency, one for the average, and one for the longest for each sample taken.
+Most of the data is plotted as line graphs. HTTP Incoming Requests, HTTP Outgoing Requests, and Other Requests show event duration against time. HTTP Throughput shows requests per second. Average Response Times shows the most-used five incoming HTTP requests that took the longest on average. CPU and Memory graphs show system and process usage over time. Heap shows the maximum heap size, and used heap size over time. Event Loop Latency shows latency samples that are taken at intervals from the Node.js event loop, with one point for the shortest latency, one for the average, and one for the longest for each sample taken.
 
 If a graph has points, hovering over them provides additional information. For example, `HTTP Incoming Requests` shows the response time, and the requested url.
 
 A maximum of 15 minutes of data is shown across all graphs.
 
-If a large amount of data is being produced by the application that is being monitored, then the dashboard automatically starts to aggregate data. When you look at the HTTP Incoming Requests chart again, you can see that each point represents all requests for a 2-second period. The following tooltip shows the total number of requests along with the average time taken, and the longest time. The longest time is the value that is plotted.
+If a large amount of data is being produced by the application that is being monitored, then the dashboard automatically starts to display data. When you look at the HTTP Incoming Requests chart again, you can see that each point shows all requests for a 2-second period. The following tooltip shows the total number of requests along with the average time taken, and the longest time. The longest time is the value that is plotted.
 
 ![Show Tooltip](images/tooltip-1.png)
 
