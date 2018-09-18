@@ -22,7 +22,7 @@ Learn how to install, access, and understand Node.js application metrics. You ca
 ## Identifying problems visually
 {: #identify-problems}
 
-Application metrics are important for monitoring the performance of your application. Having a live view of metrics like CPU, Memory, Latency, and HTTP metrics is essential to ensure that your application runs effectively over time. Kubernetes and Cloud Native services like [autoscaling](/docs/services/Auto-Scaling/index.html) rely on these metrics to determine when to add instances to handle peak load and when to scale down, or clean up, instances that are no longer needed to keep costs low.
+Application metrics are important for monitoring the performance of your application. Having a live view of metrics like CPU, Memory, Latency, and HTTP metrics is essential to ensure that your application runs effectively over time. Some Cloud services like Cloud Foundry [autoscaling](/docs/services/Auto-Scaling/index.html) rely on these metrics to determine when to add instances to handle peak load and when to scale down, or clean up, instances that are no longer needed to keep costs low.
 
 Application metrics are captured as time series data. Aggregating and visualizing captured metrics can help to identify common performance problems such as:
 
