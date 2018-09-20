@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-18"
+lastupdated: "2018-09-20"
 
 ---
 {:new_window: target="_blank"}
@@ -13,15 +13,14 @@ lastupdated: "2018-09-18"
 {:tip: .tip}
 
 # Configuring the Node.js environment
-{: #configuration}
 
-Ideally, a Node.js application can move from one environment to another (for example, from testing into production) without changing code, or exercising otherwise untested code paths.
+By implementing cloud-native principles, a Node.js application can move from one environment to another, from testing into production, without changing code or exercising otherwise untested code paths.
 
-The problem arises when significant differences exist in the way the config is presented, depending on the development environment. For example, CloudFoundry, which uses stringified JSON objects versus Kubernetes that uses either flat values or stringified JSON objects. Local development aside from Kubernetes has different considerations as well. Credentials can be presented differently across public and private, which further make it difficult for apps to be unchanged across environments.
+The problem arises when significant differences exist in the way the config is presented, depending on the development environment. For example, CloudFoundry, which uses stringified JSON objects versus Kubernetes that uses either flat values or stringified JSON objects. Local development, aside from Kubernetes, has different considerations as well. Credentials can be presented differently across public and private, which further make it difficult for apps to be unchanged across environments.
 
-Whether you need to add Cloud support to existing applications or create apps with Starter Kits, the goal is to provide portability for Node.js apps on any development platform.
+Whether you need to add {{site.data.keyword.cloud}} support to existing applications or create apps with Starter Kits, the goal is to provide portability for Node.js apps on any development platform.
 
-## Adding Cloud support to existing Node.js applications
+## Adding {{site.data.keyword.cloud_notm}} configuration to existing Node.js applications
 {: #addcloud-env}
 
 The [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) module aggregates environment variables from various Cloud providers, such as CloudFoundry and Kubernetes, so the application is independent of the environment.
