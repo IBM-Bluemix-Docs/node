@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-18"
+lastupdated: "2018-10-04"
 
 ---
 {:new_window: target="_blank"}
@@ -66,7 +66,7 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
 ```
 {: codeblock}
 
-By default, the Log Level is set to `INFO`, and can be overridden by the application's **LOG_LEVEL** environment variable.
+By default, the Log Level is set to `OFF` so that it can safely be used in libraries, but can be overridden by the application's **LOG_LEVEL** environment variable.
 {: tip}
 
 ## Next Steps

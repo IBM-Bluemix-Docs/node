@@ -10,7 +10,7 @@ Programming with Node.js on IBM Cloud
     {: .topicgroup}
     Related links
         [Architecture Center](https://www.ibm.com/cloud/garage/category/architectures)
-        [Node.js Developer Center](https://developer.ibm.com/node/)
+        [Node.js Developer Center](https://developer.ibm.com/technologies/node-js/)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
