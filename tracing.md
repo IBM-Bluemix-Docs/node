@@ -34,7 +34,7 @@ var appzip = require('appmetrics-zipkin');
 ```
 {: codeblock}
 
-The following statement causes tracing to be added to your `HTTP` and `request` method calls, and the data to be sent to the Zipkin server. By default, the module looks for the Zipkin server at `localhost` and `port 9411`. You can change the host name and port by using the following syntax:
+The following statement causes tracing to be added to your `HTTP` and `request` method calls, and the data to be sent to the Zipkin server. By default, the module looks for the Zipkin server at `localhost` and port `9411`. You can change the host name and port by using the following syntax:
 ```js
 var appzip = require('appmetrics-zipkin')({
  host: "my.host.here",
@@ -86,7 +86,7 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 The `openzipkin/zipkin` module is downloaded, installed, and started on port `9411` by using one simple command.
 
 ### Accessing the Zipkin console
-The following image shows the Zipkin server that runs on `localhost` on `port 9411`:
+The following image shows the Zipkin server that runs on `localhost` on port `9411`:
 
 ![ZipkinNoData](images/ZipkinNoData.png)
 
@@ -98,8 +98,8 @@ You can click **Find traces** and modify the search options to selectively show 
 If you follow the [GitHub project’s documentation](https://github.com/ibm-developer/nodejs-zipkin-tracing), you end up with the following sample application. It’s a simple process that involves tracing a request and response between two endpoints. The following images show the Zipkin server with collected trace data on display. The key point to remember is the inclusion of `require('appmetrics-zipkin')`, and optionally the Zipkin server configuration code. The following example scenario shows how you can quickly add Zipkin tracing into your existing Node.js applications.
 
 ### Tracing scenario overview:
-* A **front end**, which is known as the pusher, prompts the user for the length of a string to create and convert to lowercase. The bigger the number, the bigger the string, and the longer it takes to handle the request. Available on `port 3000`.
-* A **back-end**, known as the getter, handles the request and is available on `port 3001`.
+* A **front end**, which is known as the pusher, prompts the user for the length of a string to create and convert to lowercase. The bigger the number, the bigger the string, and the longer it takes to handle the request. Available on port `3000`.
+* A **back-end**, known as the getter, handles the request and is available on port `3001`.
 * A **Zipkin server** runs locally or on Kubernetes where you see your trace data.
 
 ### Front-end app (pusher)
@@ -115,7 +115,7 @@ Send a request from the pusher to the getter:
 ![500please](images/500Please.png)
 
 ### Viewing traces with the Zipkin web UI
-The trace data sent to Zipkin can be viewed with the Zipkin web UI at `localhost:9411`. You can see that the **getter** receives user input (they’re wanting to send a 500 character long message to the getter, by using the pusher service):
+The trace data sent to Zipkin can be viewed with the Zipkin web UI at `localhost:9411`. You can see that the **getter** receives user input (the user wants to send a 500 character long message to the getter, by using the pusher service):
 ![Getter500msg](images/Getter500Msg.png)
 
 The user request details are shown. Notice the “500” which is the parameter that is provided for the user’s request. They wanted to generate a string of 500 characters. You can see exactly what the user requested and how long it took to handle this request. The contents of the request (payload), returned from the server, isn't visible. 

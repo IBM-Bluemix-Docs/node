@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-10-08"
 
 ---
 {:new_window: target="_blank"}
@@ -29,7 +29,7 @@ https://console.bluemix.net/docs/services/cloud-object-storage/about-cos.html#ab
 {: #before}
 
 Be sure that you have the following prerequisites ready to go:
-1. You must have an [{{site.data.keyword.cloud_notm}} account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
+1. You must have an [{{site.data.keyword.cloud}} account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
 2. You must have the [{{site.data.keyword.cos_short}} SDK for Node.js ![External link icon](../icons/launch-glyph.svg "External link icon")](https://github.com/ibm/ibm-cos-sdk-js){: new_window}.
 3. You must have Node 4.x+.
 4. Locate the credential key values to be used later for SDK initialization:
@@ -41,7 +41,7 @@ Be sure that you have the following prerequisites ready to go:
 ## Step 1. Creating an instance of {{site.data.keyword.cos_short}}
 {: #create-instance}
 
-1. In the [{{site.data.keyword.cloud_notm}} catalog](https://console.bluemix.net/catalog/), select the **Storage** category, and click {{site.data.keyword.cos_short}}. The service configuration page opens.
+1. In the [{{site.data.keyword.cloud_notm}} Catalog](https://console.bluemix.net/catalog/), select the **Storage** category, and click {{site.data.keyword.cos_short}}. The service configuration page opens.
 2. Give your service instance a name, or use the preset name.
 3. Select your pricing plan and click **Create**. Your Object Storage instance page opens.
 4. In the navigation menu, select **Service credentials**.
@@ -60,7 +60,7 @@ npm install ibm-cos-sdk
 ## Step 3. Initializing the SDK
 {: #initialize}
 
-After you initialize the SDK in your app, you can by using {{site.data.keyword.cos_short}} to store data. Initialize your connection by supplying your credentials and providing a callback function to run when everything is ready.
+After you initialize the SDK in your app, you can use {{site.data.keyword.cos_short}} to store data. Initialize your connection by supplying your credentials and providing a callback function to run when everything is ready.
 
 1. Load the client library by adding the following `require` definitions to your `server.js` file.
   ```js

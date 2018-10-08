@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -27,7 +27,7 @@ For more information about all of the ways that you can use {{site.data.keyword.
 {: #before}
 
 Be sure that you have the following prerequisites ready to go:
-1. You must have an [{{site.data.keyword.cloud_notm}} account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
+1. You must have an [{{site.data.keyword.cloud}} account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
 2. Install the [{{site.data.keyword.cloud_notm}} CLI](../cli/index.html).
 3. Install [npm ![External link icon](../icons/launch-glyph.svg "External link icon")](https://nodejs.org/){: new_window} package management support.
 4. Implement your Node.js server with the [Express framework ![External link icon](../icons/launch-glyph.svg "External link icon")](http://expressjs.com/){: new_window}. To install the Express framework, use the command line to open the directory with your Node.js app, and run the following command:
@@ -58,7 +58,7 @@ Be sure that you have the following prerequisites ready to go:
 {: #create-instance}
 
 **Provision an instance of the service**
-1. In the [{{site.data.keyword.cloud_notm}} catalog](https://console.bluemix.net/catalog/), select the **Web and Mobile** category, and click {{site.data.keyword.appid_short_notm}}. The service configuration page opens.
+1. In the [{{site.data.keyword.cloud_notm}} Catalog](https://console.bluemix.net/catalog/), select the **Web and Mobile** category, and click {{site.data.keyword.appid_short_notm}}. The service configuration page opens.
 2. Give your service instance a name, or use the preset name.
 3. Select your pricing plan and click **Create**.
 
@@ -195,7 +195,7 @@ To customize the page:
 
 {{site.data.keyword.appid_short_notm}} provides a default login page that you can call if you don't have your own UI pages to display.
 
-Depending on your identity provider configuration, the pages that you can display differ. The service doesn't provide advanced functions for social identity providers because we never have access to a user's account information. Users must go to the identity provider to manage their information. For example, if they want to change their Facebook password, they must go to www.facebook.com.
+Depending on your identity provider configuration, the pages that you can display differ. The service doesn't provide advanced functions for social identity providers because we never have access to a user's account information. Users must go to the identity provider to manage their information. For example, if they want to change their Facebook password, they must go to [https://www.facebook.com](https://www.facebook.com).
 
 Check out the following table to see which pages you can display for each type of identity provider.
 
