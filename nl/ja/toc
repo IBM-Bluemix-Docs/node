@@ -1,0 +1,45 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="nodejs" audience="platform" arm="4088035" href="/docs/node/index.html"}
+IBM Cloud での Node.js のプログラミング
+
+    {: .navgroup id="learn"}
+    index.md
+       
+    {: .topicgroup}
+    関連リンク
+        [Architecture Center](https://www.ibm.com/cloud/garage/category/architectures)
+        [Node.js Developer Center](https://developer.ibm.com/node/)
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    configuration.md
+    healthcheck.md
+    app_id.md
+    logging.md
+    tracing.md
+    appmetrics.md
+   
+    {: .topicgroup}
+    データの保管と共有
+        cloudant.md
+        object_storage.md
+        [コンテンツ・デリバリー・ネットワーク (CDN) の使用](../tutorials/static-files-cdn.html)
+
+    [継続的デリバリー・パイプラインを使用したアプリの作成](../tutorials/multi-region-webapp.html)
+    [MEAN スタックを使用したアプリの作成](../tutorials/mean-stack.html)
+    [REST API の作成](../tutorials/create-manage-secure-apis.html)
+    
+    deploying_apps.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    [API 資料](https://console.bluemix.net/apidocs)
+    [IBM Code のサンプル・アプリ](https://developer.ibm.com/code/technologies/node-js/)
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    slack.md
+    support.md
+    {: .navgroup-end}
