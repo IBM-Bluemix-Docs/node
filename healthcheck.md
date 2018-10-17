@@ -13,7 +13,7 @@ lastupdated: "2018-10-17"
 {:pre: .pre}
 {:tip: .tip}
 
-# Using Health check in Node.js apps
+# Using a health check in Node.js apps
 {: #healthcheck}
 
 Health checks provide a simple mechanism to determine whether a server-side application is behaving properly. Cloud environments like [Kubernetes](https://www.ibm.com/cloud/container-service) and [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry), can be configured to poll health endpoints periodically to determine whether an instance of your service is ready to accept traffic.
@@ -27,15 +27,15 @@ Kubernetes has a nuanced notion of process health. It defines two probes:
 
 - A _**readiness**_ probe is used to indicate whether the process can handle requests (is routable).
 
-  Kubernetes doesn't route work to a container with a failing readiness probe. A readiness probe should fail if a service hasn't finished initializing, or is otherwise busy, overloaded, or unable to process requests.
+  Kubernetes doesn't route work to a container with a failing readiness probe. A readiness probe can fail if a service isn't finished initializing, or is otherwise busy, overloaded, or unable to process requests.
 
-- A _**liveness**_ probe is used to indicate whether the process should be restarted.
+- A _**liveness**_ probe is used to indicate whether the process is to be restarted.
 
   Kubernetes stops and restarts a container with a failing `liveness` probe. Use liveness probes to clean up processes in an unrecoverable state, for example, if memory is exhausted, or if the container didn't stop properly after an internal process crashed.
 
 As a note for comparison, Cloud Foundry uses one health endpoint. If this check fails, the process is restarted, but if it succeeds, requests are routed to it. In this environment, the endpoint minimally succeeds when the process is live. An initial delay is configured to defer health checking until the service is finished initializing to avoid restart cycles.
 
-The following table provides guidance on the responses that readiness, liveness, and singular health endpoints should provide.
+The following table provides guidance on the responses that readiness, liveness, and singular health endpoints are to provide.
 
 | State    | Readiness                   | Liveness                   | Health                    |
 |----------|-----------------------------|----------------------------|---------------------------|
@@ -84,11 +84,11 @@ module.exports = function(app) {
 
 ## Recommendations for readiness and liveness probes
 
-Readiness probes should include the viability of connections to downstream services in their result when there isn’t an acceptable fallback if the downstream service is unavailable. This does not mean calling the health check that is provided by the downstream service directly, as infrastructure checks that for you. Instead, consider verifying the health of the existing references your application has to downstream services: this might be a JMS connection to WebSphere MQ, or an initialized Kafka consumer or producer. If you do check the viability of internal references to downstream services, cache the result to minimize the impact health checking has on your application.
+Readiness probes can include the viability of connections to downstream services in their result when there isn’t an acceptable fallback if the downstream service is unavailable. This doesn't mean calling the health check that is provided by the downstream service directly, as infrastructure checks that for you. Instead, consider verifying the health of the existing references your application has to downstream services: this might be a JMS connection to WebSphere MQ, or an initialized Kafka consumer or producer. If you do check the viability of internal references to downstream services, cache the result to minimize the impact health checking has on your application.
 
 A liveness probe, by contrast, is deliberate about what is checked, as a failure results in immediate termination of the process. A simple http endpoint that always returns `{"status": "UP"}` with status code `200` is a reasonable choice.
 
-### Adding support for Kubernetes Readiness and Liveness
+### Adding support for Kubernetes readiness and liveness
 
 The [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) library from [CloudNativeJS], provides a framework for defining separate liveness and readiness endpoints in Node that allow composition of sources for the state of each endpoint.
 
@@ -130,5 +130,6 @@ spec:
       timeoutSeconds: 10
       failureThreshold: 10
 ```
+{: codeblock}
 
-For more information, see how to [Configure Liveness and Readiness Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).
+For more information, see how to [Configure liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).
