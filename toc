@@ -32,6 +32,7 @@ Programming with Node.js on IBM Cloud
     [Creating REST APIs](../tutorials/create-manage-secure-apis.html)
     
     deploying_apps.md
+    enable_existing.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
