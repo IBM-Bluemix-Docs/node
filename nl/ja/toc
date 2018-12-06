@@ -10,7 +10,7 @@ IBM Cloud での Node.js のプログラミング
     {: .topicgroup}
     関連リンク
         [Architecture Center](https://www.ibm.com/cloud/garage/category/architectures)
-        [Node.js Developer Center](https://developer.ibm.com/node/)
+        [Node.js Developer Center](https://developer.ibm.com/technologies/node-js/)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -32,6 +32,7 @@ IBM Cloud での Node.js のプログラミング
     [REST API の作成](../tutorials/create-manage-secure-apis.html)
     
     deploying_apps.md
+    enable_existing.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}

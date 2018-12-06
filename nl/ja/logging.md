@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-18"
+lastupdated: "2018-10-04"
 
 ---
 {:new_window: target="_blank"}
@@ -15,9 +15,9 @@ lastupdated: "2018-09-18"
 # Node.js でのロギング
 {: #logging_nodejs}
 
-ログ・メッセージは、ログ・エントリーが作成された時点のマイクロサービスの状態およびアクティビティーに関するコンテキスト情報を含むストリングです。ログは、サービスでの障害がなぜどのように起こったのかを診断するために必須であり、アプリケーション正常性のモニタリングにおいて [appmetrics](appmetrics.html) を支援する役割を果たします。
+ログ・メッセージは、ログ・エントリーが作成された時点のマイクロサービスの状態およびアクティビティーに関するコンテキスト情報を含むストリングです。 ログは、サービスでの障害がなぜどのように起こったのかを診断するために必須であり、アプリケーション正常性のモニタリングにおいて [appmetrics](appmetrics.html) を支援する役割を果たします。
 
-クラウド環境でのプロセスの一過性の性質を考慮すると、ログは収集されて、分析のために他の場所 (通常は一元管理の場所) に送信される必要があります。クラウド環境でロギングを行う最も一貫性のある方法は、ログ・エントリーを標準出力とエラー・ストリームに送信する方法です (こうするとインフラストラクチャーが残りを処理します)。
+クラウド環境でのプロセスの一過性の性質を考慮すると、ログは収集されて、分析のために他の場所 (通常は一元管理の場所) に送信される必要があります。 クラウド環境でロギングを行う最も一貫性のある方法は、ログ・エントリーを標準出力とエラー・ストリームに送信する方法です (こうするとインフラストラクチャーが残りを処理します)。
 
 ## Node.js アプリへの Log4js サポートの追加
 {: #add_log4j}
@@ -54,7 +54,7 @@ lastupdated: "2018-09-18"
 ## App Service を使用したログのモニタリング
 {: #monitoring}
 
-{{site.data.keyword.cloud_notm}} [App Service](https://console.bluemix.net/developer/appservice/dashboard) を使用して作成された Node.js アプリには、デフォルトで Log4js が付属しています。ネイティブにアプリを実行するか、クラウド環境でアプリを実行すると、`2018-07-26 12:40:15.121] [INFO] MyAppName - MyAppName listening on http://localhost:3000` のような出力が生成されます。出力は以下のように表示できます。
+{{site.data.keyword.cloud_notm}} [App Service](https://console.bluemix.net/developer/appservice/dashboard) を使用して作成された Node.js アプリには、デフォルトで Log4js が付属しています。 ネイティブにアプリを実行するか、クラウド環境でアプリを実行すると、`2018-07-26 12:40:15.121] [INFO] MyAppName - MyAppName listening on http://localhost:3000` のような出力が生成されます。 出力は以下のように表示できます。
 * ローカルで実行している場合は、`stdout` を使用します。
 * [CloudFoundry](https://console.bluemix.net/docs/cli/reference/bluemix_cli/bx_cli.html#ibmcloud_app_logs) および [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/) デプロイメントのログに、`ibmcloud app logs --recent <APP_NAME>` および `kubectl logs <deployment name>` によってアクセスします。
 
@@ -66,7 +66,7 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
 ```
 {: codeblock}
 
-ログ・レベルはデフォルトでは `INFO` に設定され、アプリケーションの **LOG_LEVEL** 環境変数でオーバーライドできます。
+ログ・レベルはデフォルトでは `OFF` に設定されているため、ライブラリーでは安全に使用できますが、アプリケーションの **LOG_LEVEL** 環境変数によってオーバーライドできます。
 {: tip}
 
 ## 次のステップ

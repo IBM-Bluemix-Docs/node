@@ -16,7 +16,7 @@ lastupdated: "2018-09-20"
 
 クラウド・ネイティブの原則を実装することによって、Node.js アプリケーションを、テストから実動へなど、ある環境から別の環境へ移動することができ、その際、コードを変更することはなく、したがってテストされていないコード・パスを発生させることもありません。
 
-開発環境によって config がどのように提供されるのかに大きな違いがある場合に問題が発生します。例えば、ストリング化された JSON オブジェクトを使用する CloudFoundry に対して、Kubernetes はフラット値またはストリング化された JSON オブジェクトを使用します。Kubernetes は別にして、ローカル開発では他にもさまざまな考慮事項があります。パブリックとプライベートの間で資格情報の提供方法が異なることがあるため、環境間でアプリを変更しないことはさらに難しくなります。
+開発環境によって config の提供方法に大きな違いがある場合に問題が発生します。 例えば、ストリング化された JSON オブジェクトを使用する CloudFoundry に対して、Kubernetes はフラット値またはストリング化された JSON オブジェクトを使用します。 Kubernetes は別にして、ローカル開発では他にもさまざまな考慮事項があります。 パブリックとプライベートの間で資格情報の提供方法が異なることがあるため、環境間でアプリを変更しないことはさらに難しくなります。
 
 既存のアプリケーションに {{site.data.keyword.cloud}} サポートを追加する必要があるのか、それともスターター・キットを使用してアプリを作成するのかにかかわらず、目標は、どのような開発プラットフォームでも Node.js アプリの移植性を確保することです。
 
@@ -94,13 +94,13 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 
 ### サービス資格情報について
 
-サービスに関するアプリケーション構成情報は `/server/config` ディレクトリーの `localdev-config.json` ファイルに保管されます。このファイルは、Git に機密情報が保管されるのを防ぐために、`.gitignore` ディレクトリーにあります。ローカルで実行される構成済みサービス用の接続情報 (ユーザー名、パスワード、およびホスト名など) がこのファイルに保管されます。
+サービスに関するアプリケーション構成情報は `/server/config` ディレクトリーの `localdev-config.json` ファイルに保管されます。 このファイルは、Git に機密情報が保管されるのを防ぐために、`.gitignore` ディレクトリーにあります。 ローカルで実行される構成済みサービス用の接続情報 (ユーザー名、パスワード、およびホスト名など) がこのファイルに保管されます。
 
-アプリケーションは、構成マネージャーを使用して、環境およびこのファイルから接続情報および構成情報を読み取ります。また、`server/config` ディレクトリーにあるカスタムビルトの `mappings.json` を使用して、各サービスの資格情報がある場所を通信します。
+アプリケーションは、構成マネージャーを使用して、環境およびこのファイルから接続情報および構成情報を読み取ります。 また、`server/config` ディレクトリーにあるカスタムビルトの `mappings.json` を使用して、各サービスの資格情報がある場所を伝達します。
 
-ローカルで実行されているアプリケーションは、`mappings.json` ファイルから読み取ったアンバインドされた資格情報を使用して、{{site.data.keyword.cloud_notm}} サービスに接続できます。アンバインドされた資格情報を作成する必要がある場合、{{site.data.keyword.cloud_notm}} Web コンソールから行うか、または、[CloudFoundry CLI](https://docs.cloudfoundry.org/cf-cli/) `cf create-service-key` コマンドを使用して行うことができます。
+ローカルで実行されているアプリケーションは、`mappings.json` ファイルから読み取ったアンバインドされた資格情報を使用して、{{site.data.keyword.cloud_notm}} サービスに接続できます。 アンバインドされた資格情報を作成する必要がある場合、{{site.data.keyword.cloud_notm}} Web コンソールから行うか、または、[CloudFoundry CLI](https://docs.cloudfoundry.org/cf-cli/) `cf create-service-key` コマンドを使用して行うことができます。
 
-アプリケーションを {{site.data.keyword.cloud_notm}} にプッシュすると、これらの値は使用されなくなります。代わりに、アプリケーションは環境変数を使用して、バインドされたサービスに自動的に接続します。
+アプリケーションを {{site.data.keyword.cloud_notm}} にプッシュすると、これらの値は使用されなくなります。 代わりに、アプリケーションは環境変数を使用して、バインドされたサービスに自動的に接続します。
 
 * **Cloud Foundry**: サービス資格情報は、`VCAP_SERVICES` 環境変数から取得されます。
 
@@ -112,4 +112,4 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## 次のステップ
 {: #next_steps notoc}
 
-`ibm-cloud-config` では、値の検索に使用できる検索パターン・タイプとして、`cloudfoundry`、`env`、および `file` の 3 つがサポートされています。サポートされる他の検索パターンおよび検索パターン例を確認したい場合は、[Usage](https://github.com/ibm-developer/ibm-cloud-env#usage) セクションを参照してください。
+`ibm-cloud-config` では、値の検索に使用できる検索パターン・タイプとして、`cloudfoundry`、`env`、および `file` の 3 つがサポートされています。 サポートされる他の検索パターンおよび検索パターン例を確認したい場合は、[Usage](https://github.com/ibm-developer/ibm-cloud-env#usage) セクションを参照してください。
