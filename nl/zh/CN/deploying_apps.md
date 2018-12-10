@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-08-15"
+lastupdated: "2018-10-18"
 
 ---
 {:new_window: target="_blank"}
@@ -34,7 +34,7 @@ lastupdated: "2018-08-15"
 
 {{site.data.keyword.IBM_notm}} SDK Generator 插件可使用生成的 SDK 轻松地将后端服务集成到应用程序中。对 REST API 进行更改时，可以重新生成 SDK，并替换旧 SDK 以实现无缝 SDK 升级。还可以将 CLI 集成到 DevOps 管道中，并确保每次构建应用程序时，SDK 始终与 API 规范一致。
 
-有关更多信息，请参阅[使用生成的 SDK 集成后端服务](../apps/deploying/api_management.html)。
+有关更多信息，请参阅[使用生成的 SDK 集成后端服务](/docs/swift/backend/cli_sdkgen.html)。
 
 ## 部署到 Kubernetes 集群
 {: #deploy_kube}

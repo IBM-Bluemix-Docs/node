@@ -10,7 +10,7 @@
     {: .topicgroup}
     相关链接
         [体系结构中心](https://www.ibm.com/cloud/garage/category/architectures)
-        [Node.js 开发者中心](https://developer.ibm.com/node/)
+        [Node.js 开发者中心](https://developer.ibm.com/technologies/node-js/)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -32,6 +32,7 @@
     [创建 REST API](../tutorials/create-manage-secure-apis.html)
     
     deploying_apps.md
+    enable_existing.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}

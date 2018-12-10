@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -27,7 +27,7 @@ lastupdated: "2018-09-06"
 {: #before}
 
 确保以下先决条件准备就绪：
-1. 您必须具有 [{{site.data.keyword.cloud_notm}} 帐户 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}。
+1. 您必须具有 [{{site.data.keyword.cloud}} 帐户 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}。
 2. 安装 [{{site.data.keyword.cloud_notm}} CLI](../cli/index.html)。
 3. 安装 [npm ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://nodejs.org/){: new_window} 软件包管理支持。
 4. 使用 [Express 框架 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](http://expressjs.com/){: new_window} 实现 Node.js 服务器。要安装 Express 框架，请使用命令行打开包含 Node.js 应用程序的目录，然后运行以下命令：
@@ -50,7 +50,7 @@ lastupdated: "2018-09-06"
     * _**clientID**_、_**secret**_ 和 _**oauth-server-url**_ - 可以通过单击服务仪表板的**服务凭证**选项卡中的**查看凭证**来找到这些值。
     * _**CALLBACK_URL**_ - 用户登录后看到的页面的 URL。
     * _**redirectUri**_ - 可以通过三种方式提供 `redirectUri` 值：
-      * 在新的 `WebAppStrategy({redirectUri: "...."})` 中手动提供
+      * 在新的 `WebAppStrategy({redirectUri: "...."})`
       * 作为名为 `redirectUri` 的环境变量提供。 
       * 如果未提供 `redirectUri` 值，那么 App ID SDK 将检索在 {{site.data.keyword.cloud_notm}} 上运行的应用程序的 `application_uri`，然后附加缺省后缀 `/ibm/cloud/appid/callback`。
 
@@ -136,7 +136,7 @@ lastupdated: "2018-09-06"
 
   **注**：服务将按以下顺序重定向：
   1. 触发认证过程的请求的原始 URL 将持久存储在 `WebAppStrategy.ORIGINAL_URL` 键下的 HTTP 会话中。
-  2. 成功重定向，如 `passport.authenticate(name, {successRedirect: "...."})` 中所指定。
+  2. 成功重定向，如 `passport.authenticate(name, {successRedirect: "...."})`.
   3. 应用程序根目录（“/”）。
 
 有关更多信息，请参阅 [{{site.data.keyword.appid_short_notm}}Node.js GitHub 存储库 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window}。
@@ -195,7 +195,7 @@ lastupdated: "2018-09-06"
 
 {{site.data.keyword.appid_short_notm}} 提供了缺省登录页面，如果您没有自己的 UI 页面要显示，那么可以调用缺省登录页面。
 
-根据您的身份提供者配置，可以显示的页面会有所不同。此服务不提供社交身份提供者的高级功能，因为我们从不具有用户帐户信息的访问权。用户必须转至相应的身份提供者来管理自己的信息。例如，如果用户要更改其 Facebook 密码，那么必须转至 www.facebook.com。
+根据您的身份提供者配置，可以显示的页面会有所不同。此服务不提供社交身份提供者的高级功能，因为我们从不具有用户帐户信息的访问权。用户必须转至相应的身份提供者来管理自己的信息。例如，如果用户想要更改其 Facebook 密码，那么必须转至 [https://www.facebook.com](https://www.facebook.com)。
 
 查看下表以了解针对每种类型的身份提供者可以显示哪些页面。
 

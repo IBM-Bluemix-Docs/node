@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-18"
+lastupdated: "2018-10-04"
 
 ---
 {:new_window: target="_blank"}
@@ -66,7 +66,7 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
 ```
 {: codeblock}
 
-依預設，「記載層次」設為 `INFO`，而且可以置換為應用程式的 **LOG_LEVEL** 環境變數。
+依預設，「記載層次」設為 `OFF` 以便安全地用於程式庫，但它可以由應用程式的 **LOG_LEVEL** 環境變數置換。
 {: tip}
 
 ## 後續步驟

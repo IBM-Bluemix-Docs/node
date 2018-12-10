@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -27,7 +27,7 @@ lastupdated: "2018-09-06"
 {: #before}
 
 請確定已備妥下列必要條件：
-1. 您必須具有 [{{site.data.keyword.cloud_notm}} 帳戶 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}。
+1. 您必須具有 [{{site.data.keyword.cloud}} 帳戶 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}。
 2. 安裝 [{{site.data.keyword.cloud_notm}} CLI](../cli/index.html)。
 3. 安裝 [npm ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://nodejs.org/){: new_window} 套件管理支援。
 4. 使用 [Express 架構 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](http://expressjs.com/){: new_window} 實作 Node.js 伺服器。若要安裝 Express 架構，請使用指令行來開啟含有 Node.js 應用程式的目錄，然後執行下列指令：
@@ -195,7 +195,7 @@ lastupdated: "2018-09-06"
 
 如果您沒有自己的使用者介面頁面可供顯示，則 {{site.data.keyword.appid_short_notm}} 會提供您可以呼叫的預設登入頁面。
 
-視您的身分提供者配置而定，您可以顯示的頁面有所不同。服務不會提供社交身分提供者的進階功能，因為我們絕不會存取使用者的帳戶資訊。使用者必須移至身分提供者，才能管理其資訊。例如，如果他們想要變更其 Facebook 密碼，則必須前往 www.facebook.com。
+視您的身分提供者配置而定，您可以顯示的頁面有所不同。服務不會提供社交身分提供者的進階功能，因為我們絕不會存取使用者的帳戶資訊。使用者必須移至身分提供者，才能管理其資訊。例如，如果他們想要變更其 Facebook 密碼，則必須前往 [https://www.facebook.com](https://www.facebook.com)。
 
 請參閱下表，以查看您可以針對每種類型的身分提供者顯示的頁面。
 

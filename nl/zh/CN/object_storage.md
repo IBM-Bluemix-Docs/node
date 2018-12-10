@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-10-08"
 
 ---
 {:new_window: target="_blank"}
@@ -29,7 +29,7 @@ https://console.bluemix.net/docs/services/cloud-object-storage/about-cos.html#ab
 {: #before}
 
 确保以下先决条件准备就绪：
-1. 您必须具有 [{{site.data.keyword.cloud_notm}} 帐户 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}。
+1. 您必须具有 [{{site.data.keyword.cloud}} 帐户 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}。
 2. 您必须具有 [{{site.data.keyword.cos_short}} SDK for Node.js ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://github.com/ibm/ibm-cos-sdk-js){: new_window}。
 3. 您必须具有 Node 4.x+。
 4. 找到稍后要用于 SDK 初始化的凭证密钥值：

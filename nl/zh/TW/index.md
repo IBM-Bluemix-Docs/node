@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -55,7 +55,7 @@ lastupdated: "2018-09-10"
 {: #add_service}
 
 1. 回到 {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} 中的專案。
-2. 按一下**新增服務**，選取您要新增的服務種類，按**下一步**，然後選擇您的服務。例如，若要將 NoSQL 資料庫新增至應用程式，請按一下「資料」種類，然後選取 Cloudant，以提供精簡方案進行免費開發。根據選取的方案，{{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} 會為您佈建服務。
+2. 按一下**新增服務**，選取您要新增的服務種類，按**下一步**，然後選擇您的服務。例如，若要將 NoSQL 資料庫新增至應用程式，請按一下**資料**種類，然後選取 **Cloudant**，以提供精簡方案進行免費開發。根據選取的方案，{{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} 會為您佈建服務。
 附註：如果您先前已佈建計劃要使用的服務，請選擇**現有**種類。
 3. 佈建服務之後，請按一下**下載程式碼**，以使用連接至服務的 SDK 來重新產生專案。
 

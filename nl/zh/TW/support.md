@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-07-30"
+lastupdated: "2018-010-08"
 
 ---
 
@@ -18,7 +18,7 @@ lastupdated: "2018-07-30"
 
 ## 在 dWanswers 上要求協助
 
-使用 `#nodejs tag` 在 [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/) 上提出問題，或在 `#nodejs-at-ibm` 通道內的 [{{site.data.keyword.cloud_notm}} Slack](https://slack-invite-ibm-cloud-tech.mybluemix.net/) 中加入討論。
+使用 `#nodejs` 標籤在 [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/) 上提出問題，或在 `#nodejs-at-ibm` 通道內的 [{{site.data.keyword.cloud_notm}} Slack](https://slack-invite-ibm-cloud-tech.mybluemix.net/) 中加入討論。
 
 ## 使用官方 IBM Support for Runtimes
 

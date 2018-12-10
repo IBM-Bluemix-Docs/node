@@ -10,7 +10,7 @@ IBM Cloud에서의 Node.js를 사용한 프로그래밍
     {: .topicgroup}
     관련 링크
         [아키텍처 센터](https://www.ibm.com/cloud/garage/category/architectures)
-        [Node.js 개발자 센터](https://developer.ibm.com/node/)
+        [Node.js 개발자 센터](https://developer.ibm.com/technologies/node-js/)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -32,6 +32,7 @@ IBM Cloud에서의 Node.js를 사용한 프로그래밍
     [REST API 작성](../tutorials/create-manage-secure-apis.html)
     
     deploying_apps.md
+    enable_existing.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}

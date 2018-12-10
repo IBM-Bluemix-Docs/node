@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-08-15"
+lastupdated: "2018-10-18"
 
 ---
 {:new_window: target="_blank"}
@@ -33,7 +33,7 @@ lastupdated: "2018-08-15"
 
 「{{site.data.keyword.IBM_notm}} SDK 產生器」外掛程式會使用產生的 SDK，輕鬆地將後端服務整合至您的應用程式。當 REST API 發生變更時，您可以重新產生 SDK 並取代舊的 SDK，以進行 SDK 無縫升級。您也可以將 CLI 整合到 DevOps 管線，並確保 SDK 在每次建置應用程式時一律與 API 規格保持一致。
 
-如需相關資訊，請參閱[使用產生的 SDK 來整合後端服務](../apps/deploying/api_management.html)。
+如需相關資訊，請參閱[使用產生的 SDK 來整合後端服務](/docs/swift/backend/cli_sdkgen.html)。
 
 ## 部署至 Kubernetes 叢集
 {: #deploy_kube}

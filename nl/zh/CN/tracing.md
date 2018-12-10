@@ -34,7 +34,7 @@ var appzip = require('appmetrics-zipkin');
 ```
 {: codeblock}
 
-以下语句将跟踪添加到 `HTTP` 和 `request` 方法调用，并将数据发送到 Zipkin 服务器。缺省情况下，该模块在 `localhost` 和`端口 9411` 处查找 Zipkin 服务器。可以使用以下语法来更改主机名和端口：
+以下语句将跟踪添加到 `HTTP` 和 `request` 方法调用，并将数据发送到 Zipkin 服务器。缺省情况下，该模块在 `localhost` 和端口 `9411` 处查找 Zipkin 服务器。可以使用以下语法来更改主机名和端口：
 ```js
 var appzip = require('appmetrics-zipkin')({
  host: "my.host.here",
@@ -87,7 +87,7 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 在端口 `9411` 上，`openzipkin/zipkin` 模块通过一个简单命令进行下载、安装并启动。
 
 ### 访问 Zipkin 控制台
-下图显示了在 `localhost` 的`端口 9411` 上运行的 Zipkin 服务器：
+下图显示了在端口 `9411` 的 `localhost` 上运行的 Zipkin 服务器：
 
 ![ZipkinNoData](images/ZipkinNoData.png)
 
@@ -99,8 +99,8 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 如果遵循 [GitHub 项目的文档](https://github.com/ibm-developer/nodejs-zipkin-tracing)，那么最终将获得以下样本应用程序。这是一个简单的进程，涉及跟踪两个端点之间的请求和响应。以下图像显示了 Zipkin 服务器以及显示屏上的已收集跟踪数据。要记住的关键点是务必包含 `require('appmetrics-zipkin')`，并可选择包含 Zipkin 服务器配置代码。以下示例场景显示了如何将 Zipkin 跟踪快速添加到现有 Node.js 应用程序中。
 
 ### 跟踪方案概述：
-* **前端**（称为 pusher）用于提示用户输入要创建并转换为小写的字符串的长度。数字越大，字符串越大，处理请求所需的时间越长。在`端口 3000` 上可用。
-* **后端**（称为 getter）用于处理请求，在`端口 3001` 上可用。
+* **前端**（称为 pusher）用于提示用户输入要创建并转换为小写的字符串的长度。数字越大，字符串越大，处理请求所需的时间越长。在端口 `3000` 上可用。
+* **后端**（称为 getter）用于处理请求，并在端口 `3001` 上可用。
 * **Zipkin 服务器**在本地运行，或在可查看跟踪数据的 Kubernetes 上运行。
 
 ### 前端应用程序 (pusher)

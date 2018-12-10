@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -55,7 +55,7 @@ lastupdated: "2018-09-10"
 {: #add_service}
 
 1. 返回到 {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} 中您的项目。
-2. 单击**添加服务**，选择要添加的服务的类别，单击**下一步**，然后选择服务。例如，要将 NoSQL 数据库添加到应用程序中，请单击“数据”类别，然后选择 Cloudant；Cloudant 提供有轻量套餐，可进行免费开发。{{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} 会根据所选套餐供应服务。
+2. 单击**添加服务**，选择要添加的服务的类别，单击**下一步**，然后选择服务。例如，要将 NoSQL 数据库添加到应用程序中，请单击**数据**类别，然后选择 **Cloudant** 以提供轻量套餐进行免费开发。{{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} 会根据所选套餐供应服务。
 注：如果先前已供应您计划使用的服务，请选择**现有**类别。
 3. 供应服务后，单击**下载代码**以使用连接到服务的 SDK 重新生成项目。
 

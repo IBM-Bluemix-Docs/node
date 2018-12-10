@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-18"
+lastupdated: "2018-10-04"
 
 ---
 {:new_window: target="_blank"}
@@ -56,7 +56,7 @@ lastupdated: "2018-09-18"
 
 缺省情况下，使用 {{site.data.keyword.cloud_notm}} [App Service](https://console.bluemix.net/developer/appservice/dashboard) 创建的 Node.js 应用程序随附 Log4js。以本机方式或在云环境中运行该应用程序将生成类似于以下内容的输出：`2018-07-26 12:40:15.121] [INFO] MyAppName - MyAppName listening on http://localhost:3000`。您可以如下所示查看输出：
 * 在本地运行时，请使用 `stdout`。
-* 查看 [CloudFoundry](https://console.bluemix.net/docs/cli/reference/bluemix_cli/bx_cli.html#ibmcloud_app_logs) 和 [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/) 部署的日志，这些日志可通过 `ibmcloud app logs --recent <APP_NAME>` 和 `kubectl logs <deployment name>` 进行访问。
+* 查看 [CloudFoundry](https://console.bluemix.net/docs/cli/reference/bluemix_cli/bx_cli.html#ibmcloud_app_logs) 和 [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/) 部署的日志，这些日志可通过 `ibmcloud app logs --recent <APP_NAME>` 和 `kubectl logs <deployment name>`.
 
 在 `server/server.js` 文件中，可以看到以下代码：
 ```js
@@ -66,7 +66,7 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
 ```
 {: codeblock}
 
-缺省情况下，“日志级别”设置为 `INFO`，可以通过应用程序的 **LOG_LEVEL** 环境变量覆盖。
+缺省情况下，“日志级别”设置为 `OFF`，以便可以在库中安全使用，但它可由应用程序的 **LOG_LEVEL** 环境变量覆盖。
 {: tip}
 
 ## 后续步骤

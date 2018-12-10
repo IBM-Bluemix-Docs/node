@@ -34,7 +34,7 @@ var appzip = require('appmetrics-zipkin');
 ```
 {: codeblock}
 
-下列陳述式會將追蹤新增至 `HTTP` 及 `request` 方法呼叫，以及要傳送至 Zipkin 伺服器的資料。依預設，模組會在 `localhost` 及`埠 9411` 尋找 Zipkin 伺服器。您可以使用下列語法來變更主機名稱及埠：
+下列陳述式會將追蹤新增至 `HTTP` 及 `request` 方法呼叫，以及要傳送至 Zipkin 伺服器的資料。依預設，模組會在 `localhost` 及埠 `9411` 尋找 Zipkin 伺服器。您可以使用下列語法來變更主機名稱及埠：
 ```js
 var appzip = require('appmetrics-zipkin')({
  host: "my.host.here",
@@ -86,7 +86,7 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 即會使用一個簡單指令，在埠 `9411` 下載、安裝及啟動 `openzipkin/zipkin` 模組。
 
 ### 存取 Zipkin 主控台
-下圖顯示在 `localhost` 的`埠 9411` 執行的 Zipkin 伺服器：
+下圖顯示在 `localhost` 的埠 `9411` 執行的 Zipkin 伺服器：
 
 ![ZipkinNoData](images/ZipkinNoData.png)
 
@@ -98,8 +98,8 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 如果您遵循 [GitHub 專案的文件](https://github.com/ibm-developer/nodejs-zipkin-tracing)，則最後會有下列範例應用程式。這是一項簡單的處理程序，包括追蹤兩個端點之間的要求及回應。下圖顯示已顯示所收集追蹤資料的 Zipkin 伺服器。要記住的重點是包含 `require('appmetrics-zipkin')` 以及選用的 Zipkin 伺服器配置程式碼。下列範例情境顯示如何將 Zipkin 追蹤快速新增至現有的 Node.js 應用程式。
 
 ### 追蹤情境概觀：
-* **前端**（稱為 pusher）提示使用者建立字串的長度並轉換為小寫。數字越大，字串就越大，而且處理要求所花的時間就越長。可在`埠 3000` 上使用。
-* **後端**（稱為 getter）處理要求，而且可在`埠 3001` 上使用。
+* **前端**（稱為 pusher）提示使用者建立字串的長度並轉換為小寫。數字越大，字串就越大，而且處理要求所花的時間就越長。可在埠 `3000` 上使用。
+* **後端**（稱為 getter）處理要求，而且可在埠 `3001` 上使用。
 * **Zipkin 伺服器**在本端或在您查看追蹤資料的 Kubernetes 上執行。
 
 ### 前端應用程式 (pusher)
@@ -115,7 +115,7 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 ![500please](images/500Please.png)
 
 ### 使用 Zipkin Web 使用者介面檢視追蹤
-使用 Zipkin Web 使用者介面，可以在 `localhost:9411` 檢視傳送至 Zipkin 的追蹤資料。您可以看到 **getter** 接收使用者輸入（他們想要使用 pusher 服務，將長度為 500 個字元的訊息傳送至 getter）：
+使用 Zipkin Web 使用者介面，可以在 `localhost:9411` 檢視傳送至 Zipkin 的追蹤資料。您可以看到 **getter** 接收使用者輸入（使用者想要使用 pusher 服務，將長度為 500 個字元的訊息傳送至 getter）：
 ![Getter500msg](images/Getter500Msg.png)
 
 即會顯示使用者要求詳細資料。請注意 "500"，這是針對使用者要求所提供的參數。他們想要產生 500 個字元的字串。您可以確切看到使用者所要求的內容，以及處理此要求所花的時間。伺服器所傳回的要求內容（有效負載）則不可見。 
