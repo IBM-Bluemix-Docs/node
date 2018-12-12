@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -27,7 +27,7 @@ Weitere Informationen zur möglichen Verwendung von {{site.data.keyword.appid_sh
 {: #before}
 
 Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
-1. Sie müssen über ein [{{site.data.keyword.cloud_notm}}-Konto ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} verfügen.
+1. Sie müssen über ein [{{site.data.keyword.cloud}}-Konto ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} verfügen.
 2. Installieren Sie die [{{site.data.keyword.cloud_notm}}-CLI](../cli/index.html).
 3. Installieren Sie die Unterstützung für das Paketmanagement mit [npm ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link")](https://nodejs.org/){: new_window}.
 4. Implementieren Sie Ihren Node.js-Server mit dem [Express-Framework ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") ](http://expressjs.com/){: new_window}. Verwenden Sie zum Installieren des Express-Frameworks die Befehlszeile, um das Verzeichnis mit der Node.js-App zu öffnen, und führen Sie den folgenden Befehl aus:
@@ -60,7 +60,7 @@ Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
 **Stellen Sie eine Instanz des Service bereit.**
 1. Wählen Sie im [{{site.data.keyword.cloud_notm}}-Katalog](https://console.bluemix.net/catalog/) die Kategorie **Web und Mobil** aus und klicken Sie auf '{{site.data.keyword.appid_short_notm}}'. Die Seite mit der Servicekonfiguration wird geöffnet.
 2. Geben Sie der Serviceinstanz entweder einen Namen oder verwenden Sie den voreingestellten Namen.
-3. Wählen Sie Ihren Preistarif aus und klicken Sie auf **Erstellen**. 
+3. Wählen Sie Ihren Preistarif aus und klicken Sie auf **Erstellen**.
 
 ## Schritt 2. SDK installieren
 {: #install}
@@ -110,8 +110,8 @@ Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
     ```
     {: codeblock}
 
-    Wenn Sie Hilfe bei der Suche nach den Schlüsselwerten für den Berechtigungsnachweis für Ihre App benötigen, finden Sie in *Schritt 5* des Abschnitts [Vorbereitende Schritte](app_id.html#before) entsprechende Details.
-  {: tip}
+    Wenn Sie Hilfe bei der Suche nach den Schlüsselwerten für den Berechtigungsnachweis für Ihre App benötigen, finden Sie in *Schritt 5* des Abschnitts [Vorbereitende Schritte](app_id.html#before) entsprechende Details. 
+    {: tip}
 
 4. Konfigurieren Sie Passport mit Serialisierung und Deserialisierung. Dieser Konfigurationsschritt ist für eine authentifizierte Sitzungspersistenz über HTTP-Anforderungen hinweg erforderlich. Weitere Informationen finden Sie in der [Dokumentation zu Passport ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link")](http://passportjs.org/docs){: new_window}.
   ```js
@@ -195,7 +195,7 @@ Führen Sie die folgenden Schritte aus, um die Seite anzupassen:
 
 {{site.data.keyword.appid_short_notm}} stellt eine Standardanmeldeseite bereit, die Sie aufrufen können, wenn Sie nicht über eigene Benutzerschnittstellenseiten zum Anzeigen verfügen.
 
-Abhängig von der Konfiguration Ihres Identitätsproviders sind die Seiten, die Sie anzeigen können, unterschiedlich. Der Service stellt keine erweiterten Funktionen für Social Media-Identitätsprovider bereit, da IBM niemals Zugriff auf die Kontoinformationen eines Benutzers hat. Die Benutzer müssen zum Identitätsprovider wechseln, um ihre Informationen zu verwalten. Wenn sie beispielsweise ihr Facebook-Kennwort ändern möchten, müssen sie zu www.facebook.com wechseln.
+Abhängig von der Konfiguration Ihres Identitätsproviders sind die Seiten, die Sie anzeigen können, unterschiedlich. Der Service stellt keine erweiterten Funktionen für Social Media-Identitätsprovider bereit, da IBM niemals Zugriff auf die Kontoinformationen eines Benutzers hat. Die Benutzer müssen zum Identitätsprovider wechseln, um ihre Informationen zu verwalten. Wenn sie beispielsweise ihr Facebook-Kennwort ändern möchten, müssen sie zu [https://www.facebook.com](https://www.facebook.com) wechseln.
 
 Sehen Sie sich die folgende Tabelle an, um zu sehen, welche Seiten Sie für die verschiedenen Typen von Identitätsprovider anzeigen können.
 
@@ -251,7 +251,7 @@ Gehen Sie folgendermaßen vor, um die Standardseiten anzuzeigen:
   {: codeblock}
 
 **Kennwort ändern**
-1. **Aktivieren** Sie in den Cloud Directory-Einstellungen die Option, die es **Benutzern ermöglicht, sich zu registrieren und ihre Kennwörter zurückzusetzen**. 
+1. **Aktivieren** Sie in den Cloud Directory-Einstellungen die Option, die es **Benutzern ermöglicht, sich zu registrieren und ihre Kennwörter zurückzusetzen**.
 2. Übergeben Sie die WebAppStrategy-Eigenschaft `show` und legen Sie sie auf `WebAppStrategy.CHANGE_PASSWORD` fest.
   ```js
   app.get("/change_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {

@@ -26,7 +26,7 @@ Pour plus d'informations, voir [{{site.data.keyword.cloudant_short_notm}} Basics
 Assurez-vous que les prérequis suivants sont satisfaits :
  * [Nodejs-cloudant ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant/nodejs-cloudant){:new_window} 2.3.0+, bibliothèque client.
  * Vous devez disposer d'un compte [{{site.data.keyword.cloud}} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
- * Pour accéder à {{site.data.keyword.cloudant_short_notm}}, vous devez créer un service dans le tableau de bord [{{site.data.keyword.cloud_notm}} Dashboard ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/dashboard/apps){: new_window}, puis lancer le tableau de bord {{site.data.keyword.cloudant_short_notm}} depuis cette instance de service. 
+ * Pour accéder à {{site.data.keyword.cloudant_short_notm}}, vous devez créer un service dans le tableau de bord [{{site.data.keyword.cloud_notm}} Dashboard ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/dashboard/apps){: new_window}, puis lancer le tableau de bord {{site.data.keyword.cloudant_short_notm}} depuis cette instance de service.
  * Les fragments de code de ces instructions utilisent l'authentification IAM.
  
 ### Activation de IAM avec {{site.data.keyword.cloudant_short_notm}}
@@ -48,15 +48,15 @@ Lorsque vous créez une instance de {{site.data.keyword.cloudant_short_notm}}, v
   * **Nom du service** - Entrez un nom pour votre instance de service ou utilisez le nom prédéfini.
   * **Sélectionnez une région/un emplacement où effectuer le déploiement** - Sélectionnez une région dans laquelle déployer votre service.
   * **Sélectionnez un groupe de ressources** - Sélectionnez un groupe de ressources ou acceptez la valeur par défaut.
-  * **Méthodes d'authentification disponibles** - Sélectionnez **Utiliser uniquement IAM** comme méthode d'authentification. 
+  * **Méthodes d'authentification disponibles** - Sélectionnez **Utiliser uniquement IAM** comme méthode d'authentification.
 5. Sélectionnez votre plan de tarification, puis cliquez sur **Créer**. La page de votre instance de service s'ouvre.
-6. Pour créer les données d'identification du service, procédez comme suit : 
+6. Pour créer les données d'identification du service, procédez comme suit :
   1. Depuis le menu de navigation, sélectionnez **Données d'identification du service**.
-  2. Cliquez sur **Nouvelles données d'identification**. La page d'ajout de nouvelles données d'identification s'affiche. 
-  3. Sur cette page, renseignez les zones puis cliquez sur **Ajouter**. Les nouvelles données d'identification du service sont ajoutées à l'instance de service. 
-  4. Si vous souhaitez afficher les détails de ces données, cliquez sur **Afficher les données d'identification** dans la colonne **Actions** des nouvelles données. 
+  2. Cliquez sur **Nouvelles données d'identification**. La page d'ajout de nouvelles données d'identification s'affiche.
+  3. Sur cette page, renseignez les zones puis cliquez sur **Ajouter**. Les nouvelles données d'identification du service sont ajoutées à l'instance de service.
+  4. Si vous souhaitez afficher les détails de ces données, cliquez sur **Afficher les données d'identification** dans la colonne **Actions** des nouvelles données.
 7. Dans le menu de navigation, sélectionnez **Gérer**, puis cliquez sur **Lancer le tableau de bord Cloudant**.
-8. Dans le menu de navigation, cliquez sur l'icône **Bases de données** 
+8. Dans le menu de navigation, cliquez sur l'icône **Bases de données**
 9. Cliquez sur **Créer une base de données**, indiquez un nom de base de données, puis cliquez sur **Créer**. La page de votre base de données s'ouvre.
 
 Si vous souhaitez voir les informations connexions concernant la mise à disposition d'une instance du service {{site.data.keyword.cloud_notm}}, voir [Creating an IBM Cloudant instance on IBM Cloud tutorial ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-nosql-db-instance-on-ibm-cloud){: new_window}.
@@ -66,7 +66,7 @@ Si vous souhaitez voir les informations connexions concernant la mise à disposi
 
 <!--From github.com/cloudant/nodejs-cloudant#installation-and-usage-->
 
-Commencez votre propre projet Node.js et définissez ce travail comme votre dépendance. En d'autres termes, placez {{site.data.keyword.cloudant_short_notm}} dans vos dépendances package.json. Utilisez le gestionnaire de package [npm](https://nodejs.org/) depuis la ligne de commande pour installer le logiciel SDK : 
+Commencez votre propre projet Node.js et définissez ce travail comme votre dépendance. En d'autres termes, placez {{site.data.keyword.cloudant_short_notm}} dans vos dépendances package.json. Utilisez le gestionnaire de package [npm](https://nodejs.org/) depuis la ligne de commande pour installer le logiciel SDK :
 ```
 npm install --save @cloudant/cloudant
 ```
@@ -77,7 +77,7 @@ Notez que votre fichier `package.json` comporte à présent le package Cloudant.
 ## Etape 3. Initialisation du logiciel SDK
 {: #initialize}
 
-Une fois que vous avez initialisé le logiciel SDK dans votre appli, vous pouvez utiliser {{site.data.keyword.cloudant_short_notm}} pour stocker les données. Pour initialiser votre connexion, entrez vos données d'identification et fournissez une fonction appelée à exécuter quand tout est prêt.
+Une fois que vous avez initialisé le logiciel SDK dans votre application, vous pouvez utiliser {{site.data.keyword.cloudant_short_notm}} pour stocker les données. Pour initialiser votre connexion, entrez vos données d'identification et fournissez une fonction appelée à exécuter quand tout est prêt.
 
 1. Chargez la bibliothèque client en ajoutant la définition `require` suivante à votre fichier `server.js`.
   ```js
@@ -85,7 +85,7 @@ Une fois que vous avez initialisé le logiciel SDK dans votre appli, vous pouvez
   ```
   {: codeblock}
 
-2. Initialisez la bibliothèque client en fournissant les données d'identification. Utilisez le plug-in `iamauth` pour créer un client de base de données avec une clé d'API IAM.  
+2. Initialisez la bibliothèque client en fournissant les données d'identification. Utilisez le plug-in `iamauth` pour créer un client de base de données avec une clé d'API IAM. 
   ```js
   var cloudant = new Cloudant({ url: 'https://examples.cloudant.com', plugins: { iamauth: { iamApiKey: 'xxxxxxxxxx' } } });
   ```
@@ -108,7 +108,7 @@ Une fois que vous avez initialisé le logiciel SDK dans votre appli, vous pouvez
 {: #basic_operations}
 <!--Borrowed from https://github.com/cloudant/nodejs-cloudant/blob/master/example/crud.js-->
 
-Ces opérations de base illustrent les actions de création, lecture, mise à jour et suppression de vos documents en utilisant le client initialisé. 
+Ces opérations de base illustrent les actions de création, lecture, mise à jour et suppression de vos documents en utilisant le client initialisé.
 
 #### Création d'un document
 ```js
@@ -170,21 +170,21 @@ var deleteDocument = function(callback) {
 ```
 {: codeblock}
 
-## Etape 4. Test de votre appli
+## Etape 4. Test de votre application
 {: #test}
 
 Est-ce que tout est correctement configuré ? Il est temps de tester !
 
 1. Exécutez votre application, en veillant à démarrer l'initialisation et les opérations appropriées, comme la création d'un document.
-2. Depuis la [tableau de bord {{site.data.keyword.cloud_notm}} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/dashboard/apps){: new_window}, cliquez sur l'instance de service {{site.data.keyword.cloudant_short_notm}} que vous venez de créer. Quand l'instance de service s'ouvre, cliquez sur **Lancer le tableau de bord Cloudant**. 
-3. Dans le tableau de bord {{site.data.keyword.cloudant_short_notm}}, sélectionnez la base de données dans laquelle vous avez créé les documents. 
+2. Depuis la [tableau de bord {{site.data.keyword.cloud_notm}} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/dashboard/apps){: new_window}, cliquez sur l'instance de service {{site.data.keyword.cloudant_short_notm}} que vous venez de créer. Quand l'instance de service s'ouvre, cliquez sur **Lancer le tableau de bord Cloudant**.
+3. Dans le tableau de bord {{site.data.keyword.cloudant_short_notm}}, sélectionnez la base de données dans laquelle vous avez créé les documents.
 
 Vous rencontrez des problèmes ? Consultez la [Référence d'API {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant/api/index.html#api-reference-overview){:new_window}.
 
 ## Etapes suivantes
 {: #next notoc}
 
-Félicitations ! Vous avez ajouté un niveau de persistance sécurisé à votre appli. Poursuivez sur votre lancée en essayant l'une des options suivantes :
+Félicitations ! Vous avez ajouté un niveau de persistance sécurisé à votre application. Poursuivez sur votre lancée en essayant l'une des options suivantes :
 
 * Affichez le code source pour [{{site.data.keyword.cloudant_short_notm}} SDK for Node.js ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant/nodejs-cloudant){: new_window}.
 * Consultez l'[exemple de code pour les opérations de base de données et de document ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant/nodejs-cloudant/tree/master/example){: new_window}.

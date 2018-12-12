@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-08-15"
+lastupdated: "2018-10-18"
 
 ---
 {:new_window: target="_blank"}
@@ -33,7 +33,7 @@ Weitere Informationen finden Sie in [Serverunabhängige Apps entwickeln](../apps
 
 Mit dem {{site.data.keyword.IBM_notm}} SDK-Generator-Plug-in können Back-End-Services problemlos mit einem generierten SDK in Ihre App integriert werden. Wenn eine Änderung an einer REST-API vorgenommen wird, können Sie das SDK neu generieren und das alte SDK ersetzen, um ein nahtloses SDK-Upgrade durchführen zu können. Sie können die Befehlszeilenschnittstelle (CLI) auch in eine DevOps-Pipeline integrieren und sicherstellen, dass das SDK jedes Mal, wenn die App erstellt wird, mit der API-Spezifikation konsistent ist.
 
-Weitere Informationen finden Sie in [Back-End-Services mit einem generierten SDK integrieren](../apps/deploying/api_management.html).
+Weitere Informationen finden Sie in [Back-End-Services mit einem generierten SDK integrieren](/docs/swift/backend/cli_sdkgen.html).
 
 ## Bereitstellung in einem Kubernetes-Cluster
 {: #deploy_kube}

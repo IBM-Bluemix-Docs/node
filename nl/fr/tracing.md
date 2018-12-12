@@ -34,7 +34,7 @@ var appzip = require('appmetrics-zipkin');
 ```
 {: codeblock}
 
-L'instruction suivante déclenche l'ajout du suivi à vos appels de méthode `HTTP` et `request`, ainsi que l'envoi des données au serveur Zipkin. Par défaut, le module recherche le serveur Zipkin sur `localhost` et sur le `port 9411`. Vous pouvez changer le nom d'hôte et le port en utilisant la syntaxe suivante : 
+L'instruction suivante déclenche l'ajout du suivi à vos appels de méthode `HTTP` et `request`, ainsi que l'envoi des données au serveur Zipkin. Par défaut, le module recherche le serveur Zipkin sur `localhost` et sur le port `9411`. Vous pouvez changer le nom d'hôte et le port en utilisant la syntaxe suivante :
 ```js
 var appzip = require('appmetrics-zipkin')({
  host: "my.host.here",
@@ -57,7 +57,7 @@ Vous avez à présent besoin d'un espace où envoyer vos données, à savoir les
 
 ### Configuration de Zipkin en local
 
-Zipkin est fourni dans un fichier `jar` unique pour vous permettre de le télécharger et de l'exécuter à l'aide des commandes suivantes sur le système sur lequel vous souhaitez que Zipkin soit disponible : 
+Zipkin est fourni dans un fichier `jar` unique pour vous permettre de le télécharger et de l'exécuter à l'aide des commandes suivantes sur le système sur lequel vous souhaitez que Zipkin soit disponible :
 
 1. Téléchargement de Zipkin :
   ```
@@ -86,7 +86,7 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 Le module `openzipkin/zipkin` est téléchargé, installé et démarré sur le port `9411` à l'aide d'une simple commande.
 
 ### Accès à la console Zipkin
-L'image suivante montre le serveur Zipkin s'exécutant sur `localhost`, sur le `port 9411`:
+L'image suivante montre le serveur Zipkin qui s'exécute sur `localhost` sur le port `9411` :
 
 ![ZipkinNoData](images/ZipkinNoData.png)
 
@@ -95,12 +95,12 @@ vous pouvez cliquer sur **Find traces** (rechercher les traces) et modifier les 
 ## Etape 3. Test d'un exemple de scénario
 {: #example-scenario}
 
-Si vous suivez la [documentation du projet GitHub](https://github.com/ibm-developer/nodejs-zipkin-tracing), vous finissez avec l'exemple d'application suivant. Il s'agit d'un processus simple impliquant le traçage d'une demande et d'une réponse entre deux noeuds finaux. Les images suivantes montrent le serveur Zipkin avec affichage des données de trace collectées. L'élément clé à ne pas oublier est l'inclusion de `require('appmetrics-zipkin')`, et éventuellement le code de configuration du serveur Zipkin. Le scénario exemple ci-après montre comment rapidement ajouter une fonction de trace Zipkin à vos applications Node.js existantes. 
+Si vous suivez la [documentation du projet GitHub](https://github.com/ibm-developer/nodejs-zipkin-tracing), vous finissez avec l'exemple d'application suivant. Il s'agit d'un processus simple impliquant le traçage d'une demande et d'une réponse entre deux noeuds finaux. Les images suivantes montrent le serveur Zipkin avec affichage des données de trace collectées. L'élément clé à ne pas oublier est l'inclusion de `require('appmetrics-zipkin')`, et éventuellement le code de configuration du serveur Zipkin. Le scénario exemple ci-après montre comment rapidement ajouter une fonction de trace Zipkin à vos applications Node.js existantes.
 
 ### Présentation des scénarios de traçage :
-* Une application de **front end**, appelée pusher, invite l'utilisateur à indiquer la longueur d'une chaîne à créer et convertir en minuscules. Plus le nombre est élevé, plus grande sera la chaîne, et plus il faudra de temps pour gérer la demande. Disponible sur le `port 3000`.
-* Une application de **back end**, appelée méthode d'accès get ou getter, gère la demande et est disponible sur le `port 3001`.
-* Un **serveur Zipkin** s'exécute localement ou sur Kubernetes où vous voyez vos données de trace. 
+* Une application de **front end**, appelée pusher, invite l'utilisateur à indiquer la longueur d'une chaîne à créer et convertir en minuscules. Plus le nombre est élevé, plus grande sera la chaîne, et plus il faudra de temps pour gérer la demande. Disponible sur le port `3000`.
+* Une application de **back-end**, appelée méthode d'accès get ou getter, traite la demande et est disponible sur le port `3001`.
+* Un **serveur Zipkin** s'exécute localement ou sur Kubernetes où vous voyez vos données de trace.
 
 ### Application de front end (pusher)
 Le service de pusher envoie la demande :
@@ -114,8 +114,8 @@ L'application getter reçoit la demande, et écoute sur un port différent :
 Envoi d'une demande du pusher au getter :
 ![500please](images/500Please.png)
 
-### Affichage des traces à l'aide de l'interface utilisateur Web Zipkin 
-Les données de trace envoyées à Zipkin peuvent être consultées à l'aide de l'interface utilisateur Web Zipkin à l'adresse `localhost:9411`. Vous pouvez voir que le **getter** reçoit l'entrée utilisateur (souhaite envoyer un message de 500 caractères à la méthode d'accès get, via le service pusher) :
+### Affichage des traces à l'aide de l'interface utilisateur Web Zipkin
+Les données de trace envoyées à Zipkin peuvent être consultées à l'aide de l'interface utilisateur Web Zipkin à l'adresse `localhost:9411`. Vous pouvez voir que le **getter** reçoit l'entrée utilisateur (l'utilisateur souhaite envoyer un message de 500 caractères à la méthode d'accès get, via le service pusher) :
 ![Getter500msg](images/Getter500Msg.png)
 
 Les détails de la demande de l'utilisateur s'affichent. Notez le “500”, qui est un paramètre fourni pour la demande de l'utilisateur. Celui-ci souhaite générer une chaîne de 500 caractères. Vous pouvez voir exactement ce que l'utilisateur a demandé est le temps requis pour gérer cette demande. Le contenu de la demande, renvoyé depuis le serveur, n'est pas visible. 
@@ -133,10 +133,10 @@ Cliquer sur l'intervalle génère la sortie suivante. Là encore, vous pouvez vo
 Avec cet exemple, vous disposez à présent du scénario suivant :
 
 * Le pusher envoie un message au getter (un intervalle).
-* Le getter renvoie une réponse (un intervalle). 
-* La trace complète, composée des deux intervalles, est visible sur le serveur Zipkin déployé en local. 
+* Le getter renvoie une réponse (un intervalle).
+* La trace complète, composée des deux intervalles, est visible sur le serveur Zipkin déployé en local.
 
-Lorsque vos applications gagnent en complexité et que vos services sont plus populaires, le besoin de mettre en place ce type de traçage devient évident. Mettre en place le traçage à un niveau élevé fournit des valeurs aux développeurs, si bien que les problèmes peuvent être identifiés et triés rapidement et efficacement. De nombreuses solutions de rechange existent, mais notre approche consiste à rendre le process aussi simple que possible, et à agir de façon totalement ouverte.
+Lorsque vos applications gagnent en complexité et que vos services sont plus populaires, le besoin de mettre en place ce type de traçage devient évident. Mettre en place le traçage à un niveau élevé fournit des valeurs aux développeurs, si bien que les problèmes peuvent être identifiés et triés rapidement et efficacement. De nombreuses solutions de rechange existent, mais notre approche consiste à rendre le processus aussi simple que possible, et à agir de façon totalement ouverte.
 
 Le tutoriel sur les déploiements sans Kubernetes s'achève ici. Consultez la section suivante si vous souhaitez poursuivre avec le traçage d'applications Node.js s'exécutant sur Kubernetes.
 

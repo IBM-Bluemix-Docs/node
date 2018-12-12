@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-10-08"
 
 ---
 {:new_window: target="_blank"}
@@ -29,7 +29,7 @@ https://console.bluemix.net/docs/services/cloud-object-storage/about-cos.html#ab
 {: #before}
 
 Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
-1. Sie müssen über ein [{{site.data.keyword.cloud_notm}}-Konto ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} verfügen.
+1. Sie müssen über ein [{{site.data.keyword.cloud}}-Konto ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} verfügen.
 2. Sie müssen über das [{{site.data.keyword.cos_short}} SDK for Node.js ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link")](https://github.com/ibm/ibm-cos-sdk-js){: new_window} verfügen.
 3. Sie müssen über Node 4.x+ verfügen.
 4. Suchen Sie nach den Schlüsselwerten des Berechtigungsnachweises, die später für die SDK-Initialisierung verwendet werden sollen:
@@ -68,7 +68,7 @@ Nachdem Sie das SDK in Ihrer App initialisiert haben, können Sie {{site.data.ke
   ```
   {: codeblock}
 
-2. Initialisieren Sie die Clientbibliothek, indem Sie Ihre Berechtigungsnachweise bereitstellen. 
+2. Initialisieren Sie die Clientbibliothek, indem Sie Ihre Berechtigungsnachweise bereitstellen.
   ```js
   var config = {
     endpoint: '<endpunkt>',

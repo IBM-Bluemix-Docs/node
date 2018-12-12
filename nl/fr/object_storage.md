@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-10-08"
 
 ---
 {:new_window: target="_blank"}
@@ -29,7 +29,7 @@ https://console.bluemix.net/docs/services/cloud-object-storage/about-cos.html#ab
 {: #before}
 
 Assurez-vous que les prérequis suivants sont satisfaits :
-1. Vous devez disposer d'un compte [{{site.data.keyword.cloud_notm}} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
+1. Vous devez disposer d'un compte [{{site.data.keyword.cloud}} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
 2. Vous devez disposer du logiciel [{{site.data.keyword.cos_short}} SDK for Node.js ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/ibm/ibm-cos-sdk-js){: new_window}.
 3. Vous devez disposer de Node 4.x+.
 4. Localisez les valeurs de clé de données d'identification à utiliser ultérieurement pour l'initialisation du kit SDK :
@@ -41,17 +41,17 @@ Assurez-vous que les prérequis suivants sont satisfaits :
 ## Etape 1. Création d'une instance de {{site.data.keyword.cos_short}}
 {: #create-instance}
 
-1. Dans le [catalogue {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/), sélectionnez la catégorie **Stockage** et cliquez sur {{site.data.keyword.cos_short}}. La page de configuration de service s'ouvre.
+1. Dans le [catalogue {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/), sélectionnez la catégorie **Stockage**, puis cliquez sur {{site.data.keyword.cos_short}}. La page de configuration de service s'ouvre.
 2. Donnez un nom à votre instance de service ou utilisez le nom prédéfini.
-3. Sélectionnez votre plan de tarification, puis cliquez sur **Créer**. La page de votre instance Object Storage s'ouvre. 
+3. Sélectionnez votre plan de tarification, puis cliquez sur **Créer**. La page de votre instance Object Storage s'ouvre.
 4. Dans le menu de navigation, sélectionnez **Données d'identification du service**.
-5. Sur la page des données d'identification du service, cliquez sur **Nouvelles données d'identification**. 
-6. Sur cette page, assurez-vous que le rôle est défini sur **Writer** puis cliquez sur **Ajouter**. Les nouvelles données d'identification sont créées et affichées dans la page des données d'identification du service. 
+5. Sur la page des données d'identification du service, cliquez sur **Nouvelles données d'identification**.
+6. Sur cette page, assurez-vous que le rôle est défini sur **Writer** puis cliquez sur **Ajouter**. Les nouvelles données d'identification sont créées et affichées dans la page des données d'identification du service.
 
 ## Etape 2. Installation du logiciel SDK
 {: #install}
 
-Installez le logiciel {{site.data.keyword.cos_short}} SDK for Node.js en utilisant le gestionnaire de package [npm](https://nodejs.org/) depuis la ligne de commande. 
+Installez le logiciel {{site.data.keyword.cos_short}} SDK for Node.js en utilisant le gestionnaire de package [npm](https://nodejs.org/) depuis la ligne de commande.
 ```
 npm install ibm-cos-sdk
 ```
@@ -60,7 +60,7 @@ npm install ibm-cos-sdk
 ## Etape 3. Initialisation du logiciel SDK
 {: #initialize}
 
-Une fois que vous avez initialisé le logiciel SDK dans votre appli, vous pouvez utiliser {{site.data.keyword.cos_short}} pour stocker les données. Initialisez votre connexion en indiquant vos données d'identification et en fournissant une fonction appelée à exécuter quand tout est prêt.
+Une fois que vous avez initialisé le logiciel SDK dans votre application, vous pouvez utiliser {{site.data.keyword.cos_short}} pour stocker les données. Initialisez votre connexion en indiquant vos données d'identification et en fournissant une fonction appelée à exécuter quand tout est prêt.
 
 1. Chargez la bibliothèque client en ajoutant les définitions `require` suivantes à votre fichier `server.js`.
   ```js
@@ -68,7 +68,7 @@ Une fois que vous avez initialisé le logiciel SDK dans votre appli, vous pouvez
   ```
   {: codeblock}
 
-2. Initialisez la bibliothèque client en fournissant les données d'identification. 
+2. Initialisez la bibliothèque client en fournissant les données d'identification.
   ```js
   var config = {
     endpoint: '<endpoint>',
@@ -82,7 +82,7 @@ Une fois que vous avez initialisé le logiciel SDK dans votre appli, vous pouvez
   Si vous avez besoin d'aide pour trouver les valeurs de clé de données d'identification pour votre application, consultez l'*étape 4* de la section [Avant de commencer](object_storage.html#before) pour plus de détails.
   {: tip}
 
-3. Ajoutez le code suivant à votre fichier `server.js`. 
+3. Ajoutez le code suivant à votre fichier `server.js`.
   ```js
   var cos = new objectStore(config);
   ```
@@ -146,7 +146,7 @@ function doDeleteObject() {
 
 Consultez la [documentation complète](/docs/services/cloud-object-storage/libraries/node.html#using-node-js) pour les téléchargements à plusieurs parties, les fonctions de sécurité et autres opérations.
 
-## Etape 4. Test de votre appli
+## Etape 4. Test de votre application
 {: #test}
 
 Est-ce que tout est correctement configuré ? Il est temps de tester !
@@ -160,7 +160,7 @@ Vous rencontrez des problèmes ? Consultez la [Référence d'API {{site.data.key
 ## Etapes suivantes
 {: #next notoc}
 
-Félicitations ! Vous avez ajouté un niveau de persistance sécurisé à votre appli. Poursuivez sur votre lancée en essayant l'une des options suivantes :
+Félicitations ! Vous avez ajouté un niveau de persistance sécurisé à votre application. Poursuivez sur votre lancée en essayant l'une des options suivantes :
 
 * Affichez le code source pour [{{site.data.keyword.cos_short}} SDK for Node.js ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/ibm/ibm-cos-sdk-js){:new_window}.
 * Consultez l'[exemple de code pour les opérations de compartiment et d'objet ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/ibm/ibm-cos-sdk-js#example-code){:new_window}.

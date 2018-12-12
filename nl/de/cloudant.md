@@ -15,7 +15,8 @@ lastupdated: "2018-10-01"
 # Dokumente in {{site.data.keyword.cloud_notm}} speichern
 {: #cloudant}
 
-{{site.data.keyword.cloudantfull}} ist ein dokumentorientiertes DBaaS-Angebot (DBaaS, Database as a Service). Es speichert Daten als Dokumente im JSON-Format. {{site.data.keyword.cloudant_short_notm}} ist für Skalierbarkeit, Hochverfügbarkeit und Dauerhaftigkeit ausgelegt und kann leicht für die Verwendung in Node.js-Anwendungen konfiguriert werden. Es enthält eine Vielzahl von Indexierungsoptionen, die MapReduce, {{site.data.keyword.cloudant_short_notm}} Query, Volltextindexierung und geografisch-räumlich Indexierung umfassen. Mit den Replikationsfunktionen ist es einfach, Daten zwischen Datenbankclustern, Desktop-PCs und mobilen Geräten synchron zu halten.{:shortdesc}
+{{site.data.keyword.cloudantfull}} ist ein dokumentorientiertes DBaaS-Angebot (DBaaS, Database as a Service). Es speichert Daten als Dokumente im JSON-Format. {{site.data.keyword.cloudant_short_notm}} ist für Skalierbarkeit, Hochverfügbarkeit und Dauerhaftigkeit ausgelegt und kann leicht für die Verwendung in Node.js-Anwendungen konfiguriert werden. Es enthält eine Vielzahl von Indexierungsoptionen, die MapReduce, {{site.data.keyword.cloudant_short_notm}} Query, Volltextindexierung und geografisch-räumlich Indexierung umfassen. Mit den Replikationsfunktionen ist es einfach, Daten zwischen Datenbankclustern, Desktop-PCs und mobilen Geräten synchron zu halten.
+{:shortdesc}
 
 Weitere Informationen finden Sie im Abschnitt zu den [Grundlagen von {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant/basics/index.html#cloudant-nosql-db-basics){:new_window}.
 

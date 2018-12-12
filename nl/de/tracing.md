@@ -34,7 +34,7 @@ var appzip = require('appmetrics-zipkin');
 ```
 {: codeblock}
 
-Die folgende Anweisung bewirkt, dass das Tracing zu Ihren `HTTP`- und `request`-Methodenaufrufen hinzugefügt wird und die Daten an den Zipkin-Server gesendet werden. Das Modul sucht standardmäßig bei `localhost` und `port 9411` nach dem Zipkin-Server. Sie können den Hostnamen und den Port mithilfe der folgenden Syntax ändern:
+Die folgende Anweisung bewirkt, dass das Tracing zu Ihren `HTTP`- und `request`-Methodenaufrufen hinzugefügt wird und die Daten an den Zipkin-Server gesendet werden. Das Modul sucht standardmäßig bei `localhost` und Port `9411` nach dem Zipkin-Server. Sie können den Hostnamen und den Port mithilfe der folgenden Syntax ändern:
 ```js
 var appzip = require('appmetrics-zipkin')({
  host: "my.host.here",
@@ -86,7 +86,7 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 Das Modul `openzipkin/zipkin` wird heruntergeladen, installiert und an Port `9411` mit einem einfachen Befehl gestartet.
 
 ### Auf die Zipkin-Konsole zugreifen
-Die folgende Abbildung zeigt den Zipkin-Server, der auf `localhost` an `port 9411` ausgeführt wird:
+Die folgende Abbildung zeigt den Zipkin-Server, der auf `localhost` bei Port `9411` ausgeführt wird:
 
 ![ZipkinNoData](images/ZipkinNoData.png)
 
@@ -98,8 +98,8 @@ Sie können auf die Option zum **Suchen nach Traces** klicken und die Suchoption
 Wenn Sie die [Dokumentation des GitHub-Projekts](https://github.com/ibm-developer/nodejs-zipkin-tracing) befolgen, erhalten Sie die folgende Beispielanwendung. Es handelt sich um einen einfachen Prozess, bei dem für eine Anforderung und eine Antwort zwischen zwei Endpunkten ein Trace erstellt wird. Die folgenden Abbildungen zeigen den Zipkin-Server mit erfassten Tracedaten. Sie müssen unbedingt daran denken, `require('appmetrics-zipkin')` einzuschließen und optional den Code für die Zipkin-Serverkonfiguration. Das folgende Beispielszenario zeigt, wie Sie das Zipkin-Tracing schnell in Ihren vorhandenen Node.js-Anwendungen hinzufügen können.
 
 ### Übersicht über das Tracing-Szenario:
-* Ein **Front-End**, das als Pusher bezeichnet wird, fordert den Benutzer zur Eingabe der Länge einer Zeichenfolge auf, die erstellt und in Kleinbuchstaben konvertiert werden soll. Je größer die Zahl, umso größer die Zeichenfolge und umso länger dauert es, bis die Anforderung verarbeitet wird. Verfügbar an `port 3000`.
-* Ein **Back-End**, das als Getter bezeichnet wird, verarbeitet die Anforderung und ist an `port 3001` verfügbar.
+* Ein **Front-End**, das als Pusher bezeichnet wird, fordert den Benutzer zur Eingabe der Länge einer Zeichenfolge auf, die erstellt und in Kleinbuchstaben konvertiert werden soll. Je größer die Zahl, umso größer die Zeichenfolge und umso länger dauert es, bis die Anforderung verarbeitet wird. Verfügbar bei Port `3000`.
+* Ein **Back-End**, das als Getter bezeichnet wird, verarbeitet die Anforderung und ist bei Port `3001` verfügbar.
 * Ein **Zipkin-Server** wird lokal oder auf Kubernetes ausgeführt, wo Ihre Tracedaten angezeigt werden.
 
 ### Front-End-App (Pusher)

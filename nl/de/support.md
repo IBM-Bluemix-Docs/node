@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-07-30"
+lastupdated: "2018-010-08"
 
 ---
 
@@ -18,7 +18,7 @@ lastupdated: "2018-07-30"
 
 ## Unterstützung auf dWanswers anfordern
 
-Stellen Sie über `#nodejs tag` Fragen auf [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/) oder beteiligen Sie sich an Diskussionen in [{{site.data.keyword.cloud_notm}} Slack](https://slack-invite-ibm-cloud-tech.mybluemix.net/) im `#nodejs-at-ibm`-Kanal.
+Stellen Sie über den Tag `#nodejs` Fragen auf [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/) oder beteiligen Sie sich an Diskussionen im [{{site.data.keyword.cloud_notm}} Slack](https://slack-invite-ibm-cloud-tech.mybluemix.net/) des Kanals `#nodejs-at-ibm`.
 
 ## Offiziellen IBM Support für Laufzeiten verwenden
 

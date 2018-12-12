@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -27,16 +27,16 @@ Pour plus d'informations sur toutes les façons dont vous pouvez utiliser {{site
 {: #before}
 
 Assurez-vous que les prérequis suivants sont satisfaits :
-1. Vous devez disposer d'un compte [{{site.data.keyword.cloud_notm}} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
+1. Vous devez disposer d'un compte [{{site.data.keyword.cloud}} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
 2. Vous avez installé l'[interface CLI {{site.data.keyword.cloud_notm}}](../cli/index.html).
-3. Vous avez installé le support de gestion de package [npm ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://nodejs.org/){: new_window}. 
+3. Vous avez installé le support de gestion de package [npm ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://nodejs.org/){: new_window}.
 4. Vous avez implémenté votre serveur Node.js avec l'[infrastructure Express ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](http://expressjs.com/){: new_window}. Afin d'installer l'infrastructure Express, utilisez la ligne de commande pour ouvrir le répertoire contenant votre application Node.js et exécutez la commande suivante :
   ```
   npm install --save express
   ```
   {: codeblock}
 
-5. Vous avez installé Passport. Utilisez la ligne de commande pour ouvrir le répertoire contenant votre application Node.js et exécutez la commande suivante :
+5. Installez Passport. Utilisez la ligne de commande pour ouvrir le répertoire contenant votre application Node.js et exécutez la commande suivante :
   ```
   npm install --save passport
   ```
@@ -49,7 +49,7 @@ Assurez-vous que les prérequis suivants sont satisfaits :
     * _**tenantID**_ - L'ID titulaire est un identificateur unique utilisé pour initialiser votre application. Vous pouvez trouver sa valeur dans le tableau de bord du service {{site.data.keyword.appid_short_notm}} en cliquant sur **Afficher les données d'identification** dans l'onglet **Données d'identification pour le service**.
     * _**clientID**_, _**secret**_, _**oauth-server-url**_ - Vous pouvez trouver ces valeurs en cliquant sur **Afficher les données d'identification** dans l'onglet **Données d'identification pour le service** du tableau de bord de votre service.
     * _**CALLBACK_URL**_ - URL de la page que les utilisateurs voient une fois connectés.
-    * _**redirectUri**_ - La valeur `redirectUri` peut être fournie de trois façons : 
+    * _**redirectUri**_ - La valeur `redirectUri` peut être fournie de trois façons :
       * Manuellement, dans un nouveau `WebAppStrategy({redirectUri: "...."})`
       * En tant que variable d'environnement nommée `redirectUri`. 
       * Si la valeur `redirectUri` n'est pas fournie, le kit SDK d'App ID extrait l'URI `application_uri` de l'application qui s'exécute sur {{site.data.keyword.cloud_notm}} et ajoute le suffixe par défaut `/ibm/cloud/appid/callback`.
@@ -58,7 +58,7 @@ Assurez-vous que les prérequis suivants sont satisfaits :
 {: #create-instance}
 
 **Mise à disposition d'une instance du service**
-1. Dans le [catalogue {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/), sélectionnez la catégorie **Web et Mobile**, puis cliquez sur {{site.data.keyword.appid_short_notm}}. La page de configuration de service s'ouvre.
+1. Dans le [catalogue {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/), sélectionnez la catégorie **Web et mobile** et cliquez sur {{site.data.keyword.appid_short_notm}}. La page de configuration de service s'ouvre.
 2. Donnez un nom à votre instance de service ou utilisez le nom prédéfini.
 3. Sélectionnez votre plan de tarification, puis cliquez sur **Créer**.
 
@@ -110,11 +110,10 @@ Assurez-vous que les prérequis suivants sont satisfaits :
     ```
     {: codeblock}
 
-    Si vous avez besoin d'aide pour trouver les valeurs de clé de données d'identification pour votre application, consultez l'*étape 5* de la section [Avant de commencer](app_id.html#before) pour plus de détails.
+    Si vous avez besoin d'aide pour trouver les valeurs de clé de données d'identification pour votre application, consultez l'*étape 5* de la section [Avant de commencer](app_id.html#before) pour plus de détails. 
     {: tip}
 
-4. Configurez passport avec la sérialisation et la désérialisation. Cette étape de configuration est requise pour la persistance de session authentifiée dans les demandes HTTP. Pour plus d'informations, voir la [documentation passport ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](http://passportjs.org/docs){: new_window}.
-    
+4. Configurez passport avec la sérialisation et la désérialisation. Cette étape de configuration est requise pour la persistance de session authentifiée dans les demandes HTTP. Pour plus d'informations, voir la [documentation de Passport ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](http://passportjs.org/docs){: new_window}.
   ```js
   passport.serializeUser(function(user, cb) {
     cb(null, user);
@@ -142,7 +141,7 @@ Assurez-vous que les prérequis suivants sont satisfaits :
 
 Pour plus d'informations, voir [{{site.data.keyword.appid_short_notm}} Node.js GitHub repository ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window}.
 
-## Step 4. Gestion de l'expérience de connexion
+## Etape 4. Gestion de l'expérience de connexion
 {: #manage-sign-in}
 
 <!--The following content is similar to https://console.stage1.bluemix.net/docs/services/appid/login-widget.html#managing-the-sign-in-experience -->
@@ -163,24 +162,24 @@ Une fois configurés les paramètres pour les [fournisseurs d'identité de rése
 ### Configuration des fournisseurs d'identité de réseaux sociaux
 {: #social-identity}
 
-Pour configurer des fournisseurs d'identité de réseau social, procédez comme suit : 
+Pour configurer des fournisseurs d'identité de réseau social, procédez comme suit :
 
 1. Ouvrez le tableau de bord {{site.data.keyword.appid_short_notm}} sur **Fournisseurs d'identité > Gérer**.
-2. Définissez les fournisseurs d'identité que vous voulez utiliser sur **Actif**. Vous pouvez utiliser la combinaison de fournisseurs d'identité de votre choix, mais si vous souhaitez utiliser des pages de connexion personnalisées, activez uniquement le répertoire cloud. 
-3. Mettez à jour la [configuration par défaut](/docs/services/appid/identity-providers.html) avec vos propres données d'identification. {{site.data.keyword.appid_short_notm}} fournit des données d'identification IBM que vous pouvez utiliser pour essayer le service. Avant de publier votre application, vous devez mettre à jour la configuration. 
-4. [Personnalisez la page de connexion préconfigurée](#login-widget) pour afficher l'image et les couleurs de votre choix. 
+2. Définissez les fournisseurs d'identité que vous voulez utiliser sur **Actif**. Vous pouvez utiliser la combinaison de fournisseurs d'identité de votre choix, mais si vous souhaitez utiliser des pages de connexion personnalisées, activez uniquement le répertoire cloud.
+3. Mettez à jour la [configuration par défaut](/docs/services/appid/identity-providers.html) avec vos propres données d'identification. {{site.data.keyword.appid_short_notm}} fournit des données d'identification IBM que vous pouvez utiliser pour essayer le service. Avant de publier votre application, vous devez mettre à jour la configuration.
+4. [Personnalisez la page de connexion préconfigurée](#login-widget) pour afficher l'image et les couleurs de votre choix.
 
 ### Configuration du répertoire cloud
 {: #cloud-directory}
 
-Avec {{site.data.keyword.appid_short_notm}}, vous pouvez gérer votre propre registre d'utilisateurs appelé répertoire cloud. Le répertoire cloud permet aux utilisateurs de s'inscrire et de se connecter à vos applis mobile et Web à l'aide de leur e-mail et d'un mot de passe.
+Avec {{site.data.keyword.appid_short_notm}}, vous pouvez gérer votre propre registre d'utilisateurs appelé répertoire cloud. Le répertoire cloud permet aux utilisateurs de s'inscrire et de se connecter à vos applications mobiles et Web à l'aide de leur e-mail et d'un mot de passe.
 
 Pour configurer le répertoire cloud, voir [Configuration du répertoire cloud](/docs/services/appid/cloud-directory.html).
 
 ### Personnalisation de la page de connexion par défaut
 {: #login-widget}
 
-Vous pouvez personnaliser la page de connexion préconfigurée afin d'afficher le logo et les couleurs de votre choix. 
+Vous pouvez personnaliser la page de connexion préconfigurée afin d'afficher le logo et les couleurs de votre choix.
 
 Pour personnaliser la page :
 
@@ -194,11 +193,11 @@ Pour personnaliser la page :
 ### Affichage des pages par défaut
 {: #default-pages}
 
-{{site.data.keyword.appid_short_notm}} fournit une page de connexion par défaut que vous pouvez appeler si vous n'avez pas de pages d'interface utilisateur à afficher. 
+{{site.data.keyword.appid_short_notm}} fournit une page de connexion par défaut que vous pouvez appeler si vous n'avez pas de pages d'interface utilisateur à afficher.
 
-En fonction de votre configuration de fournisseur d'identité, les pages que vous pouvez afficher varient. Le service ne fournit pas de fonctions avancées pour les fournisseurs d'identité de réseau social car nous n'avons jamais accès aux informations de compte d'un utilisateur. Les utilisateurs doivent accéder au fournisseur d'identité pour gérer leurs informations. Si, par exemple, ils souhaitent changer leur mot de passe Facebook, ils doivent accéder à www.facebook.com.
+En fonction de votre configuration de fournisseur d'identité, les pages que vous pouvez afficher varient. Le service ne fournit pas de fonctions avancées pour les fournisseurs d'identité de réseau social car nous n'avons jamais accès aux informations de compte d'un utilisateur. Les utilisateurs doivent accéder au fournisseur d'identité pour gérer leurs informations. Par exemple, s'ils veulent changer leur mot de passe pour Facebook, ils doivent accéder à [https://www.facebook.com](https://www.facebook.com).
 
-Consultez le tableau ci-dessous pour voir les pages que vous pouvez afficher pour chaque type de fournisseur d'identité. 
+Consultez le tableau ci-dessous pour voir les pages que vous pouvez afficher pour chaque type de fournisseur d'identité.
 
 | Page d'affichage | Fournisseur d'identité de réseau social | Répertoire cloud | 
 |:-----|:-----|:-----|
@@ -216,7 +215,7 @@ Pour afficher les pages par défaut :
 
 **Connexion**
 1. Activez le répertoire cloud dans les paramètres de votre fournisseur d'identité et spécifiez un noeud final de rappel.
-2. Ajoutez une route post à votre appli qui pourra être appelée avec les paramètres de nom d'utilisateur et de mot de passe pour la connexion à l'aide du mot de passe du propriétaire de la ressource.
+2. Ajoutez une route post à votre application qui pourra être appelée avec les paramètres de nom d'utilisateur et de mot de passe pour la connexion à l'aide du mot de passe du propriétaire de la ressource.
   ```js
   app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
    	successRedirect: LANDING_PAGE_URL,
@@ -226,7 +225,7 @@ Pour afficher les pages par défaut :
   ```
   {: codeblock}
 
-  `WebAppStrategy` permet aux utilisateurs de se connecter à vos applis Web à l'aide d'un nom d'utilisateur et d'un mot de passe. Une fois la connexion établie, le jeton d'accès d'un utilisateur est stocké dans la session HTTP et reste disponible pendant la session. Lorsque la session HTTP a été détruite ou est arrivée à expiration, le jeton n'est plus valide.
+  `WebAppStrategy` permet aux utilisateurs de se connecter à vos applications Web à l'aide d'un nom d'utilisateur et d'un mot de passe. Une fois la connexion établie, le jeton d'accès d'un utilisateur est stocké dans la session HTTP et reste disponible pendant la session. Lorsque la session HTTP a été détruite ou est arrivée à expiration, le jeton n'est plus valide.
   {: tip}
 
 **Inscription**
@@ -277,22 +276,22 @@ Pour afficher les pages par défaut :
 Vous souhaitez offrir à vos utilisateurs une expérience personnalisée ? Consultez la [documentation {{site.data.keyword.appid_short_notm}}](/docs/services/appid/login-widget.html#branding) pour voir comment afficher vos propres pages d'interface utilisateur.
 {: tip}
 
-## Step 5. Test de votre appli
+## Etape 5. Test de votre application
 {: #test}
 
-Est-ce que tout est correctement configuré ? Vous pouvez le tester !
+Tout est correctement configuré ? Il est temps de tester !
 
-1. Installez les dépendances et démarrer votre serveur d'applications. 
-2. Depuis l'interface graphique utilisateur, suivez le processus de connexion à votre application. Si vous avez configuré le répertoire cloud, veillez à ce que toutes vos pages s'affichent comme vous l'aviez prévu. 
+1. Installez les dépendances et démarrer votre serveur d'applications.
+2. Depuis l'interface graphique utilisateur, suivez le processus de connexion à votre application. Si vous avez configuré le répertoire cloud, veillez à ce que toutes vos pages s'affichent comme vous l'aviez prévu.
 3. Mettez à jour les fournisseurs d'identité pour la page du widget de connexion dans le tableau de bord {{site.data.keyword.appid_short_notm}}. Cliquez sur **Vérification de l'activité** pour visualiser les événements d'authentification qui se sont produits.
-4. Répétez les étapes 1 et 2 pour vérifier que les modifications sont immédiatement appliquées. Aucune mise à jour du code de votre appli n'est nécessaire.
+4. Répétez les étapes 1 et 2 pour vérifier que les modifications sont immédiatement appliquées. Aucune mise à jour du code de votre application n'est nécessaire.
 
 Vous rencontrez des problèmes ? Consultez la section [troubleshooting {{site.data.keyword.appid_short_notm}}](/docs/services/appid/ts_index.html).
 
 ## Etapes suivantes
 {: #next notoc}
 
-Félicitations ! Vous avez ajouté une étape d'authentification à votre appli. Poursuivez sur votre lancée en essayant l'une des options suivantes :
+Félicitations ! Vous avez ajouté une étape d'authentification à votre application. Poursuivez sur votre lancée en essayant l'une des options suivantes :
 
 * Pour en savoir plus et tirer pleinement parti des fonctions offertes par {{site.data.keyword.appid_short_notm}}, [consultez la documentation](/docs/services/appid/index.html) !
 * Les kits de démarrage (Starter Kits) constituent l'une des façons les plus rapides d'utiliser les fonctions d'{{site.data.keyword.cloud}}. Affichez les kits de démarrage disponibles dans le tableau de bord [Mobile developer dashboard ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/developer/mobile/dashboard){: new_window}. Téléchargez le code. Exécutez l'application !

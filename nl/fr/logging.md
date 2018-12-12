@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-18"
+lastupdated: "2018-10-04"
 
 ---
 {:new_window: target="_blank"}
@@ -54,11 +54,11 @@ Pour plus d'informations sur la personnalisation des messages de journal avec de
 ## Surveillance des journaux avec App Service
 {: #monitoring}
 
-Par défaut, les applications Node.js créées à l'aide d'{{site.data.keyword.cloud_notm}} [App Service](https://console.bluemix.net/developer/appservice/dashboard) sont fournies avec Log4js. L'exécution de l'appli en mode natif ou dans un environnement cloud génère une sortie similaire à celle-ci : `2018-07-26 12:40:15.121] [INFO] MyAppName - MyAppName listening on http://localhost:3000`. Vous pouvez afficher la sortie comme suit : 
+Par défaut, les applications Node.js créées à l'aide d'{{site.data.keyword.cloud_notm}} [App Service](https://console.bluemix.net/developer/appservice/dashboard) sont fournies avec Log4js. L'exécution de l'application en mode natif ou dans un environnement cloud génère une sortie similaire à celle-ci : `2018-07-26 12:40:15.121] [INFO] MyAppName - MyAppName listening on http://localhost:3000`. Vous pouvez afficher la sortie comme suit :
 * Utilisez `stdout` pour une exécution en local.
 * Dans les journaux pour des déploiements [CloudFoundry](https://console.bluemix.net/docs/cli/reference/bluemix_cli/bx_cli.html#ibmcloud_app_logs) et [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/), qui sont accessible par `ibmcloud app logs --recent <APP_NAME>` et `kubectl <deployment name>`.
 
-Dans le fichier `server/server.js`, vous pouvez voir le code suivant : 
+Dans le fichier `server/server.js`, vous pouvez voir le code suivant :
 ```js
 var logger = log4js.getLogger(appName);
 var app = express();
@@ -66,7 +66,7 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
 ```
 {: codeblock}
 
-Par défaut, le niveau de journalisation est défini sur `INFO` et peut être remplacé par la variable d'environnement **LOG_LEVEL** de l'application.
+Par défaut, le niveau de journalisation est défini sur `OFF` pour pouvoir être utilisé en toute sécurité dans les bibliothèques. Cependant, il peut être remplacé par la variable d'environnement **LOG_LEVEL** de l'application.
 {: tip}
 
 ## Etapes suivantes

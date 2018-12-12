@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-07-30"
+lastupdated: "2018-010-08"
 
 ---
 
@@ -18,15 +18,15 @@ lastupdated: "2018-07-30"
 
 ## Demander de l'aide sur dWanswers
 
-Posez des questions sur [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/) en utilisant le hashtag `#nodejs`, ou joignez-vous à la discussion dans [{{site.data.keyword.cloud_notm}} Slack](https://slack-invite-ibm-cloud-tech.mybluemix.net/) sur le canal `#nodejs-at-ibm`.
+Posez des questions sur [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/) sous le hashtag `#nodejs` ou joignez-vous à la discussion dans [{{site.data.keyword.cloud_notm}} Slack](https://slack-invite-ibm-cloud-tech.mybluemix.net/) sur le canal `#nodejs-at-ibm`.
 
 ## Utilisation de la version officielle d'IBM Support for Runtimes
 
-IBM Foundation Support for Runtimes fournit une couverture pour Node.js, Swift et Java. La prise en charge Support est disponible pour les fichiers binaires LTS (supplément à long terme) Node.js 6 et 8 LTS depuis la communauté [Nodejs.org](https://nodejs.org/), y compris IBM SDK for Node.js, qui utilise l'infrastructure de surveillance open source [App Metrics](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/).
+IBM Foundation Support for Runtimes fournit une couverture pour Node.js, Swift et Java. La prise en charge est disponible pour les fichiers binaires LTS Node.js 6 et 8 depuis la communauté [Nodejs.org](https://nodejs.org/), y compris IBM SDK for Node.js, qui utilise l'infrastructure de surveillance open source [App Metrics](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/).
 
 Le support d'exécution Node.js est disponible quels que soient les modules que vous utilisez dans votre application. Le support est disponible pour tout emplacement de déploiement de l'exécution : que ce soit sur vos propres machines, dans {{site.data.keyword.cloud_notm}} ou ailleurs.
 
-IBM Advanced Support for Runtimes étend Foundation Support, offrant une couverture pour les infrastructures Express.js, Loopback et Kitura (infrastructure Swift), y compris dépendances de module.
+IBM Advanced Support for Runtimes s'appuie sur Foundation Support pour couvrir les infrastructures Express.js, Loopback et Kitura (infrastructure Swift), y compris les dépendances de module.
 
 Pour en savoir plus, visitez [IBM's Digital Marketplace](https://www.ibm.com/us-en/marketplace/support-for-runtimes).
 

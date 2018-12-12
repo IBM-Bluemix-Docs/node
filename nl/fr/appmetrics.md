@@ -62,7 +62,7 @@ Ajoutez des fonctions de surveillance à des applications Express existantes ave
   ```
   {: codeblock}
 
-3. Ajoutez la prise en charge `appmetrics-dash` à votre appli existante en ajoutant le code suivant :
+3. Ajoutez la prise en charge `appmetrics-dash` à votre application existante en ajoutant le code suivant :
   ```js
   var dash = require('appmetrics-dash').attach()
   ```
@@ -70,7 +70,7 @@ Ajoutez des fonctions de surveillance à des applications Express existantes ave
 
   Cette commande indique à `appmetrics-dash` d'utiliser le serveur déjà créé et ajoute un noeud final `appmetrics-dash`.
 
-  Le code révisé ressemble à présent à l'exemple suivant : 
+  Le code révisé ressemble à présent à l'exemple suivant :
   ```js
   var express = require('express')
   var app = express()

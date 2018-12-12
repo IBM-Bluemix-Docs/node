@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-18"
+lastupdated: "2018-10-04"
 
 ---
 {:new_window: target="_blank"}
@@ -66,7 +66,7 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
 ```
 {: codeblock}
 
-Standardmäßig ist die Protokollebene auf `INFO` gesetzt und kann von der Umgebungsvariablen **LOG_LEVEL** der Anwendung überschrieben werden.
+Standardmäßig ist die Protokollebene auf `OFF` gesetzt, damit sie sicher in Bibliotheken genutzt werden kann; sie kann jedoch von der Umgebungsvariablen **LOG_LEVEL** der Anwendung überschrieben werden.
 {: tip}
 
 ## Nächste Schritte
