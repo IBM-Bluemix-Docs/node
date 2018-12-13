@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -30,7 +30,7 @@ Assicurati che stai utilizzando la release di LTS Node.js più recente.
 2. Fai clic su **Crea applicazione**.
 3. Usa **Nome** per denominare la tua applicazione. Viene fornito un nome applicazione generico, se vuoi utilizzarlo.
 4. Immetti un **nome host univoco**. Il nome host viene utilizzato per accedere alla tua applicazione, ad esempio: `expressjs-project.mybluemix.net`.
-5. Fare clic su **Crea**.Dopo che il tuo progetto è stato creato, puoi distribuirlo utilizzando una toolchain oppure puoi continuare a creare e distribuire il tuo progetto dalla riga di comando.
+5. Fare clic su **Crea**. Dopo che il tuo progetto è stato creato, puoi distribuirlo utilizzando una toolchain oppure puoi continuare a creare e distribuire il tuo progetto dalla riga di comando.
 6. Se scegli di creare una toolchain, fai clic su **Distribuisci al cloud** e seleziona uno dei seguenti metodi di distribuzione.
     * **Applicazione Cloud Foundry** - non hai bisogno di gestire l'infrastruttura sottostante.
     * **Cluster Kubernetes** - devi eseguire il provisioning di una serie di nodi di lavoro. Ad esempio, puoi utilizzare le VM per distribuire e gestire contenitori dell'applicazione ad elevata disponibilità. Puoi creare un cluster o eseguire la distribuzione a un cluster esistente.
@@ -55,7 +55,7 @@ Assicurati che stai utilizzando la release di LTS Node.js più recente.
 {: #add_service}
 
 1. Ritorna al progetto nella {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}}.
-2. Fai clic su **Aggiungi servizio**, seleziona la categoria del servizio che vuoi aggiungere, fai clic su **Avanti** e scegli quindi il tuo servizio. Ad esempio, per aggiungere un database NoSQL alla tua applicazione, fai clic sulla categoria Data e seleziona quindi Cloudant, che offre un piano lite per lo sviluppo gratuito. La {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} esegue il provisioning del servizio per te in base al piano selezionato.
+2. Fai clic su **Aggiungi servizio**, seleziona la categoria del servizio che vuoi aggiungere, fai clic su **Avanti** e scegli quindi il tuo servizio. Ad esempio, per aggiungere un database NoSQL alla tua applicazione, fai clic sulla categoria **Data** e seleziona **Cloudant**, che offre un piano lite per lo sviluppo gratuito. La {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} esegue il provisioning del servizio per te in base al piano selezionato.
 Nota: se hai in precedenza eseguito il provisioning del servizio che intendi utilizzare, scegli la categoria **Existing**.
 3. Dopo che è stato eseguito il provisioning del servizio, fai clic su **Download Code** per rigenerare il progetto con l'SDK che si connette al tuo servizio.
 
@@ -82,7 +82,7 @@ Utilizza il comando `ibmcloud dev deploy` per eseguire la distribuzione a {{site
 
 Per eseguire la distribuzione a IBM Container Services in {{site.data.keyword.cloud_notm}}, utilizza questo comando:
 ```
-ibmcloud dev deploy –target container
+ibmcloud dev deploy –target container 
 ```
 {: codeblock}
 

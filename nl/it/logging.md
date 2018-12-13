@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-18"
+lastupdated: "2018-10-04"
 
 ---
 {:new_window: target="_blank"}
@@ -66,7 +66,7 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
 ```
 {: codeblock}
 
-Per impostazione predefinita, il livello di log è impostato su `INFO` e può essere sovrascritto dalla variabile di ambiente **LOG_LEVEL** dell'applicazione.
+Per impostazione predefinita, il livello di log è impostato su `OFF` in modo che può essere utilizzato in modo sicuro nelle librerie, ma può essere sovrascritto dalla variabile di ambiente **LOG_LEVEL** dell'applicazione.
 {: tip}
 
 ## Passi successivi

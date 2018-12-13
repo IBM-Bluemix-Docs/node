@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-10-08"
 
 ---
 {:new_window: target="_blank"}
@@ -29,7 +29,7 @@ O {{site.data.keyword.cos_full_notm}} é um componente fundamental da computaç�
 {: #before}
 
 Verifique se os pré-requisitos a seguir estão prontos:
-1. Deve-se ter uma conta do [{{site.data.keyword.cloud_notm}} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
+1. Deve-se ter uma conta do [{{site.data.keyword.cloud}} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
 2. Deve-se ter o [{{site.data.keyword.cos_short}} SDK for Node.js ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/ibm/ibm-cos-sdk-js){: new_window}.
 3. Você deve ter o Nó 4.x +.
 4. Localize os valores da chave de credencial a serem usados posteriormente para inicialização do SDK:
@@ -41,7 +41,7 @@ Verifique se os pré-requisitos a seguir estão prontos:
 ## Etapa 1. Criando uma instância do  {{site.data.keyword.cos_short}}
 {: #create-instance}
 
-1. No [catálogo do {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/), selecione a categoria **Armazenamento** e clique em {{site.data.keyword.cos_short}}. A página de configuração de serviço é aberta.
+1. No [Catálogo do {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/), selecione a categoria **Armazenamento** e clique em {{site.data.keyword.cos_short}}. A página de configuração de serviço é aberta.
 2. Dê um nome à sua instância de serviço ou use o nome de pré-configuração.
 3. Selecione o seu plano de precificação e clique em **Criar**. A página da instância do Object Storage é aberta.
 4. No menu de navegação, selecione **Credenciais de serviço**.

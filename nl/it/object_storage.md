@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-10-08"
 
 ---
 {:new_window: target="_blank"}
@@ -29,7 +29,7 @@ COS ({{site.data.keyword.cos_short}}) è un sistema di archiviazione che può es
 {: #before}
 
 Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
-1. Devi avere un [account {{site.data.keyword.cloud_notm}} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
+1. Devi avere un [account {{site.data.keyword.cloud}} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
 2. Devi avere il [{{site.data.keyword.cos_short}} SDK for Node.js ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://github.com/ibm/ibm-cos-sdk-js){: new_window}.
 3. Devi avere Node 4.x+.
 4. Individua i valori chiave delle credenziali da utilizzare in seguito per l'inizializzazione SDK:
@@ -41,9 +41,9 @@ Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
 ## Passo 1. Creazione di un'istanza di {{site.data.keyword.cos_short}}
 {: #create-instance}
 
-1. Nel [catalogo {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/), seleziona la categoria **Storage** e fai clic su {{site.data.keyword.cos_short}}. Viene aperta la pagina di configurazione del servizio.
+1. Nel [Catalogo {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/), seleziona la categoria **Storage** e fai clic su {{site.data.keyword.cos_short}}. Viene aperta la pagina di configurazione del servizio.
 2. Dai un nome alla tua istanza del servizio oppure utilizza il nome preimpostato.
-3. Seleziona il tuo piano dei prezzi e fai clic su **Crea**.Viene aperta la pagina della tua istanza di Object Storage.
+3. Seleziona il tuo piano dei prezzi e fai clic su **Crea**. Viene aperta la pagina della tua istanza di Object Storage.
 4. Nel menu di navigazione, seleziona **Credenziali del servizio**.
 5. Nella pagina Credenziali del servizio, fai clic su **Nuova credenziale**.
 6. Nella pagina Aggiungi nuova credenziale, assicurati che il ruolo sia impostato su **Scrittore** e fai quindi clic su **Aggiungi** La nuova credenziale viene creata e visualizzata nella pagina Credenziali del servizio.

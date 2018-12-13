@@ -10,7 +10,7 @@ Programando com Node.js no IBM Cloud
     {: .topicgroup}
     Links relacionados
         [Centro de arquitetura](https://www.ibm.com/cloud/garage/category/architectures)
-        [Centro do desenvolvedor Node.js](https://developer.ibm.com/node/)
+        [Centro do desenvolvedor Node.js](https://developer.ibm.com/technologies/node-js/)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -32,6 +32,7 @@ Programando com Node.js no IBM Cloud
     [Criando APIs de REST](../tutorials/create-manage-secure-apis.html)
     
     deploying_apps.md
+    enable_existing.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}

@@ -22,7 +22,7 @@ Saiba como instalar, acessar e entender as métricas do aplicativo Node.js. É p
 ## Identificando problemas visualmente
 {: #identify-problems}
 
-Métricas de aplicativo são importantes para monitorar o desempenho de seu aplicativo. Ter uma visualização em tempo real de métricas, como as de CPU, de Memória, de Latência e HTTP, é essencial para assegurar que seu aplicativo seja executado efetivamente ao longo do tempo. É possível usar um serviço de nuvem como o [autoscaling](/docs/services/Auto-Scaling/index.html) do Cloud Foundry que depende de métricas para escalar dinamicamente instâncias para corresponder à carga de trabalho atual. Ao usar métricas do aplicativo, você é informado com precisão quando aumentar a capacidade, reduzir a capacidade ou limpar instâncias que não são mais necessárias para manter os custos baixos.
+Métricas de aplicativo são importantes para monitorar o desempenho de seu aplicativo. Ter uma visualização em tempo real de métricas, como as de CPU, de Memória, de Latência e HTTP, é essencial para assegurar que seu aplicativo seja executado efetivamente ao longo do tempo. É possível usar um serviço de nuvem como o [autoscaling](/docs/services/Auto-Scaling/index.html) do Cloud Foundry que depende de métricas para escalar dinamicamente instâncias para corresponder à carga de trabalho atual. Ao usar métricas do aplicativo, você é informado com precisão quando aumentar a escala, reduzir a escala ou limpar instâncias que não são mais necessárias para manter os custos baixos.
 
 As métricas do aplicativo são capturadas como dados de série temporal. A agregação e a visualização de métricas capturadas podem ajudar a identificar problemas comuns de desempenho, como:
 

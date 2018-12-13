@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -55,7 +55,7 @@ Certifique-se de que esteja usando a liberação LTS mais recente do Node.js.
 {: #add_service}
 
 1. Retorne ao seu projeto no  {{site.data.keyword.cloud_notm}}  {{site.data.keyword.dev_console}}.
-2. Clique em **Incluir serviço**, selecione a categoria do serviço que deseja incluir, clique em **Avançar** e, em seguida, escolha seu serviço. Por exemplo, para incluir um banco de dados NoSQL no aplicativo, clique na categoria Dados e, em seguida, selecione Cloudant, que oferece um plano Lite para o desenvolvimento grátis. O {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} provisiona o serviço para você com base no plano selecionado.
+2. Clique em **Incluir serviço**, selecione a categoria do serviço que deseja incluir, clique em **Avançar** e, em seguida, escolha seu serviço. Por exemplo, para incluir um banco de dados NoSQL no aplicativo, clique na categoria **Dados** e, em seguida, selecione **Cloudant**, que oferece um plano Lite para desenvolvimento grátis. O {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} provisiona o serviço para você com base no plano selecionado.
 Nota: se você provisionou anteriormente o serviço que planeja usar, escolha a categoria **Existente**.
 3. Depois que o serviço for provisionado, clique em **Fazer download do código** para gerar novamente o projeto com o SDK que se conecta a seu serviço.
 

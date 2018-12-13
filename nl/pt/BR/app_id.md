@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -27,7 +27,7 @@ Para obter mais informações sobre todas as maneiras que é possível usar o {{
 {: #before}
 
 Verifique se os pré-requisitos a seguir estão prontos:
-1. Deve-se ter uma conta do [{{site.data.keyword.cloud_notm}} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
+1. Deve-se ter uma conta do [{{site.data.keyword.cloud}} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
 2. Instale a [CLI do {{site.data.keyword.cloud_notm}}](../cli/index.html).
 3. Instale o suporte de gerenciamento de pacote [npm ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://nodejs.org/){: new_window}.
 4. Implemente o servidor Node.js com a [Estrutura do Express ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](http://expressjs.com/){: new_window}. Para instalar a estrutura Express, use a linha de comandos para abrir o diretório com o aplicativo Node.js e execute o comando a seguir:
@@ -59,7 +59,7 @@ Verifique se os pré-requisitos a seguir estão prontos:
 {: #create-instance}
 
 ** Provisão de uma instância do serviço **
-1. No [catálogo do {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/), selecione a categoria **Web e dispositivo móvel** e clique em {{site.data.keyword.appid_short_notm}}. A página de configuração de serviço é aberta.
+1. No [Catálogo do {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/), selecione a categoria **Web e dispositivo móvel** e clique em {{site.data.keyword.appid_short_notm}}. A página de configuração de serviço é aberta.
 2. Dê um nome à sua instância de serviço ou use o nome de pré-configuração.
 3. Selecione o seu plano de precificação e clique em **Criar**.
 
@@ -111,7 +111,7 @@ Verifique se os pré-requisitos a seguir estão prontos:
     ```
     {: codeblock}
 
-    Se precisar de ajuda para localizar os valores da chave de credencial para seu app, verifique a *etapa 5* da seção [Antes de iniciar](app_id.html#before) para obter detalhes sobre onde localizá-los.
+    Se precisar de ajuda para localizar os valores da chave de credencial para seu app, verifique a *etapa 5* da seção [Antes de iniciar](app_id.html#before) para obter detalhes sobre onde localizá-los. 
     {: tip}
 
 4. Configure o passaporte com serialização e desserialização. Essa etapa de configuração é necessária para a persistência de sessão autenticada nas solicitações de HTTP. Para obter mais informações, consulte os [docs de passaporte ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](http://passportjs.org/docs){: new_window}.
@@ -197,7 +197,7 @@ de serviço {{site.data.keyword.appid_short_notm}}.
 
 O {{site.data.keyword.appid_short_notm}} fornece uma página de login padrão que poderá ser chamada se você não tiver suas próprias páginas da IU para exibir.
 
-Dependendo de sua configuração do provedor de identidade, as páginas que podem ser exibidas são diferentes. O serviço não fornece funções avançadas para provedores de identidade social porque nunca temos acesso a informações da conta de um usuário. Os usuários devem ir para o provedor de identidade para gerenciar suas informações. Por exemplo, se quiserem mudar sua senha do Facebook, deverão acessar www.facebook.com.
+Dependendo de sua configuração do provedor de identidade, as páginas que podem ser exibidas são diferentes. O serviço não fornece funções avançadas para provedores de identidade social porque nunca temos acesso a informações da conta de um usuário. Os usuários devem ir para o provedor de identidade para gerenciar suas informações. Por exemplo, se eles quiserem mudar a senha do Facebook, deverão acessar [https://www.facebook.com](https://www.facebook.com).
 
 Verifique a tabela a seguir para ver quais páginas você pode exibir para cada tipo de provedor de identidade.
 

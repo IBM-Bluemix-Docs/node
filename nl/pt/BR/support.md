@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-07-30"
+lastupdated: "2018-010-08"
 
 ---
 
@@ -18,7 +18,7 @@ lastupdated: "2018-07-30"
 
 ## Pedindo ajuda em dWrespostas
 
-Faça perguntas no [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/) usando a `#nodejs tag` ou participe da discussão no [{{site.data.keyword.cloud_notm}} Slack](https://slack-invite-ibm-cloud-tech.mybluemix.net/) no canal `#nodejs-at-ibm`.
+Faça perguntas no [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/) usando a tag `#nodejs` ou participe da discussão no [{{site.data.keyword.cloud_notm}} Slack](https://slack-invite-ibm-cloud-tech.mybluemix.net/) no canal `#nodejs-at-ibm`.
 
 ## Usando o Suporte IBM oficial para Runtimes
 

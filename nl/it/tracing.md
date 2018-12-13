@@ -99,7 +99,7 @@ Se segui la [documentazione del progetto GitHub](https://github.com/ibm-develope
 
 ### Panoramica dello scenario di traccia:
 * Un **front end**, che è noto come pusher, richiede all'utente la lunghezza di una stringa da creare e convertire in minuscole. Maggiore è il numero e più grande è la stringa, nonché più lungo il tempo che occorre per gestire la richiesta. Disponibile sulla porta `3000`.
-* A **back-end**, noto come getter, gestisce la richiesta ed è disponibile sulla porta `3001`.
+* Un **back end**, noto come getter, gestisce la richiesta ed è disponibile sulla porta `3001`.
 * Un **server Zipkin** viene eseguito in locale oppure su Kubernetes dove vedi i tuoi dati di traccia.
 
 ### Applicazione front-end (pusher)
@@ -115,7 +115,7 @@ Invia una richiesta dal pusher al getter:
 ![500please](images/500Please.png)
 
 ### Visualizzazione delle tracce con l'IU web Zipkin
-I dati di traccia inviati a Zipkin possono essere visualizzati con l'IU web Zipkin su `localhost:9411`. Puoi vedere che il **getter** riceve l'input utente (che vuole inviare un messaggio lungo 500 caratteri al getter utilizzando il servizio pusher)
+I dati di traccia inviati a Zipkin possono essere visualizzati con l'IU web Zipkin su `localhost:9411`. Puoi vedere che il **getter** riceve l'input utente (l'utente vuole inviare un messaggio lungo 500 caratteri al getter utilizzando il servizio pusher):
 ![Getter500msg](images/Getter500Msg.png)
 
 Vengono visualizzati i dettagli della richiesta dell'utente. Nota il valore “500”, che è il parametro fornito per la richiesta dell'utente. Quest'ultimo voleva generare una stringa di 500 caratteri. Puoi vedere esattamente cosa aveva richiesto l'utente e quanto tempo ci è voluto per gestire questa richiesta. Il contenuto della richiesta (payload) restituito dal server non è visibile. 

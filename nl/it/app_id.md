@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -27,7 +27,7 @@ Per ulteriori informazioni su tutti i modi in cui puoi utilizzare {{site.data.ke
 {: #before}
 
 Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
-1. Devi avere un [account {{site.data.keyword.cloud_notm}} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
+1. Devi avere un [account {{site.data.keyword.cloud}} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
 2. Installa la [CLI {{site.data.keyword.cloud_notm}}](../cli/index.html).
 3. Installa il [npm ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")supporto di gestione del pacchetto ](https://nodejs.org/){: new_window}.
 4. Implementa il tuo server Node.js con il [framework Express ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](http://expressjs.com/){: new_window}. Per installare il framework Express, utilizza la riga di comando per aprire la directory con la tua applicazione Node.js ed esegui questo comando:
@@ -58,7 +58,7 @@ Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
 {: #create-instance}
 
 **Esegui il provisioning di un'istanza del servizio**
-1. Nel [catalogo {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/), seleziona la categoria **Web e mobile** e fai clic su {{site.data.keyword.appid_short_notm}}. Viene aperta la pagina di configurazione del servizio.
+1. Nel [Catalogo {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/), seleziona la categoria **Web e mobile** e fai clic su {{site.data.keyword.appid_short_notm}}. Viene aperta la pagina di configurazione del servizio.
 2. Dai un nome alla tua istanza del servizio oppure utilizza il nome preimpostato.
 3. Seleziona il tuo piano dei prezzi e fai clic su **Crea**.
 
@@ -110,7 +110,7 @@ Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
     ```
     {: codeblock}
 
-    Se hai bisogno di aiuto per trovare i valori chiave delle credenziali per la tua applicazione, consulta il *passo 5* della sezione [Prima di iniziare](app_id.html#before) per i dettagli relativi a dove trovarli.
+    Se hai bisogno di aiuto per trovare i valori chiave delle credenziali per la tua applicazione, consulta il *passo 5* della sezione [Prima di iniziare](app_id.html#before) per i dettagli relativi a dove trovarli. 
     {: tip}
 
 4. Configura passport con la serializzazione e la deserializzazione. Questo passo di configurazione è richiesto per la persistenza della sessione autenticata attraverso le richieste HTTP. Per ulteriori informazioni, consulta la [documentazione di passport ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](http://passportjs.org/docs){: new_window}.
@@ -118,7 +118,7 @@ Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
   passport.serializeUser(function(user, cb) {
     cb(null, user);
     });
-
+    
   passport.deserializeUser(function(obj, cb) {
     cb(null, obj);
     });
@@ -130,7 +130,7 @@ Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
   app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
   app.get("/protected", passport.authenticate(WebAppStrategy.STRATEGY_NAME)), function(req, res)
   res.json(req.user);
-  });
+  }); 
   ```
   {: codeblock}
 
@@ -195,7 +195,7 @@ Per personalizzare la pagina:
 
 {{site.data.keyword.appid_short_notm}} fornisce una pagina di accesso predefinita che puoi richiamare se non hai delle tue pagine dell'IU da visualizzare.
 
-A seconda della configurazione del tuo provider di identità. le pagine che puoi visualizzare differiscono. Il servizio non fornisce funzioni avanzate per i provider di identità social perché non abbiamo mai accesso alle informazioni sull'account di un utente. Gli utenti devono andare al provider di identità per gestire le loro informazioni. Ad esempio, se vogliono modificare la loro password di Facebook, devono andare a www.facebook.com.
+A seconda della configurazione del tuo provider di identità. le pagine che puoi visualizzare differiscono. Il servizio non fornisce funzioni avanzate per i provider di identità social perché non abbiamo mai accesso alle informazioni sull'account di un utente. Gli utenti devono andare al provider di identità per gestire le loro informazioni. Ad esempio, se vogliono modificare la loro password di Facebook, devono andare a [https://www.facebook.com](https://www.facebook.com).
 
 Consulta la seguente tabella per vedere quali pagine puoi visualizzare per ciascun tipo di provider di identità.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-08-15"
+lastupdated: "2018-10-18"
 
 ---
 {:new_window: target="_blank"}
@@ -33,7 +33,7 @@ Per ulteriori informazioni, vedi [Sviluppo di applicazioni senza server](../apps
 
 Il plug-in {{site.data.keyword.IBM_notm}} SDK Generator integra facilmente i servizi di back-end alla tua applicazione con un SDK generato. Quando si verifica una modifica a un'API REST, puoi rigenerare l'SDK e sostituire quello precedente per un upgrade dell'SDK senza soluzione di continuità. Puoi anche integrare la CLI in una pipeline DevOps e assicurarti che l'SDK sia sempre congruente con la specifica API ogni volta che l'applicazione viene creata.
 
-Per ulteriori informazioni, vedi [Integrazione dei servizi di back-end con un SDK generato](../apps/deploying/api_management.html).
+Per ulteriori informazioni, vedi [Integrazione dei servizi di back-end con un SDK generato](/docs/swift/backend/cli_sdkgen.html).
 
 ## Distribuzione a un cluster Kubernetes
 {: #deploy_kube}

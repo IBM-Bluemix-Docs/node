@@ -34,7 +34,7 @@ var appzip = require ('appmetrics-zipkin');
 ```
 {: codeblock}
 
-A instrução a seguir faz com que o rastreio seja incluído nas chamadas de método `HTTP` e `request` e os dados sejam enviados para o servidor Zipkin. Por padrão, o módulo procura o servidor Zipkin em `localhost` e `port 9411`. É possível mudar o nome do host e a porta usando a sintaxe a seguir:
+A instrução a seguir faz com que o rastreio seja incluído nas chamadas de método `HTTP` e `request` e os dados sejam enviados para o servidor Zipkin. Por padrão, o módulo procura o servidor Zipkin em `localhost` e a porta `9411`. É possível mudar o nome do host e a porta usando a sintaxe a seguir:
 ```js
 var appzip = require('appmetrics-zipkin')({
  host: "my.host.here",
@@ -86,7 +86,7 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 O módulo `openzipkin/zipkin` é transferido por download, instalado e iniciado na porta `9411` usando um simples comando.
 
 ### Acessando o console do Zipkin
-A imagem a seguir mostra o servidor Zipkin que é executado em `localhost` em `port 9411`:
+A imagem a seguir mostra o servidor Zipkin que é executado em `localhost` na porta `9411`:
 
 ![ZipkinNoData](images/ZipkinNoData.png)
 
@@ -98,8 +98,8 @@ A imagem a seguir mostra o servidor Zipkin que é executado em `localhost` em `p
 Se você seguir a [documentação do projeto GitHub](https://github.com/ibm-developer/nodejs-zipkin-tracing), terminará com o aplicativo de amostra a seguir. É um processo simples que envolve rastrear uma solicitação e uma resposta entre dois terminais. As imagens a seguir mostram o servidor Zipkin com dados de rastreio coletados na exibição. O ponto chave a ser lembrado é a inclusão de `require('appmetrics-zipkin')` e, opcionalmente, o código de configuração do servidor Zipkin. O cenário de exemplo a seguir mostra como é possível incluir rapidamente o rastreio do Zipkin nos aplicativos Node.js existentes.
 
 ### Visão geral do cenário de rastreio:
-* Um **front-end**, conhecido como o pusher, solicita ao usuário o comprimento de uma sequência a ser criada e convertida em minúsculas. Quanto maior o número, maior a sequência e mais tempo ela levará para manipular a solicitação. Disponível na  ` porta 3000 `.
-* Um **backend**, conhecido como o getter, manipula a solicitação e está disponível em `port 3001`.
+* Um **front-end**, conhecido como o pusher, solicita ao usuário o comprimento de uma sequência a ser criada e convertida em minúsculas. Quanto maior o número, maior a sequência e mais tempo ela levará para manipular a solicitação. Disponível na porta `3000`.
+* Um **back-end**, conhecido como o getter, manipula a solicitação e está disponível na porta `3001`.
 * Um **servidor Zipkin** é executado localmente ou no Kubernetes no qual você vê seus dados de rastreio.
 
 ### App front-end (pusher)
@@ -115,8 +115,7 @@ Envie uma solicitação do pusher para o getter:
 ![500please](images/500Please.png)
 
 ### Visualizando rastreios com a UI da web do Zipkin
-Os dados de rastreio enviados para o Zipkin podem ser visualizados com a IU da web do Zipkin em `localhost:9411`. É possível ver que o **getter** recebe a entrada do usuário (eles estão querendo enviar uma mensagem longa de 500 caracteres para o getter, usando o serviço pusher):
-![Getter500msg](images/Getter500Msg.png)
+Os dados de rastreio enviados para o Zipkin podem ser visualizados com a IU da web do Zipkin em `localhost:9411`. É possível ver que o **getter** recebe entrada do usuário (o usuário deseja enviar uma mensagem longa de 500 caracteres para o getter, usando o serviço pusher): ![Getter500msg](images/Getter500Msg.png)
 
 Os detalhes da solicitação do usuário são mostrados. Observe o "500" que é o parâmetro fornecido para a solicitação do usuário. Eles queriam gerar uma sequência de 500 caracteres. É possível ver exatamente o que o usuário solicitou e quanto tempo levou para manipular essa solicitação. O conteúdo da solicitação (carga útil), retornado do servidor, não é visível. 
 
