@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-18"
+lastupdated: "2018-10-04"
 
 ---
 {:new_window: target="_blank"}
@@ -66,7 +66,7 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
 ```
 {: codeblock}
 
-De forma predeterminada, el nivel de registro se establece en `INFO` y la variable de entorno **LOG_LEVEL** de la aplicación la puede alterar temporalmente.
+De forma predeterminada, el nivel de registro se establece en `OFF` (desactivado) para que se pueda utilizar de forma segura en bibliotecas, pero se puede alterar temporalmente por la variable de entorno **LOG_LEVEL** de la aplicación.
 {: tip}
 
 ## Pasos siguientes

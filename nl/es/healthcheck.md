@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-18"
+lastupdated: "2018-10-17"
 
 ---
 
@@ -13,28 +13,43 @@ lastupdated: "2018-09-18"
 {:pre: .pre}
 {:tip: .tip}
 
-# Utilización de la comprobación de estado en apps Node.js
+# Utilización de una comprobación de estado en las apps Node.js
 {: #healthcheck}
 
-Las comprobaciones de estado proporcionan un mecanismo simple para determinar si una aplicación del lado del servidor se está comportando correctamente. Muchos entornos de despliegue, como [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry) y [Kubernetes](https://www.ibm.com/cloud/container-service), se pueden configurar para sondear los puntos finales de estado de forma periódica para determinar si una instancia del servicio está lista para aceptar tráfico.
+Las comprobaciones de estado proporcionan un mecanismo simple para determinar si una aplicación del lado del servidor se está comportando correctamente. Los entornos de nube, como [Kubernetes](https://www.ibm.com/cloud/container-service) y [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry), se pueden configurar para sondear los puntos finales de estado de forma periódica para determinar si una instancia del servicio está lista para aceptar tráfico.
 
 ## Visión general de la comprobación de estado
 {: #overview}
 
-Normalmente se accede a las comprobaciones de estado por `HTTP`, y utilizan códigos de retorno estándares para indicar el estado `UP` o `DOWN`. Entre los ejemplos se incluye volver a `200` para `UP`, y `5xx` para `DOWN`. Por ejemplo, se utiliza un código de retorno `503` cuando la aplicación no puede manejar solicitudes y se utiliza un código de retorno `500` cuando el servidor experimenta una condición de error. El valor de retorno de una comprobación de estado es variable, pero una respuesta JSON mínima, como `{“status”: “UP”}`, proporciona coherencia.
+Las comprobaciones de estado proporcionan un mecanismo simple para determinar si una aplicación del lado del servidor se está comportando correctamente. Normalmente se consumen a través de HTTP y utilizan códigos de retorno estándares para indicar el estado UP (activo) o DOWN (inactivo). El valor de retorno de una comprobación de estado es variable, pero típicamente es una respuesta JSON mínima, como `{"status": "UP"}`.
 
-Kubernetes define los sondeos de [actividad](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) y de [preparación](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/):
+Kubernetes tiene una noción matizada del estado del proceso. Define dos análisis:
 
-* El sondeo de actividad permite a una aplicación indicar si se puede reiniciar el proceso. Se aplica un subconjunto de consideraciones: la comprobación de `actividad` puede fallar si se alcanza un umbral de memoria, por ejemplo. Si la app se está ejecutando en Kubernetes, considere la posibilidad de añadir un punto final `liveness` para asegurarse de que el proceso se reinicia cuando sea necesario.
+- Se utiliza una prueba de _**preparación**_ para indicar si el proceso puede manejar solicitudes (es direccionable).
 
-* El sondeo de preparación se utiliza para las decisiones de direccionamiento automático. El éxito o la anomalía indica si la aplicación puede recibir un nuevo trabajo. Este punto final puede incluir consideraciones para servicios descendentes necesarios. Considere la posibilidad de almacenar en memoria caché el resultado de las comprobaciones de servicio en sentido descendente para minimizar la carga global en el sistema (por ejemplo, la conectividad de base de datos de prueba como máximo una vez por segundo).
+  Kubernetes no direcciona el trabajo a un contenedor con una prueba de actividad anómala. Una prueba de actividad puede fallar si un servicio no ha terminado de inicializarse, o si está ocupado, sobrecargado o no puede procesar las solicitudes.
 
-Cloud Foundry sólo utiliza un punto final de estado. Si esta comprobación falla, Cloud Foundry reinicia el proceso. Pero si tiene éxito, Cloud Foundry presupone que el proceso puede manejar un nuevo trabajo. Esta comprobación de estado convierte al punto final único en una especie de combinación entre actividad y preparación.
+- Una prueba de _**actividad**_ se utiliza para indicar si el proceso debe reiniciarse.
 
-## Adición de comprobación de estado a una app Node.js existente
+  Kubernetes detiene y reinicia un contenedor con una prueba de actividad ( `liveness`) anómala. Utilice una prueba de actividad para limpiar procesos en un estado no recuperable, por ejemplo, si se ha agotado la memoria o si el contenedor no se ha detenido correctamente después de que un proceso interno haya fallado.
+
+A modo de comparación, Cloud Foundry utiliza un punto final de estado. Si la comprobación falla, el proceso se reinicia, pero si se realiza correctamente, las solicitudes se direccionan a la misma. En este entorno, el punto final se realiza correctamente cuando el proceso está activo. Se ha configurado un retraso inicial para posponer la comprobación de estado hasta que el servicio haya finalizado la inicialización para evitar ciclos de reinicio.
+
+La tabla siguiente proporciona una orientación sobre las respuestas que los puntos finales de estado singulares, de actividad y de preparación van a proporcionar.
+
+| Estado    | Preparación                   | Actividad                   | Estado                    |
+|----------|-----------------------------|----------------------------|---------------------------|
+|          | No es correcta y no se carga       | No es correcto y provoca un reinicio      | No es correcto y provoca un reinicio     |
+| Iniciando | 503 - No disponible           | 200 - Bien                   | Utilizar retraso para evitar la prueba   |
+| Activo       | 200 - Bien                    | 200 - Bien                   | 200 - Bien                  |
+| Deteniendo | 503 - No disponible           | 200 - Bien                   | 503 - No disponible         |
+| Inactivo     | 503 - No disponible           | 503 - No disponible          | 503 - No disponible         |
+| Con errores  | 500 - Error del servidor          | 500 - Error del servidor         | 500 - Error del servidor        |
+
+## Adición de una comprobación de estado a una app Node.js existente
 {: #add-healthcheck-existing}
 
-Para añadir un punto final de comprobación de estado a una app existente, empiece introduciendo una nueva ruta, como se muestra en el ejemplo siguiente:
+Añada una comprobación de actividad y estado mínima a una aplicación existente mediante la introducción de una nueva ruta, como se muestra en el ejemplo siguiente:
 ```js
 router.get('/', function (req, res, next) {
     res.json({status: 'UP'});
@@ -43,7 +58,7 @@ app.use("/health", router);
 ```
 {: codeblock}
 
-La adición de criterios significativos aquí garantiza que una respuesta satisfactoria del punto final `/health` indica correctamente que el servicio está listo para manejar las solicitudes.
+Compruebe el estado de la app con un navegador accediendo al punto final `/health`.
 
 ## Acceso a la comprobación de estado desde las apps del kit de iniciación de Node.js
 {: #healthcheck-starterkit}
@@ -51,6 +66,7 @@ La adición de criterios significativos aquí garantiza que una respuesta satisf
 De forma predeterminada, al generar una app Node.js utilizando un kit de iniciación, hay disponible un punto final de comprobación de estado básico (no autorizado) en `/health` para comprobar el estado de la app (activa/inactiva).
 
 El siguiente archivo `/server/routers/health.js` proporciona el código de punto final de comprobación de estado:
+
 ```js
 var express = require('express');
 
@@ -66,5 +82,54 @@ module.exports = function(app) {
 ```
 {: codeblock}
 
-Puede personalizar la comprobación para asegurarse de que sólo se devuelve correctamente cuando la aplicación está lista para aceptar tráfico.
-{: tip}
+## Recomendaciones para pruebas de actividad y preparación
+
+Las pruebas de comprobación pueden incluir la viabilidad de conexiones a servicios en sentido descendente en el resultado cuando no haya una reserva aceptable si el servicio en sentido descendente no está disponible. Esto no implica llamar a la comprobación de estado que proporciona directamente el servicio en sentido descendente, puesto que la infraestructura realiza la comprobación. En su lugar, considere la posibilidad de verificar el estado de las referencias existentes que tiene la aplicación en los servicios en sentido descendente: puede ser una conexión JMS a WebSphere MQ o un consumidor o productor Kafka inicializado. Si comprueba la viabilidad de referencias internas en servicios en sentido descendente, almacene en memoria caché el resultado para minimizar el impacto que tiene la comprobación de estado en la aplicación.
+
+Una prueba de actividad, por el contrario, tiene en cuenta lo que se comprueba, ya que un error puede provocar una terminación inmediata del proceso. Un punto final HTTP simple que siempre devuelva `{"status": "UP"}` con el código de estado `200` es una elección razonable.
+
+### Adición de soporte para los puntos finales de preparación (readiness) y actividad (liveness) de Kubernetes
+
+La biblioteca [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) de [CloudNativeJS], proporciona una infraestructura para definir puntos finales de preparación y actividad en Node que permiten la composición de orígenes para el estado de cada punto final.
+
+## Configuración de pruebas de actividad y preparación en Kubernetes
+
+Declare las pruebas de actividad y preparación junto con el despliegue de Kubernetes. Ambas pruebas utilizan los mismos parámetros de configuración:
+
+* El kubelet espera a `initialDelaySeconds` antes de la primera prueba.
+
+* El kubelet prueba el servicio cada `periodSeconds` segundos. El valor predeterminado es 1.
+
+* La prueba expira pasados `timeoutSeconds` segundos. El valor mínimo y valor predeterminado es 1.
+
+* La prueba se realiza correctamente si es satisfactoria `successThreshold` veces tras un error. El valor predeterminado y mínimo es 1. El valor debe ser 1 en las pruebas de actividad.
+
+* Cuando se inicia un pod y la prueba falla, Kubernetes intenta reiniciar el pod `failureThreshold` veces y luego abandona. El valor mínimo es 1 y el valor predeterminado es 3.
+    - En una prueba de actividad, "abandonar" significa reiniciar el pod.
+    - En una prueba de preparación, "abandonar" significa marcar el pod como `Unready` (no preparado).
+
+Para evitar los ciclos de reinicio, establezca `livenessProbe.initialDelaySeconds` para que sea seguro más tiempo del que necesita el servicio para inicializarse. Puede utilizar un valor más corto para `readinessProbe.initialDelaySeconds`, para direccionar solicitudes al servicio en cuanto esté listo.
+
+Consulte la siguiente configuración de ejemplo:
+```yaml
+spec:
+  containers:
+  - name: ...
+    image: ...
+    readinessProbe:
+      httpGet:
+        path: /health
+        port: 8080
+      initialDelaySeconds: 120
+      timeoutSeconds: 5
+    livenessProbe:
+      httpGet:
+        path: /liveness
+        port: 8080
+      initialDelaySeconds: 130
+      timeoutSeconds: 10
+      failureThreshold: 10
+```
+{: codeblock}
+
+Para obtener más información, consulte cómo [Configurar pruebas de actividad y comprobación](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).

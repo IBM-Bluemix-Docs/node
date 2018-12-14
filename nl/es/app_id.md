@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -27,7 +27,7 @@ Para obtener más información sobre todas las formas en que puede utilizar {{si
 {: #before}
 
 Asegúrese de que dispone de los siguientes requisitos previos listos para utilizar:
-1. Debe tener una [cuenta de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
+1. Debe tener una [cuenta de {{site.data.keyword.cloud}} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
 2. Instale la [CLI de {{site.data.keyword.cloud_notm}}](../cli/index.html).
 3. Instale el soporte de gestión de paquetes [npm ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://nodejs.org/){: new_window}.
 4. Implemente el servidor de Node.js con la [infraestructura Express ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](http://expressjs.com/){: new_window}. Para instalar la infraestructura Express, utilice la línea de mandatos para abrir el directorio con la app Node.js y ejecute el mandato siguiente:
@@ -58,7 +58,7 @@ Asegúrese de que dispone de los siguientes requisitos previos listos para utili
 {: #create-instance}
 
 **Suministre una instancia del servicio**
-1. En el [{{site.data.keyword.cloud_notm}}catálogo](https://console.bluemix.net/catalog/), seleccione la categoría **Web y móvil** y pulse {{site.data.keyword.appid_short_notm}}. Se abre la página de configuración del servicio.
+1. En el [catálogo de {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/), seleccione la categoría **Web y móvil** y pulse {{site.data.keyword.appid_short_notm}}. Se abre la página de configuración del servicio.
 2. Dé un nombre a la instancia de servicio, o utilice el nombre preestablecido.
 3. Seleccione el plan de precios y pulse **Crear**.
 
@@ -195,7 +195,7 @@ Para personalizar la página:
 
 {{site.data.keyword.appid_short_notm}} proporciona una página de inicio de sesión predeterminada que puede llamar si no tiene sus propias páginas de IU para mostrar.
 
-Dependiendo de la configuración del proveedor de identidad, las páginas que puede visualizar difieren. El servicio no proporciona funciones avanzadas para proveedores de identidad social porque no tenemos acceso nunca a la información de la cuenta de un usuario. Los usuarios deben ir al proveedor de identidad para gestionar su información. Por ejemplo, si desean cambiar su contraseña de Facebook, deben ir a www.facebook.com.
+Dependiendo de la configuración del proveedor de identidad, las páginas que puede visualizar difieren. El servicio no proporciona funciones avanzadas para proveedores de identidad social porque no tenemos acceso nunca a la información de la cuenta de un usuario. Los usuarios deben ir al proveedor de identidad para gestionar su información. Por ejemplo, si desean cambiar su contraseña de Facebook, deben ir a [https://www.facebook.com](https://www.facebook.com).
 
 Consulte la tabla siguiente para ver qué páginas puede visualizar para cada tipo de proveedor de identidad.
 

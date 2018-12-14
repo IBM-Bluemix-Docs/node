@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -22,7 +22,7 @@ Asegúrese de utilizar el release más reciente de Node.js LTS.
 ## Creación de una app Node.js
 {: #create_project}
 
-1. En la página [Kits de iniciación](https://console.bluemix.net/developer/appservice/starter-kits) de {{site.data.keyword.dev_console}}, seleccione un Kit de iniciación escrita en `Node.js`. También puede crear una app de inicio en blanco pulsando **Crear app** y seleccionando `Node.js` como el idioma.
+1. En la página [Kits de iniciación](https://console.bluemix.net/developer/appservice/starter-kits) de {{site.data.keyword.dev_console}}, seleccione un Kit de iniciación escrito en `Node.js`. También puede crear una app de inicio en blanco pulsando **Crear app** y seleccionando `Node.js` como lenguaje.
 
     Debe haber iniciado sesión en una cuenta de {{site.data.keyword.cloud_notm}} para crear un proyecto. Si no tiene una cuenta, puede [registrarse para una cuenta gratuita](https://console.bluemix.net/registration).
     {: tip}
@@ -55,7 +55,7 @@ Asegúrese de utilizar el release más reciente de Node.js LTS.
 {: #add_service}
 
 1. Vuelva a su proyecto en {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}}.
-2. Pulse **Añadir servicio**, seleccione la categoría del servicio que desea añadir, pulse **Siguiente** y, a continuación, elija el servicio. Por ejemplo, para añadir una base de datos NoSQL a la aplicación, pulse en la categoría Datos y, a continuación, seleccione Cloudant, que ofrece un plan lite para el desarrollo gratuito. {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} suministra el servicio por usted de acuerdo con el plan seleccionado.
+2. Pulse **Añadir servicio**, seleccione la categoría del servicio que desea añadir, pulse **Siguiente** y, a continuación, elija el servicio. Por ejemplo, para añadir una base de datos NoSQL a la aplicación, pulse en la categoría **Datos** y, a continuación, seleccione **Cloudant**, que ofrece un plan lite para el desarrollo gratuito. {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} suministra el servicio por usted de acuerdo con el plan seleccionado.
 Nota: Si anteriormente ha suministrado el servicio que tiene previsto utilizar, elija la categoría **Existente**.
 3. Cuando se haya suministrado el servicio, pulse **Descargar código** para volver a generar el proyecto con el SDK que se conecta al servicio.
 

@@ -34,7 +34,7 @@ var appzip = require('appmetrics-zipkin');
 ```
 {: codeblock}
 
-La siguiente sentencia hace que el rastreo se añada a las llamadas de método `HTTP` y `request` y los datos que se van a enviar al servidor Zipkin. De forma predeterminada, el módulo busca el servidor Zipkin en `localhost` y el `puerto 9411`. Puede cambiar el nombre de host y el puerto utilizando la sintaxis siguiente:
+La siguiente sentencia hace que el rastreo se añada a las llamadas de método `HTTP` y `request` y los datos que se van a enviar al servidor Zipkin. De forma predeterminada, el módulo busca el servidor Zipkin en `localhost` y el puerto `9411`. Puede cambiar el nombre de host y el puerto utilizando la sintaxis siguiente:
 ```js
 var appzip = require('appmetrics-zipkin')({
  host: "my.host.here",
@@ -86,7 +86,7 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 El módulo `openzipkin/zipkin` se descarga, se instala y se inicia en el puerto `9411` utilizando un mandato simple.
 
 ### Acceso a la consola Zipkin
-La imagen siguiente muestra el servidor Zipkin que se ejecuta en `localhost` en el `puerto 9411`:
+La imagen siguiente muestra el servidor Zipkin que se ejecuta en `localhost` en el puerto `9411`:
 
 ![ZipkinNoData](images/ZipkinNoData.png)
 
@@ -98,8 +98,8 @@ Puede pulsar **Find traces** y modificar las opciones de búsqueda para mostrar 
 Si sigue la [documentación del proyecto GitHub](https://github.com/ibm-developer/nodejs-zipkin-tracing), puede terminar con la siguiente aplicación de ejemplo. Es un proceso simple que implica el rastreo de una solicitud y respuesta entre dos puntos finales. Las imágenes siguientes muestran el servidor Zipkin con los datos de rastreo recopilados en la pantalla. El punto clave a recordar es la inclusión de `require ('appmetrics-zipkin')` y, opcionalmente, el código de configuración del servidor Zipkin. El siguiente caso de ejemplo muestra cómo puede añadir rápidamente el rastreo de Zipkin a las aplicaciones Node.js existentes.
 
 ### Visión general del caso de ejemplo de rastreo:
-* Un **frontal**, que se conoce como pusher, solicita al usuario la longitud de una serie que se va a crear y convertir en minúsculas. Cuanto mayor sea el número, mayor será la serie y más tiempo se tardará en manejar la solicitud. Disponible en el `puerto 3000`.
-* Un **programa de fondo**, conocido como getter, maneja la solicitud y está disponible en el `puerto 3001`.
+* Un **frontal**, que se conoce como pusher, solicita al usuario la longitud de una serie que se va a crear y convertir en minúsculas. Cuanto mayor sea el número, mayor será la serie y más tiempo se tardará en manejar la solicitud. Disponible en el puerto `3000`.
+* Un **programa de fondo**, conocido como getter, maneja la solicitud y está disponible en el puerto `3001`.
 * Un **servidor Zipkin** se ejecuta localmente o en Kubernetes donde puede ver los datos de rastreo.
 
 ### App frontal (pusher)
@@ -112,7 +112,7 @@ La app de fondo (getter) recibe la solicitud, que está a la escucha en un puert
 Envíe una solicitud del pusher al getter: ![500please](images/500Please.png)
 
 ### Visualización de rastreos con la interfaz de usuario web de Zipkin
-Los datos de rastreo enviados a Zipkin se pueden visualizar con la IU web de Zipkin en `localhost:9411`. Puede ver que el **getter** recibe la entrada de usuario (desean enviar un mensaje largo de 500 caracteres al getter, utilizando el servicio pusher):
+Los datos de rastreo enviados a Zipkin se pueden visualizar con la IU web de Zipkin en `localhost:9411`. Puede ver que el **getter** recibe la entrada de usuario (el usuario desea enviar un mensaje largo de 500 caracteres al getter, utilizando el servicio pusher):
 ![Getter500msg](images/Getter500Msg.png)
 
 Se muestran los detalles de la solicitud de usuario. Observe el “500”, que es el parámetro que se proporciona para la solicitud del usuario. Desean generar una serie de 500 caracteres. Puede ver exactamente lo que ha solicitado el usuario y cuánto tiempo ha tardado en manejar esta solicitud. El contenido de la solicitud (carga útil), devuelto desde el servidor, no es visible. 

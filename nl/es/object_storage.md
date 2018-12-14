@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-10-08"
 
 ---
 {:new_window: target="_blank"}
@@ -29,7 +29,7 @@ https://console.bluemix.net/docs/services/cloud-object-storage/about-cos.html#ab
 {: #before}
 
 Asegúrese de que dispone de los siguientes requisitos previos listos para utilizar:
-1. Debe tener una [cuenta de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
+1. Debe tener una [cuenta de {{site.data.keyword.cloud}} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
 2. Debe tener el [SDK de {{site.data.keyword.cos_short}} para Node.js ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/ibm/ibm-cos-sdk-js){: new_window}.
 3. Debe tener Node 4.x +.
 4. Localice los valores de clave de credenciales que se utilizarán posteriormente para la inicialización del SDK:
