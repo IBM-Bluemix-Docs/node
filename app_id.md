@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-08"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -27,7 +27,7 @@ For more information about all of the ways that you can use {{site.data.keyword.
 {: #before}
 
 Be sure that you have the following prerequisites ready to go:
-1. You must have an [{{site.data.keyword.cloud}} account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
+1. You must have an [{{site.data.keyword.cloud}} account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
 2. Install the [{{site.data.keyword.cloud_notm}} CLI](../cli/index.html).
 3. Install [npm ![External link icon](../icons/launch-glyph.svg "External link icon")](https://nodejs.org/){: new_window} package management support.
 4. Implement your Node.js server with the [Express framework ![External link icon](../icons/launch-glyph.svg "External link icon")](http://expressjs.com/){: new_window}. To install the Express framework, use the command line to open the directory with your Node.js app, and run the following command:
@@ -58,7 +58,7 @@ Be sure that you have the following prerequisites ready to go:
 {: #create-instance}
 
 **Provision an instance of the service**
-1. In the [{{site.data.keyword.cloud_notm}} Catalog](https://console.bluemix.net/catalog/), select the **Web and Mobile** category, and click {{site.data.keyword.appid_short_notm}}. The service configuration page opens.
+1. In the [{{site.data.keyword.cloud_notm}} Catalog](https://cloud.ibm.com/catalog/), select the **Web and Mobile** category, and click {{site.data.keyword.appid_short_notm}}. The service configuration page opens.
 2. Give your service instance a name, or use the preset name.
 3. Select your pricing plan and click **Create**.
 
@@ -144,7 +144,7 @@ For more information, see the [{{site.data.keyword.appid_short_notm}} Node.js Gi
 ## Step 4. Managing the sign-in experience
 {: #manage-sign-in}
 
-<!--The following content is similar to https://console.stage1.bluemix.net/docs/services/appid/login-widget.html#managing-the-sign-in-experience -->
+<!--The following content is similar to https://test.cloud.ibm.com/docs/services/appid/login-widget.html#managing-the-sign-in-experience -->
 
 {{site.data.keyword.appid_full}} provides a login widget for you to give your users secure sign-in options.
 
@@ -294,4 +294,4 @@ Having trouble? Check out [troubleshooting {{site.data.keyword.appid_short_notm}
 Great job! You added an authentication step to your app. Keep the momentum by trying one of the following options:
 
 * To learn more about and take advantage of all of the features that {{site.data.keyword.appid_short_notm}} offers, [check out the docs](/docs/services/appid/index.html)!
-* Starter Kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud}}. View the available starter kits in the [Mobile developer dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/developer/mobile/dashboard){: new_window}. Download the code. Run the app!
+* Starter Kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud}}. View the available starter kits in the [Mobile developer dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/developer/mobile/dashboard){: new_window}. Download the code. Run the app!

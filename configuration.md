@@ -1,10 +1,11 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-09-20"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -90,7 +91,7 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 
 ## Using the Node.js configuration manager from Starter Kit apps
 
-Node.js apps that are created with [Starter Kits](https://console.bluemix.net/developer/appservice/starter-kits/) automatically come with credentials and configurations that are needed to run in many Cloud deployment environments (CF, K8s, VSI, and Functions).
+Node.js apps that are created with [Starter Kits](https://cloud.ibm.com/developer/appservice/starter-kits/) automatically come with credentials and configurations that are needed to run in many Cloud deployment environments (CF, K8s, VSI, and Functions).
 
 ### Understanding service credentials
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-04"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 {:new_window: target="_blank"}
@@ -54,9 +54,9 @@ For more information about customizing the log messages with appenders, Log Leve
 ## Monitoring logs with App Service
 {: #monitoring}
 
-Node.js apps that are created by using the {{site.data.keyword.cloud_notm}} [App Service](https://console.bluemix.net/developer/appservice/dashboard) come with Log4js by default. Running the app natively or in a Cloud environment produces output like: `2018-07-26 12:40:15.121] [INFO] MyAppName - MyAppName listening on http://localhost:3000`. You can view the output as follows:
+Node.js apps that are created by using the {{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard) come with Log4js by default. Running the app natively or in a Cloud environment produces output like: `2018-07-26 12:40:15.121] [INFO] MyAppName - MyAppName listening on http://localhost:3000`. You can view the output as follows:
 * Use `stdout` when you run locally.
-* In the logs for [CloudFoundry](https://console.bluemix.net/docs/cli/reference/bluemix_cli/bx_cli.html#ibmcloud_app_logs) and [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/) deployments, which are accessed by `ibmcloud app logs --recent <APP_NAME>` and `kubectl logs <deployment name>`.
+* In the logs for [CloudFoundry](https://cloud.ibm.com/docs/cli/reference/bluemix_cli/bx_cli.html#ibmcloud_app_logs) and [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/) deployments, which are accessed by `ibmcloud app logs --recent <APP_NAME>` and `kubectl logs <deployment name>`.
 
 In the `server/server.js` file, you can see the following code:
 ```js
@@ -74,9 +74,9 @@ By default, the Log Level is set to `OFF` so that it can safely be used in libra
 
 Learn more about viewing the logs in each of our deployment environments:
 * [Kubernetes Logs](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
-* [Cloud Foundry Logs](https://console.bluemix.net/docs/cli/reference/bluemix_cli/bx_cli.html#ibmcloud_app_logs)
-* [{{site.data.keyword.openwhisk}} Logs & Monitoring](https://console.bluemix.net/docs/openwhisk/openwhisk_logs.html#openwhisk_logs)
+* [Cloud Foundry Logs](https://cloud.ibm.com/docs/cli/reference/bluemix_cli/bx_cli.html#ibmcloud_app_logs)
+* [{{site.data.keyword.openwhisk}} Logs & Monitoring](https://cloud.ibm.com/docs/openwhisk/openwhisk_logs.html#openwhisk_logs)
 
 Using a Log aggregator:
-* [{{site.data.keyword.cloud_notm}} Log Analysis](https://console.bluemix.net/docs/services/CloudLogAnalysis/log_analysis_ov.html#log_analysis_ov)
+* [{{site.data.keyword.cloud_notm}} Log Analysis](https://cloud.ibm.com/docs/services/CloudLogAnalysis/log_analysis_ov.html#log_analysis_ov)
 * [{{site.data.keyword.cloud_notm}} Private ELK stack](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.2/manage_metrics/logging_elk.html)

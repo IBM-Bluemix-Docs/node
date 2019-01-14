@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-17"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-10-17"
 # Enabling existing Node.js applications for cloud deployment
 {: #enable_existing}
 
-You can generate the files that are needed to enable your Node.js application to run on {{site.data.keyword.cloud}} by using the [{{site.data.keyword.dev_cli_long}} CLI enable command](https://console.bluemix.net/docs/cli/idt/commands.html#enable).
+You can generate the files that are needed to enable your Node.js application to run on {{site.data.keyword.cloud}} by using the [{{site.data.keyword.dev_cli_long}} CLI enable command](https://cloud.ibm.com/docs/cli/idt/commands.html#enable).
 
 ## Enabling your application
 {: #enable_app}
@@ -152,4 +152,4 @@ dockerfile-run : "docker-compose.yml"
 ## Next Steps
 {: #next_steps notoc}
 
-For more information, see [IBM Cloud Developer Tools CLI](https://console.bluemix.net/docs/cli/idt/commands.html#idt-cli).
+For more information, see [IBM Cloud Developer Tools CLI](https://cloud.ibm.com/docs/cli/idt/commands.html#idt-cli).

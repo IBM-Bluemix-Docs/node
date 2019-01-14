@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-08"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -15,16 +15,16 @@ lastupdated: "2018-10-08"
 
 # Getting started tutorial
 
-The following tutorial walks you through the steps to build, run locally, and deploy a Node.js app by using {{site.data.keyword.cloud_notm}} provided tools. You can use the [{{site.data.keyword.dev_cli_long}}](https://console.bluemix.net/docs/cloudnative/dev_cli.html#add-cli) on the command line or the web-based [{{site.data.keyword.cloud}} {{site.data.keyword.dev_console}}](https://console.bluemix.net/developer/appservice/dashboard) as shown in the following tutorial steps. By using either of these methods, you can generate a production-ready Node.js application in just minutes.
+The following tutorial walks you through the steps to build, run locally, and deploy a Node.js app by using {{site.data.keyword.cloud_notm}} provided tools. You can use the [{{site.data.keyword.dev_cli_long}}](https://cloud.ibm.com/docs/cloudnative/dev_cli.html#add-cli) on the command line or the web-based [{{site.data.keyword.cloud}} {{site.data.keyword.dev_console}}](https://cloud.ibm.com/developer/appservice/dashboard) as shown in the following tutorial steps. By using either of these methods, you can generate a production-ready Node.js application in just minutes.
 
 Make sure that you are using the latest Node.js LTS release.
 
 ## Creating a Node.js app
 {: #create_project}
 
-1. From the [Starter Kits](https://console.bluemix.net/developer/appservice/starter-kits) page in the {{site.data.keyword.dev_console}}, select a Starter Kit that is written in `Node.js`. You can also create a blank starter app by clicking **Create app** and selecting `Node.js` as the language.
+1. From the [Starter Kits](https://cloud.ibm.com/developer/appservice/starter-kits) page in the {{site.data.keyword.dev_console}}, select a Starter Kit that is written in `Node.js`. You can also create a blank starter app by clicking **Create app** and selecting `Node.js` as the language.
 
-    You must be logged in to an {{site.data.keyword.cloud_notm}} account to create a project. If you do not have an account, you can [register for a free account](https://console.bluemix.net/registration).
+    You must be logged in to an {{site.data.keyword.cloud_notm}} account to create a project. If you do not have an account, you can [register for a free account](https://cloud.ibm.com/registration).
     {: tip}
 
 2. Click **Create app**.
@@ -92,7 +92,7 @@ ibmcloud dev deploy –target container
 Continue checking out the topics the Node.js programming guide, or for more advanced deployments, you can learn to create a Kubernetes cluster and deploy your Node.js app to it.
 
 ### Set up a Kubernetes cluster
-For more information about setting up a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, check out the [tutorial steps](https://console.bluemix.net/docs/containers/cs_clusters.html#clusters).
+For more information about setting up a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, check out the [tutorial steps](https://cloud.ibm.com/docs/containers/cs_clusters.html#clusters).
 
 ### Deploy Node.js apps to Kubernetes cluster
 Learn how to [deploy Node.js apps to a Kubernetes cluster](../containers/cs_tutorials_apps.html).
