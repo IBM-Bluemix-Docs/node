@@ -25,11 +25,11 @@ Programming with Node.js on IBM Cloud
     Storing and sharing data
         cloudant.md
         object_storage.md
-        [Using a Content Delivery Network(CDN)](../tutorials/static-files-cdn.html)
+        [Using a Content Delivery Network(CDN)](/docs/tutorials/static-files-cdn.html)
 
-    [Creating an app using a Continuous Delivery Pipeline](../tutorials/multi-region-webapp.html)
-    [Creating an app using the MEAN stack](../tutorials/mean-stack.html)
-    [Creating REST APIs](../tutorials/create-manage-secure-apis.html)
+    [Creating an app using a Continuous Delivery Pipeline](/docs/tutorials/multi-region-webapp.html)
+    [Creating an app using the MEAN stack](/docs/tutorials/mean-stack.html)
+    [Creating REST APIs](/docs/tutorials/create-manage-secure-apis.html)
     
     deploying_apps.md
     enable_existing.md
