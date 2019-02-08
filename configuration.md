@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-02-04"
 
 ---
 
@@ -17,7 +17,7 @@ lastupdated: "2019-01-14"
 
 By implementing cloud-native principles, a Node.js application can move from one environment to another, from testing into production, without changing code or exercising otherwise untested code paths.
 
-The problem arises when significant differences exist in the way the config is presented, depending on the development environment. For example, CloudFoundry, which uses stringified JSON objects versus Kubernetes that uses either flat values or stringified JSON objects. Local development, aside from Kubernetes, has different considerations as well. Credentials can be presented differently across public and private, which further make it difficult for apps to be unchanged across environments.
+The problem arises when significant differences exist in the way the config is presented, depending on the development environment. For example, Cloud Foundry, which uses stringified JSON objects versus Kubernetes that uses either flat values or stringified JSON objects. Local development, aside from Kubernetes, has different considerations as well. Credentials can be presented differently across public and private, which further make it difficult for apps to be unchanged across environments.
 
 Whether you need to add {{site.data.keyword.cloud}} support to existing applications or create apps with Starter Kits, the goal is to provide portability for Node.js apps on any development platform.
 
@@ -103,12 +103,11 @@ Locally running applications can connect to {{site.data.keyword.cloud_notm}} ser
 
 When you push your application to {{site.data.keyword.cloud_notm}}, these values are no longer used. Instead, the application automatically connects to bound services by using environment variables.
 
-* **Cloud Foundry**: Service credentials are taken from the `VCAP_SERVICES` environment variable.
+* **Cloud Foundry**: Service credentials are taken from the `VCAP_SERVICES` environment variable. For Cloud Foundry Enrprise Edition, see this [getting started tutorial](docs/cloud-foundry/getting-started.html#getting-started) for more information.
 
 * **Kubernetes**: Service credentials are taken from individual environment variables per service.
 
 * **{{site.data.keyword.cloud_notm}} Container Service**: Service credentials are taken from VSIs or {{site.data.keyword.openwhisk}} (Openwhisk).
-
 
 ## Next Steps
 {: #next_steps notoc}

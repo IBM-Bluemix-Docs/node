@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -31,9 +31,10 @@ Make sure that you are using the latest Node.js LTS release.
 3. **Name** your app. A generic app name is provided if you want to use that.
 4. Enter a **unique host name**. The host name is used to access your application, for example: `expressjs-project.mybluemix.net`.
 5. Click **Create**. After your project is created, you can deploy by using a toolchain or you can continue to build, and deploy your project from the command line.
-6. If you choose to create a toolchain, click **Deploy to the cloud**, and select one of the following deployment methods.
-    * **Cloud Foundry App** - You do not need to manage the underlying infrastructure.
-    * **Kubernetes Cluster** - You must provision a set of worker nodes. For example, you can use VMs to deploy and manage highly available application containers. You can create a cluster or deploy to an existing cluster.
+6. To create a deployment toolchain in the dashboard, click **Deploy to Cloud**. Set up your deployment method according to the instructions for the method you choose:
+  * **Deploy to [Kubernetes](/docs/apps/deploying/containers.html#containers)**. This option creates a cluster of hosts, called worker nodes, to deploy and manage highly available application containers. You can create a cluster or deploy to an existing cluster.
+  * **Deploy to Cloud Foundry**. This option deploys your cloud-native app without you needing to manage the underlying infrastructure. If your account has access to {{site.data.keyword.cfee_full_notm}}, you can select a deployer type of either **[Public Cloud](/docs/cloud-foundry-public/about-cf.html#about-cf)** or **[Enterprise Environment](/docs/cloud-foundry-public/cfee.html#cfee)**, which you can use to create and manage isolated environments for hosting Cloud Foundry applications exclusively for your enterprise.
+  * **Deploy to a [Virtual Server](/docs/apps/vsi-deploy.html#vsi-deploy)**. This option provisions a virtual server instance, loads an image that includes your app, creates a DevOps toolchain, and initiates the first deployment cycle for you.
 
 7. Finalize your options, and then click **Create** to create the toolchain.
 
