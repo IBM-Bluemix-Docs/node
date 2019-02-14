@@ -42,6 +42,7 @@ A Node Report or a Heap Snapshot can be generated from the dashboard to enable a
 Add monitoring features to existing Express applications with the [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) constructor to pass in a number of configuration options. For example, one of the options uses an existing server rather than have `appmetrics-dash` start an extra server.
 
 ### Installing the dashboard
+{: #install-appmetrics}
 
 1. For example, use the following simple “Hello World” express application:
   ```js

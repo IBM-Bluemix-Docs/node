@@ -32,4 +32,4 @@ To learn more, visit [IBM's Digital Marketplace](https://www.ibm.com/us-en/marke
 
 ## Buildpack Support Statement
 
-[Buildpack support statement](../runtimes/common/buildpackSupport.html)
+[Buildpack support statement](/docs/runtimes/common/buildpackSupport.html)

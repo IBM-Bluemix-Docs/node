@@ -83,16 +83,19 @@ module.exports = function(app) {
 {: codeblock}
 
 ## Recommendations for readiness and liveness probes
+{: #readiness-recommend}
 
 Readiness probes can include the viability of connections to downstream services in their result when there isn’t an acceptable fallback if the downstream service is unavailable. This doesn't mean calling the health check that is provided by the downstream service directly, as infrastructure checks that for you. Instead, consider verifying the health of the existing references your application has to downstream services: this might be a JMS connection to WebSphere MQ, or an initialized Kafka consumer or producer. If you do check the viability of internal references to downstream services, cache the result to minimize the impact health checking has on your application.
 
 A liveness probe, by contrast, is deliberate about what is checked, as a failure results in immediate termination of the process. A simple http endpoint that always returns `{"status": "UP"}` with status code `200` is a reasonable choice.
 
 ### Adding support for Kubernetes readiness and liveness
+{: #kube-readiness-add}
 
 The [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) library from [CloudNativeJS], provides a framework for defining separate liveness and readiness endpoints in Node that allow composition of sources for the state of each endpoint.
 
 ## Configuring readiness and liveness probes in Kubernetes
+{: #kube-readiness-config}
 
 Declare liveness and readiness probes alongside your Kubernetes deployment. Both probes use the same configuration parameters:
 

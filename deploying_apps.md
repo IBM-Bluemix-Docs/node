@@ -13,14 +13,14 @@ lastupdated: "2019-02-08"
 {:tip: .tip}
 
 # Deploying and integrating Node.js apps
-{: #deploy_apps}
+{: #deploy_apps-nodejs}
 
 You can deploy your Node.js apps with a toolchain or by using the command line interface. A toolchain is a set of tool integrations. The command line interface is a simple way to deploy your apps and service instances.
 
 For more information, see [Deploying apps](/docs/apps/dep-app-tool.html#deploying-apps).
 
 ## Developing serverless Node.js apps
-{: #serverless}
+{: #serverless-nodejs}
 
 To facilitate serverless development, you can use the IBM Functions as a Service (FaaS) offering, {{site.data.keyword.openwhisk}}. {{site.data.keyword.openwhisk_short}} enables application logic to be run in response to events or direct invocations from web or mobile apps over HTTP without provisioning or managing servers.
 
@@ -33,7 +33,7 @@ For more information, see [Developing serverless apps](/docs/apps/deploying/func
 
 The {{site.data.keyword.IBM_notm}} SDK Generator plug-in easily integrates back-end services to your app with a generated SDK. When a change to a REST API occurs, you can regenerate the SDK and replace the old one for a seamless SDK upgrade. You can also integrate the CLI into a DevOps pipeline and ensure that the SDK is always consistent with the API spec each time the app is built.
 
-For more information, see [Integrating back-end services with a generated SDK](/docs/swift/backend/cli_sdkgen.html#sdk-cli).
+For more information, see [Integrating back-end services with a generated SDK](/docs/swift/backend/cli_sdkgen.html#sdkgen-cli).
 
 ## Deploying to a Kubernetes cluster
 {: #deploy_kube}

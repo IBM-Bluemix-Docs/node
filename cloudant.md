@@ -21,7 +21,7 @@ lastupdated: "2019-01-14"
 For more information, see [{{site.data.keyword.cloudant_short_notm}} Basics](/docs/services/Cloudant/basics/index.html#cloudant-nosql-db-basics){:new_window}.
 
 ## Before you begin
-{: #before}
+{: #prereqs-cloudant}
 
 Be sure that you have the following prerequisites ready to go:
  * [Nodejs-cloudant ![External link icon](../icons/launch-glyph.svg "External link icon")](https://github.com/cloudant/nodejs-cloudant){:new_window} 2.3.0+ client library.
@@ -30,14 +30,14 @@ Be sure that you have the following prerequisites ready to go:
  * The code snippets in these instructions use IAM authentication.
  
 ### Enabling IAM with {{site.data.keyword.cloudant_short_notm}}
-{: #enable_IAM}
+{: #enable_IAM-cloudant}
 
 Only new {{site.data.keyword.cloudant_short_notm}} service instances can be used with {{site.data.keyword.cloud_notm}} IAM.
 
 All new {{site.data.keyword.cloudant_short_notm}} service instances are enabled to use {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) when provisioned. When you provision a new instance from the {{site.data.keyword.cloud_notm}} Catalog, choose the **Use only IAM** authentication method. This mode means that only IAM credentials are provided by service binding and credential generation. You can find more information at [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/services/Cloudant/guides/iam.html).
 
 ## Step 1. Creating an instance of {{site.data.keyword.cloudant_short_notm}}
-{: #create-instance}
+{: #create-instance-cloudant}
 
 When you create an instance of {{site.data.keyword.cloudant_short_notm}}, you also create the database.
 
@@ -59,10 +59,10 @@ When you create an instance of {{site.data.keyword.cloudant_short_notm}}, you al
 8. From the navigation menu, click the **Databases** icon.
 9. Click **Create Database**, provide a database name, and then click **Create.** Your database page opens.
 
-If you want to see related information about provisioning an instance of the {{site.data.keyword.cloud_notm}} service, see [Creating an IBM Cloudant instance on IBM Cloud tutorial ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-nosql-db-instance-on-ibm-cloud){: new_window}.
+If you want to see related information about provisioning an instance of the {{site.data.keyword.cloud_notm}} service, see [Creating an IBM Cloudant instance on IBM Cloud tutorial](/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-nosql-db-instance-on-ibm-cloud){: new_window}.
 
 ## Step 2. Installing the SDK
-{: #install}
+{: #install-cloudant}
 
 <!--From github.com/cloudant/nodejs-cloudant#installation-and-usage-->
 
@@ -75,7 +75,7 @@ npm install --save @cloudant/cloudant
 Notice that your `package.json` file now shows the Cloudant package.
 
 ## Step 3. Initializing the SDK
-{: #initialize}
+{: #initialize-cloudant}
 
 After you initialize the SDK in your app, you can use {{site.data.keyword.cloudant_short_notm}} to store data. To initialize your connection, enter your credentials and provide a callback function to run when everything is ready.
 
@@ -105,7 +105,7 @@ Uppercase `Cloudant` is the package that you load by using `require()`. Lowercas
 {: tip}
 
 ### Managing data with basic operations
-{: #basic_operations}
+{: #basic_operations-cloudant}
 <!--Borrowed from https://github.com/cloudant/nodejs-cloudant/blob/master/example/crud.js-->
 
 These basic operations illustrate the actions to create, read, update, and delete your documents by using the initialized client.
@@ -171,7 +171,7 @@ var deleteDocument = function(callback) {
 {: codeblock}
 
 ## Step 4. Testing your app
-{: #test}
+{: #test-cloudant}
 
 Is everything set up correctly? Test it out!
 
@@ -182,7 +182,7 @@ Is everything set up correctly? Test it out!
 Having trouble? Check out the [{{site.data.keyword.cloudant_short_notm}} API Reference](/docs/services/Cloudant/api/index.html#api-reference-overview){:new_window}.
 
 ## Next steps
-{: #next notoc}
+{: #next-cloudant notoc}
 
 Great job! You added a level of secure persistence to your app. Keep the momentum by trying one of the following options:
 

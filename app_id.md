@@ -24,11 +24,11 @@ By requiring users to sign in to your app, you can store user data such as app p
 For more information about all of the ways that you can use {{site.data.keyword.appid_short_notm}} and architecture information, see [About {{site.data.keyword.appid_short_notm}}](/docs/services/appid/about.html).
 
 ## Before you begin
-{: #before}
+{: #prereqs-appid}
 
 Be sure that you have the following prerequisites ready to go:
 1. You must have an [{{site.data.keyword.cloud}} account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
-2. Install the [{{site.data.keyword.cloud_notm}} CLI](../cli/index.html).
+2. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/index.html).
 3. Install [npm ![External link icon](../icons/launch-glyph.svg "External link icon")](https://nodejs.org/){: new_window} package management support.
 4. Implement your Node.js server with the [Express framework ![External link icon](../icons/launch-glyph.svg "External link icon")](http://expressjs.com/){: new_window}. To install the Express framework, use the command line to open the directory with your Node.js app, and run the following command:
   ```
@@ -55,7 +55,7 @@ Be sure that you have the following prerequisites ready to go:
       * If the `redirectUri` value isn't provided, the App ID SDK retrieves the `application_uri` of the application that is running on {{site.data.keyword.cloud_notm}}, and appends the default suffix`/ibm/cloud/appid/callback`.
 
 ## Step 1. Creating an instance of {{site.data.keyword.appid_short_notm}}
-{: #create-instance}
+{: #create-instance-appid}
 
 **Provision an instance of the service**
 1. In the [{{site.data.keyword.cloud_notm}} Catalog](https://cloud.ibm.com/catalog/), select the **Web and Mobile** category, and click {{site.data.keyword.appid_short_notm}}. The service configuration page opens.
@@ -63,7 +63,7 @@ Be sure that you have the following prerequisites ready to go:
 3. Select your pricing plan and click **Create**.
 
 ## Step 2. Installing the SDK
-{: #install}
+{: #install-appid}
 
 1. Using the command line, open the directory with your Node.js app.
 2. Install the {{site.data.keyword.appid_short_notm}} service.
@@ -110,7 +110,7 @@ Be sure that you have the following prerequisites ready to go:
     ```
     {: codeblock}
 
-    If you need help finding the credential key values for your app, check *step 5* of the [Before you begin](app_id.html#before) section for details on where to find them. 
+    If you need help finding the credential key values for your app, check *step 5* of the [Before you begin](/docs/node/app_id.html#prereqs-appid) section for details on where to find them. 
     {: tip}
 
 4. Configure passport with serialization and deserialization. This configuration step is required for authenticated session persistence across HTTP requests. For more information, see the [passport docs ![External link icon](../icons/launch-glyph.svg "External link icon")](http://passportjs.org/docs){: new_window}.
@@ -142,7 +142,7 @@ Be sure that you have the following prerequisites ready to go:
 For more information, see the [{{site.data.keyword.appid_short_notm}} Node.js GitHub repository ![External link icon](../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window}.
 
 ## Step 4. Managing the sign-in experience
-{: #manage-sign-in}
+{: #manage-signin-appid}
 
 <!--The following content is similar to https://test.cloud.ibm.com/docs/services/appid/login-widget.html#managing-the-sign-in-experience -->
 
@@ -160,7 +160,7 @@ The service uses `OAuth 2` grant types to map the authorization process. When yo
 After you configure the settings for [social identity providers](/docs/services/appid/identity-providers.html) and [Cloud Directory](/docs/services/appid/cloud-directory.html), you can start implementing the code.
 
 ### Configuring social identity providers
-{: #social-identity}
+{: #social-identity-appid}
 
 To configure social identity providers, complete the following steps:
 
@@ -170,14 +170,14 @@ To configure social identity providers, complete the following steps:
 4. [Customize the preconfigured sign-in page](#login-widget) to display the image and colors of your choice.
 
 ### Configuring cloud directory
-{: #cloud-directory}
+{: #cloud-directory-appid}
 
 With {{site.data.keyword.appid_short_notm}}, you can manage your own user registry called cloud directory. Cloud directory enables users to sign up and sign in to your mobile and web apps by using their email and a password.
 
 To configure cloud directory, see [cloud directory](/docs/services/appid/cloud-directory.html).
 
 ### Customizing the default sign-in page
-{: #login-widget}
+{: #login-widget-appid}
 
 You can customize the preconfigured sign-in page to display the logo and colors of your choice.
 
@@ -191,7 +191,7 @@ To customize the page:
 6. In your browser, refresh your login page to verify your changes.
 
 ### Displaying the default pages
-{: #default-pages}
+{: #default-pages-appid}
 
 {{site.data.keyword.appid_short_notm}} provides a default login page that you can call if you don't have your own UI pages to display.
 
@@ -277,7 +277,7 @@ Want to provide your users with a custom experience? Check out the [{{site.data.
 {: tip}
 
 ## Step 5. Testing your app
-{: #test}
+{: #test-appid}
 
 Is everything set up correctly? You can test it out!
 
@@ -289,7 +289,7 @@ Is everything set up correctly? You can test it out!
 Having trouble? Check out [troubleshooting {{site.data.keyword.appid_short_notm}}](/docs/services/appid/ts_index.html).
 
 ## Next steps
-{: #next notoc}
+{: #next-appid notoc}
 
 Great job! You added an authentication step to your app. Keep the momentum by trying one of the following options:
 

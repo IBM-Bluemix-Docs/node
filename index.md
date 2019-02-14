@@ -15,7 +15,7 @@ lastupdated: "2019-02-01"
 
 # Getting started tutorial
 
-The following tutorial walks you through the steps to build, run locally, and deploy a Node.js app by using {{site.data.keyword.cloud_notm}} provided tools. You can use the [{{site.data.keyword.dev_cli_long}}](https://cloud.ibm.com/docs/cloudnative/dev_cli.html#add-cli) on the command line or the web-based [{{site.data.keyword.cloud}} {{site.data.keyword.dev_console}}](https://cloud.ibm.com/developer/appservice/dashboard) as shown in the following tutorial steps. By using either of these methods, you can generate a production-ready Node.js application in just minutes.
+The following tutorial walks you through the steps to build, run locally, and deploy a Node.js app by using {{site.data.keyword.cloud_notm}} provided tools. You can use the [{{site.data.keyword.dev_cli_long}}](/docs/cli/index.html#ibmcloud-cli) on the command line or the web-based [{{site.data.keyword.cloud}} {{site.data.keyword.dev_console}}](https://cloud.ibm.com/developer/appservice/dashboard) as shown in the following tutorial steps. By using either of these methods, you can generate a production-ready Node.js application in just minutes.
 
 Make sure that you are using the latest Node.js LTS release.
 
@@ -32,7 +32,7 @@ Make sure that you are using the latest Node.js LTS release.
 4. Enter a **unique host name**. The host name is used to access your application, for example: `expressjs-project.mybluemix.net`.
 5. Click **Create**. After your project is created, you can deploy by using a toolchain or you can continue to build, and deploy your project from the command line.
 6. To create a deployment toolchain in the dashboard, click **Deploy to Cloud**. Set up your deployment method according to the instructions for the method you choose:
-  * **Deploy to [Kubernetes](/docs/apps/deploying/containers.html#containers)**. This option creates a cluster of hosts, called worker nodes, to deploy and manage highly available application containers. You can create a cluster or deploy to an existing cluster.
+  * **Deploy to [Kubernetes](/docs/apps/deploying/containers.html#containers-kube)**. This option creates a cluster of hosts, called worker nodes, to deploy and manage highly available application containers. You can create a cluster or deploy to an existing cluster.
   * **Deploy to Cloud Foundry**. This option deploys your cloud-native app without you needing to manage the underlying infrastructure. If your account has access to {{site.data.keyword.cfee_full_notm}}, you can select a deployer type of either **[Public Cloud](/docs/cloud-foundry-public/about-cf.html#about-cf)** or **[Enterprise Environment](/docs/cloud-foundry-public/cfee.html#cfee)**, which you can use to create and manage isolated environments for hosting Cloud Foundry applications exclusively for your enterprise.
   * **Deploy to a [Virtual Server](/docs/apps/vsi-deploy.html#vsi-deploy)**. This option provisions a virtual server instance, loads an image that includes your app, creates a DevOps toolchain, and initiates the first deployment cycle for you.
 
@@ -93,7 +93,7 @@ ibmcloud dev deploy –target container
 Continue checking out the topics the Node.js programming guide, or for more advanced deployments, you can learn to create a Kubernetes cluster and deploy your Node.js app to it.
 
 ### Set up a Kubernetes cluster
-For more information about setting up a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, check out the [tutorial steps](https://cloud.ibm.com/docs/containers/cs_clusters.html#clusters).
+For more information about setting up a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, check out the [tutorial steps](/docs/containers/cs_clusters.html#clusters).
 
 ### Deploy Node.js apps to Kubernetes cluster
-Learn how to [deploy Node.js apps to a Kubernetes cluster](../containers/cs_tutorials_apps.html).
+Learn how to [deploy Node.js apps to a Kubernetes cluster](/docs/containers/cs_tutorials_apps.html#cs_apps_tutorial).

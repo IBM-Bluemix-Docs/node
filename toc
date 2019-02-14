@@ -25,7 +25,7 @@ Programming with Node.js on IBM Cloud
     Storing and sharing data
         cloudant.md
         object_storage.md
-    
+      
     deploying_apps.md
     enable_existing.md
     {: .navgroup-end}

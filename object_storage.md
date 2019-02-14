@@ -12,7 +12,7 @@ lastupdated: "2019-01-14"
 {:pre: .pre}
 
 # Storing static content in Object Storage
-{: #object}
+{: #object-storage}
 
 <!-- Sample Code for the SDK: https://github.com/ibm/ibm-cos-sdk-js#example-code -->
 
@@ -26,7 +26,7 @@ https://cloud.ibm.com/docs/services/cloud-object-storage/about-cos.html#about-ib
 {{site.data.keyword.cos_short}} (COS) is a storage system that can be used to store unstructured data that is flexible, cost-effective, and scalable. The data is accessible through SDKs or by using the IBM user interface. You can use {{site.data.keyword.cos_short}} to access your unstructured data through a self-service portal that is backed by RESTful APIs and SDKs.
 
 ## Before you begin
-{: #before}
+{: #prereqs-cos}
 
 Be sure that you have the following prerequisites ready to go:
 1. You must have an [{{site.data.keyword.cloud}} account ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
@@ -36,10 +36,10 @@ Be sure that you have the following prerequisites ready to go:
 
     * _**endpoint**_ - The public endpoint for your Cloud Object Storage. The endpoint is available from the [{{site.data.keyword.cloud_notm}} Dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/dashboard/apps){: new_window}.
     * _**api-key**_ - The API key that is generated when the service credentials are created. Write access is required for creation and deletion examples.
-    * _**resource-instance-id**_ - The resource ID for your Cloud Object Storage. The resource ID is available through the [{{site.data.keyword.cloud_notm}} CLI](../cli/index.html) or [{{site.data.keyword.cloud_notm}} Dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/dashboard/apps){: new_window}.
+    * _**resource-instance-id**_ - The resource ID for your Cloud Object Storage. The resource ID is available through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/index.html) or [{{site.data.keyword.cloud_notm}} Dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/dashboard/apps){: new_window}.
 
 ## Step 1. Creating an instance of {{site.data.keyword.cos_short}}
-{: #create-instance}
+{: #create-instance-cos}
 
 1. In the [{{site.data.keyword.cloud_notm}} Catalog](https://cloud.ibm.com/catalog/), select the **Storage** category, and click {{site.data.keyword.cos_short}}. The service configuration page opens.
 2. Give your service instance a name, or use the preset name.
@@ -49,7 +49,7 @@ Be sure that you have the following prerequisites ready to go:
 6. In the Add new credential page, be sure that the role is set to **Writer,** and then click **Add.** The new credential is created and shown on the Service credentials page.
 
 ## Step 2. Installing the SDK
-{: #install}
+{: #install-cos}
 
 Install the {{site.data.keyword.cos_short}} SDK for Node.js by using the [npm](https://nodejs.org/) package manager from the command line:
 ```
@@ -58,7 +58,7 @@ npm install ibm-cos-sdk
 {: pre}
 
 ## Step 3. Initializing the SDK
-{: #initialize}
+{: #initialize-cos}
 
 After you initialize the SDK in your app, you can use {{site.data.keyword.cos_short}} to store data. Initialize your connection by supplying your credentials and providing a callback function to run when everything is ready.
 
@@ -79,7 +79,7 @@ After you initialize the SDK in your app, you can use {{site.data.keyword.cos_sh
   ```
   {: codeblock}
 
-  If you need help finding the credential key values for your app, check *step 4* of the [Before you begin](object_storage.html#before) section for details on where to find them.
+  If you need help finding the credential key values for your app, check *step 4* of the [Before you begin](/docs/node/object_storage.html#prereqs-cos) section for details on where to find them.
   {: tip}
 
 3. Add the following code to your `server.js` file.
@@ -147,7 +147,7 @@ function doDeleteObject() {
 Check out the [full documentation](/docs/services/cloud-object-storage/libraries/node.html#using-node-js) for multipart uploads, security features, and other operations.
 
 ## Step 4. Testing your app
-{: #test}
+{: #test-cos}
 
 Is everything set up correctly? Test it out!
 
@@ -158,7 +158,7 @@ Is everything set up correctly? Test it out!
 Having trouble? Check out the [{{site.data.keyword.cos_short}} API Reference](/docs/services/cloud-object-storage/api-reference/about-api.html){:new_window}.
 
 ## Next steps
-{: #next notoc}
+{: #next-cos notoc}
 
 Great job! You added a level of secure persistence to your app. Keep the momentum by trying one of the following options:
 
