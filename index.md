@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -24,7 +24,7 @@ Make sure that you are using the latest Node.js LTS release.
 
 1. From the [Starter Kits](https://cloud.ibm.com/developer/appservice/starter-kits) page in the {{site.data.keyword.dev_console}}, select a Starter Kit that is written in `Node.js`. You can also create a blank starter app by clicking **Create app** and selecting `Node.js` as the language.
 
-    You must be logged in to an {{site.data.keyword.cloud_notm}} account to create a project. If you do not have an account, you can [register for a free account](https://cloud.ibm.com/registration).
+    You must be logged in to an {{site.data.keyword.cloud_notm}} account to create an app. If you do not have an account, you can [register for a free account](https://cloud.ibm.com/registration).
     {: tip}
 
 2. Click **Create app**.

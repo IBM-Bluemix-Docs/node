@@ -102,7 +102,7 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 Node.js apps that are created with [Starter Kits](https://cloud.ibm.com/developer/appservice/starter-kits/) automatically come with credentials and configurations that are needed to run in many Cloud deployment environments (CF, K8s, VSI, and Functions).
 
 ### Understanding service credentials
-{: #service-credentials-nodejs}
+{: #credentials-nodejs}
 
 Your application configuration information for services is stored in the `localdev-config.json` file in the `/server/config` directory. The file is in the `.gitignore` directory to prevent sensitive information from being stored in Git. The connection information for any configured service that runs locally, such as user name, password, and host name, is stored in this file.
 

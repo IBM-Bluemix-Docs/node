@@ -73,7 +73,7 @@ Be sure that you have the following prerequisites ready to go:
   {: codeblock}
 
 ## Step 3. Initializing the SDK
-{: #initialize}
+{: #initialize-appid}
 
 1. Add the following `require` definitions to your `server.js` file.
     ```js

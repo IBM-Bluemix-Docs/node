@@ -89,6 +89,8 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 The `openzipkin/zipkin` module is downloaded, installed, and started on port `9411` by using one simple command.
 
 ### Accessing the Zipkin console
+{: #zipkin-console}
+
 The following image shows the Zipkin server that runs on `localhost` on port `9411`:
 
 ![ZipkinNoData](images/ZipkinNoData.png)
