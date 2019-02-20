@@ -23,13 +23,13 @@ Given the transient nature of processes in Cloud environments, logs must be coll
 ## Adding Log4js support to Node.js app
 {: #add_log4j}
 
-[Log4js](https://github.com/log4js-node/log4js-node) is a popular logging framework for Node.js, and provides many native benefits, which include: 
+[Log4js](https://github.com/log4js-node/log4js-node){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") is a popular logging framework for Node.js, and provides many native benefits, which include: 
 * Logging to `stdout` or `stderr`
 * Various appending options
 * Configurable log message layout and patterns
 * Using Log Levels for different log categories
 
-1. To use Log4js, run the following [npm](https://nodejs.org/) command in the root directory of your application, which installs the package and adds it to your `package.json` file.
+1. To use Log4js, run the following [npm](https://nodejs.org/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") command in the root directory of your application, which installs the package and adds it to your `package.json` file.
   ```bash
   npm install --save log4js
   ```
