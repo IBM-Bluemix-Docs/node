@@ -2,9 +2,10 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-02-19"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -49,14 +50,14 @@ Given the transient nature of processes in Cloud environments, logs must be coll
   ```
   {: screen}
 
-For more information about customizing the log messages with appenders, Log Levels, and configuration details, see the official [log4js-node documentation](https://log4js-node.github.io/log4js-node/).
+For more information about customizing the log messages with appenders, Log Levels, and configuration details, see the official [log4js-node documentation](https://log4js-node.github.io/log4js-node/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
 
 ## Monitoring logs with App Service
 {: #monitoring}
 
 Node.js apps that are created by using the {{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard) come with Log4js by default. Running the app natively or in a Cloud environment produces output like: `2018-07-26 12:40:15.121] [INFO] MyAppName - MyAppName listening on http://localhost:3000`. You can view the output as follows:
 * Use `stdout` when you run locally.
-* In the logs for [CloudFoundry](/docs/cli/reference/bluemix_cli/bx_cli.html#ibmcloud_app_logs) and [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/) deployments, which are accessed by `ibmcloud app logs --recent <APP_NAME>` and `kubectl logs <deployment name>`.
+* In the logs for [Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html) and [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") deployments, which are accessed by `ibmcloud app logs --recent <APP_NAME>` and `kubectl logs <deployment name>`.
 
 In the `server/server.js` file, you can see the following code:
 ```js
@@ -73,10 +74,10 @@ By default, the Log Level is set to `OFF` so that it can safely be used in libra
 {: #next_steps-logging notoc}
 
 Learn more about viewing the logs in each of our deployment environments:
-* [Kubernetes Logs](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
-* [Cloud Foundry Logs](/docs/cli/reference/bluemix_cli/bx_cli.html#ibmcloud_app_logs)
+* [Kubernetes Logs](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon")
+* [Cloud Foundry Logs](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html#logging_cf_apps)
 * [{{site.data.keyword.openwhisk}} Logs & Monitoring](/docs/openwhisk/openwhisk_logs.html#openwhisk_logs)
 
 Using a Log aggregator:
 * [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis/log_analysis_ov.html#log_analysis_ov)
-* [{{site.data.keyword.cloud_notm}} Private ELK stack](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.2/manage_metrics/logging_elk.html)
+* [{{site.data.keyword.cloud_notm}} Private ELK stack](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.2/manage_metrics/logging_elk.html){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon")
