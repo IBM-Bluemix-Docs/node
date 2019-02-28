@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-04"
+lastupdated: "2019-02-28"
 
 ---
 
@@ -112,7 +112,7 @@ Locally running applications can connect to {{site.data.keyword.cloud_notm}} ser
 
 When you push your application to {{site.data.keyword.cloud_notm}}, these values are no longer used. Instead, the application automatically connects to bound services by using environment variables.
 
-* **Cloud Foundry**: Service credentials are taken from the `VCAP_SERVICES` environment variable. For Cloud Foundry Enrprise Edition, see this [getting started tutorial](docs/cloud-foundry/getting-started.html#getting-started) for more information.
+* **Cloud Foundry**: Service credentials are taken from the `VCAP_SERVICES` environment variable. For Cloud Foundry Enrprise Edition, see this [getting started tutorial](/docs/cloud-foundry/getting-started.html#getting-started) for more information.
 
 * **Kubernetes**: Service credentials are taken from individual environment variables per service.
 
