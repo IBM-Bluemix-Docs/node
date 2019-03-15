@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-03-08"
+
+keywords: ibmcloud dev enable, nodejs cloud deployment, cloud enable node, deploy node, build node, node debug
+
+subcollection: nodejs
 
 ---
 
@@ -16,7 +20,7 @@ lastupdated: "2019-01-14"
 # Enabling existing Node.js applications for cloud deployment
 {: #enable_existing}
 
-You can generate the files that are needed to enable your Node.js application to run on {{site.data.keyword.cloud}} by using the [{{site.data.keyword.dev_cli_long}} CLI enable command](/docs/cli/idt/commands.html#enable).
+You can generate the files that are needed to enable your Node.js application to run on {{site.data.keyword.cloud}} by using the [{{site.data.keyword.dev_cli_long}} CLI enable command](/docs/cli/idt?topic=cloud-cli-idt-cli#enable).
 
 ## Enabling your application
 {: #enable_app}
@@ -78,17 +82,18 @@ Files can be easily compared with 'git diff' or a similar tool.
 The application, nodeapp, has been successfully saved into the current directory.
 demo: $
 ```
+{: screen}
 
 ## Build and deploy a cloud enabled Node application
 {: #build_deploy}
 
-Next, build your application with the [`build`](/docs/cli/idt/commands.html#build) command:
+Next, build your application with the [`build`](/docs/cli/idt?topic=cloud-cli-idt-cli#build) command:
 ```
 ibmcloud dev build
 ```
 {: codeblock}
 
-If the build completes successfully, you can deploy your application to {{site.data.keyword.cloud_notm}} with the following [`deploy`](/docs/cli/idt/commands.html#deploy) command:
+If the build completes successfully, you can deploy your application to {{site.data.keyword.cloud_notm}} with the following [`deploy`](/docs/cli/idt?topic=cloud-cli-idt-cli#deploy) command:
 ```
 ibmcloud dev deploy
 ```
@@ -152,4 +157,4 @@ dockerfile-run : "docker-compose.yml"
 ## Next Steps
 {: #next_steps-existing notoc}
 
-For more information, see [IBM Cloud Developer Tools CLI](/docs/cli/idt/commands.html#idt-cli).
+For more information, see [IBM Cloud Developer Tools CLI](/docs/cli/idt?topic=cloud-cli-idt-cli#idt-cli).

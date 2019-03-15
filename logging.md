@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-08"
+
+keywords: node logging, how to view logs node, add logging node, log4j node, stdout node, node log, output node
+
+subcollection: nodejs
 
 ---
 
@@ -16,7 +20,7 @@ lastupdated: "2019-02-27"
 # Logging in Node.js
 {: #logging_nodejs}
 
-Log messages are strings with contextual information about the state and activity of the microservice at the time that the log entry is made. Logs are required to diagnose how and why services fail, and plays a supporting role to [appmetrics](/docs/node/appmetrics.html#metrics) in monitoring application health.
+Log messages are strings with contextual information about the state and activity of the microservice at the time that the log entry is made. Logs are required to diagnose how and why services fail, and plays a supporting role to [appmetrics](/docs/node?topic=nodejs-metrics#metrics) in monitoring application health.
 
 Given the transient nature of processes in cloud environments, logs must be collected and sent elsewhere, usually to a centralized location for analysis. The most consistent way to log in cloud environments is to send log entries to standard output and error streams, which leaves the infrastructure to handle the rest.
 
@@ -67,7 +71,7 @@ You can use [Log4js](https://github.com/log4js-node/log4js-node){: new_window} !
 ## Monitoring with App Service apps
 {: #monitoring}
 
-Node.js apps that are created by using the {{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard) come with Log4js by default. You can open the `server/server.js` file to see the following Log4js code:
+Node.js apps that are created by using the {{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") come with Log4js by default. You can open the `server/server.js` file to see the following Log4js code:
 ```js
 var logger = log4js.getLogger(appName);
 var app = express();
@@ -95,7 +99,7 @@ You can view log output by using the following methods:
   ```
   {: codeblock}
 
-* For [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") deployments, you can access logs by running:
+* For [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/) deployments, you can access logs by running:
   ```
   kubectl logs <deployment name>
   ```
@@ -106,9 +110,9 @@ You can view log output by using the following methods:
 
 Learn more about viewing logs in each deployment environment:
 * [Kubernetes Logs](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon")
-* [Cloud Foundry Logs](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html#logging_cf_apps)
-* [{{site.data.keyword.openwhisk}} Logs & Monitoring](/docs/openwhisk/openwhisk_logs.html#openwhisk_logs)
+* [Cloud Foundry Logs](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps#logging_cf_apps)
+* [{{site.data.keyword.openwhisk}} Logs & Monitoring](/docs/openwhisk?topic=cloud-functions-openwhisk_logs#openwhisk_logs)
 
 Using a Log aggregator:
-* [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis/log_analysis_ov.html#log_analysis_ov)
+* [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis?topic=cloudloganalysis-log_analysis_ov#log_analysis_ov)
 * [{{site.data.keyword.cloud_notm}} Private ELK stack](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.2/manage_metrics/logging_elk.html){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon")

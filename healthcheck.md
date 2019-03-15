@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-03-08"
+
+keywords: healthcheck node, add healthcheck, healthcheck endpoint, readiness node, liveness node, endpoint node, probes node
+
+subcollection: nodejs
 
 ---
 
@@ -14,12 +18,12 @@ lastupdated: "2019-01-14"
 {:tip: .tip}
 
 # Using a health check in Node.js apps
-{: #healthcheck}
+{: #node-healthcheck}
 
-Health checks provide a simple mechanism to determine whether a server-side application is behaving properly. Cloud environments like [Kubernetes](https://www.ibm.com/cloud/container-service) and [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry), can be configured to poll health endpoints periodically to determine whether an instance of your service is ready to accept traffic.
+Health checks provide a simple mechanism to determine whether a server-side application is behaving properly. Cloud environments like [Kubernetes](https://www.ibm.com/cloud/container-service){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") and [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"), can be configured to poll health endpoints periodically to determine whether an instance of your service is ready to accept traffic.
 
 ## Health check overview
-{: #overview}
+{: #node-healthcheck-overview}
 
 Health checks provide a simple mechanism to determine whether a server-side application is behaving properly. They're typically consumed over HTTP and use standard return codes to indicate UP or DOWN status. The return value of a health check is variable, but a minimal JSON response, like `{"status": "UP"}`, is typical.
 
@@ -61,12 +65,11 @@ app.use("/health", router);
 Check the status of the app with a browser by accessing the `/health` endpoint.
 
 ## Accessing Health check from Node.js Starter Kit apps
-{: #healthcheck-starterkit}
+{: #node-healthcheck-starterkit}
 
 By default, when you generate a Node.js app by using a Starter Kit, a basic (unauthorized) health check endpoint is available at `/health` to check the status of the app (UP/DOWN).
 
 The health check endpoint code is provided by the following `/server/routers/health.js` file:
-
 ```js
 var express = require('express');
 
@@ -83,7 +86,7 @@ module.exports = function(app) {
 {: codeblock}
 
 ## Recommendations for readiness and liveness probes
-{: #readiness-recommend}
+{: #node-readiness-probes}
 
 Readiness probes can include the viability of connections to downstream services in their result when there isn’t an acceptable fallback if the downstream service is unavailable. This doesn't mean calling the health check that is provided by the downstream service directly, as infrastructure checks that for you. Instead, consider verifying the health of the existing references your application has to downstream services: this might be a JMS connection to WebSphere MQ, or an initialized Kafka consumer or producer. If you do check the viability of internal references to downstream services, cache the result to minimize the impact health checking has on your application.
 
@@ -92,7 +95,7 @@ A liveness probe, by contrast, is deliberate about what is checked, as a failure
 ### Adding support for Kubernetes readiness and liveness
 {: #kube-readiness-add}
 
-The [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) library from [CloudNativeJS], provides a framework for defining separate liveness and readiness endpoints in Node that allow composition of sources for the state of each endpoint.
+The [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") library from [CloudNativeJS](https://github.com/cloudnativejs){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"), provides a framework for defining separate liveness and readiness endpoints in Node that allow composition of sources for the state of each endpoint.
 
 ## Configuring readiness and liveness probes in Kubernetes
 {: #kube-readiness-config}
@@ -135,4 +138,4 @@ spec:
 ```
 {: codeblock}
 
-For more information, see how to [Configure liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).
+For more information, see how to [Configure liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").

@@ -4,6 +4,10 @@ copyright:
   years: 2018, 2019
 lastupdated: "2019-02-28"
 
+keywords: configure node env, node environment, node credentials, ibm-cloud-env node
+
+subcollection: nodejs
+
 ---
 
 {:new_window: target="_blank"}
@@ -25,7 +29,7 @@ Whether you need to add {{site.data.keyword.cloud}} support to existing applicat
 ## Adding {{site.data.keyword.cloud_notm}} configuration to existing Node.js applications
 {: #addcloud-env-nodejs}
 
-The [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) module aggregates environment variables from various Cloud providers, such as CloudFoundry and Kubernetes, so the application is independent of the environment.
+The [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") module aggregates environment variables from various Cloud providers, such as CloudFoundry and Kubernetes, so the application is independent of the environment.
 
 ### Installing the `ibm-cloud-env` module
 {: #install-module-nodejs}
@@ -67,8 +71,8 @@ The [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) module agg
   ```
   {: codeblock}
 
-### Using the values in a Node.js app
-{: #values-nodejs}
+### Retreiving service credentials
+{: #nodejs-get-creds}
 
 Retrieve the values in your application by using the following commands.
 
@@ -99,7 +103,7 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## Using the Node.js configuration manager from Starter Kit apps
 {: #nodejs-config-skit}
 
-Node.js apps that are created with [Starter Kits](https://cloud.ibm.com/developer/appservice/starter-kits/) automatically come with credentials and configurations that are needed to run in many Cloud deployment environments (CF, K8s, VSI, and Functions).
+Node.js apps that are created with [Starter Kits](https://cloud.ibm.com/developer/appservice/starter-kits/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") automatically come with credentials and configurations that are needed to run in many Cloud deployment environments (CF, K8s, VSI, and Functions).
 
 ### Understanding service credentials
 {: #credentials-nodejs}
@@ -108,11 +112,11 @@ Your application configuration information for services is stored in the `locald
 
 The application uses the configuration manager to read the connection and configuration information from the environment and this file. It uses a custom-built `mappings.json`, which is located in the `server/config` directory, to communicate where the credentials can be found for each service.
 
-Locally running applications can connect to {{site.data.keyword.cloud_notm}} services by using unbound credentials that are read from the `mappings.json` file. If you need to create unbound credentials, you can do so from the {{site.data.keyword.cloud_notm}} web console, or by using the [CloudFoundry CLI](https://docs.cloudfoundry.org/cf-cli/) `cf create-service-key` command.
+Locally running applications can connect to {{site.data.keyword.cloud_notm}} services by using unbound credentials that are read from the `mappings.json` file. If you need to create unbound credentials, you can do so from the {{site.data.keyword.cloud_notm}} web console, or by using the [CloudFoundry CLI](https://docs.cloudfoundry.org/cf-cli/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") `cf create-service-key` command.
 
 When you push your application to {{site.data.keyword.cloud_notm}}, these values are no longer used. Instead, the application automatically connects to bound services by using environment variables.
 
-* **Cloud Foundry**: Service credentials are taken from the `VCAP_SERVICES` environment variable. For Cloud Foundry Enrprise Edition, see this [getting started tutorial](/docs/cloud-foundry/getting-started.html#getting-started) for more information.
+* **Cloud Foundry**: Service credentials are taken from the `VCAP_SERVICES` environment variable. For Cloud Foundry Enrprise Edition, see this [getting started tutorial](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started) for more information.
 
 * **Kubernetes**: Service credentials are taken from individual environment variables per service.
 
@@ -121,4 +125,4 @@ When you push your application to {{site.data.keyword.cloud_notm}}, these values
 ## Next Steps
 {: #next_steps-config notoc}
 
-The `ibm-cloud-config` supports searching for values by using three search pattern types: `cloudfoundry`, `env`, and `file`. If you would like to check out other supported search patterns and search pattern examples, check the [Usage](https://github.com/ibm-developer/ibm-cloud-env#usage) section.
+The `ibm-cloud-config` supports searching for values by using three search pattern types: `cloudfoundry`, `env`, and `file`. If you would like to check out other supported search patterns and search pattern examples, check the [Usage](https://github.com/ibm-developer/ibm-cloud-env#usage){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") section.
