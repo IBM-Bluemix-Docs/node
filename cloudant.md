@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-12"
+lastupdated: "2019-03-15"
 
 keywords: node storage, node cloudant, node iam, initialize sdk node, test node app, dbaas node
 
@@ -23,7 +23,7 @@ subcollection: nodejs
 {{site.data.keyword.cloudantfull}} is a document-oriented Database as a Service (DBaaS). It stores data as documents in JSON format. {{site.data.keyword.cloudant_short_notm}} is built with scalability, high availability, and durability in mind, and is easy to configure for use in Node.js applications. It comes with a wide variety of indexing options that includes MapReduce, {{site.data.keyword.cloudant_short_notm}} Query, full-text indexing, and geospatial indexing. The replication capabilities make it easy to keep data in sync between database clusters, desktop PCs, and mobile devices.
 {:shortdesc}
 
-For more information, see [{{site.data.keyword.cloudant_short_notm}} Basics](docs/services/Cloudant/basics?topic=cloudant-ibm-cloudant-basics#ibm-cloudant-basics).
+For more information, see [{{site.data.keyword.cloudant_short_notm}} Basics](/docs/services/Cloudant/basics?topic=cloudant-ibm-cloudant-basics#ibm-cloudant-basics).
 
 ## Before you begin
 {: #prereqs-cloudant}
