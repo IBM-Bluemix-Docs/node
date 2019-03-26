@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-010-08"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -15,12 +15,15 @@ lastupdated: "2018-010-08"
 {:note: .note}
 
 # 取得 Node.js 應用程式支援
+{: #support-nodejs}
 
 ## 在 dWanswers 上要求協助
+{: #dwanswers-nodejs}
 
 使用 `#nodejs` 標籤在 [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/) 上提出問題，或在 `#nodejs-at-ibm` 通道內的 [{{site.data.keyword.cloud_notm}} Slack](https://slack-invite-ibm-cloud-tech.mybluemix.net/) 中加入討論。
 
 ## 使用官方 IBM Support for Runtimes
+{: #runtimes-support-nodejs}
 
 IBM Foundation Support for Runtimes 涵蓋 Node.js、Swift 及 Java。透過使用開放程式碼 [App Metrics](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/) 監視架構的 [Nodejs.org](https://nodejs.org/) 社群（包括 IBM SDK for Node.js）支援 Node.js 6 及 8 LTS 二進位檔。
 
@@ -31,5 +34,6 @@ IBM Advanced Support for Runtimes 是根據 Foundation Support 擴充，並涵�
 若要進一步瞭解，請造訪 [IBM 的 Digital Marketplace](https://www.ibm.com/us-en/marketplace/support-for-runtimes)。
 
 ## 建置套件支援聲明
+{: #buildpack-nodejs}
 
-[建置套件支援聲明](../runtimes/common/buildpackSupport.html)
+[建置套件支援聲明](/docs/runtimes/common/buildpackSupport.html)

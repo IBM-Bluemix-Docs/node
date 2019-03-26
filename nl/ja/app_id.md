@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-08"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -24,11 +24,11 @@ lastupdated: "2018-10-08"
 {{site.data.keyword.appid_short_notm}} の使用法とアーキテクチャーについて詳しくは、[{{site.data.keyword.appid_short_notm}} について](/docs/services/appid/about.html)を参照してください。
 
 ## 始める前に
-{: #before}
+{: #prereqs-appid}
 
 以下の前提条件が整っていることを確認します。
-1. [{{site.data.keyword.cloud}} アカウント ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} を持っている必要があります。
-2. [{{site.data.keyword.cloud_notm}} CLI](../cli/index.html) をインストールします。
+1. [{{site.data.keyword.cloud}} アカウント ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} を持っている必要があります。
+2. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/index.html) をインストールします。
 3. [npm ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](https://nodejs.org/){: new_window} パッケージ管理サポートをインストールします。
 4. [Express フレームワーク ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](http://expressjs.com/){: new_window} を使用して Node.js サーバーを実装します。 Express フレームワークをインストールするには、コマンド・ラインを使用して、Node.js アプリのディレクトリーを開き、以下のコマンドを実行します。
   ```
@@ -55,15 +55,15 @@ lastupdated: "2018-10-08"
       * `redirectUri` 値が指定されていない場合、App ID SDK は、{{site.data.keyword.cloud_notm}} で実行されているアプリケーションの `application_uri` を取得し、デフォルトの接尾部 `/ibm/cloud/appid/callback` を付加します。
 
 ## ステップ 1. {{site.data.keyword.appid_short_notm}} のインスタンスの作成
-{: #create-instance}
+{: #create-instance-appid}
 
 **サービス・インスタンスのプロビジョン**
-1. [{{site.data.keyword.cloud_notm}} の「カタログ」](https://console.bluemix.net/catalog/)で、**「Web およびモバイル」**カテゴリーを選択してから、「{{site.data.keyword.appid_short_notm}}」をクリックします。サービス構成ページが開きます。
+1. [{{site.data.keyword.cloud_notm}} の「カタログ」](https://cloud.ibm.com/catalog/)で、**「Web およびモバイル」**カテゴリーを選択してから、「{{site.data.keyword.appid_short_notm}}」をクリックします。 サービス構成ページが開きます。
 2. サービス・インスタンスに名前を付けます。または、事前設定された名前を使用します。
 3. 料金プランを選択し、**「作成」**をクリックします。
 
 ## ステップ 2. SDK のインストール
-{: #install}
+{: #install-appid}
 
 1. コマンド・ラインを使用して、Node.js アプリのディレクトリーを開きます。
 2. {{site.data.keyword.appid_short_notm}} サービスをインストールします。
@@ -73,7 +73,7 @@ lastupdated: "2018-10-08"
   {: codeblock}
 
 ## ステップ 3. SDK の初期化
-{: #initialize}
+{: #initialize-appid}
 
 1. `server.js` ファイルに以下の `require` 定義を追加します。
     ```js
@@ -110,7 +110,7 @@ lastupdated: "2018-10-08"
     ```
     {: codeblock}
 
-    アプリ用の資格情報のキー値を知るためにヘルプが必要な場合、『[始める前に](app_id.html#before)』セクションの*ステップ 5* で、それらの値を入手できる場所についての詳しい説明を参照してください。 
+    アプリ用の資格情報のキー値を知るためにヘルプが必要な場合、『[始める前に](/docs/node/app_id.html#prereqs-appid)』セクションの*ステップ 5* で、それらの値を入手できる場所についての詳しい説明を参照してください。 
     {: tip}
 
 4. Passport にシリアライゼーションとデシリアライゼーションを構成します。 この構成手順は、複数の HTTP 要求にわたって認証済みセッション・パーシスタンスを維持するために必要です。 詳しくは、[Passport の資料 ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](http://passportjs.org/docs){: new_window} を参照してください。
@@ -142,9 +142,9 @@ lastupdated: "2018-10-08"
 詳しくは、[{{site.data.keyword.appid_short_notm}} Node.js GitHub リポジトリー ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window} を参照してください。
 
 ## ステップ 4. サインイン・エクスペリエンスの管理
-{: #manage-sign-in}
+{: #manage-signin-appid}
 
-<!--The following content is similar to https://console.stage1.bluemix.net/docs/services/appid/login-widget.html#managing-the-sign-in-experience -->
+<!--The following content is similar to https://test.cloud.ibm.com/docs/services/appid/login-widget.html#managing-the-sign-in-experience -->
 
 {{site.data.keyword.appid_full}} で用意されているログイン・ウィジェットを使用して、機密保護機能のあるサインイン・オプションをユーザーに提供できます。
 
@@ -160,7 +160,7 @@ ID プロバイダーが提供するユーザー認証情報を使用して、�
 [ソーシャル ID プロバイダー](/docs/services/appid/identity-providers.html)および[クラウド・ディレクトリー](/docs/services/appid/cloud-directory.html)の設定を構成した後、コードの実装を始めることができます。
 
 ### ソーシャル ID プロバイダーの構成
-{: #social-identity}
+{: #social-identity-appid}
 
 ソーシャル ID プロバイダーを構成するには、以下のステップを実行します。
 
@@ -170,14 +170,14 @@ ID プロバイダーが提供するユーザー認証情報を使用して、�
 4. [事前構成されたサインイン・ページをカスタマイズ](#login-widget)して、選択したイメージと色が表示されるようにします。
 
 ### クラウド・ディレクトリーの構成
-{: #cloud-directory}
+{: #cloud-directory-appid}
 
 {{site.data.keyword.appid_short_notm}} では、クラウド・ディレクトリーという独自のユーザー・レジストリーを管理できます。 クラウド・ディレクトリーによって、モバイル・アプリおよび Web アプリにユーザーが各自の E メールとパスワードを使用して登録/サインインすることが可能になります。
 
 クラウド・ディレクトリーを構成するには、[クラウド・ディレクトリー](/docs/services/appid/cloud-directory.html)を参照してください。
 
 ### デフォルト・サインイン・ページのカスタマイズ
-{: #login-widget}
+{: #login-widget-appid}
 
 事前構成されたサインイン・ページをカスタマイズして、選択したロゴと色が表示されるようにできます。
 
@@ -191,7 +191,7 @@ ID プロバイダーが提供するユーザー認証情報を使用して、�
 6. ブラウザーでログイン・ページを最新表示し、変更内容を確認します。
 
 ### デフォルト・ページの表示
-{: #default-pages}
+{: #default-pages-appid}
 
 {{site.data.keyword.appid_short_notm}} には、表示する独自の UI ページがない場合に呼び出すことができる、デフォルトのログイン・ページが用意されています。
 
@@ -277,7 +277,7 @@ ID プロバイダーのタイプごとの表示できるページは次の表�
 {: tip}
 
 ## ステップ 5. アプリのテスト
-{: #test}
+{: #test-appid}
 
 すべて正しくセットアップされましたか? テストしてみましょう!
 
@@ -289,9 +289,9 @@ ID プロバイダーのタイプごとの表示できるページは次の表�
 問題がある場合、[{{site.data.keyword.appid_short_notm}} のトラブルシューティング](/docs/services/appid/ts_index.html)を参照してください。
 
 ## 次のステップ
-{: #next notoc}
+{: #next-appid notoc}
 
 お疲れさまでした。 アプリに認証ステップを追加しました。 この調子で、以下のいずれかのオプションを試してみてください。
 
 * {{site.data.keyword.appid_short_notm}} が提供する機能のすべてについてさらに学習し、それらの機能を利用するには、[資料](/docs/services/appid/index.html)をお読みください。
-* スターター・キットは、{{site.data.keyword.cloud}} の機能を素早く使用するための 1 つの方法です。 [モバイル開発者ダッシュボード ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/developer/mobile/dashboard){: new_window} で、使用可能なスターター・キットを確認できます。 コードをダウンロードし、アプリを実行してみてください。
+* スターター・キットは、{{site.data.keyword.cloud}} の機能を素早く使用するための 1 つの方法です。 [モバイル開発者ダッシュボード ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} で、使用可能なスターター・キットを確認できます。 コードをダウンロードし、アプリを実行してみてください。

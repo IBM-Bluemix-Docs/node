@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-08"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -24,11 +24,11 @@ lastupdated: "2018-10-08"
 如需可以使用 {{site.data.keyword.appid_short_notm}} 的所有方式的相關資訊以及架構資訊，請參閱[關於 {{site.data.keyword.appid_short_notm}}](/docs/services/appid/about.html)。
 
 ## 開始之前
-{: #before}
+{: #prereqs-appid}
 
 請確定已備妥下列必要條件：
-1. 您必須具有 [{{site.data.keyword.cloud}} 帳戶 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}。
-2. 安裝 [{{site.data.keyword.cloud_notm}} CLI](../cli/index.html)。
+1. 您必須具有 [{{site.data.keyword.cloud}} 帳戶 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}。
+2. 安裝 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/index.html)。
 3. 安裝 [npm ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://nodejs.org/){: new_window} 套件管理支援。
 4. 使用 [Express 架構 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](http://expressjs.com/){: new_window} 實作 Node.js 伺服器。若要安裝 Express 架構，請使用指令行來開啟含有 Node.js 應用程式的目錄，然後執行下列指令：
   ```
@@ -55,15 +55,15 @@ lastupdated: "2018-10-08"
       * 如果未提供 `redirectUri` 值，則 App ID SDK 會擷取在 {{site.data.keyword.cloud_notm}} 上執行之應用程式的 `application_uri`，並加上預設字尾 `/ibm/cloud/appid/callback`。
 
 ## 步驟 1. 建立 {{site.data.keyword.appid_short_notm}} 實例
-{: #create-instance}
+{: #create-instance-appid}
 
 **佈建服務的實例**
-1. 在 [{{site.data.keyword.cloud_notm}} 型錄](https://console.bluemix.net/catalog/)中，選取 **Web 及行動**種類，然後按一下 {{site.data.keyword.appid_short_notm}}。即會開啟服務配置頁面。
+1. 在 [{{site.data.keyword.cloud_notm}} 型錄](https://cloud.ibm.com/catalog/)中，選取 **Web 及行動**種類，然後按一下 {{site.data.keyword.appid_short_notm}}。即會開啟服務配置頁面。
 2. 提供服務實例的名稱，或使用預設名稱。
 3. 選取定價方案，然後按一下**建立**。
 
 ## 步驟 2. 安裝 SDK
-{: #install}
+{: #install-appid}
 
 1. 使用指令行，開啟含有 Node.js 應用程式的目錄。
 2. 安裝 {{site.data.keyword.appid_short_notm}} 服務。
@@ -73,7 +73,7 @@ lastupdated: "2018-10-08"
   {: codeblock}
 
 ## 步驟 3. 起始設定 SDK
-{: #initialize}
+{: #initialize-appid}
 
 1. 將下列 `require` 定義新增至 `server.js` 檔案。
     ```js
@@ -110,7 +110,7 @@ lastupdated: "2018-10-08"
     ```
     {: codeblock}
 
-    如果您需要協助尋找應用程式的認證金鑰值，請檢查[開始之前](app_id.html#before)小節的*步驟 5*，以取得在何處尋找它們的詳細資料。
+    如果您需要協助尋找應用程式的認證金鑰值，請檢查[開始之前](/docs/node/app_id.html#prereqs-appid)小節的*步驟 5*，以取得在何處尋找它們的詳細資料。
     {: tip}
 
 4. 使用序列化及解除序列化來配置通行證。跨 HTTP 要求的已鑑別階段作業持續性需要此配置步驟。如需相關資訊，請參閱[通行證文件 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](http://passportjs.org/docs){: new_window}。
@@ -142,9 +142,9 @@ lastupdated: "2018-10-08"
 如需相關資訊，請參閱 [{{site.data.keyword.appid_short_notm}} Node.js GitHub 儲存庫 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window}。
 
 ## 步驟 4. 管理登入經驗
-{: #manage-sign-in}
+{: #manage-signin-appid}
 
-<!--The following content is similar to https://console.stage1.bluemix.net/docs/services/appid/login-widget.html#managing-the-sign-in-experience -->
+<!--The following content is similar to https://test.cloud.ibm.com/docs/services/appid/login-widget.html#managing-the-sign-in-experience -->
 
 {{site.data.keyword.appid_full}} 提供登入小組件，讓您提供使用者安全登入選項。
 
@@ -160,7 +160,7 @@ lastupdated: "2018-10-08"
 在您配置[社交身分提供者](/docs/services/appid/identity-providers.html)及 [Cloud Directory](/docs/services/appid/cloud-directory.html) 的設定之後，就可以開始實作程式碼。
 
 ### 配置社交身分提供者
-{: #social-identity}
+{: #social-identity-appid}
 
 若要配置社交身分提供者，請完成下列步驟：
 
@@ -170,14 +170,14 @@ lastupdated: "2018-10-08"
 4. [自訂預先配置的登入頁面](#login-widget)，以顯示您選擇的影像及顏色。
 
 ### 配置雲端目錄
-{: #cloud-directory}
+{: #cloud-directory-appid}
 
 使用 {{site.data.keyword.appid_short_notm}}，您可以管理自己的使用者登錄，稱為雲端目錄。雲端目錄可讓使用者使用其電子郵件及密碼，來註冊並登入行動及 Web 應用程式。
 
 若要配置雲端目錄，請參閱[雲端目錄](/docs/services/appid/cloud-directory.html)。
 
 ### 自訂預設登入頁面
-{: #login-widget}
+{: #login-widget-appid}
 
 您可以自訂預先配置的登入頁面，以顯示您選擇的標誌及顏色。
 
@@ -191,7 +191,7 @@ lastupdated: "2018-10-08"
 6. 在瀏覽器中，重新整理登入頁面，以驗證您的變更。
 
 ### 顯示預設頁面
-{: #default-pages}
+{: #default-pages-appid}
 
 如果您沒有自己的使用者介面頁面可供顯示，則 {{site.data.keyword.appid_short_notm}} 會提供您可以呼叫的預設登入頁面。
 
@@ -277,7 +277,7 @@ lastupdated: "2018-10-08"
 {: tip}
 
 ## 步驟 5. 測試應用程式
-{: #test}
+{: #test-appid}
 
 所有項目都正確設定嗎？您可以測試看看！
 
@@ -289,9 +289,9 @@ lastupdated: "2018-10-08"
 有困難嗎？請參閱[疑難排解 {{site.data.keyword.appid_short_notm}}](/docs/services/appid/ts_index.html)。
 
 ## 後續步驟
-{: #next notoc}
+{: #next-appid notoc}
 
 做得好！您已將鑑別步驟新增至應用程式。嘗試下列其中一個選項，以保持動力：
 
 * 若要進一步瞭解並充分運用 {{site.data.keyword.appid_short_notm}} 提供的所有特性，[請參閱文件](/docs/services/appid/index.html)！
-* 「入門範本套件」是使用 {{site.data.keyword.cloud}} 功能最快的方式之一。請檢視[行動開發人員儀表板 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/developer/mobile/dashboard){: new_window} 中的可用入門範本套件。下載程式碼。執行應用程式！
+* 「入門範本套件」是使用 {{site.data.keyword.cloud}} 功能最快的方式之一。請檢視[行動開發人員儀表板 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} 中的可用入門範本套件。下載程式碼。執行應用程式！

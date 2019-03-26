@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-08"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -24,11 +24,11 @@ lastupdated: "2018-10-08"
 {{site.data.keyword.appid_short_notm}}의 모든 사용 방법에 대한 자세한 정보 및 아키텍처 정보는 [{{site.data.keyword.appid_short_notm}} 정보](/docs/services/appid/about.html)를 참조하십시오.
 
 ## 시작하기 전에
-{: #before}
+{: #prereqs-appid}
 
 다음 전제조건이 준비되어 있어야 합니다.
-1. [{{site.data.keyword.cloud}} 계정 ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}이 있어야 합니다.
-2. [{{site.data.keyword.cloud_notm}} CLI](../cli/index.html)를 설치하십시오.
+1. [{{site.data.keyword.cloud}} 계정 ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}이 있어야 합니다.
+2. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/index.html)를 설치하십시오.
 3. [npm ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")](https://nodejs.org/){: new_window} 패키지 관리 지원을 설치하십시오.
 4. [Express 프레임워크 ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")](http://expressjs.com/){: new_window}를 사용하여 Node.js 서버를 구현하십시오. Express 프레임워크를 설치하려면 명령행을 사용하여 Node.js 앱이 있는 디렉토리를 열고 다음 명령을 실행하십시오.
   ```
@@ -55,15 +55,15 @@ lastupdated: "2018-10-08"
       * `redirectUri` 값이 제공되지 않은 경우 App ID SDK는 {{site.data.keyword.cloud_notm}}에서 실행 중인 애플리케이션의 `application_uri`를 검색하고 기본 접미부 `/ibm/cloud/appid/callback`을 추가합니다.
 
 ## 1단계. {{site.data.keyword.appid_short_notm}}의 인스턴스 작성
-{: #create-instance}
+{: #create-instance-appid}
 
 **서비스의 인스턴스 프로비저닝**
-1. [{{site.data.keyword.cloud_notm}} 카탈로그](https://console.bluemix.net/catalog/)에서 **웹 및 모바일** 카테고리를 선택하고 {{site.data.keyword.appid_short_notm}}를 클릭하십시오. 서비스 구성 페이지가 열립니다.
+1. [{{site.data.keyword.cloud_notm}} 카탈로그](https://cloud.ibm.com/catalog/)에서 **웹 및 모바일** 카테고리를 선택하고 {{site.data.keyword.appid_short_notm}}를 클릭하십시오. 서비스 구성 페이지가 열립니다.
 2. 서비스 인스턴스의 이름을 지정하거나 사전 설정된 이름을 사용하십시오.
 3. 가격 플랜을 선택하고 **작성**을 클릭하십시오.
 
 ## 2단계. SDK 설치
-{: #install}
+{: #install-appid}
 
 1. 명령행을 사용하여 Node.js 앱이 있는 디렉토리를 여십시오.
 2. {{site.data.keyword.appid_short_notm}} 서비스를 설치하십시오.
@@ -73,7 +73,7 @@ lastupdated: "2018-10-08"
   {: codeblock}
 
 ## 3단계. SDK 초기화
-{: #initialize}
+{: #initialize-appid}
 
 1. 다음 `require` 정의를 `server.js` 파일에 추가하십시오.
     ```js
@@ -110,7 +110,7 @@ lastupdated: "2018-10-08"
     ```
     {: codeblock}
 
-    앱의 인증 정보 키 값을 찾는 데 대해 도움이 필요한 경우에는 [시작하기 전에](app_id.html#before) 섹션의 *5단계*에서 이를 찾을 수 있는 위치에 대한 세부사항을 확인하십시오. 
+    앱의 인증 정보 키 값을 찾는 데 대해 도움이 필요한 경우에는 [시작하기 전에](/docs/node/app_id.html#prereqs-appid) 섹션의 *5단계*에서 이를 찾을 수 있는 위치에 대한 세부사항을 확인하십시오. 
     {: tip}
 
 4. Passport의 직렬화 및 역직렬화를 구성하십시오. 이 구성 단계는 HTTP 요청 간의 인증된 세션 지속성을 위해 필요합니다. 자세한 정보는 [Passport 문서 ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")](http://passportjs.org/docs){: new_window}를 참조하십시오.
@@ -142,9 +142,9 @@ lastupdated: "2018-10-08"
 자세한 정보는 [{{site.data.keyword.appid_short_notm}}Node.js GitHub 저장소 ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window}를 참조하십시오.
 
 ## 4단계. 로그인 경험 관리
-{: #manage-sign-in}
+{: #manage-signin-appid}
 
-<!--The following content is similar to https://console.stage1.bluemix.net/docs/services/appid/login-widget.html#managing-the-sign-in-experience -->
+<!--The following content is similar to https://test.cloud.ibm.com/docs/services/appid/login-widget.html#managing-the-sign-in-experience -->
 
 {{site.data.keyword.appid_full}}에서는 사용자에게 안전한 로그인 옵션을 제공하기 위한 로그인 위젯을 제공합니다.
 
@@ -160,7 +160,7 @@ ID 제공자는 사용자에게 권한을 부여할 수 있도록 사용자에 �
 [소셜 ID 제공자](/docs/services/appid/identity-providers.html) 및 [클라우드 디렉토리](/docs/services/appid/cloud-directory.html)에 대한 설정을 구성하고 나면 코드 구현을 시작할 수 있습니다.
 
 ### 소셜 ID 제공자 구성
-{: #social-identity}
+{: #social-identity-appid}
 
 소셜 ID 제공자를 구성하려면 다음 단계를 완료하십시오.
 
@@ -170,14 +170,14 @@ ID 제공자는 사용자에게 권한을 부여할 수 있도록 사용자에 �
 4. [사전 구성된 로그인 페이지를 사용자 정의](#login-widget)하여 원하는 이미지 및 색상을 표시하십시오.
 
 ### 클라우드 디렉토리 구성
-{: #cloud-directory}
+{: #cloud-directory-appid}
 
 {{site.data.keyword.appid_short_notm}}를 사용하면 클라우드 디렉토리라는 고유 사용자 레지스트리를 관리할 수 있습니다. 클라우드 디렉토리는 사용자가 자신의 이메일 및 비밀번호를 사용하여 모바일 및 웹 앱에 등록하고 로그인할 수 있게 해 줍니다.
 
 클라우드 디렉토리를 구성하려면 [클라우드 디렉토리](/docs/services/appid/cloud-directory.html)를 참조하십시오.
 
 ### 기본 로그인 페이지 사용자 정의
-{: #login-widget}
+{: #login-widget-appid}
 
 사전 구성된 로그인 페이지가 원하는 로고 및 색상을 표시하도록 사용자 정의할 수 있습니다.
 
@@ -191,11 +191,11 @@ ID 제공자는 사용자에게 권한을 부여할 수 있도록 사용자에 �
 6. 브라우저에서 로그인 페이지를 새로 고쳐 변경사항을 확인하십시오.
 
 ### 기본 페이지 표시
-{: #default-pages}
+{: #default-pages-appid}
 
 {{site.data.keyword.appid_short_notm}}는 표시할 고유 UI 페이지가 없는 경우 호출할 수 있는 기본 로그인 페이지를 제공합니다.
 
-표시할 수 있는 페이지는 ID 제공자 구성에 따라 달라집니다. IBM은 사용자의 계정 정보에 액세스할 수 없으므로 이 서비스는 소셜 ID 제공자에 대한 고급 기능을 제공하지 않습니다. 사용자는 자신의 정보를 관리하려는 경우 해당 ID 제공자로 이동해야 합니다. 예를 들어, Facebook 비밀번호를 변경하려는 경우에는 [https://www.facebook.com](https://www.facebook.com)으로 이동해야 합니다. 
+표시할 수 있는 페이지는 ID 제공자 구성에 따라 달라집니다. IBM은 사용자의 계정 정보에 액세스할 수 없으므로 이 서비스는 소셜 ID 제공자에 대한 고급 기능을 제공하지 않습니다. 사용자는 자신의 정보를 관리하려는 경우 해당 ID 제공자로 이동해야 합니다. 예를 들어, Facebook 비밀번호를 변경하려는 경우에는 [https://www.facebook.com](https://www.facebook.com)으로 이동해야 합니다.
 
 각 ID 제공자 유형에 대해 표시할 수 있는 페이지를 알아보려면 다음 표를 참조하십시오.
 
@@ -277,7 +277,7 @@ ID 제공자는 사용자에게 권한을 부여할 수 있도록 사용자에 �
 {: tip}
 
 ## 5단계. 앱 테스트
-{: #test}
+{: #test-appid}
 
 모든 항목이 올바르게 설정되었습니까? 이는 테스트를 통해 확인할 수 있습니다.
 
@@ -289,9 +289,9 @@ ID 제공자는 사용자에게 권한을 부여할 수 있도록 사용자에 �
 문제가 있습니까? [{{site.data.keyword.appid_short_notm}} 문제점 해결](/docs/services/appid/ts_index.html)을 참조하십시오.
 
 ## 다음 단계
-{: #next notoc}
+{: #next-appid notoc}
 
 수고하셨습니다! 이제 앱에 인증 단계가 추가되었습니다. 다음 선택사항 중 하나를 따라 작업을 계속 진행하십시오.
 
 * {{site.data.keyword.appid_short_notm}}에서 제공하는 모든 기능에 대해 자세히 알아보고 이를 이용하려면 [문서를 참조하십시오](/docs/services/appid/index.html)!
-* 스타터 킷은 {{site.data.keyword.cloud}}의 기능을 사용하는 가장 빠른 방법 중 하나입니다. [모바일 개발자 대시보드 ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/developer/mobile/dashboard){: new_window}에서 사용 가능한 스타터 킷을 보십시오. 코드를 다운로드하십시오. 앱을 실행하십시오.
+* 스타터 킷은 {{site.data.keyword.cloud}}의 기능을 사용하는 가장 빠른 방법 중 하나입니다. [모바일 개발자 대시보드 ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/developer/mobile/dashboard){: new_window}에서 사용 가능한 스타터 킷을 보십시오. 코드를 다운로드하십시오. 앱을 실행하십시오.

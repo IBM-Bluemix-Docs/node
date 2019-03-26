@@ -25,18 +25,13 @@ Programmation avec Node.js sur IBM Cloud
     Stockage et partage de données
         cloudant.md
         object_storage.md
-        [Utilisation d'un réseau CDN](../tutorials/static-files-cdn.html)
-
-    [Création d'une application à l'aide d'un pipeline de distribution continue](../tutorials/multi-region-webapp.html)
-    [Création d'une application à l'aide de la pile MEAN](../tutorials/mean-stack.html)
-    [Création d'API REST](../tutorials/create-manage-secure-apis.html)
-    
+      
     deploying_apps.md
     enable_existing.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [Docs sur les API](https://console.bluemix.net/apidocs)
+    [Docs sur les API](https://cloud.ibm.com/apidocs)
     [Modèles d'application sur IBM Code](https://developer.ibm.com/code/technologies/node-js/)
     {: .navgroup-end}
 

@@ -1,10 +1,11 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-09-20"
+  years: 2018, 2019
+lastupdated: "2019-02-28"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -13,19 +14,22 @@ lastupdated: "2018-09-20"
 {:tip: .tip}
 
 # Configurando o ambiente Node.js
+{: #configure-nodejs}
 
 Ao implementar princípios nativos da nuvem, um aplicativo Node.js pode ser movido de um ambiente para outro, do teste para a produção, sem mudar o código ou utilizar de outra forma caminhos de código não testados.
 
-O problema surge quando existem diferenças significativas na maneira como a configuração é apresentada, dependendo do ambiente de desenvolvimento. Por exemplo, o CloudFoundry, que usa objetos JSON em sequência versus o Kubernetes que usa valores simples ou objetos JSON em sequência. O desenvolvimento local, além do Kubernetes, também tem considerações diferentes. As credenciais podem ser apresentadas de forma diferente em público e privado, o que dificulta ainda mais que não haja mudança dos apps nos ambientes.
+O problema surge quando existem diferenças significativas na maneira como a configuração é apresentada, dependendo do ambiente de desenvolvimento. Por exemplo, o Cloud Foundry, que usa objetos JSON em sequência, versus o Kubernetes, que usa valores simples ou objetos JSON em sequência. O desenvolvimento local, além do Kubernetes, também tem considerações diferentes. As credenciais podem ser apresentadas de forma diferente em público e privado, o que dificulta ainda mais que não haja mudança dos apps nos ambientes.
 
 Se você precisa incluir o suporte do {{site.data.keyword.cloud}} em aplicativos existentes ou criar apps com Kits de iniciador, o objetivo é fornecer portabilidade para apps Node.js em qualquer plataforma de desenvolvimento.
 
 ## Incluindo a configuração do {{site.data.keyword.cloud_notm}} em aplicativos Node.js existentes
-{: #addcloud-env}
+{: #addcloud-env-nodejs}
 
 O módulo [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) agrega variáveis de ambiente de vários provedores em nuvem, como o CloudFoundry e o Kubernetes, portanto, o aplicativo é independente do ambiente.
 
 ### Instalando o módulo  ` ibm-cloud-env `
+{: #install-module-nodejs}
+
 1. Instale o módulo `ibm-cloud-env` com o comando a seguir:
   ```
   npm install ibm-cloud-env
@@ -64,6 +68,8 @@ O módulo [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) agre
   {: codeblock}
 
 ### Usando os valores em um app Node.js
+{: #values-nodejs}
+
 Recupere os valores em seu aplicativo usando os comandos a seguir.
 
 1. Recupere a variável  ` service1credentials `:
@@ -82,6 +88,8 @@ Recupere os valores em seu aplicativo usando os comandos a seguir.
 Agora seu aplicativo pode ser implementado em qualquer ambiente de tempo de execução, abstraindo as diferenças introduzidas por meio de diferentes provedores de cálculo em nuvem.
 
 ### Filtrando os valores para tags e rótulos
+{: #filter-values-nodejs}
+
 É possível filtrar credenciais que são geradas pelo módulo com base nas tags de serviço e nos rótulos de serviço, conforme mostrado no exemplo a seguir:
 ```js
 var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'label', credentials)); // returns a Json with credentials for specified service tag and label
@@ -89,10 +97,12 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 {: codeblock}
 
 ## Usando o gerenciador de configuração Node.js por meio dos apps Starter Kit
+{: #nodejs-config-skit}
 
-Apps Node.js que são criados com [Kits de iniciador](https://console.bluemix.net/developer/appservice/starter-kits/) automaticamente são fornecidos com credenciais e configurações necessárias para execução em vários ambientes de implementação na nuvem (CF, K8s, VSI e Functions).
+Apps Node.js que são criados com [Kits de iniciador](https://cloud.ibm.com/developer/appservice/starter-kits/) automaticamente são fornecidos com credenciais e configurações necessárias para execução em vários ambientes de implementação na nuvem (CF, K8s, VSI e Functions).
 
 ### Entendendo credenciais de serviço
+{: #credentials-nodejs}
 
 Suas informações de configuração de aplicativo para serviços são armazenadas no arquivo `localdev-config.json` no diretório `/server/config`. O arquivo fica no diretório `.gitignore` para evitar que informações confidenciais sejam armazenadas no Git. As informações de conexão de qualquer serviço configurado que é executado localmente, como nome do usuário, senha e nome do host, são armazenadas nesse arquivo.
 
@@ -102,14 +112,13 @@ Os aplicativos em execução localmente podem se conectar aos serviços do {{sit
 
 Quando você enviar seu aplicativo por push para o {{site.data.keyword.cloud_notm}}, esses valores não serão mais usados. Em vez disso, o aplicativo se conecta automaticamente aos serviços ligados usando variáveis de ambiente.
 
-* **Cloud Foundry**: as credenciais de serviço são obtidas da variável de ambiente `VCAP_SERVICES`.
+* **Cloud Foundry**: as credenciais de serviço são obtidas da variável de ambiente `VCAP_SERVICES`. Para o Cloud Foundry Enterprise Edition, consulte este [tutorial de introdução](/docs/cloud-foundry/getting-started.html#getting-started) para obter mais informações.
 
 * **Kubernetes**: as credenciais de serviço são obtidas de variáveis de ambiente individuais por serviço.
 
 * **Serviço de contêiner do {{site.data.keyword.cloud_notm}}**: as credenciais de serviço são obtidas de VSIs ou do {{site.data.keyword.openwhisk}} (Openwhisk).
 
-
 ## Próximas Etapas
-{: #next_steps notoc}
+{: #next_steps-config notoc}
 
 O `ibm-cloud-config` suporta a procura de valores usando três tipos de padrão de procura: `cloudfoundry`, `env` e `file`. Se quiser verificar outros padrões de procura suportados e exemplos de padrão de procura, verifique a seção [Uso](https://github.com/ibm-developer/ibm-cloud-env#usage).

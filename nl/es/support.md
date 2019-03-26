@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-010-08"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -15,12 +15,15 @@ lastupdated: "2018-010-08"
 {:note: .note}
 
 # Obtención de soporte de apps de Node.js
+{: #support-nodejs}
 
 ## Solicitud de ayuda en dWanswers
+{: #dwanswers-nodejs}
 
 Haga preguntas en [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/) utilizando la etiqueta `#nodejs` o únase al debate en [{{site.data.keyword.cloud_notm}} Slack](https://slack-invite-ibm-cloud-tech.mybluemix.net/) en el canal `#nodejs-at-ibm`.
 
 ## Utilización del soporte oficial de IBM Support for Runtimes
+{: #runtimes-support-nodejs}
 
 IBM Foundation Support for Runtimes proporciona cobertura para Node.js, Swift y Java. El soporte está disponible para binarios de Node.js 6 y 8 LTS de la comunidad [Nodejs.org](https://nodejs.org/), incluido el SDK de IBM para Node.js, que utiliza la infraestructura de supervisión [App Metrics](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/) de código abierto.
 
@@ -31,5 +34,6 @@ IBM Advanced Support for Runtimes amplía el soporte de Foundation Support y pro
 Para obtener más información, visite [IBM Digital Marketplace](https://www.ibm.com/us-en/marketplace/support-for-runtimes).
 
 ## Declaración de soporte de paquete de compilación
+{: #buildpack-nodejs}
 
-[Declaración de soporte de paquete de compilación](../runtimes/common/buildpackSupport.html)
+[Declaración de soporte de paquete de compilación](/docs/runtimes/common/buildpackSupport.html)

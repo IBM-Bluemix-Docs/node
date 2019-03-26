@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-09-19"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -32,7 +32,7 @@ Las métricas de aplicación se capturan como datos de serie temporal. La agrega
 * Uso de CPU mayor del esperado
 * Uso de memoria alto o creciente (fuga de memoria potencial)
 
-El panel de control de métricas de aplicación incorporado ([ `appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash)) también incluye un diagrama para 'Otras solicitudes', que muestra la duración de la solicitud de base de datos para bases de datos soportadas (MongoDB, MySQL, Postgres, LevelDB, y Redis), Socket.IO y Sucesos de Riak.
+El panel de control de métricas de aplicación incorporado ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash)) también incluye un diagrama para 'Otras solicitudes', que muestra la duración de la solicitud de base de datos para bases de datos soportadas (MongoDB, MySQL, Postgres, LevelDB, y Redis), Socket.IO y Sucesos de Riak.
 
 Desde el panel de control, se puede generar un informe de nodo o una instantánea de almacenamiento dinámico para conseguir un análisis más detallado.
 
@@ -42,6 +42,7 @@ Desde el panel de control, se puede generar un informe de nodo o una instantáne
 Añada características de supervisión a las aplicaciones Express existentes con el constructor [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) para pasar en una serie de opciones de configuración. Por ejemplo, una de las opciones utiliza un servidor existente en lugar que `appmetrics-dash` inicie un servidor adicional.
 
 ### Instalación del panel de control
+{: #install-appmetrics}
 
 1. Por ejemplo, utilice la siguiente aplicación express "Hello World" sencilla:
   ```js
@@ -84,10 +85,10 @@ Añada características de supervisión a las aplicaciones Express existentes co
   ```
   {: codeblock}
 
-## Utilización de métricas desde Kits de iniciación
+## Utilización de métricas desde Kits de inicio
 {: #appmetrics-starterkits}
 
-Las aplicaciones Node.js que se crean desde Kits de iniciación incluyen automáticamente `appmetrics-dash` y su panel de control de forma predeterminada, pero se deben habilitar para su uso.
+Las aplicaciones Node.js que se crean desde Kits de inicio incluyen automáticamente `appmetrics-dash` y su panel de control de forma predeterminada, pero se deben habilitar para su uso.
 
 El código completo de appmetrics se puede encontrar en el archivo de origen de la aplicación generado, denominado `/app_name/server/server.js`:
 ```js

@@ -1,10 +1,11 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-09-18"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -56,6 +57,7 @@ http.request(options, callback).end();
 이제는 기간으로 구성된 데이터(구체적으로는 추적)를 전송할 위치가 필요합니다. 클라우드에 배치하기 전에, 로컬 또는 컨테이너에 Zipkin 서버를 설정하여 엔드-투-엔드 추적 구성을 테스트할 수 있습니다. 
 
 ### 로컬에서의 Zipkin 설정
+{: #local-setup-zipkin}
 
 Zipkin은 하나의 `jar` 파일로 제공되므로, 사용자는 Zipkin을 사용할 수 있도록 할 시스템에서 다음 명령을 사용하여 이를 다운로드하고 실행할 수 있습니다.
 
@@ -76,6 +78,7 @@ Zipkin은 하나의 `jar` 파일로 제공되므로, 사용자는 Zipkin을 사�
   이 명령의 출력이 너무 상세하거나 Zipkin을 백그라운드에서 실행하려는 경우에는 `wget` 명령에 `-q -O`를 추가하고 Zipkin에 대해 `/dev/null 2>&1 &`를 추가할 수 있습니다. 이 단계에서는 Zipkin `.jar` 파일을 다운로드하고 기본 메소드를 실행하여 Zipkin 서버를 시작합니다.
 
 ### Docker 컨테이너에서의 Zipkin 설정
+{: #setup-docker-zipkin}
 
 다음 명령을 실행하여 선택적으로 Zipkin 서버를 Docker 컨테이너에서 실행할 수 있습니다.
 ```
@@ -86,35 +89,47 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 하나의 간단한 명령을 사용하여, `openzipkin/zipkin` 모듈이 다운로드되어 설치된 후 포트 `9411`에서 시작됩니다.
 
 ### Zipkin 콘솔 액세스
-다음 그림은 `localhost` 및 포트 `9411`에서 실행되는 Zipkin 서버를 보여줍니다. 
+{: #zipkin-console}
+
+다음 그림은 `localhost` 및 포트 `9411`에서 실행되는 Zipkin 서버를 보여줍니다.
 
 ![ZipkinNoData](images/ZipkinNoData.png)
 
 **추적 찾기**를 클릭하고 검색 옵션을 수정하여 선택적으로 특정 기간 내의 추적만 표시할 수 있습니다. 특정 서비스 이름을 포함하는 추적만 표시하도록 필터링할 수도 있습니다. 서비스 이름은 코드를 작성할 때 지정되며, 이 예에서는 "getter" 및 "pusher"를 사용합니다.
 
 ## 3단계. 시나리오 예 테스트
-{: #example-scenario}
+{: #example-scenario-tracing}
 
 [GitHub 프로젝트 문서](https://github.com/ibm-developer/nodejs-zipkin-tracing)의 지시를 따르면 다음 샘플 애플리케이션이 작성됩니다. 이는 두 엔드포인트 간 요청 및 응답의 추적을 포함하는 간단한 프로세스입니다. 다음 이미지는 수집된 추적 데이터가 표시된 Zipkin 서버를 보여줍니다. 기억해야 하는 요점은 `require('appmetrics-zipkin')`이 포함되었다는 것이며, 선택적으로는 Zipkin 서버 구성 코드도 포함됩니다. 다음 시나리오 예는 얼마나 빨리 기존 Node.js 애플리케이션에 Zipkin 추적을 추가할 수 있는지 보여줍니다.
 
-### 추적 시나리오 개요:
-* pusher라는 **프론트 엔드**는 사용자에게 작성하여 소문자로 변환할 문자열 길이를 입력하도록 프롬프트를 표시합니다. 숫자가 클수록 문자열이 커지며 요청을 처리하는 데 소요되는 시간이 늘어납니다. 포트 `3000`에서 사용 가능합니다. 
-* getter라는 **백엔드**는 요청을 처리하며 포트 `3001`에서 사용 가능합니다. 
+### 추적 시나리오 개요
+{: #tracing-scenario}
+
+* pusher라는 **프론트 엔드**는 사용자에게 작성하여 소문자로 변환할 문자열 길이를 입력하도록 프롬프트를 표시합니다. 숫자가 클수록 문자열이 커지며 요청을 처리하는 데 소요되는 시간이 늘어납니다. 포트 `3000`에서 사용 가능합니다.
+* getter라는 **백엔드**는 요청을 처리하며 포트 `3001`에서 사용 가능합니다.
 * **Zipkin 서버**는 추적 데이터가 표시되는 로컬 시스템 또는 Kubernetes에서 실행됩니다.
 
 ### 프론트 엔드 앱(pusher)
+{: #tracing-pusher}
+
 프론트 엔드 앱(pusher) 서비스는 요청을 전송합니다(단순 프론트 엔드).
 ![frontend_app](images/frontend_app.png)
 
 ### 백엔드(getter)
+{: #tracing-getter}
+
 백엔드 앱(getter)은 다른 포트를 청취하며 요청을 수신합니다.
 ![backend_app](images/Backend.png)
 
 ### pusher에서 getter로 요청 전송
+{: #tracing-request}
+
 pusher에서 getter로 요청을 전송합니다.
 ![500please](images/500Please.png)
 
 ### Zipkin 웹 UI를 사용하여 추적 보기
+{: #tracing-viewing}
+
 Zipkin에 전송된 추적 데이터는 Zipkin 웹 UI(`localhost:9411`)를 사용하여 볼 수 있습니다. 사용자는 **getter**가 사용자 입력을 수신하는 것을 볼 수 있습니다(사용자는 pusher 서비스를 사용하여 500자 길이의 메시지를 getter에 전송하려 함).
 ![Getter500msg](images/Getter500Msg.png)
 
@@ -124,6 +139,8 @@ Zipkin에 전송된 추적 데이터는 Zipkin 웹 UI(`localhost:9411`)를 사�
 ![GetterGet](images/GetterGet.png)
 
 ### 느린 요청 식별
+{: #tracing-slowreq}
+
 느린 요청은 다음과 같습니다. 다음 사용자는 5,000,000자를 대문자에서 소문자로 변환하려 요청합니다. 이 요청은 분명히 처리하는 데 오랜 시간이 소요됩니다.
 ![SlowRequest](images/SlowRequest.png)
 
@@ -141,7 +158,7 @@ Zipkin에 전송된 추적 데이터는 Zipkin 웹 UI(`localhost:9411`)를 사�
 Kubernetes를 사용하지 않은 배치에 대한 튜토리얼은 여기서 끝납니다. Kubernetes에서 실행되는 Node.js 앱을 추적하는 방법을 알아보려면 다음 절을 참조하십시오.
 
 ## 다음 단계
-{: #next-steps}
+{: #next-steps-tracing}
 
 * 클라우드 네이티브 Node.js 애플리케이션을 Docker 및 Kubernetes 기반 클라우드에 배치하는 데 도움을 주는 자산 및 도구를 제공하는 [CloudNativeJS](https://www.cloudnativejs.io/) 커뮤니티 프로젝트의 도움을 받아, 클라우드 네이티브 Node.js 애플리케이션을 빌드하는 방법을 알아보십시오.
 

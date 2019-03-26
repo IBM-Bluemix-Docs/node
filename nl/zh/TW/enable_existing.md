@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-17"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-10-17"
 # 啟用現有 Node.js 應用程式以進行雲端部署
 {: #enable_existing}
 
-您可以使用 [{{site.data.keyword.dev_cli_long}} CLI enable 指令](https://console.bluemix.net/docs/cli/idt/commands.html#enable)產生必要的檔案，讓 Node.js 應用程式能夠在 {{site.data.keyword.cloud}} 上執行。
+您可以使用 [{{site.data.keyword.dev_cli_long}} CLI enable 指令](/docs/cli/idt/commands.html#enable)產生必要的檔案，讓 Node.js 應用程式能夠在 {{site.data.keyword.cloud}} 上執行。
 
 ## 啟用應用程式
 {: #enable_app}
@@ -150,6 +150,6 @@ dockerfile-run : "docker-compose.yml"
 {: codeblock}
 
 ## 後續步驟
-{: #next_steps notoc}
+{: #next_steps-existing notoc}
 
-如需相關資訊，請參閱 [IBM Cloud Developer Tools CLI](https://console.bluemix.net/docs/cli/idt/commands.html#idt-cli)。
+如需相關資訊，請參閱 [IBM Cloud Developer Tools CLI](/docs/cli/idt/commands.html#idt-cli)。

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-17"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-10-17"
 # Vorhandene Node.js-Anwendungen für Cloudbereitstellung aktivieren
 {: #enable_existing}
 
-Sie können die Dateien, die dazu erforderlich sind, dass die Node.js-Anwendung unter {{site.data.keyword.cloud}} ausgeführt wird, mithilfe des [{{site.data.keyword.dev_cli_long}}-CLI-Befehls 'enable'](https://console.bluemix.net/docs/cli/idt/commands.html#enable) generieren.
+Sie können die Dateien, die dazu erforderlich sind, dass die Node.js-Anwendung unter {{site.data.keyword.cloud}} ausgeführt wird, mithilfe des [{{site.data.keyword.dev_cli_long}}-CLI-Befehls 'enable'](/docs/cli/idt/commands.html#enable) generieren.
 
 ## Anwendung aktivieren
 {: #enable_app}
@@ -150,6 +150,6 @@ dockerfile-run : "docker-compose.yml"
 {: codeblock}
 
 ## Nächste Schritte
-{: #next_steps notoc}
+{: #next_steps-existing notoc}
 
-Weitere Informationen finden Sie in [IBM Cloud Developer Tools CLI](https://console.bluemix.net/docs/cli/idt/commands.html#idt-cli).
+Weitere Informationen finden Sie in [IBM Cloud Developer Tools CLI](/docs/cli/idt/commands.html#idt-cli).

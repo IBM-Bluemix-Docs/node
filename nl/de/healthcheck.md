@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-17"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -37,14 +37,14 @@ Im Vergleich dazu nutzt Cloud Foundry einen einzigen Statusendpunkt. Schlägt di
 
 Die folgende Tabelle stellt eine Übersicht der Antworten bereit, die die Readiness- und Liveness-Statusendpunkte sowie singuläre Statusendpunkte zur Verfügung stellen.
 
-| Zustand      | Readiness                   | Liveness                   | Status                     |
-|--------------|-----------------------------|----------------------------|----------------------------|
-|              | Nicht OK - keine Auslastung | Nicht OK - Neustart        | Nicht OK - Neustart        |
-|Wird gestartet| 503 - Nicht verfügbar       | 200 - OK                   | Verzög. zur Testvermeidung |
-|Aktiv         | 200 - OK                    | 200 - OK                   | 200 - OK                   |
-|Wird gestoppt | 503 - Nicht verfügbar       | 200 - OK                   | 503 - Nicht verfügbar      |
-|Inaktiv       | 503 - Nicht verfügbar       | 503 - Nicht verfügbar      | 503 - Nicht verfügbar      |
-|Fehlerhaft    | 500 - Serverfehler          | 500 - Serverfehler         | 500 - Serverfehler         |
+| Zustand    | Readiness                   | Liveness                   | Status                    |
+|----------|-----------------------------|----------------------------|---------------------------|
+|          | Nicht OK - keine Auslastung       | Nicht OK - Neustart      | Nicht OK - Neustart     |
+| Wird gestartet | 503 - Nicht verfügbar           | 200 - OK                   | Verzög. zur Testvermeidung   |
+| Aktiv       | 200 - OK                    | 200 - OK                   | 200 - OK                  |
+| Wird gestoppt | 503 - Nicht verfügbar           | 200 - OK                   | 503 - Nicht verfügbar         |
+| Inaktiv     | 503 - Nicht verfügbar           | 503 - Nicht verfügbar          | 503 - Nicht verfügbar         |
+| Fehlerhaft  | 500 - Serverfehler          | 500 - Serverfehler         | 500 - Serverfehler        |
 
 ## Statusprüfung zu einer vorhandenen Node.js-App hinzufügen
 {: #add-healthcheck-existing}
@@ -83,16 +83,19 @@ module.exports = function(app) {
 {: codeblock}
 
 ## Empfehlungen für Readiness- und Liveness-Tests
+{: #readiness-recommend}
 
 Readiness-Tests können die Viabilität von Verbindungen zu Downstream-Services in ihrem Ergebnis beinhalten, wenn bei Nichtverfügbarkeit des Downstream-Service kein zulässiger Fallback aufweisbar ist. Dies bedeutet nicht, dass die Statusprüfung direkt aufgerufen wird, die der Downstream-Service bereitstellt; dies wird von der Infrastruktur für Sie übernommen. Stattdessen sollten Sie den Status der bereits vorhandenen Verweise Ihrer Anwendung auf Downstream-Services prüfen: Dies kann eine JMS-Verbindung zu WebSphere MQ oder ein initialisierter Kafka-Consumer oder -Producer sein. Wenn Sie die Viabilität interner Verweise auf Downstream-Services prüfen, stellen Sie das Ergebnis in den Cache, um die Auswirkungen der Statusprüfung auf Ihre Anwendung zu minimieren.
 
 Ein Liveness-Test hingegen verhält sich Überprüfungen gegenüber vorsichtig, da ein Fehler zu einer sofortigen Beendigung des Prozesses führt. Ein einfacher HTTP-Endpunkt, der immer `{"status": "UP"}` mit dem Statuscode `200` zurückgibt, ist eine angemessene Wahl.
 
 ### Unterstützung für Kubernetes-Readiness und -Liveness hinzufügen
+{: #kube-readiness-add}
 
 Die Bibliothek [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) aus [CloudNativeJS] stellt ein Framework für die Definition separater Liveness- und Readiness-Endpunkte in Node bereit; diese ermöglichen die Erstellung von Quellen für den Zustand der einzelnen Endpunkte.
 
 ## Readiness- und Liveness-Tests in Kubernetes konfigurieren
+{: #kube-readiness-config}
 
 Deklarieren Sie bei Ihrer Kubernetes-Bereitstellung Liveness- und Readiness-Tests. Beide Arten von Tests arbeiten mit denselben Konfigurationsparametern:
 

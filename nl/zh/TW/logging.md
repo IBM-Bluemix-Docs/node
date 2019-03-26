@@ -1,10 +1,11 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-04"
+  years: 2018, 2019
+lastupdated: "2019-02-27"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -12,30 +13,30 @@ lastupdated: "2018-10-04"
 {:pre: .pre}
 {:tip: .tip}
 
-# 在 Node.js 中記載
+# 使用 Node.js 進行記載
 {: #logging_nodejs}
 
-日誌訊息是字串，具有在製作日誌項目時有關微服務狀態及活動的環境定義資訊。在監視應用程式性能方面，需要有日誌才能診斷服務失敗的方式及原因，以及服務扮演 [appmetrics](appmetrics.html) 的支援角色。
+日誌訊息是一些字串，其中包含與建立日誌項目時微服務的狀態及活動相關的環境定義資訊。在監視應用程式性能方面，需要有日誌才能診斷服務失敗的方式及原因，以及服務扮演 [appmetrics](/docs/node/appmetrics.html#metrics) 的支援角色。
 
 因為在雲端環境中，處理程序都是暫時的，因此必須收集日誌並傳送至其他地方，通常會傳送到一個集中位置，以進行分析。在雲端環境中進行日誌記載最一致的方法是，將日誌項目傳送至標準輸出及錯誤串流，然後讓基礎架構處理剩下的事宜。
 
-## 將 Log4js 支援新增至 Node.js 應用程式
-{: #add_log4j}
-
-[Log4js](https://github.com/log4js-node/log4js-node) 是 Node.js 的熱門記載架構，並提供許多原生好處，包括： 
+您可以使用 [Log4js](https://github.com/log4js-node/log4js-node){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")，這是適用於 Node.js 的熱門記載架構，並提供許多特有好處，其中包括： 
 * 記載至 `stdout` 或 `stderr`
 * 各種附加選項
 * 可配置的日誌訊息佈置及型樣
-* 使用不同日誌種類的「記載層次」
+* 針對不同日誌種類使用`記載層次`
 
-1. 若要使用 Log4js，請在應用程式的根目錄中執行下列 [npm](https://nodejs.org/) 指令，以安裝套件並將其新增至 `package.json` 檔案。
+## 將 Log4js 支援新增至現有 Node.js 應用程式
+{: #add_log4j}
+
+1. 首先，在應用程式的根目錄中執行下列 [npm](https://nodejs.org/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 指令，以安裝 `log4js`，這個指令會安裝套件並將其新增至 `package.json` 檔案。
   ```bash
   npm install --save log4js
   ```
   {: codeblock}
 
-2. 若要在應用程式中使用它，請新增下列程式碼行：
-  ```javascript
+2. 若要在應用程式中使用它，請將下列程式碼行新增至您的應用程式：
+  ```js
   var log4js = require('log4js');
   var log = log4js.getLogger();
   log.level = 'debug';
@@ -49,16 +50,23 @@ lastupdated: "2018-10-04"
   ```
   {: screen}
 
-如需使用附加器、記載層次及配置詳細資料來自訂日誌訊息的相關資訊，請參閱官方的 [log4js-node 文件](https://log4js-node.github.io/log4js-node/)。
+3. 若要將日誌事件寫入至標準錯誤串流，您可以配置附加器，如下列範例所示：
+  ```js
+  var log4js = require('log4js');
+  
+  log4js.configure({
+    appenders: { err: { type: 'stderr' } },
+    categories: { default: { appenders: ['err'], level: 'ERROR' } }
+  });
+  ```
+  {: codeblock}
 
-## 使用 App Service 監視日誌
+  如需使用附加器、`記載層次`及配置詳細資料來自訂日誌訊息的相關資訊，請參閱官方的 [log4js-node 文件](https://log4js-node.github.io/log4js-node/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
+
+## 使用 App Service 應用程式進行監視
 {: #monitoring}
 
-依預設，使用 {{site.data.keyword.cloud_notm}} [App Service](https://console.bluemix.net/developer/appservice/dashboard) 所建立的 Node.js 應用程式會隨附 Log4js。在本機或在雲端環境中執行應用程式，會產生如下的輸出：`2018-07-26 12:40:15.121] [INFO] MyAppName - MyAppName listening on http://localhost:3000`。您可以檢視輸出，如下所示：
-* 當您在本端執行時，請使用 `stdout`。
-* 在 [CloudFoundry](https://console.bluemix.net/docs/cli/reference/bluemix_cli/bx_cli.html#ibmcloud_app_logs) 及 [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/) 部署的日誌中，這些是藉由 `ibmcloud app logs --recent <APP_NAME>` 及 `kubectl logs <deployment name>` 進行存取。
-
-在 `server/server.js` 檔案中，您可以看到下列程式碼：
+依預設，使用 {{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard) 所建立的 Node.js 應用程式會隨附 Log4js。您可以開啟 `server/server.js` 檔案，以查看下列 Log4js 程式碼：
 ```js
 var logger = log4js.getLogger(appName);
 var app = express();
@@ -66,17 +74,40 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
 ```
 {: codeblock}
 
-依預設，「記載層次」設為 `OFF` 以便安全地用於程式庫，但它可以由應用程式的 **LOG_LEVEL** 環境變數置換。
+依預設，`記載層次`設為 `OFF` 以便安全地用於程式庫，但它可以由應用程式的 **LOG_LEVEL** 環境變數置換。
 {: tip}
 
-## 後續步驟
-{: #next_steps notoc}
+### 檢視日誌輸出
+{: #node-view-log-output}
 
-進一步瞭解在每一個部署環境中檢視日誌：
-* [Kubernetes 日誌](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
-* [Cloud Foundry 日誌](https://console.bluemix.net/docs/cli/reference/bluemix_cli/bx_cli.html#ibmcloud_app_logs)
-* [{{site.data.keyword.openwhisk}} 日誌 & 監視](https://console.bluemix.net/docs/openwhisk/openwhisk_logs.html#openwhisk_logs)
+請參閱來自以原生方式或在雲端環境中執行應用程式的下列範例日誌輸出：
+```
+2018-07-26 12:40:15.121 [INFO] MyAppName - MyAppName listening on http://localhost:3000
+```
+{: screen}
+
+您可以使用下列方法，檢視日誌輸出：
+* 若為本端環境，請使用 `stdout`。
+* 若為 [Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html) 部署，您可以執行下列指令來存取日誌：
+  ```
+  ibmcloud app logs --recent <APP_NAME>
+  ```
+  {: codeblock}
+
+* 若為 [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 部署，您可以執行下列指令來存取日誌：
+  ```
+  kubectl logs <deployment name>
+  ```
+  {: codeblock}
+
+## 後續步驟
+{: #next_steps-logging notoc}
+
+進一步瞭解在每個部署環境中檢視日誌：
+* [Kubernetes 日誌](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")
+* [Cloud Foundry 日誌](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html#logging_cf_apps)
+* [{{site.data.keyword.openwhisk}} 日誌及監視](/docs/openwhisk/openwhisk_logs.html#openwhisk_logs)
 
 使用日誌聚集器：
-* [{{site.data.keyword.cloud_notm}} Log Analysis](https://console.bluemix.net/docs/services/CloudLogAnalysis/log_analysis_ov.html#log_analysis_ov)
-* [{{site.data.keyword.cloud_notm}} Private ELK 堆疊](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.2/manage_metrics/logging_elk.html)
+* [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis/log_analysis_ov.html#log_analysis_ov)
+* [{{site.data.keyword.cloud_notm}} Private ELK stack](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.2/manage_metrics/logging_elk.html){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")

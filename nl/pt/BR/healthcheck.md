@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-17"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -81,16 +81,19 @@ module.exports = function (app) {
 {: codeblock}
 
 ## Recomendações para as análises de prontidão e vivacidade
+{: #readiness-recommend}
 
 As análises de prontidão podem incluir a viabilidade de conexões com os serviços de recebimento de dados em seu resultado quando não houver um fallback aceitável se o serviço de recebimento de dados estiver indisponível. Isso não significa chamar a verificação de funcionamento que é fornecida pelo serviço de recebimento de dados diretamente, pois a infraestrutura verifica isso para você. Em vez disso, considere verificar o funcionamento das referências existentes que seu aplicativo tem para os serviços de recebimento de dados: essa pode ser uma conexão JMS com o WebSphere MQ ou um consumidor ou produtor Kafka inicializado. Se você verificar a viabilidade de referências internas para os serviços de recebimento de dados, armazene em cache o resultado para minimizar o impacto que a verificação de funcionamento tem no aplicativo.
 
 Uma análise de vivacidade, por contraste, é deliberada sobre o que é verificado, uma vez que uma falha resulta em término imediato do processo. Um terminal HTTP simples que sempre retorna `{"status": "UP"}` com o código de status `200` é uma opção razoável.
 
 ### Incluindo suporte para prontidão e vivacidade do Kubernetes
+{: #kube-readiness-add}
 
 A biblioteca [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) de [CloudNativeJS], fornece uma estrutura para definir terminais de vivacidade e de prontidão separados no Node que permite a composição de origens para o estado de cada terminal.
 
 ## Configurando as análises de prontidão e de vivacidade no Kubernetes
+{: #kube-readiness-config}
 
 Declare as análises de vivacidade e de prontidão juntamente com a implementação do Kubernetes. As duas análises usam os mesmos parâmetros de configuração:
 

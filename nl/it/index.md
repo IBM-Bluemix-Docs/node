@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-08"
+  years: 2018, 2019
+lastupdated: "2019-02-18"
 
 ---
 
@@ -15,25 +15,26 @@ lastupdated: "2018-10-08"
 
 # Esercitazione introduttiva
 
-La seguente esercitazione ti guida attraverso i passi per creare, eseguire in locale e distribuire un'applicazione Node.js utilizzando gli strumenti {{site.data.keyword.cloud_notm}} forniti. Puoi utilizzare [{{site.data.keyword.dev_cli_long}}](https://console.bluemix.net/docs/cloudnative/dev_cli.html#add-cli) sulla riga di comando oppure l'[{{site.data.keyword.cloud}} {{site.data.keyword.dev_console}}](https://console.bluemix.net/developer/appservice/dashboard) basato sul web, come mostrato nei seguenti passi dell'esercitazione. Utilizzando l'uno o l'altro di questi metodi, puoi generare un'applicazione Node.js pronta per la produzione in pochi minuti.
+La seguente esercitazione ti guida attraverso i passi per creare, eseguire in locale e distribuire un'applicazione Node.js utilizzando gli strumenti {{site.data.keyword.cloud_notm}} forniti. Puoi utilizzare [{{site.data.keyword.dev_cli_long}}](/docs/cli/index.html#ibmcloud-cli) sulla riga di comando oppure l'[{{site.data.keyword.cloud}} {{site.data.keyword.dev_console}}](https://cloud.ibm.com/developer/appservice/dashboard) basato sul web, come mostrato nei seguenti passi dell'esercitazione. Utilizzando l'uno o l'altro di questi metodi, puoi generare un'applicazione Node.js pronta per la produzione in pochi minuti.
 
 Assicurati che stai utilizzando la release di LTS Node.js più recente.
 
 ## Creazione di un'applicazione Node.js
 {: #create_project}
 
-1. Dalla pagina [Kit starter](https://console.bluemix.net/developer/appservice/starter-kits) nella {{site.data.keyword.dev_console}}, seleziona un kit starter scritto in `Node.js`. Puoi anche creare un'applicazione starter vuota facendo clic su **Crea applicazione** e selezionando `Node.js` come linguaggio.
+1. Dalla pagina [Kit starter](https://cloud.ibm.com/developer/appservice/starter-kits) nella {{site.data.keyword.dev_console}}, seleziona un kit starter scritto in `Node.js`. Puoi anche creare un'applicazione starter vuota facendo clic su **Crea applicazione** e selezionando `Node.js` come linguaggio.
 
-    Per creare un progetto, devi essere collegato a un account {{site.data.keyword.cloud_notm}}. Se non hai un account, puoi [eseguire la registrazione per un account gratuito](https://console.bluemix.net/registration).
+    Per creare un'applicazione, devi essere collegato a un account {{site.data.keyword.cloud_notm}}. Se non hai un account, puoi [eseguire la registrazione per un account gratuito](https://cloud.ibm.com/registration).
     {: tip}
 
 2. Fai clic su **Crea applicazione**.
 3. Usa **Nome** per denominare la tua applicazione. Viene fornito un nome applicazione generico, se vuoi utilizzarlo.
 4. Immetti un **nome host univoco**. Il nome host viene utilizzato per accedere alla tua applicazione, ad esempio: `expressjs-project.mybluemix.net`.
 5. Fare clic su **Crea**. Dopo che il tuo progetto è stato creato, puoi distribuirlo utilizzando una toolchain oppure puoi continuare a creare e distribuire il tuo progetto dalla riga di comando.
-6. Se scegli di creare una toolchain, fai clic su **Distribuisci al cloud** e seleziona uno dei seguenti metodi di distribuzione.
-    * **Applicazione Cloud Foundry** - non hai bisogno di gestire l'infrastruttura sottostante.
-    * **Cluster Kubernetes** - devi eseguire il provisioning di una serie di nodi di lavoro. Ad esempio, puoi utilizzare le VM per distribuire e gestire contenitori dell'applicazione ad elevata disponibilità. Puoi creare un cluster o eseguire la distribuzione a un cluster esistente.
+6. Per creare una toolchain di distribuzione nel dashboard, fai clic su **Distribuisci al cloud**. Configura il tuo metodo di distribuzione in base alle istruzioni per il metodo che scegli:
+  * **Distribuisci a [Kubernetes](/docs/apps/deploying/containers.html#containers-kube)**. Questa opzione crea un cluster di host, denominati nodi di lavoro, per distribuire e gestire contenitori applicazione ad elevata disponibilità. Puoi creare un cluster o eseguire la distribuzione a un cluster esistente.
+  * **Distribuisci a Cloud Foundry**. Questa opzione distribuisce la tua applicazione nativa del cloud senza che tu debba gestire l'infrastruttura sottostante. Se il tuo account ha accesso a {{site.data.keyword.cfee_full_notm}}, puoi selezionare un tipo di deployer **[Cloud pubblico](/docs/cloud-foundry-public/about-cf.html#about-cf)** o **[Ambiente aziendale](/docs/cloud-foundry-public/cfee.html#cfee)**, che puoi utilizzare per creare e gestire ambienti isolati per ospitare applicazioni Cloud Foundry esclusivamente per la tua azienda.
+  * **Distribuisci a un [Virtual Server](/docs/apps/vsi-deploy.html#vsi-deploy)**. Questa opzione esegue il provisioning di un'istanza del server virtuale, carica un'immagine che include la tua applicazione, crea una toolchain DevOps e avvia il primo ciclo di distribuzione per tuo conto.
 
 7. Finalizza le tue opzioni e fai quindi clic su **Crea** per creare la toolchain.
 
@@ -92,7 +93,7 @@ ibmcloud dev deploy –target container
 Continua consultando gli argomenti nella guida alla programmazione di Node.js oppure, per distribuzioni più avanzate, puoi imparare a creare un cluster Kubernetes e distribuire a esso la tua applicazione Node.js.
 
 ### Configura un cluster Kubernetes
-Per ulteriori informazioni sulla configurazione di un cluster Kubernetes in {{site.data.keyword.cloud_notm}}, consulta i [passi dell'esercitazione](https://console.bluemix.net/docs/containers/cs_clusters.html#clusters).
+Per ulteriori informazioni sulla configurazione di un cluster Kubernetes in {{site.data.keyword.cloud_notm}}, consulta i [passi dell'esercitazione](/docs/containers/cs_clusters.html#clusters).
 
 ### Distribuisci le applicazioni Node.js al cluster Kubernetes
-Impara come [distribuire applicazioni Node.js a un cluster Kubernetes](../containers/cs_tutorials_apps.html).
+Impara come [distribuire applicazioni Node.js a un cluster Kubernetes](/docs/containers/cs_tutorials_apps.html#cs_apps_tutorial).

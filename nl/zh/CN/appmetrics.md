@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-09-19"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -22,7 +22,7 @@ lastupdated: "2018-09-19"
 ## 直观地识别问题
 {: #identify-problems}
 
-应用程序度量值对于监视应用程序的性能非常重要。能实时查看度量值（如 CPU、内存、等待时间和 HTTP 度量值）是确保应用程序持续有效运行所必需的。您可以使用云服务（如 Cloud Foundry 的[自动扩展](/docs/services/Auto-Scaling/index.html)），依靠度量值来动态扩展实例，以便与当前工作负载相匹配。通过使用应用程序度量值，您可以精确地获悉何时向上扩展、向下扩展或清除不再需要的实例，从而使成本保持在较低水平。
+应用程序度量值对于监视应用程序的性能非常重要。能实时查看度量值（如 CPU、内存、等待时间和 HTTP 度量值）是确保应用程序持续有效运行所必需的。您可以使用云服务（如 Cloud Foundry 的[自动缩放](/docs/services/Auto-Scaling/index.html)），依靠度量值来动态缩放实例，以便与当前工作负载相匹配。通过使用应用程序度量值，您可以精确地获悉何时扩展、缩减或清除不再需要的实例，从而使成本保持在较低水平。
 
 应用程序度量值将作为时间序列数据进行捕获。聚集和可视化捕获的度量值可帮助识别常见的性能问题，例如：
 
@@ -42,6 +42,7 @@ lastupdated: "2018-09-19"
 使用 [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) 构造函数将监视功能添加到现有 Express 应用程序，以传入若干配置选项。例如，其中一个选项是使用现有服务器，而不使 `appmetrics-dash` 启动额外的服务器。
 
 ### 安装仪表板
+{: #install-appmetrics}
 
 1. 例如，使用以下简单的“Hello World”Express 应用程序：
   ```js

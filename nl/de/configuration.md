@@ -1,10 +1,11 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-09-20"
+  years: 2018, 2019
+lastupdated: "2019-02-28"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -13,6 +14,7 @@ lastupdated: "2018-09-20"
 {:tip: .tip}
 
 # Node.js-Umgebung konfigurieren
+{: #configure-nodejs}
 
 Durch die Implementierung von cloudbasierten Prinzipien kann eine Node.js-Anwendung von einer Umgebung zu einer anderen wechseln, z. B. von der Testumgebung zur Produktionsumgebung, ohne dass der Code geändert wurde oder anderweitig nicht getestete Codepfade ausgeübt werden.
 
@@ -21,11 +23,13 @@ Das Problem tritt auf, wenn in Abhängigkeit von der Entwicklungsumgebung signif
 Unabhängig davon, ob Sie {{site.data.keyword.cloud}}-Unterstützung zu vorhandenen Anwendungen hinzufügen oder Apps mit Starter-Kits erstellen müssen, besteht das Ziel darin, Portierbarkeit für Node.js-Apps auf einer beliebigen Entwicklungsplattform bereitzustellen.
 
 ## {{site.data.keyword.cloud_notm}}-Konfiguration zu vorhandenen Node.js-Anwendungen hinzufügen
-{: #addcloud-env}
+{: #addcloud-env-nodejs}
 
 Das Modul [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) fasst Umgebungsvariablen von verschiedenen Cloud-Anbietern, wie Cloud Foundry und Kubernetes, zusammen, sodass die Anwendung unabhängig von der Umgebung ist.
 
 ### Modul `ibm-cloud-env` installieren
+{: #install-module-nodejs}
+
 1. Installieren Sie das Modul `ibm-cloud-env` mit dem folgenden Befehl:
   ```
   npm install ibm-cloud-env
@@ -64,6 +68,8 @@ Das Modul [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) fass
   {: codeblock}
 
 ### Werte in einer Node.js-App verwenden
+{: #values-nodejs}
+
 Rufen Sie die Werte in Ihrer Anwendung mithilfe der folgenden Befehle ab.
 
 1. Rufen Sie die Variable `service1credentials` ab:
@@ -82,6 +88,8 @@ Rufen Sie die Werte in Ihrer Anwendung mithilfe der folgenden Befehle ab.
 Nun kann Ihre Anwendung in einer beliebigen Laufzeitumgebung implementiert werden, indem die Unterschiede, die von verschiedenen Cloud-Computing-Anbietern eingeführt werden, abstrahiert werden.
 
 ### Werte für Tags und Bezeichnungen filtern
+{: #filter-values-nodejs}
+
 Sie können Berechtigungsnachweise, die vom Modul generiert werden, basierend auf Service-Tags und Servicebezeichnungen filtern, wie im folgenden Beispiel gezeigt:
 ```js
 var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'label', credentials)); // Gibt eine JSON mit Berechtigungsnachweisen für den angegebenen Service-Tag und die Bezeichnung zurück
@@ -89,10 +97,12 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 {: codeblock}
 
 ## Node.js-Konfigurationsmanager über Starter-Kit-Apps verwenden
+{: #nodejs-config-skit}
 
-Node.js-Apps, die mit [Starter-Kits](https://console.bluemix.net/developer/appservice/starter-kits/) erstellt wurden, werden automatisch mit Berechtigungsnachweisen und Konfigurationen ausgestattet, die für die Ausführung in vielen Cloud-Bereitstellungssumgebungen (CF, K8s, VSI und Functions) erforderlich sind.
+Node.js-Apps, die mit [Starter-Kits](https://cloud.ibm.com/developer/appservice/starter-kits/) erstellt wurden, werden automatisch mit Berechtigungsnachweisen und Konfigurationen ausgestattet, die für die Ausführung in vielen Cloud-Bereitstellungssumgebungen (CF, K8s, VSI und Functions) erforderlich sind.
 
 ### Informationen zu Serviceberechtigungsnachweisen
+{: #credentials-nodejs}
 
 Ihre Anwendungskonfigurationsdaten für Services sind in der Datei `localdev-config.json` im Verzeichnis `/server/config` gespeichert. Die Datei befindet sich im Verzeichnis `.gitignore`, um zu verhindern, dass sensible Informationen in Git gespeichert werden. Die Verbindungsinformationen für jeden konfigurierten Service, der lokal ausgeführt wird, wie der Benutzername, das Kennwort und der Hostname, werden in dieser Datei gespeichert.
 
@@ -102,14 +112,13 @@ Lokal ausgeführte Anwendungen können mithilfe von nicht gebundenen Berechtigun
 
 Wenn Sie Ihre Anwendung mit einer Push-Operation an {{site.data.keyword.cloud_notm}} übertragen, werden diese Werte nicht mehr verwendet. Stattdessen stellt die Anwendung automatisch durch die Verwendung von Umgebungsvariablen eine Verbindung zu gebundenen Services her.
 
-* **Cloud Foundry**: Serviceberechtigungsnachweise werden aus der Umgebungsvariablen `VCAP_SERVICES` abgerufen.
+* **Cloud Foundry**: Serviceberechtigungsnachweise werden aus der Umgebungsvariablen `VCAP_SERVICES` abgerufen. Weitere Informationen zu Cloud Foundry Enrprise Edition enthält dieses [Lernprogramm zur Einführung](/docs/cloud-foundry/getting-started.html#getting-started). 
 
 * **Kubernetes**: Serviceberechtigungsnachweise werden pro Service aus einzelnen Umgebungsvariablen abgerufen.
 
 * ** {{site.data.keyword.cloud_notm}} Container-Service**: Serviceberechtigungsnachweise werden aus VSIs oder {{site.data.keyword.openwhisk}} (Openwhisk) übernommen.
 
-
 ## Nächste Schritte
-{: #next_steps notoc}
+{: #next_steps-config notoc}
 
 `ibm-cloud-config` unterstützt die Suche nach Werten unter Verwendung von drei Suchmustertypen: `cloudfoundry`, `env` und `file`. Wenn Sie sich weitere unterstützte Suchmuster und Suchmusterbeispiele ansehen möchten, überprüfen Sie den Abschnitt [Syntax](https://github.com/ibm-developer/ibm-cloud-env#usage).

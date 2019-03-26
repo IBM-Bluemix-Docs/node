@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-08"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -24,11 +24,11 @@ Al exigir a los usuarios que inicien sesión en la app, puede almacenar datos de
 Para obtener más información sobre todas las formas en que puede utilizar {{site.data.keyword.appid_short_notm}} y la información de arquitectura, consulte [Acerca de {{site.data.keyword.appid_short_notm}}](/docs/services/appid/about.html).
 
 ## Antes de empezar
-{: #before}
+{: #prereqs-appid}
 
 Asegúrese de que dispone de los siguientes requisitos previos listos para utilizar:
-1. Debe tener una [cuenta de {{site.data.keyword.cloud}} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
-2. Instale la [CLI de {{site.data.keyword.cloud_notm}}](../cli/index.html).
+1. Debe tener una [cuenta de {{site.data.keyword.cloud}} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
+2. Instale la [CLI de {{site.data.keyword.cloud_notm}}](/docs/cli/index.html).
 3. Instale el soporte de gestión de paquetes [npm ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://nodejs.org/){: new_window}.
 4. Implemente el servidor de Node.js con la [infraestructura Express ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](http://expressjs.com/){: new_window}. Para instalar la infraestructura Express, utilice la línea de mandatos para abrir el directorio con la app Node.js y ejecute el mandato siguiente:
   ```
@@ -55,15 +55,15 @@ Asegúrese de que dispone de los siguientes requisitos previos listos para utili
       * Si no se proporciona el valor de `redirectUri`, el SDK de ID de app recupera el `application_uri` de la aplicación que se ejecuta en {{site.data.keyword.cloud_notm}} y añade el sufijo predeterminado `/ibm/cloud/appid/callback`.
 
 ## Paso 1. Creación de una instancia de {{site.data.keyword.appid_short_notm}}
-{: #create-instance}
+{: #create-instance-appid}
 
 **Suministre una instancia del servicio**
-1. En el [catálogo de {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/), seleccione la categoría **Web y móvil** y pulse {{site.data.keyword.appid_short_notm}}. Se abre la página de configuración del servicio.
+1. En el [catálogo de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/), seleccione la categoría **Web y móvil** y pulse {{site.data.keyword.appid_short_notm}}. Se abre la página de configuración del servicio.
 2. Dé un nombre a la instancia de servicio, o utilice el nombre preestablecido.
 3. Seleccione el plan de precios y pulse **Crear**.
 
 ## Paso 2. Instalación del SDK
-{: #install}
+{: #install-appid}
 
 1. Desde la línea de mandatos, abra el directorio con su app Node.js.
 2. Instale el servicio {{site.data.keyword.appid_short_notm}}.
@@ -73,7 +73,7 @@ Asegúrese de que dispone de los siguientes requisitos previos listos para utili
   {: codeblock}
 
 ## Paso 3. Inicialización del SDK
-{: #initialize}
+{: #initialize-appid}
 
 1. Añada las siguientes definiciones de `require` al archivo `server.js`.
     ```js
@@ -110,7 +110,7 @@ Asegúrese de que dispone de los siguientes requisitos previos listos para utili
     ```
     {: codeblock}
 
-    Si necesita ayuda para encontrar los valores de clave de credenciales para la app, consulte el *paso 5* de la sección [Antes de empezar](app_id.html#before) para obtener detalles sobre dónde encontrarlos. 
+    Si necesita ayuda para encontrar los valores de clave de credenciales para la app, consulte el *paso 5* de la sección [Antes de empezar](/docs/node/app_id.html#prereqs-appid) para obtener detalles sobre dónde encontrarlos. 
     {: tip}
 
 4. Configurar passport con serialización y deserialización. Este paso de configuración es necesario para la persistencia de la sesión autenticada en las solicitudes HTTP. Para obtener más información, consulte la [documentación de passport ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](http://passportjs.org/docs){: new_window}.
@@ -142,9 +142,9 @@ Asegúrese de que dispone de los siguientes requisitos previos listos para utili
 Para obtener más información, consulte el [Repositorio GitHub de Node.js de {{site.data.keyword.appid_short_notm}} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window}.
 
 ## Paso 4. Gestión de la experiencia de inicio de sesión
-{: #manage-sign-in}
+{: #manage-signin-appid}
 
-<!--The following content is similar to https://console.stage1.bluemix.net/docs/services/appid/login-widget.html#managing-the-sign-in-experience -->
+<!--The following content is similar to https://test.cloud.ibm.com/docs/services/appid/login-widget.html#managing-the-sign-in-experience -->
 
 {{site.data.keyword.appid_full}} proporciona un widget de inicio de sesión para dar a los usuarios opciones de inicio de sesión seguras.
 
@@ -160,7 +160,7 @@ El servicio utiliza tipos de concesión `OAuth 2` para correlacionar el proceso 
 Después de configurar los valores para los [proveedores de identidad social](/docs/services/appid/identity-providers.html) y el [Directorio en la nube](/docs/services/appid/cloud-directory.html), puede empezar a implementar el código.
 
 ### Configuración de los proveedores de identidad social
-{: #social-identity}
+{: #social-identity-appid}
 
 Para configurar proveedores de identidad social, lleve a cabo los pasos siguientes:
 
@@ -170,14 +170,14 @@ Para configurar proveedores de identidad social, lleve a cabo los pasos siguient
 4. [Personalice la página de inicio de sesión preconfigurada](#login-widget) para mostrar la imagen y los colores de su elección.
 
 ### Configuración del directorio en la nube
-{: #cloud-directory}
+{: #cloud-directory-appid}
 
 Con {{site.data.keyword.appid_short_notm}}, puede gestionar su propio registro de usuarios denominado directorio en la nube. El directorio en la nube permite a los usuarios registrarse e iniciar sesión en sus apps móviles y web utilizando su correo electrónico y una contraseña.
 
 Para configurar el directorio en la nube, consulte [directorio en la nube](/docs/services/appid/cloud-directory.html).
 
 ### Personalización de la página de inicio de sesión predeterminada
-{: #login-widget}
+{: #login-widget-appid}
 
 Puede personalizar la página de inicio de sesión preconfigurada para mostrar el logotipo y los colores de su elección.
 
@@ -191,7 +191,7 @@ Para personalizar la página:
 6. En el navegador, renueve la página de inicio de sesión para verificar los cambios.
 
 ### Visualización de las páginas predeterminadas
-{: #default-pages}
+{: #default-pages-appid}
 
 {{site.data.keyword.appid_short_notm}} proporciona una página de inicio de sesión predeterminada que puede llamar si no tiene sus propias páginas de IU para mostrar.
 
@@ -239,7 +239,7 @@ Para mostrar las páginas predeterminadas:
   ```
   {: codeblock}
 
-** Contraseña olvidada **
+**Contraseña olvidada**
 1. Establezca **Permitir a los usuarios registrarse y restablecer su contraseña** y **Correo electrónico de contraseña olvidada** en **Activado** en los valores del directorio en la nube. Si se establece en no, el proceso finaliza sin recuperar las señales de acceso e identidad.
 2. Pase la propiedad `show` de WebAppStrategy y establézcala en `WebAppStrategy.FORGOT_PASSWORD`.
   ```js
@@ -250,7 +250,7 @@ Para mostrar las páginas predeterminadas:
   ```
   {: codeblock}
 
-** Cambio de contraseña **
+**Cambio de contraseña**
 1. Establezca **Permitir a los usuarios registrarse y restablecer su contraseña** en **Activado** en los valores del directorio en la nube.
 2. Pase la propiedad `show` de WebAppStrategy y establézcala en `WebAppStrategy.CHANGE_PASSWORD`.
   ```js
@@ -273,11 +273,11 @@ Para mostrar las páginas predeterminadas:
   ```
   {: codeblock}
 
-¿Desea proporcionar a sus usuarios una experiencia personalizada? Consulte la [{{site.data.keyword.appid_short_notm}}documentación](/docs/services/appid/login-widget.html#branding) para ver cómo puede visualizar sus propias páginas de IU.
+¿Desea proporcionar a sus usuarios una experiencia personalizada? Consulte la [documentación de {{site.data.keyword.appid_short_notm}}](/docs/services/appid/login-widget.html#branding) para ver cómo puede visualizar sus propias páginas de IU.
 {: tip}
 
 ## Paso 5. Comprobación de la app
-{: #test}
+{: #test-appid}
 
 ¿Todo se ha configurado correctamente? Puede probarlo ahora.
 
@@ -289,9 +289,9 @@ Para mostrar las páginas predeterminadas:
 ¿Tiene problemas? Consulte [resolución de problemas de {{site.data.keyword.appid_short_notm}}](/docs/services/appid/ts_index.html).
 
 ## Pasos siguientes
-{: #next notoc}
+{: #next-appid notoc}
 
 ¡Buen trabajo! Ha añadido un paso de autenticación a la app. Mantenga el ritmo probando una de las opciones siguientes:
 
 * Para obtener más información y aproveche todas las características que {{site.data.keyword.appid_short_notm}} ofrece, [consulte los documentos](/docs/services/appid/index.html).
-* Los kits de iniciación son una de las formas más rápidas de utilizar las prestaciones de {{site.data.keyword.cloud}}. Vea los kits de iniciación disponibles en el [panel de control de desarrollador de Mobile ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/developer/mobile/dashboard){: new_window}. Descargue el código. Ejecute la app.
+* Los kits de inicio son una de las formas más rápidas de utilizar las prestaciones de {{site.data.keyword.cloud}}. Vea los kits de inicio disponibles en el [panel de control de desarrollador de Mobile ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/developer/mobile/dashboard){: new_window}. Descargue el código. Ejecute la app.

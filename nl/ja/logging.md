@@ -1,10 +1,11 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-04"
+  years: 2018, 2019
+lastupdated: "2019-02-27"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -15,28 +16,29 @@ lastupdated: "2018-10-04"
 # Node.js でのロギング
 {: #logging_nodejs}
 
-ログ・メッセージは、ログ・エントリーが作成された時点のマイクロサービスの状態およびアクティビティーに関するコンテキスト情報を含むストリングです。 ログは、サービスでの障害がなぜどのように起こったのかを診断するために必須であり、アプリケーション正常性のモニタリングにおいて [appmetrics](appmetrics.html) を支援する役割を果たします。
+ログ・メッセージは、ログ・エントリーが作成された時点のマイクロサービスの状態およびアクティビティーに関するコンテキスト情報を含むストリングです。 ログは、サービスでの障害がなぜどのように起こったのかを診断するために必須であり、アプリケーション正常性のモニタリングにおいて [appmetrics](/docs/node/appmetrics.html#metrics) を支援する役割を果たします。
 
-クラウド環境でのプロセスの一過性の性質を考慮すると、ログは収集されて、分析のために他の場所 (通常は一元管理の場所) に送信される必要があります。 クラウド環境でロギングを行う最も一貫性のある方法は、ログ・エントリーを標準出力とエラー・ストリームに送信する方法です (こうするとインフラストラクチャーが残りを処理します)。
+クラウド環境でのプロセスの一過性の性質を考慮すると、ログは収集されて、分析のために他の場所 (通常は一元管理の場所) に送信される必要があります。クラウド環境でロギングを行う最も一貫性のある方法は、ログ・エントリーを標準出力とエラー・ストリームに送信する方法です (こうするとインフラストラクチャーが残りを処理します)。
 
-## Node.js アプリへの Log4js サポートの追加
-{: #add_log4j}
-
-[Log4js](https://github.com/log4js-node/log4js-node) は、Node.js 用の一般的なロギング・フレームワークであり、以下のような多くの固有の利点があります。 
+Node.js 用の一般的なロギング・フレームワークである [Log4js](https://github.com/log4js-node/log4js-node){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") を使用できます。これには、以下のような多くの固有の利点があります。 
 * `stdout` または `stderr` へのログの書き込み
 * 各種の付加オプション
 * 構成可能なログ・メッセージ・レイアウトおよびパターン
-* さまざまなログ・カテゴリー用のログ・レベルの使用
+* さまざまなログ・カテゴリー用の`ログ・レベル`の使用
 
-1. Log4js を使用するには、アプリケーションのルート・ディレクトリーで次の [npm](https://nodejs.org/) コマンドを実行します。これにより、パッケージがインストールされ、`package.json` ファイルに追加されます。
+## 既存の Node.js アプリへの Log4js サポートの追加
+{: #add_log4j}
+
+1. まず、アプリケーションのルート・ディレクトリーで次の [npm](https://nodejs.org/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") コマンドを実行して `log4js` をインストールします。これにより、パッケージがインストールされ、`package.json` ファイルに追加されます。
   ```bash
   npm install --save log4js
   ```
   {: codeblock}
 
-2. これをアプリケーションで使用するために、以下のコード行を追加します。
-  ```javascript
+2. これをアプリケーションで使用するために、以下のコード行をアプリに追加します。
+  ```js
   var log4js = require('log4js');
+
   var log = log4js.getLogger();
   log.level = 'debug';
   log.debug("My Debug message");
@@ -49,16 +51,23 @@ lastupdated: "2018-10-04"
   ```
   {: screen}
 
-アペンダー、ログ・レベル、および構成詳細でのログ・メッセージのカスタマイズについて詳しくは、公式の [log4js-node 資料](https://log4js-node.github.io/log4js-node/)を参照してください。
+3. ログ・イベントを標準エラー・ストリームに書き込むために、次の例のようにアペンダーを構成できます。
+  ```js
+  var log4js = require('log4js');
+  
+  log4js.configure({
+    appenders: { err: { type: 'stderr' } },
+    categories: { default: { appenders: ['err'], level: 'ERROR' } }
+  });
+  ```
+  {: codeblock}
 
-## App Service を使用したログのモニタリング
+  アペンダー、`ログ・レベル`、および構成詳細でのログ・メッセージのカスタマイズについて詳しくは、公式の [log4js-node 資料](https://log4js-node.github.io/log4js-node/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") を参照してください。
+
+## App Service アプリでのモニタリング
 {: #monitoring}
 
-{{site.data.keyword.cloud_notm}} [App Service](https://console.bluemix.net/developer/appservice/dashboard) を使用して作成された Node.js アプリには、デフォルトで Log4js が付属しています。 ネイティブにアプリを実行するか、クラウド環境でアプリを実行すると、`2018-07-26 12:40:15.121] [INFO] MyAppName - MyAppName listening on http://localhost:3000` のような出力が生成されます。 出力は以下のように表示できます。
-* ローカルで実行している場合は、`stdout` を使用します。
-* [CloudFoundry](https://console.bluemix.net/docs/cli/reference/bluemix_cli/bx_cli.html#ibmcloud_app_logs) および [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/) デプロイメントのログに、`ibmcloud app logs --recent <APP_NAME>` および `kubectl logs <deployment name>` によってアクセスします。
-
-`server/server.js` ファイル内に次のようなコードがあります。
+{{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard) を使用して作成された Node.js アプリには、デフォルトで Log4js が付属しています。 `server/server.js` ファイルを開くと、次の Log4js が表示されます。
 ```js
 var logger = log4js.getLogger(appName);
 var app = express();
@@ -66,17 +75,40 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
 ```
 {: codeblock}
 
-ログ・レベルはデフォルトでは `OFF` に設定されているため、ライブラリーでは安全に使用できますが、アプリケーションの **LOG_LEVEL** 環境変数によってオーバーライドできます。
+`ログ・レベル`はデフォルトでは `OFF` に設定されているため、ライブラリーでは安全に使用できますが、アプリケーションの **LOG_LEVEL** 環境変数によってオーバーライドできます。
 {: tip}
 
-## 次のステップ
-{: #next_steps notoc}
+### ログ出力の表示
+{: #node-view-log-output}
 
-各デプロイメント環境でのログの表示について詳しくは、次の各ページを参照してください。
-* [Kubernetes のログ](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
-* [Cloud Foundry のログ](https://console.bluemix.net/docs/cli/reference/bluemix_cli/bx_cli.html#ibmcloud_app_logs)
-* [{{site.data.keyword.openwhisk}} のログおよびモニタリング](https://console.bluemix.net/docs/openwhisk/openwhisk_logs.html#openwhisk_logs)
+以下は、アプリをネイティブに実行した場合、またはクラウド環境で実行した場合のログ出力のサンプルです。
+```
+2018-07-26 12:40:15.121 [INFO] MyAppName - MyAppName listening on http://localhost:3000
+```
+{: screen}
+
+ログ出力を表示するには、以下のメソッドを使用します。
+* ローカル環境の場合は、`stdout` を使用します。
+* [Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html) デプロイメントの場合は、以下を実行すると、ログにアクセスできます。
+  ```
+  ibmcloud app logs --recent <APP_NAME>
+  ```
+  {: codeblock}
+
+* [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") デプロイメントの場合は、以下を実行すると、ログにアクセスできます。
+  ```
+  kubectl logs <deployment name>
+  ```
+  {: codeblock}
+
+## 次のステップ
+{: #next_steps-logging notoc}
+
+各デプロイメント環境でのログの表示についての詳細:
+* [Kubernetes のログ](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")
+* [Cloud Foundry のログ](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html#logging_cf_apps)
+* [{{site.data.keyword.openwhisk}} のログおよびモニタリング](/docs/openwhisk/openwhisk_logs.html#openwhisk_logs)
 
 ログ統合機能の使用:
-* [{{site.data.keyword.cloud_notm}} Log Analysis](https://console.bluemix.net/docs/services/CloudLogAnalysis/log_analysis_ov.html#log_analysis_ov)
-* [{{site.data.keyword.cloud_notm}} Private ELK スタック](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.2/manage_metrics/logging_elk.html)
+* [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis/log_analysis_ov.html#log_analysis_ov)
+* [{{site.data.keyword.cloud_notm}} Private ELK スタック](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.2/manage_metrics/logging_elk.html){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")

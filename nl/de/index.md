@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-08"
+  years: 2018, 2019
+lastupdated: "2019-02-18"
 
 ---
 
@@ -15,25 +15,26 @@ lastupdated: "2018-10-08"
 
 # Einführung - Lernprogramm
 
-Das folgende Lernprogramm führt Sie durch die Schritte zum Erstellen, lokalen Ausführen und Bereitstellen einer Node.js-App mithilfe von im Rahmen von {{site.data.keyword.cloud_notm}} bereitgestellten Tools. Sie können die [{{site.data.keyword.dev_cli_long}}](https://console.bluemix.net/docs/cloudnative/dev_cli.html#add-cli) in der Befehlszeile oder die webbasierte [{{site.data.keyword.cloud}}-{{site.data.keyword.dev_console}}](https://console.bluemix.net/developer/appservice/dashboard) verwenden, wie in den folgenden Schritten des Lernprogramms gezeigt. Durch die Verwendung einer dieser Methoden können Sie eine für die Produktion bereite Node.js-Anwendung generieren.
+Das folgende Lernprogramm führt Sie durch die Schritte zum Erstellen, lokalen Ausführen und Bereitstellen einer Node.js-App mithilfe von im Rahmen von {{site.data.keyword.cloud_notm}} bereitgestellten Tools. Sie können die [{{site.data.keyword.dev_cli_long}}](/docs/cli/index.html#ibmcloud-cli) über die Befehlszeile oder die webbasierte [{{site.data.keyword.cloud}} {{site.data.keyword.dev_console}}](https://cloud.ibm.com/developer/appservice/dashboard) verwenden, wie in den folgenden Schritten des Lernprogramms beschrieben. Durch die Verwendung einer dieser Methoden können Sie eine für die Produktion bereite Node.js-Anwendung generieren.
 
 Stellen Sie sicher, dass Sie das neueste LTS-Release von Node.js verwenden.
 
 ## Node.js-App erstellen
 {: #create_project}
 
-1. Wählen Sie auf der Seite mit den [Starter-Kits](https://console.bluemix.net/developer/appservice/starter-kits) in der {{site.data.keyword.dev_console}} ein Starter-Kit aus, das in `Node.js` geschrieben ist. Sie können auch eine leere Starter-App erstellen, indem Sie auf **App erstellen** klicken und dann `Node.js` als Sprache auswählen.
+1. Wählen Sie auf der Seite mit den [Starter-Kits](https://cloud.ibm.com/developer/appservice/starter-kits) in der {{site.data.keyword.dev_console}} ein Starter-Kit aus, das in `Node.js` geschrieben ist. Sie können auch eine leere Starter-App erstellen, indem Sie auf **App erstellen** klicken und dann `Node.js` als Sprache auswählen.
 
-    Sie müssen bei einem {{site.data.keyword.cloud_notm}}-Konto angemeldet sein, um ein Projekt erstellen zu können. Wenn Sie über kein Konto verfügen, können Sie sich [für ein kostenloses Konto registrieren](https://console.bluemix.net/registration).
+    Sie müssen bei einem {{site.data.keyword.cloud_notm}}-Konto angemeldet sein, um eine App zu erstellen. Wenn Sie über kein Konto verfügen, können Sie sich [für ein kostenloses Konto registrieren](https://cloud.ibm.com/registration).
     {: tip}
 
 2. Klicken Sie auf **App erstellen**.
 3. Geben Sie der App einen **Namen**. Sie haben auch die Möglichkeit, einen generischen App-Namen zu verwenden.
 4. Geben Sie einen **eindeutigen Hostnamen** ein. Der Hostname wird für den Zugriff auf Ihre Anwendung verwendet, zum Beispiel: `expressjs-project.mybluemix.net`.
 5. Klicken Sie auf **Erstellen**. Nachdem Ihr Projekt erstellt wurde, können Sie es mit einer Toolchain bereitstellen; Sie können aber auch mit dem Erstellen fortfahren und das Projekt über die Befehlszeile bereitstellen.
-6. Wenn Sie eine Toolchain erstellen möchten, klicken Sie auf **In der Cloud bereitstellen** und wählen Sie eine der folgenden Bereitstellungsmethoden aus.
-    * **Cloud Foundry-App**: Sie müssen die zugrunde liegende Infrastruktur nicht verwalten.
-    * **Kubernetes-Cluster**: Sie müssen eine Gruppe von Workerknoten bereitstellen. Sie können zum Beispiel VMs verwenden, um hoch verfügbare Anwendungscontainer bereitzustellen und zu verwalten. Sie können einen Cluster erstellen oder die Bereitstellung in einem vorhandenen Cluster vornehmen.
+6. Klicken Sie zum Erstellen einer Bereitstellungs-Toolchain im Dashboard auf **In Cloud bereitstellen**. Richten Sie die Bereitstellungsmethode ein, indem Sie die Anweisungen für die von Ihnen ausgewählte Methode ausführen: 
+  * **Bereitstellung in [Kubernetes](/docs/apps/deploying/containers.html#containers-kube)**. Mit dieser Option wird ein Cluster mit Hosts erstellen, die als Workerknoten bezeichnet werden, um hoch verfügbare Anwendungscontainer bereitzustellen und zu verwalten. Sie können einen Cluster erstellen oder die Bereitstellung in einem vorhandenen Cluster vornehmen.
+  * **Bereitstellung in Cloud Foundry**. Mit dieser Option wird die cloudnative App bereitgestellt, ohne dass Sie die zugrunde liegende Infrastruktur verwalten müssen. Wenn Ihr Konto über Zugriff auf {{site.data.keyword.cfee_full_notm}} verfügt, können Sie als Bereitstellertyp entweder **[Public Cloud](/docs/cloud-foundry-public/about-cf.html#about-cf)** oder **[Enterprise Environment](/docs/cloud-foundry-public/cfee.html#cfee)** auswählen, das zum Erstellen und Verwalten isolierter Umgebungen für das exklusive Hosting von Cloud Foundry-Anwendungen für Ihr Unternehmen verwendet werden kann. 
+  * **Bereitstellung auf einem [virtuellen Server](/docs/apps/vsi-deploy.html#vsi-deploy)**. Mit dieser Option wird eine virtuelle Serverinstanz eingerichtet, ein Image mit Ihrer App geladen, eine DevOps-Toolchain erstellt und der erste Bereitstellungszyklus initiiert. 
 
 7. Wählen Sie die gewünschten Optionen aus und klicken Sie dann auf **Erstellen**, um die Toolchain zu erstellen.
 
@@ -92,7 +93,7 @@ ibmcloud dev deploy –target container
 Sehen Sie sich als Nächstes die Themen im Programmierungshandbuch zu Node.js an. Wenn Sie mit erweiterten Bereitstellungen arbeiten, können Sie auch lernen, wie Sie einen Kubernetes-Cluster erstellen und die Node.js-App in diesem Cluster bereitstellen.
 
 ### Kubernetes-Cluster einrichten
-Weitere Informationen zum Einrichten eines Kubernetes-Clusters in {{site.data.keyword.cloud_notm}} finden Sie in den entsprechenden [Schritten des Lernprogramms](https://console.bluemix.net/docs/containers/cs_clusters.html#clusters).
+Weitere Informationen zum Einrichten eines Kubernetes-Clusters in {{site.data.keyword.cloud_notm}} finden Sie in den entsprechenden [Schritten des Lernprogramms](/docs/containers/cs_clusters.html#clusters).
 
 ### Node.js-Apps in einem Kubernetes-Cluster bereitstellen
-Erfahren Sie, wie Sie [Node.js-Apps in einem Kubernetes-Cluster bereitstellen](../containers/cs_tutorials_apps.html).
+Erfahren Sie, wie Sie [Node.js-Apps in einem Kubernetes-Cluster bereitstellen](/docs/containers/cs_tutorials_apps.html#cs_apps_tutorial).

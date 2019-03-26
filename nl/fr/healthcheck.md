@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-17"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -27,7 +27,7 @@ Kubernetes a une notion nuancée de l'intégrité des processus. Il définit deu
 
 - La sonde de préparation (_**readiness**_) est utilisée pour indiquer si le processus peut traiter les demandes (est routable).
 
-  Kubernetes n'achemine pas le travail vers un conteneur si la sonde de préparation a échoué. Une sonde de préparation peut échouer si un service n'a pas terminé son initialisation, ou s'il est occupé, surchargé ou incapable de traiter les demandes. 
+  Kubernetes n'achemine pas le travail vers un conteneur si la sonde de préparation a échoué. Une sonde de préparation peut échouer si un service n'a pas terminé son initialisation, ou s'il est occupé, surchargé ou incapable de traiter les demandes.
 
 - La sonde de vivacité (_**liveness**_) est utilisée pour indiquer si le processus doit être redémarré.
 
@@ -37,7 +37,7 @@ A titre de comparaison, Cloud Foundry utilise un seul noeud final d'intégrité.
 
 Le tableau suivant donne des indications sur les réponses fournies par les noeuds finaux en terme de préparation, de vivacité et d'intégrité.
 
-| Etat     | Préparation                 | Vivacité                   | Intégrité                 |
+| Etat    | Préparation                   | Vivacité                   | Intégrité                    |
 |----------|-----------------------------|----------------------------|---------------------------|
 |          | Non-OK causes no load       | Non-OK causes restart      | Non-OK causes restart     |
 | Starting | 503 - Unavailable           | 200 - OK                   | Use delay to avoid test   |
@@ -63,7 +63,7 @@ Vérifiez l'état de l'application avec un navigateur en accédant au noeud fina
 ## Accès au diagnostic d'intégrité depuis des applications de kit de démarrage Node.js
 {: #healthcheck-starterkit}
 
-Par défaut, lorsque vous générez une application Node.js à l'aide d'un kit de démarrage, un noeud final de diagnostic d'intégrité basique (non autorisé) est disponible dans `/health` afin de vérifier le statut de l'application (UP/DOWN).
+Par défaut, lorsque vous générez une application Node.js à l'aide d'un kit de démarrage, un noeud final de diagnostic d'intégrité basique (non autorisé) est disponible dans `/health` afin de vérifier le statut (UP/DOWN) de cette application.
 
 Le code du noeud final de diagnostic d'intégrité est fourni par le fichier `/server/routers/health.js` suivant :
 
@@ -83,16 +83,19 @@ module.exports = function(app) {
 {: codeblock}
 
 ## Recommandations pour les sondes de préparation et de vivacité
+{: #readiness-recommend}
 
 Les sondes de préparation peuvent inclure la viabilité des connexions aux services situés en aval dans leur résultat si aucune rétromigration acceptable n'existe lorsque le service en aval n'est pas disponible. Il ne s'agit pas d'appeler directement le diagnostic d'intégrité qui est fourni par le service en aval, car l'infrastructure le vérifie pour vous. Vous devez plutôt envisager de vérifier l'état des références existantes de votre application aux services en aval : il peut s'agir d'une connexion JMS à WebSphere MQ, ou d'un consommateur ou producteur Kafka initialisé. Si vous vérifiez la viabilité des références internes aux services en aval, mettez en cache le résultat pour minimiser l'impact de la vérification de santé sur votre application.
 
 Une sonde de vivacité, en revanche, est délibérée quant à ce qui est vérifié, car une défaillance entraîne l'arrêt immédiat du processus. Un noeud final http simple qui renvoie toujours `{"statut" : "UP"}` avec le code d'état `200` est un choix raisonnable.
 
-### Ajout d'une prise en charge de la préparation et de la vivacité pour Kubernetes 
+### Ajout d'une prise en charge de la préparation et de la vivacité pour Kubernetes
+{: #kube-readiness-add}
 
 La bibliothèque [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) de [CloudNativeJS] fournit une infrastructure permettant de définir des noeuds finaux de préparation et de vivacité séparés dans Node qui permettent une composition des sources pour l'état de chaque point final.
 
-## Configuration des sondes de préparation et de vivacité dans Kubernetes 
+## Configuration des sondes de préparation et de vivacité dans Kubernetes
+{: #kube-readiness-config}
 
 Sondez la vivacité et l'état de préparation lors de votre déploiement Kubernetes. Les deux sondes utilisent les mêmes paramètres de configuration :
 

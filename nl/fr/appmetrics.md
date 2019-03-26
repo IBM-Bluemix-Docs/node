@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-09-19"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -16,32 +16,33 @@ lastupdated: "2018-09-19"
 # Utilisation de métriques d'application avec des applications Node.js
 {: #metrics}
 
-Apprenez à installer, accéder à et comprendre les métriques d'application Node.js. Vous pouvez surveillez les applications Node.js avec le tableau de bord [Node Application Metrics](https://developer.ibm.com/code/open/projects/node-application-metrics/) afin de visualiser les performances de votre application Node.js en affichant des métriques dans une application Web de front end.
+Apprenez à installer et interpréter les métriques d'application Node.js ainsi qu'à y accéder. Vous pouvez surveiller les applications Node.js avec le tableau de bord [Node Application Metrics](https://developer.ibm.com/code/open/projects/node-application-metrics/) afin de visualiser les performances de votre application Node.js en affichant des métriques dans une interface Web.
 {: shortdesc}
 
 ## Identification visuelle des problèmes
 {: #identify-problems}
 
-Les métriques d'application sont importantes pour la surveillance des performances de votre application. Une vue en direct de métriques comme l'UC, la mémoire, le temps d'attente et les métriques HTTP est essentiel pour vous assurer que votre application fonctionne efficacement dans le temps. Vous pouvez utiliser un service cloud comme Cloud Foundry [Auto-Scaling](/docs/services/Auto-Scaling/index.html), qui repose sur des métriques pour une mise à l'échelle dynamique des instances en fonction de la charge de travail en cours. En utilisant des métriques d'application, vous êtes informé précisément lorsqu'il faut augmenter ou réduire des instances, ou les nettoyer lorsqu'elles ne sont plus nécessaires, le tout pour limiter les coûts.
+Les métriques d'application sont importantes pour la surveillance des performances de votre application. Une vue en direct de métriques comme l'UC, la mémoire, le temps d'attente et les métriques HTTP est essentielle pour vous assurer que votre application fonctionne efficacement dans le temps. Vous pouvez utiliser un service cloud comme Cloud Foundry [Auto-Scaling](/docs/services/Auto-Scaling/index.html), qui repose sur des métriques pour une mise à l'échelle dynamique des instances en fonction de la charge de travail en cours. En utilisant des métriques d'application, vous savez précisément quand augmenter ou réduire des instances, ou les nettoyer lorsqu'elles ne sont plus nécessaires, ce qui vous permet de limiter les coûts.
 
 Les métriques d'application sont capturées sous forme de données de séries temporelles. L'agrégation et la visualisation des métriques capturées peut permettre d'identifier des problèmes de performance courants :
 
-* Faibles temps de réponse HTTP sur tout ou partie des routes
+* Temps de réponse HTTP trop longs sur tout ou partie des routes
 * Débit médiocre dans l'application
 * Pics de demandes entraînant des ralentissements
 * Utilisation d'UC plus élevée que prévu
 * Utilisation élevée ou en augmentation de la mémoire (fuite de mémoire potentielle)
 
-Le tableau de bord intégré Application Metrics ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash)) inclut également un diagramme pour les "autres demandes", qui indique la durée des demandes envoyées à la base de données pour les bases de données prises en charge (MongoDB, MySQL, Postgres, LevelDB et Redis), Socket.IO, et les événements Riak.
+Le tableau de bord intégré Application Metrics ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash)) inclut également un diagramme pour les "autres demandes", qui indique la durée des requêtes de base de données pour les bases de données prises en charge (MongoDB, MySQL, Postgres, LevelDB et Redis), ainsi que les événements Socket.IO et Riak.
 
 Il est possible de générer un rapport sur les noeuds (Node Report) ou un instantané de segment de mémoire (Heap Snapshot) depuis le tableau de bord, afin de permettre une analyse plus approfondie.
 
 ## Ajout de métriques à des applications Node.js existantes
 {: #add-appmetrics-existing}
 
-Ajoutez des fonctions de surveillance à des applications Express existantes avec le constructeur [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) afin de transmettre des options de configuration. Par exemple, l'une des options utilise un serveur existant plutôt que `appmetrics-dash` démarre un serveur supplémentaire.
+Ajoutez des fonctions de surveillance à des applications Express existantes avec le constructeur [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) afin de transmettre des options de configuration. Par exemple, l'une des options utilise un serveur existant plutôt que de faire appel à `appmetrics-dash` pour démarrer un serveur supplémentaire.
 
 ### Installation du tableau de bord
+{: #install-appmetrics}
 
 1. Utilisez, par exemple, l'application express “Hello World” suivante :
   ```js
@@ -56,13 +57,13 @@ Ajoutez des fonctions de surveillance à des applications Express existantes ave
   ```
   {: codeblock}
 
-2. Installez le tableau de bord `appmetrics` avec la commande [npm](https://nodejs.org/) suivante :
+2. Installez le tableau de bord `appmetrics` à l'aide de la commande [npm](https://nodejs.org/) suivante :
   ```
   npm install appmetrics-dash
   ```
   {: codeblock}
 
-3. Ajoutez la prise en charge `appmetrics-dash` à votre application existante en ajoutant le code suivant :
+3. Ajoutez la prise en charge d'`appmetrics-dash` à votre application existante en ajoutant le code suivant :
   ```js
   var dash = require('appmetrics-dash').attach()
   ```
@@ -87,7 +88,7 @@ Ajoutez des fonctions de surveillance à des applications Express existantes ave
 ## Utilisation de métriques des kits de démarrage
 {: #appmetrics-starterkits}
 
-Par défaut, les applications Node.js créées à partir de kits de démarrage sont automatiquement fournies avec `appmetrics-dash` et son tableau de bord, mais ils doivent être activés pour utilisation.
+Par défaut, les applications Node.js créées à partir de kits de démarrage sont automatiquement fournies avec `appmetrics-dash` et son tableau de bord, mais elles doivent être activées pour utilisation.
 
 Le code appmetrics se trouve dans le fichier source applicatif généré, nommé `/app_name/server/server.js` :
 ```js

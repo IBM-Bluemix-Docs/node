@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-09-19"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -42,6 +42,7 @@ Node.js 애플리케이션 메트릭을 설치하고 액세스하는 방법과 �
 [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) 생성자를 사용해 기존 Express 애플리케이션에 모니터링 기능을 추가하여 몇 가지 구성 옵션을 전달하도록 하십시오. 예를 들면, 이러한 옵션 중 하나는 `appmetrics-dash`가 추가 서버를 시작하도록 하는 대신 기존 서버를 사용합니다.
 
 ### 대시보드 설치
+{: #install-appmetrics}
 
 1. 예를 들면, 간단한 다음 "Hello World" Express 애플리케이션을 사용하십시오.
   ```js

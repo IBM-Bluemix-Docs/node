@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-17"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -83,16 +83,19 @@ module.exports = function(app) {
 {: codeblock}
 
 ## readiness 及 liveness 探測的建議
+{: #readiness-recommend}
 
 如果下游服務無法使用時沒有可接受的撤回措施，readiness 探測可以在其結果中包含下游服務連線的可行性。這並不表示直接呼叫下游服務所提供的性能檢查，因為基礎架構會為您檢查。相反地，請考慮驗證您應用程式對下游服務之現有參照的性能：這可能是與 WebSphere MQ 的 JMS 連線，或已起始設定的 Kafka 消費者或生產者。如果您檢查了對下游服務之內部參照的可行性，請將結果予以快取，將性能檢查對您應用程式的影響降至最低。
 
 相反地，liveness 探測對於檢查的對象很慎重，因為失敗會導致立即終止處理程序。簡單的 http 端點、一律傳回 `{"status": "UP"}` 與狀態碼 `200`，便是一個合理的選項。
 
 ### 新增 Kubernetes readiness 及 liveness 的支援
+{: #kube-readiness-add}
 
 來自 [CloudNativeJS] 的 [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) 程式庫提供架構以便定義 Node 中不同的 liveness 和 readiness 端點，它們允許針對每個端點的狀態組合來源。
 
 ## 在 Kubernetes 中配置 readiness 和 liveness 探測
+{: #kube-readiness-config}
 
 請與 Kubernetes 部署同時宣告 liveness 和 readiness 探測。兩種探測都使用相同的配置參數：
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-09-19"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -42,6 +42,7 @@ Node.js アプリケーションのメトリックをインストール、アク
 多数の構成オプションを渡すための [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) コンストラクターを使用して、既存の Express アプリケーションにモニター機能を追加します。 例えば、`appmetrics-dash` で追加のサーバーを開始するのではなく、既存のサーバーを使用するというオプションがあります。
 
 ### ダッシュボードのインストール
+{: #install-appmetrics}
 
 1. 例として、以下の単純な express アプリケーション「Hello World」を使用します。
   ```js

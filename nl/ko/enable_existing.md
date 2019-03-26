@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-17"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-10-17"
 # 클라우드 배치를 위해 기존 Node.js 애플리케이션 사용
 {: #enable_existing}
 
-[{{site.data.keyword.dev_cli_long}} CLI 사용 명령](https://console.bluemix.net/docs/cli/idt/commands.html#enable)을 사용하여 Node.js 애플리케이션이 {{site.data.keyword.cloud}}에 실행되는 데 필요한 파일을 생성할 수 있습니다. 
+[{{site.data.keyword.dev_cli_long}} CLI 사용 명령](/docs/cli/idt/commands.html#enable)을 사용하여 Node.js 애플리케이션이 {{site.data.keyword.cloud}}에 실행되는 데 필요한 파일을 생성할 수 있습니다.
 
 ## 애플리케이션 사용
 {: #enable_app}
@@ -82,7 +82,7 @@ demo: $
 ## 노드 애플리케이션에 사용 가능한 클라우드 빌드 및 배치
 {: #build_deploy}
 
-그런 다음 [`build`](/docs/cli/idt/commands.html#build) 명령을 사용하여 애플리케이션을 빌드하십시오. 
+그런 다음 [`build`](/docs/cli/idt/commands.html#build) 명령을 사용하여 애플리케이션을 빌드하십시오.
 ```
 ibmcloud dev build
 ```
@@ -104,11 +104,11 @@ ibmcloud dev deploy
 ### 생성된 클라우드 인에이블먼트 파일을 수동으로 수정
 {: #manual_modify}
 
-사용으로 설정되면 애플리케이션은 Docker를 사용하여 로컬로 실행됩니다. 아직 Dockerfile이 없는 경우 사용자용 Dockerfile이 작성되고 포트 `3000`이 노출됩니다. 
+사용으로 설정되면 애플리케이션은 Docker를 사용하여 로컬로 실행됩니다. 아직 Dockerfile이 없는 경우 사용자용 Dockerfile이 작성되고 포트 `3000`이 노출됩니다.
 
-그러나 애플리케이션에 개별 컨테이너에서 실행되는 서비스(예: MongoDB 또는 Redis)가 필요한 경우 애플리케이션 및 필요한 서비스를 동시에 유지하도록 `docker-compose`를 사용하는 것이 좋습니다. 
+그러나 애플리케이션에 개별 컨테이너에서 실행되는 서비스(예: MongoDB 또는 Redis)가 필요한 경우 애플리케이션 및 필요한 서비스를 동시에 유지하도록 `docker-compose`를 사용하는 것이 좋습니다.
 
-루트 디렉토리에서 작성할 수 있는 다음 `docker-compose.yml` 예제를 참조하십시오. 
+루트 디렉토리에서 작성할 수 있는 다음 `docker-compose.yml` 예제를 참조하십시오.
 ```yaml
 version: '2'
 services:
@@ -133,9 +133,9 @@ services:
 ```
 {: codeblock}
 
-이를 통해 포트 `3000`에서 애플리케이션이 노출되고 포트 `27017`을 통해 클라이언트 연결에 MongoDB 서버를 사용할 수 있게 됩니다. 
+이를 통해 포트 `3000`에서 애플리케이션이 노출되고 포트 `27017`을 통해 클라이언트 연결에 MongoDB 서버를 사용할 수 있게 됩니다.
 
-새 Dockerfile을 가리키려면 `cli-config.yml`에 다음 행을 업데이트해야 합니다.  
+새 Dockerfile을 가리키려면 `cli-config.yml`에 다음 행을 업데이트해야 합니다. 
 ```yaml
 # The name for the dockerfile for the run container
 dockerfile-run : "Dockerfile"
@@ -150,6 +150,6 @@ dockerfile-run : "docker-compose.yml"
 {: codeblock}
 
 ## 다음 단계
-{: #next_steps notoc}
+{: #next_steps-existing notoc}
 
-자세한 정보는 [IBM Cloud Developer Tools CLI](https://console.bluemix.net/docs/cli/idt/commands.html#idt-cli)를 참조하십시오.
+자세한 정보는 [IBM Cloud Developer Tools CLI](/docs/cli/idt/commands.html#idt-cli)를 참조하십시오.

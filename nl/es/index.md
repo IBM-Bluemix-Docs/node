@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-08"
+  years: 2018, 2019
+lastupdated: "2019-02-18"
 
 ---
 
@@ -15,25 +15,26 @@ lastupdated: "2018-10-08"
 
 # Guía de aprendizaje de iniciación
 
-En la siguiente guía de aprendizaje se indican los pasos para crear, ejecutar localmente y desplegar una app Node.js utilizando las herramientas proporcionadas por {{site.data.keyword.cloud_notm}}. Puede utilizar la [{{site.data.keyword.dev_cli_long}}](https://console.bluemix.net/docs/cloudnative/dev_cli.html#add-cli) en la línea de mandatos o [{{site.data.keyword.cloud}} {{site.data.keyword.dev_console}}](https://console.bluemix.net/developer/appservice/dashboard) basado en web como se muestran en los siguientes pasos de la guía de aprendizaje. Al utilizar cualquiera de estos métodos, puede generar una aplicación Node.js lista para producción en tan solo unos minutos.
+En la siguiente guía de aprendizaje se indican los pasos para crear, ejecutar localmente y desplegar una app Node.js utilizando las herramientas proporcionadas por {{site.data.keyword.cloud_notm}}. Puede utilizar la [{{site.data.keyword.dev_cli_long}}](/docs/cli/index.html#ibmcloud-cli) en la línea de mandatos o [{{site.data.keyword.cloud}} {{site.data.keyword.dev_console}}](https://cloud.ibm.com/developer/appservice/dashboard) basado en web como se muestran en los siguientes pasos de la guía de aprendizaje. Al utilizar cualquiera de estos métodos, puede generar una aplicación Node.js lista para producción en tan solo unos minutos.
 
 Asegúrese de utilizar el release más reciente de Node.js LTS.
 
 ## Creación de una app Node.js
 {: #create_project}
 
-1. En la página [Kits de iniciación](https://console.bluemix.net/developer/appservice/starter-kits) de {{site.data.keyword.dev_console}}, seleccione un Kit de iniciación escrito en `Node.js`. También puede crear una app de inicio en blanco pulsando **Crear app** y seleccionando `Node.js` como lenguaje.
+1. En la página [Kits de inicio](https://cloud.ibm.com/developer/appservice/starter-kits) de {{site.data.keyword.dev_console}}, seleccione un Kit de inicio escrito en `Node.js`. También puede crear una app de inicio en blanco pulsando **Crear app** y seleccionando `Node.js` como lenguaje.
 
-    Debe haber iniciado sesión en una cuenta de {{site.data.keyword.cloud_notm}} para crear un proyecto. Si no tiene una cuenta, puede [registrarse para una cuenta gratuita](https://console.bluemix.net/registration).
+    Debe haber iniciado sesión en una cuenta de {{site.data.keyword.cloud_notm}} para crear una app. Si no tiene una cuenta, puede [registrarse para una cuenta gratuita](https://cloud.ibm.com/registration).
     {: tip}
 
 2. Pulse **Crear app**.
 3. Dé un **Nombre** a su app. Se proporciona un nombre de app genérico si desea utilizarlo.
-4. Especifique un **nombre de host exclusivo**. El nombre de host se utiliza para acceder a la aplicación, por ejemplo:`expressjs-project.mybluemix.net`.
+4. Especifique un **nombre de host exclusivo**. El nombre de host se utiliza para acceder a la aplicación, por ejemplo: `expressjs-project.mybluemix.net`.
 5. Pulse **Crear**. Una vez que se haya creado el proyecto, puede desplegarlo utilizando una cadena de herramientas o puede seguir compilando y desplegando el proyecto desde la línea de mandatos.
-6. Si opta por crear una cadena de herramientas, pulse **Desplegar en la nube** y seleccione uno de los siguientes métodos de despliegue.
-    * **App de Cloud Foundry**: No necesita gestionar la infraestructura subyacente.
-    * **Clúster de Kubernetes**: Debe suministrar un conjunto de nodos trabajadores. Por ejemplo, puede utilizar máquinas virtuales para desplegar y gestionar contenedores de aplicaciones de alta disponibilidad. Puede crear un clúster o desplegar en un clúster existente.
+6. Para crear una cadena de herramientas de despliegue, pulse **Desplegar en la nube**. Configure el método de despliegue de acuerdo con las instrucciones correspondientes al método que elija:
+  * **Desplegar en [Kubernetes](/docs/apps/deploying/containers.html#containers-kube)**. Esta opción crea un clúster de hosts, denominado nodos trabajadores, para desplegar y gestionar contenedores de aplicaciones de alta disponibilidad. Puede crear un clúster o desplegar en un clúster existente.
+  * **Desplegar en Cloud Foundry**. Esta opción despliega la app nativa de la nube sin necesidad de gestionar la infraestructura subyacente. Si la cuenta tiene acceso a {{site.data.keyword.cfee_full_notm}}, puede seleccionar el tipo de desplegador de **[nube pública](/docs/cloud-foundry-public/about-cf.html#about-cf)** o de **[entorno de empresa](/docs/cloud-foundry-public/cfee.html#cfee)**, que puede utilizar para crear y gestionar entornos aislados para alojar aplicaciones de Cloud Foundry exclusivamente para su empresa.
+  * **Desplegar en un [servidor virtual](/docs/apps/vsi-deploy.html#vsi-deploy)**. Esta opción proporciona una instancia de servidor virtual, carga una imagen que incluye la app, crea una cadena de herramientas DevOps e inicia automáticamente el primer ciclo de despliegue.
 
 7. Finalice las opciones y, a continuación, pulse **Crear** para crear la cadena de herramientas.
 
@@ -92,7 +93,7 @@ ibmcloud dev deploy –target container
 Siga consultando los temas de la guía de programación de Node.js o, para despliegues más avanzados, puede aprender a crear un clúster de Kubernetes y desplegar la app Node.js en él.
 
 ### Configurar un clúster de Kubernetes
-Para obtener más información sobre la configuración de un clúster de Kubernetes en {{site.data.keyword.cloud_notm}}, consulte los [pasos de la guía de aprendizaje](https://console.bluemix.net/docs/containers/cs_clusters.html#clusters).
+Para obtener más información sobre la configuración de un clúster de Kubernetes en {{site.data.keyword.cloud_notm}}, consulte los [pasos de la guía de aprendizaje](/docs/containers/cs_clusters.html#clusters).
 
 ### Desplegar apps Node.js en un clúster de Kubernetes
-Obtenga más información sobre cómo [desplegar apps Node.js en un clúster Kubernetes](../containers/cs_tutorials_apps.html).
+Obtenga más información sobre cómo [desplegar apps Node.js en un clúster Kubernetes](/docs/containers/cs_tutorials_apps.html#cs_apps_tutorial).

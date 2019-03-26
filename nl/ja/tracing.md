@@ -1,10 +1,11 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-09-18"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -34,7 +35,7 @@ var appzip = require('appmetrics-zipkin');
 ```
 {: codeblock}
 
-このステートメントにより、`HTTP` および `request` メソッド呼び出しにトレースが追加され、Zipkin サーバーにデータが送信されるようになります。 デフォルトでは、このモジュールは `localhost` およびポート `9411` で Zipkin サーバーを探します。ホスト名とポートは以下の構文を使用して変更できます。
+このステートメントにより、`HTTP` および `request` メソッド呼び出しにトレースが追加され、Zipkin サーバーにデータが送信されるようになります。 デフォルトでは、このモジュールは `localhost` およびポート `9411` で Zipkin サーバーを探します。 ホスト名とポートは以下の構文を使用して変更できます。
 ```js
 var appzip = require('appmetrics-zipkin')({
  host: "my.host.here",
@@ -56,6 +57,7 @@ http.request(options, callback).end();
 次に、データの送信先にする場所、具体的には、スパンから構成されるトレースが必要です。 クラウドにデプロイする前に、Zipkin サーバーをローカルにセットアップするか、コンテナー内でセットアップすることによって、e2e トレース構成をテストすることができます。 
 
 ### Zipkin のローカルでのセットアップ
+{: #local-setup-zipkin}
 
 Zipkin は、単一の `jar` ファイルで提供されるため、Zipkin を使用できるようにしたいシステムで以下のコマンドを使用することによって、ダウンロードおよび実行することができます。
 
@@ -76,6 +78,7 @@ Zipkin は、単一の `jar` ファイルで提供されるため、Zipkin を�
   このコマンドからの出力が冗長過ぎるか、または Zipkin をバックグラウンドで実行したい場合は、`wget` コマンドに`-q -O` を追加し、Zipkin に `/dev/null 2>&1 &` を追加できます。 この段階で、Zipkin `.jar` ファイルをダウンロードし、Zipkin サーバーを開始するための main メソッドを実行しています。
 
 ### Docker コンテナー内での Zipkin のセットアップ
+{: #setup-docker-zipkin}
 
 オプションで、以下のコマンドを実行して、Docker コンテナー内で Zipkin サーバーを実行できます。
 ```
@@ -86,6 +89,8 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 1 つの単純なコマンドを使用することで、`openzipkin/zipkin` モジュールがダウンロードされ、インストールされ、ポート `9411` で開始されます。
 
 ### Zipkin コンソールへのアクセス
+{: #zipkin-console}
+
 以下のイメージは、`localhost` のポート `9411` で実行されている Zipkin サーバーを示しています。
 
 ![ZipkinNoData](images/ZipkinNoData.png)
@@ -93,28 +98,38 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 **「トレースの検索」**をクリックし、検索オプションを変更して、特定の期間内のトレースのみを選択的に表示することができます。 特定のサービス名に関係するトレースを表示するようにフィルタリングすることもできます。 サービス名はコードの装備時に指定され、シナリオ例では「getter」および「pusher」が使用されています。
 
 ## ステップ 3. シナリオ例のテスト
-{: #example-scenario}
+{: #example-scenario-tracing}
 
 [GitHub プロジェクトの資料](https://github.com/ibm-developer/nodejs-zipkin-tracing)に従うと、最後に以下のサンプル・アプリケーションが得られます。 これは 2 つのエンドポイント間の要求と応答のトレースが関係する単純なプロセスです。 以下のイメージは、Zipkin サーバーと、収集されたトレース・データの表示を示しています。 覚えておくべき重要なポイントは、`require ('appmetrics-zipkin')`、およびオプションで Zipkin サーバー構成コードを含めることです。 以下のシナリオ例は、Zipkin トレースを既存の Node.js アプリケーションに迅速に追加する方法を示しています。
 
-### トレース・シナリオの概要:
+### トレース・シナリオの概要
+{: #tracing-scenario}
+
 * **フロントエンド** (pusher と呼ばれます) は、作成して小文字に変換するストリングの長さを指定するようユーザーに求めるプロンプトを出します。 この数値が大きいほど、ストリングが長くなり、要求の処理にかかる時間も長くなります。 ポート `3000` で使用可能です。
 * **バックエンド** (getter と呼ばれます) は、要求を処理し、ポート `3001` で使用可能です。
 * **Zipkin サーバー** は、ローカルに実行されるか、Kubernetes で実行され、そこでトレース・データを表示することになります。
 
 ### フロントエンド・アプリ (pusher)
+{: #tracing-pusher}
+
 フロントエンド・アプリ (pusher) サービスは要求を送信します (この例ではごく単純なフロントエンドです):
 ![frontend_app](images/frontend_app.png)
 
 ### バックエンド・アプリ (getter)
+{: #tracing-getter}
+
 別のポートで listen しているバックエンド・アプリ (getter) が要求を受け取ります。
 ![backend_app](images/Backend.png)
 
 ### pusher から getter への要求の送信
+{: #tracing-request}
+
 pusher から getter へ要求を送信します。
 ![500please](images/500Please.png)
 
 ### Zipkin Web UI でのトレースの表示
+{: #tracing-viewing}
+
 Zipkin に送信されたトレース・データは `localhost:9411` で Zipkin Web UI を使用して表示できます。 **getter** がユーザー入力を受け取るのを表示内容から確認できます (ユーザーは pusher サービスを使用して長さ 500 文字のメッセージを getter に送信しようとしています):
 ![Getter500msg](images/Getter500Msg.png)
 
@@ -124,6 +139,8 @@ Zipkin に送信されたトレース・データは `localhost:9411` で Zipkin
 ![GetterGet](images/GetterGet.png)
 
 ### 遅い要求の識別
+{: #tracing-slowreq}
+
 以下に、遅い要求の例を示します。 このユーザーは、5,000,000 文字を大文字から小文字に変換するように要求しています。 これには長い時間がかかっています。
 ![SlowRequest](images/SlowRequest.png)
 
@@ -141,7 +158,7 @@ Zipkin に送信されたトレース・データは `localhost:9411` で Zipkin
 このチュートリアルは、Kubernetes のないデプロイメントの場合はここで終了です。 Kubernetes で実行される Node.js アプリのトレースに進みたい場合は、次のセクションを参照してください。
 
 ## 次のステップ
-{: #next-steps}
+{: #next-steps-tracing}
 
 * [CloudNativeJS](https://www.cloudnativejs.io/) コミュニティー・プロジェクトを利用して、クラウド・ネイティブ Node.js アプリケーションの作成方法を学習します (このコミュニティー・プロジェクトでは、それらを Docker および Kubernetes ベースのクラウドにデプロイするのを支援するためのアセットおよびツールが提供されています)。
 

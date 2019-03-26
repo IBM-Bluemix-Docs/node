@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-17"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-10-17"
 # Activation des applications Node.js existantes pour le déploiement en cloud
 {: #enable_existing}
 
-Vous pouvez générer les fichiers nécessaires pour permettre à votre application Node.js de s'exécuter sur {{site.data.keyword.cloud}} à l'aide de la [commande enable de l'interface de ligne de commande {{site.data.keyword.dev_cli_long}}](https://console.bluemix.net/docs/cli/idt/commands.html#enable).
+Vous pouvez générer les fichiers nécessaires pour permettre à votre application Node.js de s'exécuter sur {{site.data.keyword.cloud}} à l'aide de la [commande enable de l'interface de ligne de commande {{site.data.keyword.dev_cli_long}}](/docs/cli/idt/commands.html#enable).
 
 ## Activation de votre application
 {: #enable_app}
@@ -101,7 +101,7 @@ Toutes les applications ne s'activent pas correctement à l'aide de la commande 
 
 Si votre application n'est pas générée et/ou déployée après l'exécution de `ibmcloud dev enable`, vous pouvez modifier les fichiers générés pour activer l'application pour le cloud.
 
-### Modification manuelle des fichiers d'activation du cloud générés 
+### Modification manuelle des fichiers d'activation du cloud générés
 {: #manual_modify}
 
 Une fois activée, votre application utilise Docker pour s'exécuter localement. S'il n'existe pas déjà, un fichier Docker est créé pour vous et le port `3000` est exposé.
@@ -150,6 +150,6 @@ dockerfile-run : "docker-compose.yml"
 {: codeblock}
 
 ## Etapes suivantes
-{: #next_steps notoc}
+{: #next_steps-existing notoc}
 
-Pour plus d'informations, voir [Interface de ligne de commande IBM Cloud Developer Tools](https://console.bluemix.net/docs/cli/idt/commands.html#idt-cli).
+Pour plus d'informations, voir [Interface de ligne de commande IBM Cloud Developer Tools](/docs/cli/idt/commands.html#idt-cli).

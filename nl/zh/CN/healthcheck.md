@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-17"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -83,16 +83,19 @@ module.exports = function(app) {
 {: codeblock}
 
 ## 针对就绪性和活性探测器的建议
+{: #readiness-recommend}
 
 如果下游服务不可用，那么在没有可接受的回退时，就绪性探测器可以在其结果中包含连接到下游服务的可行性。这并不意味着直接调用下游服务提供的运行状况检查，因为基础架构会为您执行该检查。请转而考虑验证应用程序对下游服务的现有引用的运行状况：这可能是 WebSphere MQ 的 JMS 连接，或者是初始化的 Kafka 使用者或生产者。如果您确实检查了下游服务的内部引用的可行性，请将结果高速缓存以尽可能减小运行状况检查对应用程序的影响。
 
 相比之下，活性探测器会注重检查的内容，因为故障会导致该进程立即终止。一个始终使用状态码 `200` 返回 `{"status": "UP"}` 的简单 http 端点是比较合理的选项。
 
 ### 添加对 Kubernetes 就绪性和活性的支持
+{: #kube-readiness-add}
 
 来自 [CloudNativeJS] 的 [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) 库提供了一个框架，用于在 Node 中定义独立的活性和就绪性端点，以允许组合每个端点的状态的源。
 
 ## 在 Kubernetes 中配置就绪性和活性探测器
+{: #kube-readiness-config}
 
 随 Kubernetes 部署一起声明活性和就绪性探测器。这两个探测器使用相同的配置参数：
 

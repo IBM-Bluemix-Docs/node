@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-08"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -19,16 +19,16 @@ lastupdated: "2018-10-08"
 
 La sécurité des applications peut s'avérer être un sujet incroyablement compliqué. Pour la plupart des développeurs, il s'agit de l'une des composantes les plus difficiles du processus de création d'application. Comment pouvez-vous être sûr que vous protégez les informations de vos utilisateurs ? En intégrant {{site.data.keyword.appid_full}} à vos applications, vous pouvez sécuriser les ressources et ajouter un processus d'authentification, même si vous ne possédez pas une grande expérience en matière de sécurité.
 
-En demandant aux utilisateurs de se connecter à votre application, vous pouvez stocker des données utilisateurs telles que des préférences d'application ou des profils sociaux publics. Vous pouvez ensuite utiliser ces données pour personnaliser l'expérience de chaque utilisateur au sein de l'application. {{site.data.keyword.appid_short_notm}} vous fournit une infrastructure de connexion, mais vous pouvez également utiliser vos propres pages de connexion de marque avec Cloud Directory.
+En demandant aux utilisateurs de se connecter à votre application, vous pouvez stocker des données utilisateur telles que des préférences d'application ou des profils sociaux publics. Vous pouvez ensuite utiliser ces données pour personnaliser l'expérience de chaque utilisateur au sein de l'application. {{site.data.keyword.appid_short_notm}} vous fournit une infrastructure de connexion, mais vous pouvez également utiliser des pages de connexion reflétant votre propre marque avec Cloud Directory.
 
 Pour plus d'informations sur toutes les façons dont vous pouvez utiliser {{site.data.keyword.appid_short_notm}}, ainsi que des informations sur l'architecture, voir [A propos d'{{site.data.keyword.appid_short_notm}}](/docs/services/appid/about.html).
 
 ## Avant de commencer
-{: #before}
+{: #prereqs-appid}
 
 Assurez-vous que les prérequis suivants sont satisfaits :
-1. Vous devez disposer d'un compte [{{site.data.keyword.cloud}} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
-2. Vous avez installé l'[interface CLI {{site.data.keyword.cloud_notm}}](../cli/index.html).
+1. Vous devez disposer d'un [compte {{site.data.keyword.cloud}} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
+2. Vous avez installé l'[interface CLI {{site.data.keyword.cloud_notm}}](/docs/cli/index.html).
 3. Vous avez installé le support de gestion de package [npm ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://nodejs.org/){: new_window}.
 4. Vous avez implémenté votre serveur Node.js avec l'[infrastructure Express ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](http://expressjs.com/){: new_window}. Afin d'installer l'infrastructure Express, utilisez la ligne de commande pour ouvrir le répertoire contenant votre application Node.js et exécutez la commande suivante :
   ```
@@ -55,15 +55,15 @@ Assurez-vous que les prérequis suivants sont satisfaits :
       * Si la valeur `redirectUri` n'est pas fournie, le kit SDK d'App ID extrait l'URI `application_uri` de l'application qui s'exécute sur {{site.data.keyword.cloud_notm}} et ajoute le suffixe par défaut `/ibm/cloud/appid/callback`.
 
 ## Etape 1. Création d'une instance de {{site.data.keyword.appid_short_notm}}
-{: #create-instance}
+{: #create-instance-appid}
 
 **Mise à disposition d'une instance du service**
-1. Dans le [catalogue {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/), sélectionnez la catégorie **Web et mobile** et cliquez sur {{site.data.keyword.appid_short_notm}}. La page de configuration de service s'ouvre.
+1. Dans le [catalogue {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/), sélectionnez la catégorie **Web et mobile** et cliquez sur {{site.data.keyword.appid_short_notm}}. La page de configuration de service s'ouvre.
 2. Donnez un nom à votre instance de service ou utilisez le nom prédéfini.
 3. Sélectionnez votre plan de tarification, puis cliquez sur **Créer**.
 
 ## Etape 2. Installation du logiciel SDK
-{: #install}
+{: #install-appid}
 
 1. Depuis la ligne de commande, ouvrez le répertoire dans lequel se trouve votre application Node.js.
 2. Installez le service {{site.data.keyword.appid_short_notm}}.
@@ -73,7 +73,7 @@ Assurez-vous que les prérequis suivants sont satisfaits :
   {: codeblock}
 
 ## Etape 3. Initialisation du logiciel SDK
-{: #initialize}
+{: #initialize-appid}
 
 1. Ajoutez les définitions `require` suivantes à votre fichier `server.js` :
     ```js
@@ -110,7 +110,7 @@ Assurez-vous que les prérequis suivants sont satisfaits :
     ```
     {: codeblock}
 
-    Si vous avez besoin d'aide pour trouver les valeurs de clé de données d'identification pour votre application, consultez l'*étape 5* de la section [Avant de commencer](app_id.html#before) pour plus de détails. 
+    Si vous avez besoin d'aide pour trouver les valeurs de clé de données d'identification pour votre application, consultez l'*étape 5* de la section [Avant de commencer](/docs/node/app_id.html#prereqs-appid) pour plus de détails. 
     {: tip}
 
 4. Configurez passport avec la sérialisation et la désérialisation. Cette étape de configuration est requise pour la persistance de session authentifiée dans les demandes HTTP. Pour plus d'informations, voir la [documentation de Passport ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](http://passportjs.org/docs){: new_window}.
@@ -142,9 +142,9 @@ Assurez-vous que les prérequis suivants sont satisfaits :
 Pour plus d'informations, voir [{{site.data.keyword.appid_short_notm}} Node.js GitHub repository ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window}.
 
 ## Etape 4. Gestion de l'expérience de connexion
-{: #manage-sign-in}
+{: #manage-signin-appid}
 
-<!--The following content is similar to https://console.stage1.bluemix.net/docs/services/appid/login-widget.html#managing-the-sign-in-experience -->
+<!--The following content is similar to https://test.cloud.ibm.com/docs/services/appid/login-widget.html#managing-the-sign-in-experience -->
 
 {{site.data.keyword.appid_full}} fournit un widget de connexion pour que vous puissiez fournir à vos utilisateurs des options de connexion sécurisées.
 
@@ -160,7 +160,7 @@ Le service utilise des types d'autorisation d'accès `OAuth 2` pour mapper le pr
 Une fois configurés les paramètres pour les [fournisseurs d'identité de réseau social](/docs/services/appid/identity-providers.html) et [Cloud Directory](/docs/services/appid/cloud-directory.html), vous pouvez démarrer l'implémentation du code.
 
 ### Configuration des fournisseurs d'identité de réseaux sociaux
-{: #social-identity}
+{: #social-identity-appid}
 
 Pour configurer des fournisseurs d'identité de réseau social, procédez comme suit :
 
@@ -170,14 +170,14 @@ Pour configurer des fournisseurs d'identité de réseau social, procédez comme 
 4. [Personnalisez la page de connexion préconfigurée](#login-widget) pour afficher l'image et les couleurs de votre choix.
 
 ### Configuration du répertoire cloud
-{: #cloud-directory}
+{: #cloud-directory-appid}
 
 Avec {{site.data.keyword.appid_short_notm}}, vous pouvez gérer votre propre registre d'utilisateurs appelé répertoire cloud. Le répertoire cloud permet aux utilisateurs de s'inscrire et de se connecter à vos applications mobiles et Web à l'aide de leur e-mail et d'un mot de passe.
 
 Pour configurer le répertoire cloud, voir [Configuration du répertoire cloud](/docs/services/appid/cloud-directory.html).
 
 ### Personnalisation de la page de connexion par défaut
-{: #login-widget}
+{: #login-widget-appid}
 
 Vous pouvez personnaliser la page de connexion préconfigurée afin d'afficher le logo et les couleurs de votre choix.
 
@@ -191,7 +191,7 @@ Pour personnaliser la page :
 6. Dans votre navigateur, actualisez votre page de connexion afin de vérifier vos modifications.
 
 ### Affichage des pages par défaut
-{: #default-pages}
+{: #default-pages-appid}
 
 {{site.data.keyword.appid_short_notm}} fournit une page de connexion par défaut que vous pouvez appeler si vous n'avez pas de pages d'interface utilisateur à afficher.
 
@@ -277,7 +277,7 @@ Vous souhaitez offrir à vos utilisateurs une expérience personnalisée ? Consu
 {: tip}
 
 ## Etape 5. Test de votre application
-{: #test}
+{: #test-appid}
 
 Tout est correctement configuré ? Il est temps de tester !
 
@@ -289,9 +289,9 @@ Tout est correctement configuré ? Il est temps de tester !
 Vous rencontrez des problèmes ? Consultez la section [troubleshooting {{site.data.keyword.appid_short_notm}}](/docs/services/appid/ts_index.html).
 
 ## Etapes suivantes
-{: #next notoc}
+{: #next-appid notoc}
 
 Félicitations ! Vous avez ajouté une étape d'authentification à votre application. Poursuivez sur votre lancée en essayant l'une des options suivantes :
 
 * Pour en savoir plus et tirer pleinement parti des fonctions offertes par {{site.data.keyword.appid_short_notm}}, [consultez la documentation](/docs/services/appid/index.html) !
-* Les kits de démarrage (Starter Kits) constituent l'une des façons les plus rapides d'utiliser les fonctions d'{{site.data.keyword.cloud}}. Affichez les kits de démarrage disponibles dans le tableau de bord [Mobile developer dashboard ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/developer/mobile/dashboard){: new_window}. Téléchargez le code. Exécutez l'application !
+* Les kits de démarrage (Starter Kits) constituent l'une des façons les plus rapides d'utiliser les fonctions d'{{site.data.keyword.cloud}}. Affichez les kits de démarrage disponibles dans le tableau de bord [Mobile developer dashboard ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/developer/mobile/dashboard){: new_window}. Téléchargez le code. Exécutez l'application !

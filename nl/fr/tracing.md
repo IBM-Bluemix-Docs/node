@@ -1,10 +1,11 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-09-18"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -34,7 +35,7 @@ var appzip = require('appmetrics-zipkin');
 ```
 {: codeblock}
 
-L'instruction suivante déclenche l'ajout du suivi à vos appels de méthode `HTTP` et `request`, ainsi que l'envoi des données au serveur Zipkin. Par défaut, le module recherche le serveur Zipkin sur `localhost` et sur le port `9411`. Vous pouvez changer le nom d'hôte et le port en utilisant la syntaxe suivante :
+L'instruction suivante déclenche l'ajout du suivi à vos appels de méthode `HTTP` et `request`, ainsi que l'envoi des données au serveur Zipkin. Par défaut, le module recherche le serveur Zipkin sur l'hôte `localhost` et sur le port `9411`. Vous pouvez changer le nom d'hôte et le port en utilisant la syntaxe suivante :
 ```js
 var appzip = require('appmetrics-zipkin')({
  host: "my.host.here",
@@ -56,6 +57,7 @@ http.request(options, callback).end();
 Vous avez à présent besoin d'un espace où envoyer vos données, à savoir les traces, qui sont composées d'intervalles. Avant d'effectuer un déploiement sur un cloud, vous pouvez tester la configuration de traçage e2e en configurant un serveur Zipkin localement ou dans un conteneur. 
 
 ### Configuration de Zipkin en local
+{: #local-setup-zipkin}
 
 Zipkin est fourni dans un fichier `jar` unique pour vous permettre de le télécharger et de l'exécuter à l'aide des commandes suivantes sur le système sur lequel vous souhaitez que Zipkin soit disponible :
 
@@ -76,6 +78,7 @@ Zipkin est fourni dans un fichier `jar` unique pour vous permettre de le téléc
   Si la sortie de cette commande est trop prolixe, ou si vous souhaitez exécuter Zipkin en arrière-plan, vous pouvez ajouter `-q -O` pour la commande `wget` et `/dev/null 2>&1 &` pour Zipkin. A ce stade, vous téléchargez le fichier Zipkin `.jar` et exécutez la méthode principale pour démarrer le serveur Zipkin.
 
 ### Configuration de Zipkin dans un conteneur Docker
+{: #setup-docker-zipkin}
 
 Vous avez la possibilité d'exécuter un serveur Zipkin dans un conteneur Docker via la commande suivante :
 ```
@@ -86,6 +89,8 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 Le module `openzipkin/zipkin` est téléchargé, installé et démarré sur le port `9411` à l'aide d'une simple commande.
 
 ### Accès à la console Zipkin
+{: #zipkin-console}
+
 L'image suivante montre le serveur Zipkin qui s'exécute sur `localhost` sur le port `9411` :
 
 ![ZipkinNoData](images/ZipkinNoData.png)
@@ -93,28 +98,38 @@ L'image suivante montre le serveur Zipkin qui s'exécute sur `localhost` sur le 
 vous pouvez cliquer sur **Find traces** (rechercher les traces) et modifier les options de recherche pour afficher de manière sélective des traces spécifiques sur un certain laps de temps. Vous pouvez également filtrer pour afficher des traces impliquant des noms de service particuliers. Les noms de service sont spécifiez lorsque vous instrumentez votre code, et dans l'exemple de scénario nous utilisons “getter” et “pusher”.
 
 ## Etape 3. Test d'un exemple de scénario
-{: #example-scenario}
+{: #example-scenario-tracing}
 
 Si vous suivez la [documentation du projet GitHub](https://github.com/ibm-developer/nodejs-zipkin-tracing), vous finissez avec l'exemple d'application suivant. Il s'agit d'un processus simple impliquant le traçage d'une demande et d'une réponse entre deux noeuds finaux. Les images suivantes montrent le serveur Zipkin avec affichage des données de trace collectées. L'élément clé à ne pas oublier est l'inclusion de `require('appmetrics-zipkin')`, et éventuellement le code de configuration du serveur Zipkin. Le scénario exemple ci-après montre comment rapidement ajouter une fonction de trace Zipkin à vos applications Node.js existantes.
 
-### Présentation des scénarios de traçage :
+### Présentation des scénarios de traçage
+{: #tracing-scenario}
+
 * Une application de **front end**, appelée pusher, invite l'utilisateur à indiquer la longueur d'une chaîne à créer et convertir en minuscules. Plus le nombre est élevé, plus grande sera la chaîne, et plus il faudra de temps pour gérer la demande. Disponible sur le port `3000`.
 * Une application de **back-end**, appelée méthode d'accès get ou getter, traite la demande et est disponible sur le port `3001`.
 * Un **serveur Zipkin** s'exécute localement ou sur Kubernetes où vous voyez vos données de trace.
 
 ### Application de front end (pusher)
+{: #tracing-pusher}
+
 Le service de pusher envoie la demande :
 ![frontend_app](images/frontend_app.png)
 
 ### Application de back end (getter)
+{: #tracing-getter}
+
 L'application getter reçoit la demande, et écoute sur un port différent :
 ![backend_app](images/Backend.png)
 
 ### Envoi d'une demande du pusher au getter
+{: #tracing-request}
+
 Envoi d'une demande du pusher au getter :
 ![500please](images/500Please.png)
 
 ### Affichage des traces à l'aide de l'interface utilisateur Web Zipkin
+{: #tracing-viewing}
+
 Les données de trace envoyées à Zipkin peuvent être consultées à l'aide de l'interface utilisateur Web Zipkin à l'adresse `localhost:9411`. Vous pouvez voir que le **getter** reçoit l'entrée utilisateur (l'utilisateur souhaite envoyer un message de 500 caractères à la méthode d'accès get, via le service pusher) :
 ![Getter500msg](images/Getter500Msg.png)
 
@@ -124,6 +139,8 @@ Nous sommes concernés par les temps de réponse et les paramètres ; aussi souh
 ![GetterGet](images/GetterGet.png)
 
 ### Identification de la demande lente
+{: #tracing-slowreq}
+
 Voici ce à quoi ressemblerait une demande lente. L'utilisateur suivant demande à convertir 5 000 000 caractères de majuscules en minuscules (comme vous le faites). C'est une opération manifestement longue :
 ![SlowRequest](images/SlowRequest.png)
 
@@ -141,7 +158,7 @@ Lorsque vos applications gagnent en complexité et que vos services sont plus po
 Le tutoriel sur les déploiements sans Kubernetes s'achève ici. Consultez la section suivante si vous souhaitez poursuivre avec le traçage d'applications Node.js s'exécutant sur Kubernetes.
 
 ## Etapes suivantes
-{: #next-steps}
+{: #next-steps-tracing}
 
 * Apprenez à générer des applications Node.js natives cloud avec l'aide du projet communautaire [CloudNativeJS](https://www.cloudnativejs.io/), qui fournit des actifs et des outils pour vous permettre de les déployer dans des clouds basés Docker et Kubernetes.
 

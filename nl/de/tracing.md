@@ -1,10 +1,11 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-09-18"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -56,6 +57,7 @@ http.request(options, callback).end();
 Sie benötigen nun eine Position, an die Ihre Daten gesendet werden sollen, insbesondere die Traces, die aus Bereichen bestehen. Vor der Bereitstellung in einer Cloud können Sie die Konfiguration der e2e-Tracefunktion testen, indem Sie einen Zipkin-Server lokal oder in einem Container einrichten. 
 
 ### Zipkin lokal einrichten
+{: #local-setup-zipkin}
 
 Zipkin wird als einzelne `jar`-Datei bereitgestellt, sodass Sie das Traceprogramm mit den folgenden Befehlen auf dem System herunterladen und ausführen können, auf dem Sie Zipkin zur Verfügung stellen möchten:
 
@@ -76,6 +78,7 @@ Zipkin wird als einzelne `jar`-Datei bereitgestellt, sodass Sie das Traceprogram
   Wenn die Ausgabe dieses Befehls zu ausführlich ist oder Sie Zipkin im Hintergrund ausführen möchten, können Sie `-q -O` für den Befehl `wget` und `/dev/null 2>&1 &` für Zipkin hinzufügen. An diesem Punkt laden Sie die `.jar`-Datei für Zipkin herunter und führen die Hauptmethode zum Starten des Zipkin-Servers aus.
 
 ### Zipkin in einem Docker-Container einrichten
+{: #setup-docker-zipkin}
 
 Sie können optional einen Zipkin-Server in einem Docker-Container ausführen, indem Sie den folgenden Befehl ausgeben:
 ```
@@ -86,6 +89,8 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 Das Modul `openzipkin/zipkin` wird heruntergeladen, installiert und an Port `9411` mit einem einfachen Befehl gestartet.
 
 ### Auf die Zipkin-Konsole zugreifen
+{: #zipkin-console}
+
 Die folgende Abbildung zeigt den Zipkin-Server, der auf `localhost` bei Port `9411` ausgeführt wird:
 
 ![ZipkinNoData](images/ZipkinNoData.png)
@@ -93,28 +98,38 @@ Die folgende Abbildung zeigt den Zipkin-Server, der auf `localhost` bei Port `94
 Sie können auf die Option zum **Suchen nach Traces** klicken und die Suchoptionen so ändern, dass selektiv nur Traces innerhalb eines bestimmten Zeitraums angezeigt werden. Sie können auch einen Filter anwenden, um Traces für bestimmte Servicenamen anzuzeigen. Die Servicenamen werden beim Instrumentieren Ihres Codes angegeben; im Beispielszenario werden 'getter' und 'pusher' verwendet.
 
 ## Schritt 3. Beispielszenario testen
-{: #example-scenario}
+{: #example-scenario-tracing}
 
 Wenn Sie die [Dokumentation des GitHub-Projekts](https://github.com/ibm-developer/nodejs-zipkin-tracing) befolgen, erhalten Sie die folgende Beispielanwendung. Es handelt sich um einen einfachen Prozess, bei dem für eine Anforderung und eine Antwort zwischen zwei Endpunkten ein Trace erstellt wird. Die folgenden Abbildungen zeigen den Zipkin-Server mit erfassten Tracedaten. Sie müssen unbedingt daran denken, `require('appmetrics-zipkin')` einzuschließen und optional den Code für die Zipkin-Serverkonfiguration. Das folgende Beispielszenario zeigt, wie Sie das Zipkin-Tracing schnell in Ihren vorhandenen Node.js-Anwendungen hinzufügen können.
 
-### Übersicht über das Tracing-Szenario:
+### Übersicht über das Tracing-Szenario
+{: #tracing-scenario}
+
 * Ein **Front-End**, das als Pusher bezeichnet wird, fordert den Benutzer zur Eingabe der Länge einer Zeichenfolge auf, die erstellt und in Kleinbuchstaben konvertiert werden soll. Je größer die Zahl, umso größer die Zeichenfolge und umso länger dauert es, bis die Anforderung verarbeitet wird. Verfügbar bei Port `3000`.
 * Ein **Back-End**, das als Getter bezeichnet wird, verarbeitet die Anforderung und ist bei Port `3001` verfügbar.
 * Ein **Zipkin-Server** wird lokal oder auf Kubernetes ausgeführt, wo Ihre Tracedaten angezeigt werden.
 
 ### Front-End-App (Pusher)
+{: #tracing-pusher}
+
 Der Front-End-App-Service (Pusher) sendet die Anforderung (das einfache Front-End):
 ![frontend_app](images/frontend_app.png)
 
 ### Back-End-App (Getter)
+{: #tracing-getter}
+
 Die Back-End-App (Getter) empfängt die Anforderung, die an einem anderen Port empfangsbereit ist:
 ![backend_app](images/Backend.png)
 
 ### Anforderung vom Pusher an den Getter senden
+{: #tracing-request}
+
 Senden Sie eine Anforderung vom Pusher an den Getter:
 ![500please](images/500Please.png)
 
 ### Traces in der Zipkin-Webbenutzerschnittstelle anzeigen
+{: #tracing-viewing}
+
 Die an Zipkin gesendeten Tracedaten können über die Zipkin-Webbenutzerschnittstelle an `localhost:9411` angezeigt werden. Sie können sehen, dass der **Getter** Benutzereingaben empfängt (es soll eine 500 Zeichen lange Nachricht an den Getter mithilfe des Pusher-Service gesendet werden):
 ![Getter500msg](images/Getter500Msg.png)
 
@@ -124,6 +139,8 @@ Optimale Antwortzeiten und Parameter sind wichtig; daher ist es möglich festzus
 ![GetterGet](images/GetterGet.png)
 
 ### Eine langsame Anforderung identifizieren
+{: #tracing-slowreq}
+
 So sieht eine langsame Anforderung aus. Der folgende Benutzer fordert die Konvertierung von 5.000.000 Zeichen von Großbuchstaben in Kleinbuchstaben an (wie Sie es tun). Dies ist etwas, das offensichtlich länger dauert:
 ![SlowRequest](images/SlowRequest.png)
 
@@ -141,7 +158,7 @@ Wenn Ihre Anwendungen komplexer und Ihre Services immer beliebter werden, wird d
 Das Lernprogramm endet hier für Bereitstellungen ohne Kubernetes. Schauen Sie sich den nächsten Abschnitt an, wenn Sie das Tracing für Node.js-Apps, die auf Kubernetes ausgeführt werden, durchführen möchten.
 
 ## Nächste Schritte
-{: #next-steps}
+{: #next-steps-tracing}
 
 * Erfahren Sie, wie Sie für die Cloud native Node.js-Anwendungen mithilfe des [CloudNativeJS](https://www.cloudnativejs.io/)-Community-Projekts erstellen können, das Assets und Tools für die Bereitstellung dieser Anwendungen in Docker- und Kubernetes-basierten Clouds bietet.
 

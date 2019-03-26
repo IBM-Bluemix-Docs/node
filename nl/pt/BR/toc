@@ -25,18 +25,13 @@ Programando com Node.js no IBM Cloud
     Armazenando e compartilhando dados
         cloudant.md
         object_storage.md
-        [Usando uma Content Delivery Network (CDN)](../tutorials/static-files-cdn.html)
-
-    [Criando um app usando um Continuous Delivery Pipeline](../tutorials/multi-region-webapp.html)
-    [Criando um app usando a pilha MEAN](../tutorials/mean-stack.html)
-    [Criando APIs de REST](../tutorials/create-manage-secure-apis.html)
-    
+      
     deploying_apps.md
     enable_existing.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [Docs da API](https://console.bluemix.net/apidocs)
+    [Docs da API](https://cloud.ibm.com/apidocs)
     [Apps de amostra no IBM Code](https://developer.ibm.com/code/technologies/node-js/)
     {: .navgroup-end}
 

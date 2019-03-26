@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-09-19"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -42,6 +42,7 @@ Um Relatório de nó ou uma Captura instantânea de heap podem ser gerados por m
 Inclua recursos de monitoramento em aplicativos Express existentes com o construtor [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) para passar várias opções de configuração. Por exemplo, uma das opções usa um servidor existente, em vez de deixar o `appmetrics-dash` iniciar um servidor extra.
 
 ### Instalando o painel
+{: #install-appmetrics}
 
 1. Por exemplo, use o seguinte aplicativo expresso "Hello World" simples:
   ```js

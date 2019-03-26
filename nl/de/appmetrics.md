@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-09-19"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -42,6 +42,7 @@ Das integrierte Application Metrics-Dashboard ([`appmetrics-dash`](https://githu
 Fügen Sie Überwachungsfunktionen zu vorhandenen Express-Anwendungen mit dem Konstruktor [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) hinzu, um eine Reihe von Konfigurationsoptionen zu übergeben. Eine der Optionen verwendet beispielsweise einen vorhandenen Server, anstatt mit `appmetrics-dash` einen zusätzlichen Server zu starten.
 
 ### Dashboard installieren
+{: #install-appmetrics}
 
 1. Verwenden Sie zum Beispiel die folgende einfache Express-Anwendung 'Hello World':
   ```js

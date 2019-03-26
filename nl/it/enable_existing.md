@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-17"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -13,15 +13,15 @@ lastupdated: "2018-10-17"
 {:pre: .pre}
 {:tip: .tip}
 
-# Abilitazione delle applicazioni Node.js esistenti per la distribuzione cloud 
+# Abilitazione delle applicazioni Node.js esistenti per la distribuzione cloud
 {: #enable_existing}
 
-Puoi generare i file necessari per abilitare la tua applicazione Node.js all'esecuzione su {{site.data.keyword.cloud}} utilizzando il [comando enable della CLI {{site.data.keyword.dev_cli_long}}](https://console.bluemix.net/docs/cli/idt/commands.html#enable).
+Puoi generare i file necessari per abilitare la tua applicazione Node.js all'esecuzione su {{site.data.keyword.cloud}} utilizzando il [comando enable della CLI {{site.data.keyword.dev_cli_long}}](/docs/cli/idt/commands.html#enable).
 
-## Abilitazione della tua applicazione 
+## Abilitazione della tua applicazione
 {: #enable_app}
 
-Immetti il seguente comando dalla directory root del tuo progetto Node: 
+Immetti il seguente comando dalla directory root del tuo progetto Node:
 ```
 ibmcloud dev enable
 ```
@@ -29,7 +29,7 @@ ibmcloud dev enable
 
 Ti viene richiesto di verificare il progetto Node.js, rispondi `y`. Il comando `enable` può inoltre creare i servizi e associarli alla tua applicazione. Per questo esempio di base, rispondi `n`.
 
-Consulta il seguente output di esempio: 
+Consulta il seguente output di esempio:
 ```
 demo: $ ibmcloud dev enable
 The enable feature is currently in Beta.
@@ -88,7 +88,7 @@ ibmcloud dev build
 ```
 {: codeblock}
 
-Se la creazione viene completata correttamente, puoi distribuire la tua applicazione a {{site.data.keyword.cloud_notm}} con il seguente comando [`deploy`](/docs/cli/idt/commands.html#deploy): 
+Se la creazione viene completata correttamente, puoi distribuire la tua applicazione a {{site.data.keyword.cloud_notm}} con il seguente comando [`deploy`](/docs/cli/idt/commands.html#deploy):
 ```
 ibmcloud dev deploy
 ```
@@ -150,6 +150,6 @@ dockerfile-run : "docker-compose.yml"
 {: codeblock}
 
 ## Passi successivi
-{: #next_steps notoc}
+{: #next_steps-existing notoc}
 
-Per ulteriori informazioni, consulta [CLI IBM Cloud Developer Tools](https://console.bluemix.net/docs/cli/idt/commands.html#idt-cli).
+Per ulteriori informazioni, consulta [CLI IBM Cloud Developer Tools](/docs/cli/idt/commands.html#idt-cli).

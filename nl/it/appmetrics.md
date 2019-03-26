@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-09-19"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -42,6 +42,7 @@ Dal dashboard è possibile generare un report dei nodi (Node Report) o un'istant
 Aggiungi le funzioni di monitoraggio alle applicazioni Express esistenti con il constructor [ `appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) per trasmettere svariate opzioni di configurazione. Ad esempio, una delle opzioni utilizza un server esistente invece di fare in modo che `appmetrics-dash` avvii un server supplementare.
 
 ### Installazione del dashboard
+{: #install-appmetrics}
 
 1. Ad esempio, utilizza la seguente semplice applicazione Express “Hello World”:
   ```js

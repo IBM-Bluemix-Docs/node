@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017-2018
-lastupdated: "2018-10-01"
+  years: 2017, 2019
+lastupdated: "2019-01-14"
 
 ---
 {:new_window: target="_blank"}
@@ -21,29 +21,29 @@ lastupdated: "2018-10-01"
 如需相關資訊，請參閱 [{{site.data.keyword.cloudant_short_notm}} 基本](/docs/services/Cloudant/basics/index.html#cloudant-nosql-db-basics){:new_window}。
 
 ## 開始之前
-{: #before}
+{: #prereqs-cloudant}
 
 請確定已備妥下列必要條件：
  * [Nodejs-cloudant ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/nodejs-cloudant){:new_window} 2.3.0+ 用戶端程式庫。
- * 您必須具有 [{{site.data.keyword.cloud}} 帳戶 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}。
- * 若要存取 {{site.data.keyword.cloudant_short_notm}}，您必須在 [{{site.data.keyword.cloud_notm}} 儀表板 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/dashboard/apps){: new_window} 中建立服務，然後從該服務實例啟動「{{site.data.keyword.cloudant_short_notm}} 儀表板」。
+ * 您必須具有 [{{site.data.keyword.cloud}} 帳戶 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}。
+ * 若要存取 {{site.data.keyword.cloudant_short_notm}}，您必須在 [{{site.data.keyword.cloud_notm}} 儀表板 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/dashboard/apps){: new_window} 中建立服務，然後從該服務實例啟動「{{site.data.keyword.cloudant_short_notm}} 儀表板」。
  * 這些指示中的程式碼 Snippet 使用 IAM 鑑別。
  
 ### 使用 {{site.data.keyword.cloudant_short_notm}} 啟用 IAM
-{: #enable_IAM}
+{: #enable_IAM-cloudant}
 
 只有新的 {{site.data.keyword.cloudant_short_notm}} 服務實例才能與 {{site.data.keyword.cloud_notm}} IAM 搭配使用。
 
 已啟用所有新的 {{site.data.keyword.cloudant_short_notm}} 服務實例，以在佈建時使用 {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)。當您從「{{site.data.keyword.cloud_notm}} 型錄」中佈建新的實例時，請選擇**僅使用 IAM** 鑑別方法。此模式表示服務連結及認證產生僅提供 IAM 認證。您可以在 [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/services/Cloudant/guides/iam.html) 找到相關資訊。
 
 ## 步驟 1. 建立 {{site.data.keyword.cloudant_short_notm}} 實例
-{: #create-instance}
+{: #create-instance-cloudant}
 
 當您建立 {{site.data.keyword.cloudant_short_notm}} 的實例時，同時會建立資料庫。
 
 1. 登入 {{site.data.keyword.cloud_notm}} 帳戶。
-2. 從 [{{site.data.keyword.cloud_notm}} 儀表板 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/dashboard/apps){: new_window} 中，按一下**建立資源**。即會開啟「{{site.data.keyword.cloud_notm}} 型錄」。
-3. 在 [{{site.data.keyword.cloud_notm}} 型錄](https://console.bluemix.net/catalog/)中，選取**資料庫**種類，然後按一下 {{site.data.keyword.cloudant_short_notm}}。即會開啟服務配置頁面。
+2. 從 [{{site.data.keyword.cloud_notm}} 儀表板 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/dashboard/apps){: new_window} 中，按一下**建立資源**。即會開啟「{{site.data.keyword.cloud_notm}} 型錄」。
+3. 在 [{{site.data.keyword.cloud_notm}} 型錄](https://cloud.ibm.com/catalog/)中，選取**資料庫**種類，然後按一下 {{site.data.keyword.cloudant_short_notm}}。即會開啟服務配置頁面。
 4. 完成下列欄位中的資訊：
   * **服務名稱** - 鍵入服務實例的名稱，或是使用預設名稱。
   * **選擇要在其中部署的地區/位置** - 選取要在其中部署服務的地區。
@@ -59,10 +59,10 @@ lastupdated: "2018-10-01"
 8. 從導覽功能表中，按一下**資料庫**圖示。
 9. 按一下**建立資料庫**，提供資料庫名稱，然後按一下**建立**。即會開啟資料庫頁面。
 
-如果您要查看佈建 {{site.data.keyword.cloud_notm}} 服務實例的相關資訊，請參閱[在 IBM Cloud 上建立 IBM Cloudant 實例指導教學 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-nosql-db-instance-on-ibm-cloud){: new_window}。
+如果您要查看佈建 {{site.data.keyword.cloud_notm}} 服務實例的相關資訊，請參閱[在 IBM Cloud 上建立 IBM Cloudant 實例指導教學](/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-nosql-db-instance-on-ibm-cloud){: new_window}。
 
 ## 步驟 2. 安裝 SDK
-{: #install}
+{: #install-cloudant}
 
 <!--From github.com/cloudant/nodejs-cloudant#installation-and-usage-->
 
@@ -75,7 +75,7 @@ npm install --save @cloudant/cloudant
 請注意，您的 `package.json` 檔案現在會顯示 Cloudant 套件。
 
 ## 步驟 3. 起始設定 SDK
-{: #initialize}
+{: #initialize-cloudant}
 
 在應用程式中起始設定 SDK 之後，您可以使用 {{site.data.keyword.cloudant_short_notm}} 來儲存資料。若要起始設定連線，請輸入您的認證，並在一切就緒時提供回呼函數。
 
@@ -105,7 +105,7 @@ npm install --save @cloudant/cloudant
 {: tip}
 
 ### 使用基本作業管理資料
-{: #basic_operations}
+{: #basic_operations-cloudant}
 <!--Borrowed from https://github.com/cloudant/nodejs-cloudant/blob/master/example/crud.js-->
 
 這些基本作業說明使用已起始設定的用戶端來建立、讀取、更新及刪除文件的動作。
@@ -171,22 +171,22 @@ var deleteDocument = function(callback) {
 {: codeblock}
 
 ## 步驟 4. 測試應用程式
-{: #test}
+{: #test-cloudant}
 
 所有項目都正確設定嗎？請測試看看！
 
 1. 執行應用程式，確定啟動起始設定及個別作業，例如，建立文件。
-2. 從 [{{site.data.keyword.cloud_notm}} 儀表板 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/dashboard/apps){: new_window} 中，按一下您先前建立的 {{site.data.keyword.cloudant_short_notm}} 服務實例。服務實例開啟時，請按一下**啟動 Cloudant 儀表板**。
+2. 從 [{{site.data.keyword.cloud_notm}} 儀表板 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/dashboard/apps){: new_window} 中，按一下您先前建立的 {{site.data.keyword.cloudant_short_notm}} 服務實例。服務實例開啟時，請按一下**啟動 Cloudant 儀表板**。
 3. 在「{{site.data.keyword.cloudant_short_notm}} 儀表板」中，選取您已在其中建立新文件的資料庫。
 
 有困難嗎？請參閱 [{{site.data.keyword.cloudant_short_notm}} API 參考資料](/docs/services/Cloudant/api/index.html#api-reference-overview){:new_window}。
 
 ## 後續步驟
-{: #next notoc}
+{: #next-cloudant notoc}
 
 做得好！您已為應用程式新增一個安全持續性等級。嘗試下列其中一個選項，以保持動力：
 
 * 檢視 [{{site.data.keyword.cloudant_short_notm}} SDK for Node.js ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/nodejs-cloudant){: new_window} 原始碼。
 * 請參閱[資料庫及文件作業範例程式碼 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/nodejs-cloudant/tree/master/example){: new_window}。
-* 「入門範本套件」是使用 {{site.data.keyword.cloud}} 功能最快的方式之一。請檢視[行動開發人員儀表板 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/developer/mobile/dashboard){: new_window} 中的可用入門範本套件。下載程式碼。執行應用程式！
+* 「入門範本套件」是使用 {{site.data.keyword.cloud}} 功能最快的方式之一。請檢視[行動開發人員儀表板 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} 中的可用入門範本套件。下載程式碼。執行應用程式！
 * 若要進一步瞭解並充分運用 {{site.data.keyword.cloudant_short_notm}} 提供的所有特性，[請參閱文件](/docs/services/Cloudant/getting-started.html)！

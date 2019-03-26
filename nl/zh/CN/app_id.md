@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-08"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -24,11 +24,11 @@ lastupdated: "2018-10-08"
 有关可以使用 {{site.data.keyword.appid_short_notm}} 和体系结构信息的所有方式的更多信息，请参阅[关于 {{site.data.keyword.appid_short_notm}}](/docs/services/appid/about.html)。
 
 ## 开始之前
-{: #before}
+{: #prereqs-appid}
 
 确保以下先决条件准备就绪：
-1. 您必须具有 [{{site.data.keyword.cloud}} 帐户 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}。
-2. 安装 [{{site.data.keyword.cloud_notm}} CLI](../cli/index.html)。
+1. 您必须具有 [{{site.data.keyword.cloud}} 帐户 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}。
+2. 安装 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/index.html)。
 3. 安装 [npm ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://nodejs.org/){: new_window} 软件包管理支持。
 4. 使用 [Express 框架 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](http://expressjs.com/){: new_window} 实现 Node.js 服务器。要安装 Express 框架，请使用命令行打开包含 Node.js 应用程序的目录，然后运行以下命令：
   ```
@@ -55,15 +55,15 @@ lastupdated: "2018-10-08"
       * 如果未提供 `redirectUri` 值，那么 App ID SDK 将检索在 {{site.data.keyword.cloud_notm}} 上运行的应用程序的 `application_uri`，然后附加缺省后缀 `/ibm/cloud/appid/callback`。
 
 ## 步骤 1. 创建 {{site.data.keyword.appid_short_notm}} 的实例
-{: #create-instance}
+{: #create-instance-appid}
 
 **供应服务的实例**
-1. 在 [{{site.data.keyword.cloud_notm}} 目录](https://console.bluemix.net/catalog/)中，选择 **Web 和移动**类别，然后单击 {{site.data.keyword.appid_short_notm}}。这将打开服务配置页面。
+1. 在 [{{site.data.keyword.cloud_notm}} 目录](https://cloud.ibm.com/catalog/)中，选择 **Web 和移动**类别，然后单击 {{site.data.keyword.appid_short_notm}}。这将打开服务配置页面。
 2. 为服务实例提供名称或使用预设名称。
-3. 选择定价套餐，然后单击**创建**。
+3. 选择价格套餐，然后单击**创建**。
 
 ## 步骤 2. 安装 SDK
-{: #install}
+{: #install-appid}
 
 1. 使用命令行打开包含 Node.js 应用程序的目录。
 2. 安装 {{site.data.keyword.appid_short_notm}} 服务。
@@ -73,7 +73,7 @@ lastupdated: "2018-10-08"
   {: codeblock}
 
 ## 步骤 3. 初始化 SDK
-{: #initialize}
+{: #initialize-appid}
 
 1. 将以下 `require` 定义添加到 `server.js` 文件。
     ```js
@@ -110,7 +110,7 @@ lastupdated: "2018-10-08"
     ```
     {: codeblock}
 
-    如果需要帮助查找应用程序的凭证密钥值，请查看[开始之前](app_id.html#before)部分中的*步骤 5*，以了解有关在何处查找这些值的详细信息。
+    如果需要帮助查找应用程序的凭证密钥值，请查看[开始之前](/docs/node/app_id.html#prereqs-appid)部分中的*步骤 5*，以了解有关在何处查找这些值的详细信息。
     {: tip}
 
 4. 为 Passport 配置序列化和反序列化。为了实现跨 HTTP 请求的认证会话持久性，此配置步骤是必需的。有关更多信息，请参阅 [passport 文档 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](http://passportjs.org/docs){: new_window}。
@@ -142,9 +142,9 @@ lastupdated: "2018-10-08"
 有关更多信息，请参阅 [{{site.data.keyword.appid_short_notm}}Node.js GitHub 存储库 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window}。
 
 ## 步骤 4. 管理登录体验
-{: #manage-sign-in}
+{: #manage-signin-appid}
 
-<!--The following content is similar to https://console.stage1.bluemix.net/docs/services/appid/login-widget.html#managing-the-sign-in-experience -->
+<!--The following content is similar to https://test.cloud.ibm.com/docs/services/appid/login-widget.html#managing-the-sign-in-experience -->
 
 {{site.data.keyword.appid_full}} 提供了一个登录窗口小部件，供您为用户提供安全登录选项。
 
@@ -160,7 +160,7 @@ lastupdated: "2018-10-08"
 配置[社交身份提供者](/docs/services/appid/identity-providers.html)和[云目录](/docs/services/appid/cloud-directory.html)的设置后，即可以开始实现代码。
 
 ### 配置社交身份提供者
-{: #social-identity}
+{: #social-identity-appid}
 
 要配置社交身份提供者，请完成以下步骤：
 
@@ -170,14 +170,14 @@ lastupdated: "2018-10-08"
 4. [定制预配置的登录页面](#login-widget)以显示您选择的图像和颜色。
 
 ### 配置云目录
-{: #cloud-directory}
+{: #cloud-directory-appid}
 
 通过 {{site.data.keyword.appid_short_notm}}，您可以管理自己的用户注册表（称为云目录）。通过云目录，用户可以使用自己的电子邮件和密码登录到移动和 Web 应用程序。
 
 要配置云目录，请参阅[云目录](/docs/services/appid/cloud-directory.html)。
 
 ### 定制缺省登录页面
-{: #login-widget}
+{: #login-widget-appid}
 
 您可以定制预配置的登录页面，以显示您选择的徽标和颜色。
 
@@ -191,7 +191,7 @@ lastupdated: "2018-10-08"
 6. 在浏览器中，刷新登录页面以验证您的更改。
 
 ### 显示缺省页面
-{: #default-pages}
+{: #default-pages-appid}
 
 {{site.data.keyword.appid_short_notm}} 提供了缺省登录页面，如果您没有自己的 UI 页面要显示，那么可以调用缺省登录页面。
 
@@ -277,7 +277,7 @@ lastupdated: "2018-10-08"
 {: tip}
 
 ## 步骤 5. 测试应用程序
-{: #test}
+{: #test-appid}
 
 是否一切设置正确？您可以进行测试！
 
@@ -289,9 +289,9 @@ lastupdated: "2018-10-08"
 遇到困难？请查看[有关 {{site.data.keyword.appid_short_notm}} 的故障诊断](/docs/services/appid/ts_index.html)。
 
 ## 后续步骤
-{: #next notoc}
+{: #next-appid notoc}
 
 太棒了！您已将认证步骤添加到应用程序。请一鼓作气尝试下列其中一个选项：
 
 * 要了解有关 {{site.data.keyword.appid_short_notm}} 提供的所有功能的更多信息并利用这些功能，请[查看文档](/docs/services/appid/index.html)！
-* 入门模板工具包是使用 {{site.data.keyword.cloud}} 的功能的最快方法之一。请在[移动开发者仪表板 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/developer/mobile/dashboard){: new_window} 中查看可用的入门模板工具包。下载代码。运行应用程序！
+* 入门模板工具包是使用 {{site.data.keyword.cloud}} 的功能的最快方法之一。请在[移动开发者仪表板 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} 中查看可用的入门模板工具包。下载代码。运行应用程序！

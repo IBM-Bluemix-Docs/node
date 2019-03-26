@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-09-19"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -42,6 +42,7 @@ lastupdated: "2018-09-19"
 使用 [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) 建構子，將監視特性新增至現有 Express 應用程式，以傳入許多配置選項。例如，其中一個選項使用現有的伺服器，而不是讓 `appmetrics-dash` 啟動額外的伺服器。
 
 ### 安裝儀表板
+{: #install-appmetrics}
 
 1. 例如，使用下列簡單的 "Hello World" express 應用程式：
   ```js

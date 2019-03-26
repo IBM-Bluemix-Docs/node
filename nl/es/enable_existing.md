@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-17"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-10-17"
 # Habilitación de aplicaciones Node.js existentes para despliegue en la nube
 {: #enable_existing}
 
-Puede generar los archivos necesarios para hacer que la aplicación Node.js pueda ejecutarse en {{site.data.keyword.cloud}} utilizando el [mandato enable de la CLI de {{site.data.keyword.dev_cli_long}}](https://console.bluemix.net/docs/cli/idt/commands.html#enable).
+Puede generar los archivos necesarios para hacer que la aplicación Node.js pueda ejecutarse en {{site.data.keyword.cloud}} utilizando el [mandato enable de la CLI de {{site.data.keyword.dev_cli_long}}](/docs/cli/idt/commands.html#enable).
 
 ## Habilitación de la aplicación
 {: #enable_app}
@@ -150,6 +150,6 @@ dockerfile-run : "docker-compose.yml"
 {: codeblock}
 
 ## Pasos siguientes
-{: #next_steps notoc}
+{: #next_steps-existing notoc}
 
-Para obtener más información, consulte [CLI de IBM Cloud Developer Tools](https://console.bluemix.net/docs/cli/idt/commands.html#idt-cli).
+Para obtener más información, consulte [CLI de IBM Cloud Developer Tools](/docs/cli/idt/commands.html#idt-cli).

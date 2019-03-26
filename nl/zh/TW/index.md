@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-08"
+  years: 2018, 2019
+lastupdated: "2019-02-18"
 
 ---
 
@@ -15,25 +15,26 @@ lastupdated: "2018-10-08"
 
 # 入門指導教學
 
-下列指導教學會引導您完成建置、在本端執行以及使用 {{site.data.keyword.cloud_notm}} 提供的工具來部署 Node.js 應用程式的步驟。您可以在指令行或 Web 型 [{{site.data.keyword.cloud}} {{site.data.keyword.dev_console}}](https://console.bluemix.net/developer/appservice/dashboard) 中使用 [{{site.data.keyword.dev_cli_long}}](https://console.bluemix.net/docs/cloudnative/dev_cli.html#add-cli)，如下列指導教學步驟所示。使用上述任一種方法，只要幾分鐘即可產生可正式作業的 Node.js 應用程式。
+下列指導教學會引導您完成建置、在本端執行以及使用 {{site.data.keyword.cloud_notm}} 提供的工具來部署 Node.js 應用程式的步驟。您可以在指令行或 Web 型 [{{site.data.keyword.cloud}} {{site.data.keyword.dev_console}}](https://cloud.ibm.com/developer/appservice/dashboard) 中使用 [{{site.data.keyword.dev_cli_long}}](/docs/cli/index.html#ibmcloud-cli)，如下列指導教學步驟所示。使用上述任一種方法，只要幾分鐘即可產生可正式作業的 Node.js 應用程式。
 
 請確定您使用最新的 Node.js LTS 版本。
 
 ## 建立 Node.js 應用程式
 {: #create_project}
 
-1. 從 {{site.data.keyword.dev_console}} 的[入門範本套件](https://console.bluemix.net/developer/appservice/starter-kits)頁面中，選取以 `Node.js` 撰寫的「入門範本套件」。您也可以藉由按一下**建立應用程式**，選取 `Node.js` 作為語言，來建立空白入門範本應用程式。
+1. 從 {{site.data.keyword.dev_console}} 的[入門範本套件](https://cloud.ibm.com/developer/appservice/starter-kits)頁面中，選取以 `Node.js` 撰寫的「入門範本套件」。您也可以藉由按一下**建立應用程式**，選取 `Node.js` 作為語言，來建立空白入門範本應用程式。
 
-    您必須登入 {{site.data.keyword.cloud_notm}} 帳戶，才能建立專案。如果您沒有帳戶，則可以[登錄免費帳戶](https://console.bluemix.net/registration)。
+    您必須登入 {{site.data.keyword.cloud_notm}} 帳戶，才能建立應用程式。如果您沒有帳戶，則可以[登錄免費帳戶](https://cloud.ibm.com/registration)。
     {: tip}
 
 2. 按一下**建立應用程式**。
 3. 建立應用程式的**名稱**。如果您要使用，則會提供一個一般應用程式名稱。
 4. 輸入**唯一主機名稱**。主機名稱用來存取您的應用程式，例如：`expressjs-project.mybluemix.net`。
 5. 按一下**建立**。建立專案之後，您可以使用工具鏈來部署，或者從指令行繼續建置及部署專案。
-6. 如果您選擇建立工具鏈，請按一下**部署至雲端**，然後選取下列其中一種部署方法。
-    * **Cloud Foundry 應用程式** - 您不需要管理基礎架構。
-    * **Kubernetes 叢集** - 您必須佈建一組工作者節點。例如，您可以使用 VM 來部署及管理高可用性應用程式容器。您可以建立叢集或部署至現有的叢集。
+6. 若要在儀表板中建立部署工具鏈，請按一下**部署至雲端**。根據所選擇方法的指示，設定部署方法：
+  * **部署至 [Kubernetes](/docs/apps/deploying/containers.html#containers-kube)**。此選項可建立主機（稱為工作者節點）的叢集，以部署及管理高可用性應用程式容器。您可以建立叢集或部署至現有的叢集。
+  * **部署至 Cloud Foundry**。此選項可部署雲端原生應用程式，您不需要管理基礎架構。如果您的帳戶有權存取 {{site.data.keyword.cfee_full_notm}}，則可以選取**[公用雲端](/docs/cloud-foundry-public/about-cf.html#about-cf)**或**[企業環境](/docs/cloud-foundry-public/cfee.html#cfee)**的部署者類型，您能夠使用此類型來建立及管理隔離環境，專供您的企業用來管理 Cloud Foundry 應用程式。
+  * **部署至[虛擬伺服器](/docs/apps/vsi-deploy.html#vsi-deploy)**。此選項可佈建虛擬伺服器實例、載入包含應用程式的映像檔、建立 DevOps 工具鏈，以及為您起始第一個部署週期。
 
 7. 最後確定您的選項，然後按一下**建立**來建立工具鏈。
 
@@ -92,7 +93,7 @@ ibmcloud dev deploy –target container
 請繼續參閱 Node.js 程式設計手冊中的各主題，或者，如需其他進階部署，您可以瞭解如何建立 Kubernetes 叢集，並在其中部署 Node.js 應用程式。
 
 ### 設定 Kubernetes 叢集
-如需在 {{site.data.keyword.cloud_notm}} 中設定 Kubernetes 叢集的相關資訊，請參閱[指導教學步驟](https://console.bluemix.net/docs/containers/cs_clusters.html#clusters)。
+如需在 {{site.data.keyword.cloud_notm}} 中設定 Kubernetes 叢集的相關資訊，請參閱[指導教學步驟](/docs/containers/cs_clusters.html#clusters)。
 
 ### 將 Node.js 應用程式部署至 Kubernetes 叢集
-瞭解如何[將 Node.js 應用程式部署至 Kubernetes 叢集](../containers/cs_tutorials_apps.html)。
+瞭解如何[將 Node.js 應用程式部署至 Kubernetes 叢集](/docs/containers/cs_tutorials_apps.html#cs_apps_tutorial)。

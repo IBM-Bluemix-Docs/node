@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-17"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-10-17"
 # Ativando os aplicativos Node.js existentes para a implementação na nuvem
 {: #enable_existing}
 
-É possível gerar os arquivos que são necessários para ativar o aplicativo Node.js para execução no {{site.data.keyword.cloud}} usando o [comando de ativação da CLI do {{site.data.keyword.dev_cli_long}}](https://console.bluemix.net/docs/cli/idt/commands.html#enable).
+É possível gerar os arquivos necessários para permitir que seu aplicativo Node.js seja executado no {{site.data.keyword.cloud}} usando o [comando de ativação da CLI do {{site.data.keyword.dev_cli_long}}](/docs/cli/idt/commands.html#enable).
 
 ## Ativando o aplicativo
 {: #enable_app}
@@ -150,6 +150,6 @@ dockerfile-run : "docker-compose.yml"
 {: codeblock}
 
 ## Próximas Etapas
-{: #next_steps notoc}
+{: #next_steps-existing notoc}
 
-Para obter mais informações, consulte a [CLI do IBM Cloud Developer Tools](https://console.bluemix.net/docs/cli/idt/commands.html#idt-cli).
+Para obter mais informações, consulte a [CLI do IBM Cloud Developer Tools](/docs/cli/idt/commands.html#idt-cli).

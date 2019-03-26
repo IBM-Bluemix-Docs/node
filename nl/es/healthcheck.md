@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-10-17"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -60,10 +60,10 @@ app.use("/health", router);
 
 Compruebe el estado de la app con un navegador accediendo al punto final `/health`.
 
-## Acceso a la comprobación de estado desde las apps del kit de iniciación de Node.js
+## Acceso a la comprobación de estado desde las apps del kit de inicio de Node.js
 {: #healthcheck-starterkit}
 
-De forma predeterminada, al generar una app Node.js utilizando un kit de iniciación, hay disponible un punto final de comprobación de estado básico (no autorizado) en `/health` para comprobar el estado de la app (activa/inactiva).
+De forma predeterminada, al generar una app Node.js utilizando un kit de inicio, hay disponible un punto final de comprobación de estado básico (no autorizado) en `/health` para comprobar el estado de la app (activa/inactiva).
 
 El siguiente archivo `/server/routers/health.js` proporciona el código de punto final de comprobación de estado:
 
@@ -83,16 +83,19 @@ module.exports = function(app) {
 {: codeblock}
 
 ## Recomendaciones para pruebas de actividad y preparación
+{: #readiness-recommend}
 
 Las pruebas de comprobación pueden incluir la viabilidad de conexiones a servicios en sentido descendente en el resultado cuando no haya una reserva aceptable si el servicio en sentido descendente no está disponible. Esto no implica llamar a la comprobación de estado que proporciona directamente el servicio en sentido descendente, puesto que la infraestructura realiza la comprobación. En su lugar, considere la posibilidad de verificar el estado de las referencias existentes que tiene la aplicación en los servicios en sentido descendente: puede ser una conexión JMS a WebSphere MQ o un consumidor o productor Kafka inicializado. Si comprueba la viabilidad de referencias internas en servicios en sentido descendente, almacene en memoria caché el resultado para minimizar el impacto que tiene la comprobación de estado en la aplicación.
 
 Una prueba de actividad, por el contrario, tiene en cuenta lo que se comprueba, ya que un error puede provocar una terminación inmediata del proceso. Un punto final HTTP simple que siempre devuelva `{"status": "UP"}` con el código de estado `200` es una elección razonable.
 
 ### Adición de soporte para los puntos finales de preparación (readiness) y actividad (liveness) de Kubernetes
+{: #kube-readiness-add}
 
 La biblioteca [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) de [CloudNativeJS], proporciona una infraestructura para definir puntos finales de preparación y actividad en Node que permiten la composición de orígenes para el estado de cada punto final.
 
 ## Configuración de pruebas de actividad y preparación en Kubernetes
+{: #kube-readiness-config}
 
 Declare las pruebas de actividad y preparación junto con el despliegue de Kubernetes. Ambas pruebas utilizan los mismos parámetros de configuración:
 

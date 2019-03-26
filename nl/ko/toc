@@ -25,18 +25,13 @@ IBM Cloud에서의 Node.js를 사용한 프로그래밍
     데이터 저장 및 공유
         cloudant.md
         object_storage.md
-        [Content Delivery Network(CDN) 사용](../tutorials/static-files-cdn.html)
-
-    [Continuous Delivery Pipeline을 사용하여 앱 작성](../tutorials/multi-region-webapp.html)
-    [MEAN 스택을 사용하여 앱 작성](../tutorials/mean-stack.html)
-    [REST API 작성](../tutorials/create-manage-secure-apis.html)
-    
+      
     deploying_apps.md
     enable_existing.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [API 문서](https://console.bluemix.net/apidocs)
+    [API 문서](https://cloud.ibm.com/apidocs)
     [IBM Code의 샘플 앱](https://developer.ibm.com/code/technologies/node-js/)
     {: .navgroup-end}
 
