@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-08"
+lastupdated: "2019-03-28"
 
-keywords: deploy node app, serverless node, back-end node, generated sdk node, cloud foundry deploy node, kubernetes deploy node
+keywords: deploy nodejs app, serverless nodejs, back-end nodejs, generated sdk nodejs, cloud foundry deploy nodejs, kubernetes deploy nodejs, virtual nodejs
 
 subcollection: nodejs
 

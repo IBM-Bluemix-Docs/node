@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-08"
+lastupdated: "2019-03-28"
 
-keywords: node tracing, debug node apps, troubleshooting node, appmetrics-zipkin node, zipkin docker, node slow
+keywords: nodejs tracing, debug nodejs apps, troubleshooting nodejs, appmetrics-zipkin node, zipkin docker nodejs, nodejs slow, nodejs tracing
 
 subcollection: nodejs
 

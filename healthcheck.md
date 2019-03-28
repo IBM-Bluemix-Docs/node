@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-08"
+lastupdated: "2019-03-28"
 
-keywords: healthcheck node, add healthcheck, healthcheck endpoint, readiness node, liveness node, endpoint node, probes node
+keywords: healthcheck node, add healthcheck node, healthcheck endpoint nodes, readiness node, liveness node, endpoint node, probes node, health check node
 
 subcollection: nodejs
 

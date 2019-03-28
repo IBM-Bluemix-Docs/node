@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-12"
+lastupdated: "2019-03-28"
 
-keywords: node authentication, node security, node identity provider, node cloud directory, node facebook, node login, node social identity, add security node
+keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
 subcollection: nodejs
 

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-08"
+lastupdated: "2019-03-28"
 
-keywords: cos node, object storage node, managing data, file storage node, ibm-cos-sdk node, creating object node, downloading object node
+keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
 subcollection: nodejs
 
