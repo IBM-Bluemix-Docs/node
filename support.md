@@ -24,7 +24,7 @@ subcollection: nodejs
 ## Asking for help on dWanswers
 {: #dwanswers-nodejs}
 
-Ask questions on [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") by using the `#nodejs` tag or join the discussion in the [{{site.data.keyword.cloud_notm}} Slack](https://slack-invite-ibm-cloud-tech.mybluemix.net/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") within the `#nodejs-at-ibm` channel.
+Ask questions on [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/index.html){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") by using the `#nodejs` tag or join the discussion in the [{{site.data.keyword.cloud_notm}} Slack](https://slack-invite-ibm-cloud-tech.mybluemix.net/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") within the `#nodejs-at-ibm` channel.
 
 ## Using official IBM Support for Runtimes
 {: #runtimes-support-nodejs}
