@@ -84,7 +84,7 @@ After you initialize the SDK in your app, you can use {{site.data.keyword.cos_sh
   ```
   {: codeblock}
 
-  If you need help finding the credential key values for your app, check *step 4* of the [Before you begin](/docs/node?topic=nodejs-object-storage#prereqs-cos) section for details on where to find them.
+  If you need help finding the credential key values for your app, check *step 4* of the [Before you begin](#prereqs-cos) section for details on where to find them.
   {: tip}
 
 3. Add the following code to your `server.js` file.
