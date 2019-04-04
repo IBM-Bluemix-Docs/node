@@ -40,4 +40,4 @@ To learn more, visit [IBM's Digital Marketplace](https://www.ibm.com/us-en/marke
 ## Buildpack Support Statement
 {: #buildpack-nodejs}
 
-[Buildpack support statement](/docs/runtimes/common?topic=runtime-common-buildpack_support_statement)
+[Buildpack support statement](/docs/runtimes-common?topic=runtimes-common-buildpack_support_statement)
