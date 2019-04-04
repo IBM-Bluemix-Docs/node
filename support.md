@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-04-04"
 
 keywords: nodejs support, nodejs help, dwanswers nodejs, nodejs runtimes, nodejs buildpack, ibm support nodejs, foundation support nodejs, runtime support nodejs, nodejs app support
 
@@ -40,4 +40,4 @@ To learn more, visit [IBM's Digital Marketplace](https://www.ibm.com/us-en/marke
 ## Buildpack Support Statement
 {: #buildpack-nodejs}
 
-[Buildpack support statement](/docs/runtimes/common?topic=runtime-common-buildpack_support_statement#buildpack_support_statement)
+[Buildpack support statement](/docs/runtimes/common?topic=runtime-common-buildpack_support_statement)
