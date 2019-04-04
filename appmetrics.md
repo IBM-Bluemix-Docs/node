@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-04-04"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
 
@@ -20,7 +20,7 @@ subcollection: nodejs
 # Using application metrics with Node.js apps
 {: #metrics}
 
-Learn how to install, access, and understand Node.js application metrics. You can monitor Node.js apps with the [Node Application Metrics](https://developer.ibm.com/code/open/projects/node-application-metrics/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") Dashboard to visualize the performance of your Node.js application by displaying metrics in a web-based front end.
+Learn how to install, access, and understand Node.js application metrics. You can monitor Node.js apps with the [Node Application Metrics](https://developer.ibm.com/open/projects/node-application-metrics/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") Dashboard to visualize the performance of your Node.js application by displaying metrics in a web-based front end.
 {: shortdesc}
 
 ## Identifying problems visually

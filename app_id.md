@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-04-04"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -115,7 +115,7 @@ Be sure that you have the following prerequisites ready to go:
     ```
     {: codeblock}
 
-    If you need help finding the credential key values for your app, check *step 5* of the [Before you begin](/docs/node?topic=nodejs-authentication#prereqs-appid) section for details on where to find them. 
+    If you need help finding the credential key values for your app, check *step 5* of the [Before you begin](#prereqs-appid) section for details on where to find them. 
     {: tip}
 
 4. Configure passport with serialization and deserialization. This configuration step is required for authenticated session persistence across HTTP requests. For more information, see the [passport docs](http://passportjs.org/docs){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").

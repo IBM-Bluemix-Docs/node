@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-04-04"
 
 keywords: nodejs tracing, debug nodejs apps, troubleshooting nodejs, appmetrics-zipkin node, zipkin docker nodejs, nodejs slow, nodejs tracing
 
@@ -20,7 +20,7 @@ subcollection: nodejs
 # Setting up End-to-End tracing
 {: #e2e-tracing}
 
-The following tutorial focuses on Zipkin and the use of the [appmetrics-zipkin](https://github.com/RuntimeTools/appmetrics-zipkin){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") module for tracing Node.js applications. You can learn more about Zipkin in the original [appmetrics-zipkin announcement](https://developer.ibm.com/node/2017/10/26/add-zipkin-open-tracing-support-node-js-application-one-line-code/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"). 
+The following tutorial focuses on Zipkin and the use of the [appmetrics-zipkin](https://github.com/CloudNativeJS/appmetrics-zipkin){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") module for tracing Node.js applications. You can learn more about Zipkin in the original [appmetrics-zipkin announcement](https://developer.ibm.com/node/2017/10/26/add-zipkin-open-tracing-support-node-js-application-one-line-code/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"). 
 
 In the following steps, two small applications (one front end, one back end) are used to trace between two endpoints by using the `appmetrics-zipkin` module. You can start from scratch or apply the principles that are described here to your existing Node.js applications. 
 
