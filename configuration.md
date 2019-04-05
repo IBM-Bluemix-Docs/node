@@ -71,7 +71,7 @@ The [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env){: new_wind
   ```
   {: codeblock}
 
-### Retreiving service credentials
+### Retrieving service credentials
 {: #nodejs-get-creds}
 
 Retrieve the values in your application by using the following commands.
