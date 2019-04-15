@@ -13,7 +13,7 @@ lastupdated: "2019-02-18"
 {:pre: .pre}
 {:tip: .tip}
 
-# 概説チュートリアル
+# 入門チュートリアル
 
 以下のチュートリアルでは、{{site.data.keyword.cloud_notm}} 提供のツールを使用して Node.js アプリをビルドし、ローカルで実行し、デプロイする手順について説明します。 チュートリアルの以下の手順で示すように、コマンド・ラインまたは Web ベースの [{{site.data.keyword.cloud}} {{site.data.keyword.dev_console}}](https://cloud.ibm.com/developer/appservice/dashboard)で [{{site.data.keyword.dev_cli_long}}](/docs/cli/index.html#ibmcloud-cli) を使用できます。 これらの方法のいずれかを使用して、実動用の Node.js アプリケーションを数分で生成できます。
 
