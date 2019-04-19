@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-04-04"
+
+keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
+
+subcollection: nodejs
 
 ---
 
@@ -13,16 +17,16 @@ lastupdated: "2019-01-14"
 {:pre: .pre}
 {:tip: .tip}
 
-# 搭配使用應用程式度量值與 Node.js 應用程式
+# 使用應用程式度量值與 Node.js 應用程式搭配
 {: #metrics}
 
-學習如何安裝、存取及瞭解 Node.js 應用程式度量值。您可以使用「[Node Application Metrics](https://developer.ibm.com/code/open/projects/node-application-metrics/) 儀表板」來監視 Node.js 應用程式，以藉由在 Web 型前端中顯示度量值來視覺化 Node.js 應用程式的效能。
+學習如何安裝、存取及瞭解 Node.js 應用程式度量值。您可以使用「[Node Application Metrics](https://developer.ibm.com/open/projects/node-application-metrics/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 儀表板」來監視 Node.js 應用程式，以藉由在 Web 型前端中顯示度量值來視覺化 Node.js 應用程式的效能。
 {: shortdesc}
 
 ## 以視覺化方式識別問題
 {: #identify-problems}
 
-應用程式度量值對於監視應用程式的效能而言，非常重要。具有 CPU、記憶體、延遲及 HTTP 這類度量值的度量值即時視圖非常重要，可確保應用程式有效地執行一段時間。您可以使用 Cloud Foundry 的[自動調整](/docs/services/Auto-Scaling/index.html)這類雲端服務，根據度量值動態調整實例，以符合現行工作負載。使用應用程式度量值，您可以精確地通知何時擴增、縮減或清除不再需要的實例以保留低成本。
+應用程式度量值對於監視應用程式的效能而言，非常重要。具有 CPU、記憶體、延遲及 HTTP 這類度量值的度量值即時視圖非常重要，可確保應用程式有效地執行一段時間。您可以使用 Cloud Foundry 的[自動調整](/docs/services/Auto-Scaling?topic=services/Auto-Scaling-get-started#get-started)這類雲端服務，根據度量值動態調整實例，以符合現行工作負載。使用應用程式度量值，您可以精確地通知何時擴增、縮減或清除不再需要的實例以保留低成本。
 
 應用程式度量值會擷取為時間序列資料。聚集及視覺化擷取的度量值有助於識別一般效能問題，例如：
 
@@ -32,14 +36,14 @@ lastupdated: "2019-01-14"
 * 高於預期的 CPU 使用率
 * 記憶體用量偏高或持續成長中（可能會有記憶體洩漏）
 
-內建的「Application Metrics 儀表板」([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash)) 也包括「其他要求」的圖表，其中顯示受支援資料庫（MongoDB、MySQL、Postgres、LevelDB 及 Redis）的資料庫要求持續時間、Socket.IO 及 Riak 事件。
+內建的「Application Metrics 儀表板」([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")) 也包括「其他要求」的圖表，其中顯示受支援資料庫（MongoDB、MySQL、Postgres、LevelDB 及 Redis）的資料庫要求持續時間、Socket.IO 及 Riak 事件。
 
 可以從儀表板產生「Node 報告」或「資料堆 Snapshot」，以啟用更深入的分析。
 
 ## 將度量值新增至現有 Node.js 應用程式
 {: #add-appmetrics-existing}
 
-使用 [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) 建構子，將監視特性新增至現有 Express 應用程式，以傳入許多配置選項。例如，其中一個選項使用現有的伺服器，而不是讓 `appmetrics-dash` 啟動額外的伺服器。
+使用 [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 建構子，將監視特性新增至現有 Express 應用程式，以傳入許多配置選項。例如，其中一個選項使用現有的伺服器，而不是讓 `appmetrics-dash` 啟動額外的伺服器。
 
 ### 安裝儀表板
 {: #install-appmetrics}
@@ -57,7 +61,7 @@ lastupdated: "2019-01-14"
   ```
   {: codeblock}
 
-2. 使用下列 [npm](https://nodejs.org/) 指令來安裝 `appmetrics` 儀表板：
+2. 使用下列 [npm](https://nodejs.org/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 指令來安裝 `appmetrics` 儀表板：
   ```
   npm install appmetrics-dash
   ```
@@ -109,7 +113,7 @@ var appzip = require('appmetrics-zipkin')({
 針對在本端執行的應用程式，使用預設 `localhost:3001/appmetrics-dash`。
 {: tip}
 
-「Node.js 的應用程式度量值」監視儀表板使用者介面提供一系列的度量值，包括下列 [Monitoring Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be) 影片中所見的 HTTP 要求及事件迴圈延遲。
+「Node.js 的應用程式度量值」監視儀表板使用者介面提供一系列的度量值，包括下列 [Monitoring Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 影片中所見的 HTTP 要求及事件迴圈延遲。
 
 ## 瞭解資料
 {: #understanding-data}

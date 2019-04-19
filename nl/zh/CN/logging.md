@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-04-04"
+
+keywords: nodejs logging, view logs nodejs, add logging nodejs, log4j nodejs, stdout nodejs, nodejs log, output nodejs, nodejs logger
+
+subcollection: nodejs
 
 ---
 
@@ -16,7 +20,7 @@ lastupdated: "2019-02-27"
 # Node.js 中的日志记录
 {: #logging_nodejs}
 
-日志消息是包含有关创建日志条目时微服务的状态和活动的上下文信息的字符串。需要日志来诊断服务失败的方式和原因，并在监视应用程序运行状况中起到支持 [appmetrics](/docs/node/appmetrics.html#metrics) 的作用。
+日志消息是包含有关创建日志条目时微服务的状态和活动的上下文信息的字符串。需要日志来诊断服务失败的方式和原因，并在监视应用程序运行状况中起到支持 [appmetrics](/docs/node?topic=nodejs-metrics) 的作用。
 
 考虑到云环境中进程的瞬态性质，必须收集日志并将其发送到其他位置，通常发送到集中位置以供分析。在云环境中进行日志记录最一致的方法是将日志条目发送到标准输出和错误流，从而使基础架构处理其余事务。
 
@@ -38,6 +42,7 @@ lastupdated: "2019-02-27"
 2. 要在应用程序中使用 log4js，请向应用程序添加以下代码行：
   ```js
   var log4js = require('log4js');
+  
   var log = log4js.getLogger();
   log.level = 'debug';
   log.debug("My Debug message");
@@ -66,7 +71,7 @@ lastupdated: "2019-02-27"
 ## 使用 App Service 应用程序进行监视
 {: #monitoring}
 
-缺省情况下，使用 {{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard) 创建的 Node.js 应用程序随附 Log4js。您可以打开 `server/server.js` 文件以查看以下 Log4js 代码：
+缺省情况下，使用 {{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 创建的 Node.js 应用程序随附 Log4js。您可以打开 `server/server.js` 文件以查看以下 Log4js 代码：
 ```js
 var logger = log4js.getLogger(appName);
 var app = express();
@@ -94,7 +99,7 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
   ```
   {: codeblock}
 
-* 对于 [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 部署，可以通过运行以下命令访问日志：
+* 对于 [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/) 部署，可以通过运行以下命令访问日志：
   ```
   kubectl logs <deployment name>
   ```
@@ -105,9 +110,9 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
 
 了解有关在每个部署环境中查看日志的更多信息：
 * [Kubernetes 日志](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")
-* [Cloud Foundry 日志](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html#logging_cf_apps)
-* [{{site.data.keyword.openwhisk}} 日志和监视](/docs/openwhisk/openwhisk_logs.html#openwhisk_logs)
+* [Cloud Foundry 日志](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps#logging_cf_apps)
+* [{{site.data.keyword.openwhisk}} 日志和监视](/docs/openwhisk?topic=cloud-functions-openwhisk_logs#openwhisk_logs)
 
 使用日志聚集器：
-* [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis/log_analysis_ov.html#log_analysis_ov)
+* [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis?topic=cloudloganalysis-log_analysis_ov#log_analysis_ov)
 * [{{site.data.keyword.cloud_notm}} Private ELK 堆栈](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.2/manage_metrics/logging_elk.html){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")

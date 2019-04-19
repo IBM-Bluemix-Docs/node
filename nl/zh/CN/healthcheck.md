@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-03-28"
+
+keywords: healthcheck node, add healthcheck node, healthcheck endpoint nodes, readiness node, liveness node, endpoint node, probes node, health check node
+
+subcollection: nodejs
 
 ---
 
@@ -14,12 +18,12 @@ lastupdated: "2019-01-14"
 {:tip: .tip}
 
 # 在 Node.js 应用程序中使用运行状况检查
-{: #healthcheck}
+{: #node-healthcheck}
 
-运行状况检查提供了一种简单的机制，用于确定服务器端应用程序是否在正常运行。云环境（例如 [Kubernetes](https://www.ibm.com/cloud/container-service) 和 [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry)）可以配置为定期轮询运行状况端点，以确定服务的实例是否已准备好接受流量。
+运行状况检查提供了一种简单的机制，用于确定服务器端应用程序是否在正常运行。云环境（如 [Kubernetes](https://www.ibm.com/cloud/container-service){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 和 [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")）可以配置为对运行状况端点定期进行轮询，以确定服务实例是否已准备好接受流量。
 
 ## 运行状况检查概述
-{: #overview}
+{: #node-healthcheck-overview}
 
 运行状况检查提供了一种简单的机制，用于确定服务器端应用程序是否在正常运行。它们通常通过 HTTP 使用，并使用标准返回码来指示 UP 或 DOWN 状态。运行状况检查的返回值是可变的，但极简 JSON 响应（如 `{"status": "UP"}`）则采用典型值。
 
@@ -61,12 +65,11 @@ app.use("/health", router);
 通过访问 `/health` 端点，使用浏览器检查应用程序的状态。
 
 ## 通过 Node.js 入门模板工具包应用程序访问运行状况检查
-{: #healthcheck-starterkit}
+{: #node-healthcheck-starterkit}
 
 缺省情况下，使用入门模板工具包来生成 Node.js 应用程序时，`/health` 处提供了基本（未授权）运行状况检查端点，可用于检查应用程序的状态 (UP/DOWN)。
 
 运行状况检查端点代码通过以下 `/server/routers/health.js` 文件提供：
-
 ```js
 var express = require('express');
 
@@ -83,7 +86,7 @@ module.exports = function(app) {
 {: codeblock}
 
 ## 针对就绪性和活性探测器的建议
-{: #readiness-recommend}
+{: #node-readiness-probes}
 
 如果下游服务不可用，那么在没有可接受的回退时，就绪性探测器可以在其结果中包含连接到下游服务的可行性。这并不意味着直接调用下游服务提供的运行状况检查，因为基础架构会为您执行该检查。请转而考虑验证应用程序对下游服务的现有引用的运行状况：这可能是 WebSphere MQ 的 JMS 连接，或者是初始化的 Kafka 使用者或生产者。如果您确实检查了下游服务的内部引用的可行性，请将结果高速缓存以尽可能减小运行状况检查对应用程序的影响。
 
@@ -92,7 +95,7 @@ module.exports = function(app) {
 ### 添加对 Kubernetes 就绪性和活性的支持
 {: #kube-readiness-add}
 
-来自 [CloudNativeJS] 的 [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) 库提供了一个框架，用于在 Node 中定义独立的活性和就绪性端点，以允许组合每个端点的状态的源。
+来自 [CloudNativeJS](https://github.com/cloudnativejs){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 的 [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 库提供了一个框架，用于使用 Node 定义独立的活性和就绪性端点，以允许组合每个端点的状态的源。
 
 ## 在 Kubernetes 中配置就绪性和活性探测器
 {: #kube-readiness-config}
@@ -135,4 +138,4 @@ spec:
 ```
 {: codeblock}
 
-有关更多信息，请参阅如何[配置活性和就绪性探测器](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)。
+有关更多信息，请参阅如何[配置活性和就绪性探测器](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")。

@@ -4,6 +4,10 @@ copyright:
   years: 2018, 2019
 lastupdated: "2019-02-28"
 
+keywords: configure node env, node environment, node credentials, ibm-cloud-env node
+
+subcollection: nodejs
+
 ---
 
 {:new_window: target="_blank"}
@@ -25,7 +29,7 @@ lastupdated: "2019-02-28"
 ## 向现有 Node.js 应用程序添加 {{site.data.keyword.cloud_notm}} 配置
 {: #addcloud-env-nodejs}
 
-[`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) 模块聚集了各种云提供者（例如，CloudFoundry 和 Kubernetes）的环境变量，因此应用程序独立于环境。
+[`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 模块聚集了各种云提供者（例如，Cloud Foundry 和 Kubernetes）的环境变量，因此应用程序独立于环境。
 
 ### 安装 `ibm-cloud-env` 模块
 {: #install-module-nodejs}
@@ -67,8 +71,8 @@ lastupdated: "2019-02-28"
   ```
   {: codeblock}
 
-### 使用 Node.js 应用程序中的值
-{: #values-nodejs}
+### 检索服务凭证
+{: #nodejs-get-creds}
 
 使用以下命令检索应用程序中的值。
 
@@ -99,7 +103,7 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## 使用入门模板工具包应用程序中的 Node.js 配置管理器
 {: #nodejs-config-skit}
 
-使用[入门模板工具包](https://cloud.ibm.com/developer/appservice/starter-kits/)创建的 Node.js 应用程序会自动随附在许多云部署环境（CF、K8s、VSI 和 Functions）中运行所需的凭证和配置。
+使用[入门模板工具包](https://cloud.ibm.com/developer/appservice/starter-kits/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 创建的 Node.js 应用程序会自动随附在许多云部署环境（CF、K8s、VSI 和 Functions）中运行所需的凭证和配置。
 
 ### 了解服务凭证
 {: #credentials-nodejs}
@@ -108,11 +112,11 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 
 应用程序使用配置管理器从环境和此文件中读取连接和配置信息。应用程序将使用定制构建的 `mappings.json`（位于 `server/config` 目录中）来传达在何处可以找到每个服务的凭证。
 
-本地运行的应用程序可以使用从 `mappings.json` 文件中读取的未绑定凭证连接到 {{site.data.keyword.cloud_notm}} 服务。如果需要创建未绑定的凭证，那么可以在 {{site.data.keyword.cloud_notm}} Web 控制台中或使用 [CloudFoundry CLI](https://docs.cloudfoundry.org/cf-cli/) `cf create-service-key` 命令进行创建。
+本地运行的应用程序可以使用从 `mappings.json` 文件中读取的未绑定凭证连接到 {{site.data.keyword.cloud_notm}} 服务。如果需要创建未绑定的凭证，那么可以在 {{site.data.keyword.cloud_notm}} Web 控制台中或使用 [Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") `cf create-service-key` 命令进行创建。
 
 将应用程序推送到 {{site.data.keyword.cloud_notm}} 时，不会再使用这些值。应用程序将改为使用环境变量来自动连接到绑定的服务。
 
-* **Cloud Foundry**：从 `VCAP_SERVICES` 环境变量获取服务凭证。对于 Cloud Foundry Enrprise Edition，请参阅此[入门教程](/docs/cloud-foundry/getting-started.html#getting-started)以获取更多信息。
+* **Cloud Foundry**：从 `VCAP_SERVICES` 环境变量获取服务凭证。对于 Cloud Foundry Enrprise Edition，请参阅此[入门教程](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started)以获取更多信息。
 
 * **Kubernetes**：从每个服务的不同环境变量获取服务凭证。
 
@@ -121,4 +125,4 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## 后续步骤
 {: #next_steps-config notoc}
 
-`ibm-cloud-config` 支持使用以下三种搜索模式类型来搜索值：`cloudfoundry`、`env` 和 `file`。如果您想查看其他支持的搜索模式和搜索模式示例，请查看[用法](https://github.com/ibm-developer/ibm-cloud-env#usage)部分。
+`ibm-cloud-config` 支持使用以下三种搜索模式类型来搜索值：`cloudfoundry`、`env` 和 `file`。如果您想查看其他支持的搜索模式和搜索模式示例，请查看 [Usage](https://github.com/ibm-developer/ibm-cloud-env#usage){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 部分。

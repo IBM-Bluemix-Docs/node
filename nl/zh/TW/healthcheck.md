@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-03-28"
+
+keywords: healthcheck node, add healthcheck node, healthcheck endpoint nodes, readiness node, liveness node, endpoint node, probes node, health check node
+
+subcollection: nodejs
 
 ---
 
@@ -14,12 +18,12 @@ lastupdated: "2019-01-14"
 {:tip: .tip}
 
 # 在 Node.js 應用程式中使用性能檢查
-{: #healthcheck}
+{: #node-healthcheck}
 
-性能檢查提供一種簡單機制，可判定伺服器端應用程式是否適當地運作。雲端環境（例如 [Kubernetes](https://www.ibm.com/cloud/container-service) 及 [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry)）可以配置為定期輪詢性能端點，以判斷服務實例是否準備好接受資料流量。
+性能檢查提供一種簡單機制，可判定伺服器端應用程式是否適當地運作。雲端環境（像是 [Kubernetes](https://www.ibm.com/cloud/container-service){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 及 [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 可以配置為定期輪詢性能端點，以判定您的服務實例是否準備好接受資料流量。
 
 ## 性能檢查概觀
-{: #overview}
+{: #node-healthcheck-overview}
 
 性能檢查提供一種簡單機制，可判定伺服器端應用程式是否適當地運作。它們通常是透過 HTTP 耗用，並使用標準回覆碼來指出 UP 或 DOWN 狀態。性能檢查的回覆值是可變的，但是最小 JSON 回應（例如 `{"status": "UP"}`）是相同的。
 
@@ -41,7 +45,7 @@ Kubernetes 具有細緻入微的處理程序性能記號。它定義兩個探測
 |----------|-----------------------------|----------------------------|---------------------------|
 |          | 非 OK 會導致不載入| 非 OK 會導致重新啟動| 非 OK 會導致重新啟動|
 | Starting | 503 - 無法使用| 200 - OK                   |使用延遲以避免測試|
-| Up       | 200 - OK                    | 200 - OK                   | 200 - OK                  |
+| Up       | 200 - OK                   | 200 - OK                  | 200 - OK                  |
 | Stopping | 503 - 無法使用| 200 - OK                   | 503 - 無法使用|
 | Down     | 503 - 無法使用| 503 - 無法使用| 503 - 無法使用|
 | Errored  |500 - 伺服器錯誤|500 - 伺服器錯誤|500 - 伺服器錯誤|
@@ -61,12 +65,11 @@ app.use("/health", router);
 使用瀏覽器，透過存取 `/health` 端點的方式，來檢查應用程式的狀態。
 
 ## 透過 Node.js 入門範本套件應用程式存取性能檢查
-{: #healthcheck-starterkit}
+{: #node-healthcheck-starterkit}
 
 依預設，當您使用「入門範本套件」來產生 Node.js 應用程式時，`/health` 中具有基本（未獲授權）性能檢查端點，可用來檢查應用程式的狀態 (UP/DOWN)。
 
 下列 `/server/routers/health.js` 檔案提供性能檢查端點程式碼：
-
 ```js
 var express = require('express');
 
@@ -83,7 +86,7 @@ module.exports = function(app) {
 {: codeblock}
 
 ## readiness 及 liveness 探測的建議
-{: #readiness-recommend}
+{: #node-readiness-probes}
 
 如果下游服務無法使用時沒有可接受的撤回措施，readiness 探測可以在其結果中包含下游服務連線的可行性。這並不表示直接呼叫下游服務所提供的性能檢查，因為基礎架構會為您檢查。相反地，請考慮驗證您應用程式對下游服務之現有參照的性能：這可能是與 WebSphere MQ 的 JMS 連線，或已起始設定的 Kafka 消費者或生產者。如果您檢查了對下游服務之內部參照的可行性，請將結果予以快取，將性能檢查對您應用程式的影響降至最低。
 
@@ -92,7 +95,7 @@ module.exports = function(app) {
 ### 新增 Kubernetes readiness 及 liveness 的支援
 {: #kube-readiness-add}
 
-來自 [CloudNativeJS] 的 [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) 程式庫提供架構以便定義 Node 中不同的 liveness 和 readiness 端點，它們允許針對每個端點的狀態組合來源。
+來自 [CloudNativeJS](https://github.com/cloudnativejs){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 的 [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 程式庫提供架構以便定義 Node 中不同的 liveness 和 readiness 端點，它們允許針對每個端點的狀態組合來源。
 
 ## 在 Kubernetes 中配置 readiness 和 liveness 探測
 {: #kube-readiness-config}
@@ -135,4 +138,4 @@ spec:
 ```
 {: codeblock}
 
-如需相關資訊，請參閱如何 [Configure liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)。
+如需相關資訊，請參閱如何 [Configure liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。

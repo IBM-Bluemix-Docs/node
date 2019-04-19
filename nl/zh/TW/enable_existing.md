@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-03-28"
+
+keywords: ibmcloud dev enable, nodejs cloud deployment, cloud enable nodejs, deploy nodejs, build nodejs cloud, nodejs debug
+
+subcollection: nodejs
 
 ---
 
@@ -16,7 +20,7 @@ lastupdated: "2019-01-14"
 # 啟用現有 Node.js 應用程式以進行雲端部署
 {: #enable_existing}
 
-您可以使用 [{{site.data.keyword.dev_cli_long}} CLI enable 指令](/docs/cli/idt/commands.html#enable)產生必要的檔案，讓 Node.js 應用程式能夠在 {{site.data.keyword.cloud}} 上執行。
+您可以使用 [{{site.data.keyword.dev_cli_long}} CLI enable 指令](/docs/cli/idt?topic=cloud-cli-idt-cli#enable)產生必要的檔案，讓 Node.js 應用程式能夠在 {{site.data.keyword.cloud}} 上執行。
 
 ## 啟用應用程式
 {: #enable_app}
@@ -78,17 +82,18 @@ Files can be easily compared with 'git diff' or a similar tool.
 The application, nodeapp, has been successfully saved into the current directory.
 demo: $
 ```
+{: screen}
 
 ## 建置並部署具有雲端功能的 Node 應用程式
 {: #build_deploy}
 
-接下來，使用 [`build`](/docs/cli/idt/commands.html#build) 指令建置您的應用程式：
+接下來，使用 [`build`](/docs/cli/idt?topic=cloud-cli-idt-cli#build) 指令建置您的應用程式：
 ```
 ibmcloud dev build
 ```
 {: codeblock}
 
-如果建置順利完成，您可以使用下列 [`deploy`](/docs/cli/idt/commands.html#deploy) 指令，將應用程式部署至 {{site.data.keyword.cloud_notm}}：
+如果建置順利完成，您可以使用下列 [`deploy`](/docs/cli/idt?topic=cloud-cli-idt-cli#deploy) 指令，將應用程式部署至 {{site.data.keyword.cloud_notm}}：
 ```
 ibmcloud dev deploy
 ```
@@ -152,4 +157,4 @@ dockerfile-run : "docker-compose.yml"
 ## 後續步驟
 {: #next_steps-existing notoc}
 
-如需相關資訊，請參閱 [IBM Cloud Developer Tools CLI](/docs/cli/idt/commands.html#idt-cli)。
+如需相關資訊，請參閱 [IBM Cloud Developer Tools CLI](/docs/cli/idt?topic=cloud-cli-idt-cli#idt-cli)。

@@ -4,6 +4,10 @@ copyright:
   years: 2018, 2019
 lastupdated: "2019-02-28"
 
+keywords: configure node env, node environment, node credentials, ibm-cloud-env node
+
+subcollection: nodejs
+
 ---
 
 {:new_window: target="_blank"}
@@ -25,7 +29,7 @@ lastupdated: "2019-02-28"
 ## 將 {{site.data.keyword.cloud_notm}} 配置新增至現有 Node.js 應用程式
 {: #addcloud-env-nodejs}
 
-[`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) 模組會聚集來自各種雲端提供者（例如 CloudFoundry 及 Kubernetes）的環境變數，使應用程式與環境無關。
+[`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 模組會聚集來自各種雲端提供者（例如 CloudFoundry 及 Kubernetes）的環境變數，使應用程式與環境無關。
 
 ### 安裝 `ibm-cloud-env` 模組
 {: #install-module-nodejs}
@@ -67,8 +71,8 @@ lastupdated: "2019-02-28"
   ```
   {: codeblock}
 
-### 使用 Node.js 應用程式中的值
-{: #values-nodejs}
+### 擷取服務認證
+{: #nodejs-get-creds}
 
 使用下列指令，以擷取應用程式中的值。
 
@@ -99,7 +103,7 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## 透過入門範本套件應用程式使用 Node.js 配置管理程式
 {: #nodejs-config-skit}
 
-使用[入門範本套件](https://cloud.ibm.com/developer/appservice/starter-kits/)建立的 Node.js 應用程式，會自動隨附在許多雲端部署環境（CF、K8、VSI 及 Functions）中執行所需的認證及配置。
+使用[入門範本套件](https://cloud.ibm.com/developer/appservice/starter-kits/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 建立的 Node.js 應用程式，會自動隨附在許多雲端部署環境（CF、K8、VSI 及 Functions）中執行所需的認證及配置。
 
 ### 瞭解服務認證
 {: #credentials-nodejs}
@@ -108,11 +112,11 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 
 應用程式會使用配置管理程式，從環境及這個檔案中讀取連線及配置資訊。它使用位於 `server/config` 目錄的自訂建置 `mappings.json`，以瞭解可以在哪裡找到每個服務的認證。
 
-本端執行的應用程式可以使用從 `mappings.json` 檔案讀取的未連結認證，來連接至 {{site.data.keyword.cloud_notm}} 服務。如果您需要建立未連結認證，則可以從 {{site.data.keyword.cloud_notm}} Web 主控台或使用 [CloudFoundry CLI](https://docs.cloudfoundry.org/cf-cli/) 的 `cf create-service-key` 指令來執行此作業。
+本端執行的應用程式可以使用從 `mappings.json` 檔案讀取的未連結認證，來連接至 {{site.data.keyword.cloud_notm}} 服務。如果您需要建立未連結認證，則可以從 {{site.data.keyword.cloud_notm}} Web 主控台或使用 [CloudFoundry CLI](https://docs.cloudfoundry.org/cf-cli/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 的 `cf create-service-key` 指令來執行此作業。
 
 當您將應用程式推送至 {{site.data.keyword.cloud_notm}} 時，不會再使用這些值。相反地，應用程式會使用環境變數自動連接至連結服務。
 
-* **Cloud Foundry**：服務認證取自 `VCAP_SERVICES` 環境變數。若為 Cloud Foundry Enrprise Edition，如需相關資訊，請參閱此[入門指導教學](/docs/cloud-foundry/getting-started.html#getting-started)。
+* **Cloud Foundry**：服務認證取自 `VCAP_SERVICES` 環境變數。若為 Cloud Foundry Enrprise Edition，如需相關資訊，請參閱此[入門指導教學](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started)。
 
 * **Kubernetes**：服務認證取自每個服務的個別環境變數。
 
@@ -121,4 +125,4 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## 後續步驟
 {: #next_steps-config notoc}
 
-`ibm-cloud-config` 支援使用三種搜尋型樣類型來搜尋值：`cloudfoundry`、`env` 及 `file`。如果您要參閱其他受支援搜尋型樣及搜尋型樣範例，請查看[用法](https://github.com/ibm-developer/ibm-cloud-env#usage)小節。
+`ibm-cloud-config` 支援使用三種搜尋型樣類型來搜尋值：`cloudfoundry`、`env` 及 `file`。如果您要參閱其他受支援搜尋型樣及搜尋型樣範例，請查看[用法](https://github.com/ibm-developer/ibm-cloud-env#usage){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 小節。

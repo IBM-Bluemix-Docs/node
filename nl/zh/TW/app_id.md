@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-04-04"
+
+keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
+
+subcollection: nodejs
 
 ---
 
@@ -21,16 +25,16 @@ lastupdated: "2019-01-14"
 
 要求使用者登入您的應用程式，即可儲存使用者資料，例如應用程式喜好設定或公用社交設定檔。然後，您可以使用該資料來自訂應用程式內每位使用者的經驗。{{site.data.keyword.appid_short_notm}} 為您提供一個登入架構，但您也可以帶入自創品牌的登入頁面，以與 Cloud Directory 搭配使用。
 
-如需可以使用 {{site.data.keyword.appid_short_notm}} 的所有方式的相關資訊以及架構資訊，請參閱[關於 {{site.data.keyword.appid_short_notm}}](/docs/services/appid/about.html)。
+如需可以使用 {{site.data.keyword.appid_short_notm}} 的所有方式的相關資訊以及架構資訊，請參閱[關於 {{site.data.keyword.appid_short_notm}}](/docs/services/appid?topic=appid-about#about)。
 
 ## 開始之前
 {: #prereqs-appid}
 
 請確定已備妥下列必要條件：
-1. 您必須具有 [{{site.data.keyword.cloud}} 帳戶 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}。
-2. 安裝 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/index.html)。
-3. 安裝 [npm ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://nodejs.org/){: new_window} 套件管理支援。
-4. 使用 [Express 架構 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](http://expressjs.com/){: new_window} 實作 Node.js 伺服器。若要安裝 Express 架構，請使用指令行來開啟含有 Node.js 應用程式的目錄，然後執行下列指令：
+1. 您必須具有 [{{site.data.keyword.cloud}} 帳戶](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
+2. 安裝 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)。
+3. 安裝 [npm](https://nodejs.org/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 套件管理支援。
+4. 使用 [Express 架構](http://expressjs.com/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 實作 Node.js 伺服器。若要安裝 Express 架構，請使用指令行來開啟含有 Node.js 應用程式的目錄，然後執行下列指令：
   ```
   npm install --save express
   ```
@@ -42,7 +46,7 @@ lastupdated: "2019-01-14"
   ```
   {: codeblock}
 
-  **附註**：其他架構使用 `Express` 架構（例如 LoopBack）。您可以搭配使用 {{site.data.keyword.appid_short_notm}} 伺服器 SDK 與所有這些架構。
+  其他架構使用 `Express` 架構（例如 LoopBack）。您可以搭配使用 {{site.data.keyword.appid_short_notm}} 伺服器 SDK 與所有這些架構。{: note}
 
 6. 找出稍後要用於 SDK 起始設定的認證金鑰值：
 
@@ -58,7 +62,7 @@ lastupdated: "2019-01-14"
 {: #create-instance-appid}
 
 **佈建服務的實例**
-1. 在 [{{site.data.keyword.cloud_notm}} 型錄](https://cloud.ibm.com/catalog/)中，選取 **Web 及行動**種類，然後按一下 {{site.data.keyword.appid_short_notm}}。即會開啟服務配置頁面。
+1. 在 [{{site.data.keyword.cloud_notm}} 型錄](https://cloud.ibm.com/catalog/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中，選取 **Web 及行動**種類，然後按一下 {{site.data.keyword.appid_short_notm}}。即會開啟服務配置頁面。
 2. 提供服務實例的名稱，或使用預設名稱。
 3. 選取定價方案，然後按一下**建立**。
 
@@ -85,7 +89,7 @@ lastupdated: "2019-01-14"
     ```
     {: codeblock}
 
-2. 設定 express 應用程式，以使用 express-session 中介軟體。**附註**：對於正式作業環境，您必須配置具有適當階段作業儲存空間的中介軟體。如需相關資訊，請參閱 [expressjs 文件 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/expressjs/session){: new_window}。
+2. 設定 express 應用程式，以使用 express-session 中介軟體。**附註**：對於正式作業環境，您必須配置具有適當階段作業儲存空間的中介軟體。如需相關資訊，請參閱 [expressjs 文件](https://github.com/expressjs/session){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
     ```js
     var app = express();
     app.use(session({
@@ -110,10 +114,10 @@ lastupdated: "2019-01-14"
     ```
     {: codeblock}
 
-    如果您需要協助尋找應用程式的認證金鑰值，請檢查[開始之前](/docs/node/app_id.html#prereqs-appid)小節的*步驟 5*，以取得在何處尋找它們的詳細資料。
+    如果您需要協助尋找應用程式的認證金鑰值，請檢查[開始之前](#prereqs-appid)小節的*步驟 5*，以取得在何處尋找它們的詳細資料。
     {: tip}
 
-4. 使用序列化及解除序列化來配置通行證。跨 HTTP 要求的已鑑別階段作業持續性需要此配置步驟。如需相關資訊，請參閱[通行證文件 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](http://passportjs.org/docs){: new_window}。
+4. 使用序列化及解除序列化來配置通行證。跨 HTTP 要求的已鑑別階段作業持續性需要此配置步驟。如需相關資訊，請參閱[通行證文件](http://passportjs.org/docs){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
   ```js
   passport.serializeUser(function(user, cb) {
     cb(null, user);
@@ -139,7 +143,7 @@ lastupdated: "2019-01-14"
   2. 成功重新導向，如 `passport.authenticate(name, {successRedirect: "...."})` 中所指定。
   3. 應用程式根目錄 ("/")。
 
-如需相關資訊，請參閱 [{{site.data.keyword.appid_short_notm}} Node.js GitHub 儲存庫 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window}。
+如需相關資訊，請參閱 [{{site.data.keyword.appid_short_notm}} Node.js GitHub 儲存庫 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
 
 ## 步驟 4. 管理登入經驗
 {: #manage-signin-appid}
@@ -155,9 +159,9 @@ lastupdated: "2019-01-14"
 您可以隨時更新登入流程，而無需以任何方式變更您的原始碼！
 {: tip}
 
-服務會使用 `OAuth 2` 授權類型來對映授權處理程序。當您配置社交身分提供者（例如 Facebook）時，會使用 [Oauth2 授權流程 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: new_window} 來呼叫登入小組件。當您顯示自己的使用者介面頁面時，會使用[資源擁有者密碼認證流程 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: new_window} 來登入並取得存取及身分記號。
+服務會使用 `OAuth 2` 授權類型來對映授權處理程序。當您配置社交身分提供者（例如 Facebook）時，會使用 [Oauth2 授權流程](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 來呼叫登入小組件。當您顯示自己的使用者介面頁面時，會使用[資源擁有者密碼認證流程](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 來登入並取得存取及身分記號。
 
-在您配置[社交身分提供者](/docs/services/appid/identity-providers.html)及 [Cloud Directory](/docs/services/appid/cloud-directory.html) 的設定之後，就可以開始實作程式碼。
+在您配置[社交身分提供者](/docs/services/appid?topic=appid-social#social)及 [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory#cloud-directory) 的設定之後，就可以開始實作程式碼。
 
 ### 配置社交身分提供者
 {: #social-identity-appid}
@@ -166,7 +170,7 @@ lastupdated: "2019-01-14"
 
 1. 開啟 {{site.data.keyword.appid_short_notm}} 儀表板的**身分提供者 > 管理**。
 2. 將您要使用的身分提供者設為**開啟**。您可以使用任意組合的身分提供者，但如果您要帶入自訂的登入頁面，則只需要啟用雲端目錄。
-3. 將[預設配置](/docs/services/appid/identity-providers.html)更新為您自己的認證。{{site.data.keyword.appid_short_notm}} 提供可用來試用服務的 IBM 認證。在您發佈應用程式之前，必須先更新配置。
+3. 將[預設配置](/docs/services/appid?topic=appid-social#social)更新為您自己的認證。{{site.data.keyword.appid_short_notm}} 提供可用來試用服務的 IBM 認證。在您發佈應用程式之前，必須先更新配置。
 4. [自訂預先配置的登入頁面](#login-widget)，以顯示您選擇的影像及顏色。
 
 ### 配置雲端目錄
@@ -174,7 +178,7 @@ lastupdated: "2019-01-14"
 
 使用 {{site.data.keyword.appid_short_notm}}，您可以管理自己的使用者登錄，稱為雲端目錄。雲端目錄可讓使用者使用其電子郵件及密碼，來註冊並登入行動及 Web 應用程式。
 
-若要配置雲端目錄，請參閱[雲端目錄](/docs/services/appid/cloud-directory.html)。
+若要配置雲端目錄，請參閱[雲端目錄](/docs/services/appid?topic=appid-cloud-directory#cloud-directory)。
 
 ### 自訂預設登入頁面
 {: #login-widget-appid}
@@ -195,7 +199,7 @@ lastupdated: "2019-01-14"
 
 如果您沒有自己的使用者介面頁面可供顯示，則 {{site.data.keyword.appid_short_notm}} 會提供您可以呼叫的預設登入頁面。
 
-視您的身分提供者配置而定，您可以顯示的頁面有所不同。服務不會提供社交身分提供者的進階功能，因為我們絕不會存取使用者的帳戶資訊。使用者必須移至身分提供者，才能管理其資訊。例如，如果他們想要變更其 Facebook 密碼，則必須前往 [https://www.facebook.com](https://www.facebook.com)。
+視您的身分提供者配置而定，您可以顯示的頁面有所不同。服務不會提供社交身分提供者的進階功能，因為我們絕不會存取使用者的帳戶資訊。使用者必須移至身分提供者，才能管理其資訊。例如，如果他們想要變更其 Facebook 密碼，則必須前往 [https://www.facebook.com](https://www.facebook.com){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
 
 請參閱下表，以查看您可以針對每種類型的身分提供者顯示的頁面。
 
@@ -210,7 +214,7 @@ lastupdated: "2019-01-14"
 若要顯示預設頁面，請執行下列動作：
 
 1. 開啟 {{site.data.keyword.appid_short_notm}} 儀表板的**管理身分提供者**標籤，然後將雲端目錄設為**開啟**。
-2. 配置[目錄及訊息設定](/docs/services/appid/cloud-directory.html)。
+2. 配置[目錄及訊息設定](/docs/services/appid?topic=appid-cloud-directory#cloud-directory)。
 3. 選擇您要顯示的登入頁面組合，並在應用程式中放置程式碼以呼叫那些頁面。
 
 **登入**
@@ -273,7 +277,7 @@ lastupdated: "2019-01-14"
   ```
   {: codeblock}
 
-想要向您的使用者提供自訂經驗嗎？請參閱 [{{site.data.keyword.appid_short_notm}} 文件](/docs/services/appid/login-widget.html#branding)，以查看如何顯示您自己的使用者介面頁面。
+想要向您的使用者提供自訂經驗嗎？請參閱 [{{site.data.keyword.appid_short_notm}} 文件](/docs/services/appid?topic=appid-login-widget#branding)，以查看如何顯示您自己的使用者介面頁面。
 {: tip}
 
 ## 步驟 5. 測試應用程式
@@ -286,12 +290,12 @@ lastupdated: "2019-01-14"
 3. 更新 {{site.data.keyword.appid_short_notm}} 儀表板中的身分提供者或登入小組件頁面。按一下**檢閱活動**，以查看已發生的鑑別事件。
 4. 重複步驟 1 和 2，查看變更是否立即實作。不需要更新應用程式程式碼。
 
-有困難嗎？請參閱[疑難排解 {{site.data.keyword.appid_short_notm}}](/docs/services/appid/ts_index.html)。
+有困難嗎？請參閱[疑難排解 {{site.data.keyword.appid_short_notm}}](/docs/services/appid?topic=appid-troubleshooting#troubleshooting)。
 
 ## 後續步驟
 {: #next-appid notoc}
 
 做得好！您已將鑑別步驟新增至應用程式。嘗試下列其中一個選項，以保持動力：
 
-* 若要進一步瞭解並充分運用 {{site.data.keyword.appid_short_notm}} 提供的所有特性，[請參閱文件](/docs/services/appid/index.html)！
-* 「入門範本套件」是使用 {{site.data.keyword.cloud}} 功能最快的方式之一。請檢視[行動開發人員儀表板 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} 中的可用入門範本套件。下載程式碼。執行應用程式！
+* 若要進一步瞭解並充分運用 {{site.data.keyword.appid_short_notm}} 提供的所有特性，[請參閱文件](/docs/services/appid?topic=appid-getting-started#getting-started)！
+* 入門範本套件是使用 {{site.data.keyword.cloud}} 功能最快的方式之一。請檢視[行動開發人員儀表板](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中的可用入門範本套件。下載程式碼。執行應用程式！

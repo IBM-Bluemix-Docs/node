@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-04-04"
+
+keywords: nodejs tracing, debug nodejs apps, troubleshooting nodejs, appmetrics-zipkin node, zipkin docker nodejs, nodejs slow, nodejs tracing
+
+subcollection: nodejs
 
 ---
 
@@ -16,14 +20,14 @@ lastupdated: "2019-01-14"
 # 设置端到端跟踪
 {: #e2e-tracing}
 
-以下教程重点介绍了 Zipkin 以及如何使用 [appmetrics-zipkin](https://github.com/RuntimeTools/appmetrics-zipkin) 模块来跟踪 Node.js 应用程序。您可以在原始 [appmetrics-zipkin 公告](https://developer.ibm.com/node/2017/10/26/add-zipkin-open-tracing-support-node-js-application-one-line-code/)中了解有关 Zipkin 的更多信息。 
+以下教程重点介绍了 Zipkin 以及如何使用 [appmetrics-zipkin](https://github.com/CloudNativeJS/appmetrics-zipkin){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 模块来跟踪 Node.js 应用程序。您可以在原始 [appmetrics-zipkin 公告](https://developer.ibm.com/node/2017/10/26/add-zipkin-open-tracing-support-node-js-application-one-line-code/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 中了解有关 Zipkin 的更多信息。 
 
 在以下步骤中，通过 `appmetrics-zipkin` 模块使用两个小型应用程序（一个前端，一个后端）在两个端点之间进行跟踪。您可以从头开始，也可以将此处描述的原则应用于现有 Node.js 应用程序。 
 
 ## 步骤 1. 安装和启用 appmetrics-zipkin 模块
 {: #install-zipkin}
 
-在 Node.js 应用程序的 `package.json` 文件所在的位置中，输入以下 [npm](https://nodejs.org/) 命令以将 `appmetrics-zipkin` 模块添加到依赖项列表中：
+在 Node.js 应用程序的 `package.json` 文件所在的位置中，输入以下 [npm](https://nodejs.org/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 命令以将 `appmetrics-zipkin` 模块添加到依赖项列表中：
 ```
 npm install --save appmetrics-zipkin
 ```
@@ -99,9 +103,9 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 可以单击**查找跟踪**并修改搜索选项，以选择性地仅显示特定时间段内的跟踪。您还可以进行过滤，以显示涉及特定服务名称的跟踪。服务名称是在检测代码时指定的，在示例方案中，我们使用的服务名称是“getter”和“pusher”。
 
 ## 步骤 3. 测试示例场景
-{: #example-scenario-tracing}
+{: #node-example-tracing}
 
-如果遵循 [GitHub 项目的文档](https://github.com/ibm-developer/nodejs-zipkin-tracing)，那么最终将获得以下样本应用程序。这是一个简单的进程，涉及跟踪两个端点之间的请求和响应。以下图像显示了 Zipkin 服务器以及显示屏上的已收集跟踪数据。要记住的关键点是务必包含 `require('appmetrics-zipkin')`，并可选择包含 Zipkin 服务器配置代码。以下示例场景显示了如何将 Zipkin 跟踪快速添加到现有 Node.js 应用程序中。
+如果遵循 [GitHub 项目的文档](https://github.com/ibm-developer/nodejs-zipkin-tracing){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")，那么最终将获得以下样本应用程序。这是一个简单的进程，涉及跟踪两个端点之间的请求和响应。以下图像显示了 Zipkin 服务器以及显示屏上的已收集跟踪数据。要记住的关键点是务必包含 `require('appmetrics-zipkin')`，并可选择包含 Zipkin 服务器配置代码。以下示例场景显示了如何将 Zipkin 跟踪快速添加到现有 Node.js 应用程序中。
 
 ### 跟踪方案概述
 {: #tracing-scenario}
@@ -159,7 +163,7 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 ## 后续步骤
 {: #next-steps-tracing}
 
-* 了解如何借助 [CloudNativeJS](https://www.cloudnativejs.io/) 社区项目来构建 Cloud Native Node.js 应用程序，该项目提供了多种资产和工具，可帮助您将这些应用程序部署到基于 Docker 和 Kubernetes 的云上。
+* 了解如何借助 [CloudNativeJS](https://www.cloudnativejs.io/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 社区项目来构建 Cloud Native Node.js 应用程序，该项目提供了多种资产和工具，可帮助您将这些应用程序部署到基于 Docker 和 Kubernetes 的云上。
 
-* 如果您已准备好将跟踪添加到在 Kubernetes 上运行的 Node.js 应用程序，请查看[跟踪使用 Kubernetes 的 Node.js 应用程序](https://developer.ibm.com/node/tutorial-end-end-tracing-node-js-applications/#appservice)。
+* 如果您已准备好将跟踪添加到在 Kubernetes 上运行的 Node.js 应用程序，请查看[跟踪使用 Kubernetes 的 Node.js 应用程序](https://developer.ibm.com/node/tutorial-end-end-tracing-node-js-applications/#appservice){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")。
 

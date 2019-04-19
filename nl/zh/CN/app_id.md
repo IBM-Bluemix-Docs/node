@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-04-04"
+
+keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
+
+subcollection: nodejs
 
 ---
 
@@ -21,16 +25,16 @@ lastupdated: "2019-01-14"
 
 通过要求用户登录到应用程序，可以存储用户数据，例如应用程序首选项或公共社交概要文件。然后，可以使用这些数据来定制每个用户在应用程序中的体验。{{site.data.keyword.appid_short_notm}} 提供了登录框架，但您也可以将自己的品牌登录页面与 Cloud Directory 配合使用。
 
-有关可以使用 {{site.data.keyword.appid_short_notm}} 和体系结构信息的所有方式的更多信息，请参阅[关于 {{site.data.keyword.appid_short_notm}}](/docs/services/appid/about.html)。
+有关可以使用 {{site.data.keyword.appid_short_notm}} 和体系结构信息的所有方式的更多信息，请参阅[关于 {{site.data.keyword.appid_short_notm}}](/docs/services/appid?topic=appid-about#about)。
 
 ## 开始之前
 {: #prereqs-appid}
 
 确保以下先决条件准备就绪：
-1. 您必须具有 [{{site.data.keyword.cloud}} 帐户 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}。
-2. 安装 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/index.html)。
-3. 安装 [npm ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://nodejs.org/){: new_window} 软件包管理支持。
-4. 使用 [Express 框架 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](http://expressjs.com/){: new_window} 实现 Node.js 服务器。要安装 Express 框架，请使用命令行打开包含 Node.js 应用程序的目录，然后运行以下命令：
+1. 您必须具有 [{{site.data.keyword.cloud}} 帐户 ](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")。
+2. 安装 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)。
+3. 安装 [npm ](https://nodejs.org/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 软件包管理支持。
+4. 使用 [Express 框架 ](http://expressjs.com/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 实现 Node.js 服务器。要安装 Express 框架，请使用命令行打开包含 Node.js 应用程序的目录，然后运行以下命令：
   ```
   npm install --save express
   ```
@@ -42,7 +46,8 @@ lastupdated: "2019-01-14"
   ```
   {: codeblock}
 
-  **注**：其他框架会使用 `Express` 框架，例如 LoopBack。可以将 {{site.data.keyword.appid_short_notm}} 服务器 SDK 与其中任意框架一起使用。
+  其他框架会使用 `Express` 框架，例如 LoopBack。可以将 {{site.data.keyword.appid_short_notm}} 服务器 SDK 与其中任意框架一起使用。
+  {: note}
 
 6. 找到稍后要用于 SDK 初始化的凭证密钥值：
 
@@ -58,7 +63,7 @@ lastupdated: "2019-01-14"
 {: #create-instance-appid}
 
 **供应服务的实例**
-1. 在 [{{site.data.keyword.cloud_notm}} 目录](https://cloud.ibm.com/catalog/)中，选择 **Web 和移动**类别，然后单击 {{site.data.keyword.appid_short_notm}}。这将打开服务配置页面。
+1. 在 [{{site.data.keyword.cloud_notm}} 目录](https://cloud.ibm.com/catalog/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 中，选择 **Web 和移动**类别，然后单击 {{site.data.keyword.appid_short_notm}}。这将打开服务配置页面。
 2. 为服务实例提供名称或使用预设名称。
 3. 选择价格套餐，然后单击**创建**。
 
@@ -85,7 +90,7 @@ lastupdated: "2019-01-14"
     ```
     {: codeblock}
 
-2. 将 express 应用程序设置为使用 express-session 中间件。**注**：必须针对生产环境为中间件配置合适的会话存储量。有关更多信息，请参阅 [expressjs 文档 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://github.com/expressjs/session){: new_window}。
+2. 将 express 应用程序设置为使用 express-session 中间件。**注**：必须针对生产环境为中间件配置合适的会话存储量。有关更多信息，请参阅 [expressjs 文档 ](https://github.com/expressjs/session){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")。
     ```js
     var app = express();
     app.use(session({
@@ -110,10 +115,10 @@ lastupdated: "2019-01-14"
     ```
     {: codeblock}
 
-    如果需要帮助查找应用程序的凭证密钥值，请查看[开始之前](/docs/node/app_id.html#prereqs-appid)部分中的*步骤 5*，以了解有关在何处查找这些值的详细信息。
+    如果需要帮助查找应用程序的凭证密钥值，请查看[开始之前](#prereqs-appid)部分中的*步骤 5*，以了解有关在何处查找这些值的详细信息。
     {: tip}
 
-4. 为 Passport 配置序列化和反序列化。为了实现跨 HTTP 请求的认证会话持久性，此配置步骤是必需的。有关更多信息，请参阅 [passport 文档 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](http://passportjs.org/docs){: new_window}。
+4. 为 Passport 配置序列化和反序列化。为了实现跨 HTTP 请求的认证会话持久性，此配置步骤是必需的。有关更多信息，请参阅 [passport 文档 ](http://passportjs.org/docs){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")。
   ```js
   passport.serializeUser(function(user, cb) {
     cb(null, user);
@@ -139,7 +144,7 @@ lastupdated: "2019-01-14"
   2. 成功重定向，如 `passport.authenticate(name, {successRedirect: "...."})`.
   3. 应用程序根目录（“/”）。
 
-有关更多信息，请参阅 [{{site.data.keyword.appid_short_notm}}Node.js GitHub 存储库 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window}。
+有关更多信息，请参阅 [{{site.data.keyword.appid_short_notm}}Node.js GitHub 存储库 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")。
 
 ## 步骤 4. 管理登录体验
 {: #manage-signin-appid}
@@ -155,9 +160,9 @@ lastupdated: "2019-01-14"
 您可以随时更新登录流程，而无需以任何方式更改源代码！
 {: tip}
 
-此服务使用 `OAuth 2` 授权类型映射授权过程。配置社交身份提供者（例如 Facebook）时，将使用 [OAuth2 授权流程 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: new_window} 来调用登录窗口小部件。显示自己的 UI 页面时，将使用[资源所有者密码凭证流程 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: new_window} 来登录并获取访问和身份令牌。
+此服务使用 `OAuth 2` 授权类型映射授权过程。配置社交身份提供者（例如 Facebook）时，将使用 [OAuth2 授权流程 ](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 来调用登录窗口小部件。显示自己的 UI 页面时，将使用[资源所有者密码凭证流程 ](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 来登录并获取访问和身份令牌。
 
-配置[社交身份提供者](/docs/services/appid/identity-providers.html)和[云目录](/docs/services/appid/cloud-directory.html)的设置后，即可以开始实现代码。
+配置[社交身份提供者](/docs/services/appid?topic=appid-social#social)和[云目录](/docs/services/appid?topic=appid-cloud-directory#cloud-directory)的设置后，即可以开始实现代码。
 
 ### 配置社交身份提供者
 {: #social-identity-appid}
@@ -166,7 +171,7 @@ lastupdated: "2019-01-14"
 
 1. 打开 {{site.data.keyword.appid_short_notm}} 仪表板中的**身份提供者 > 管理**。
 2. 将要使用的身份提供者设置为**开启**。可以使用身份提供者的任何组合，但如果要启动定制登录页面，请仅启用云目录。
-3. 将[缺省配置](/docs/services/appid/identity-providers.html)更新为您自己的凭证。{{site.data.keyword.appid_short_notm}} 提供了可用于试用服务的 IBM 凭证。发布应用程序之前，必须更新该配置。
+3. 将[缺省配置](/docs/services/appid?topic=appid-social#social)更新为您自己的凭证。{{site.data.keyword.appid_short_notm}} 提供了可用于试用服务的 IBM 凭证。发布应用程序之前，必须更新该配置。
 4. [定制预配置的登录页面](#login-widget)以显示您选择的图像和颜色。
 
 ### 配置云目录
@@ -174,7 +179,7 @@ lastupdated: "2019-01-14"
 
 通过 {{site.data.keyword.appid_short_notm}}，您可以管理自己的用户注册表（称为云目录）。通过云目录，用户可以使用自己的电子邮件和密码登录到移动和 Web 应用程序。
 
-要配置云目录，请参阅[云目录](/docs/services/appid/cloud-directory.html)。
+要配置云目录，请参阅[云目录](/docs/services/appid?topic=appid-cloud-directory#cloud-directory)。
 
 ### 定制缺省登录页面
 {: #login-widget-appid}
@@ -195,7 +200,7 @@ lastupdated: "2019-01-14"
 
 {{site.data.keyword.appid_short_notm}} 提供了缺省登录页面，如果您没有自己的 UI 页面要显示，那么可以调用缺省登录页面。
 
-根据您的身份提供者配置，可以显示的页面会有所不同。此服务不提供社交身份提供者的高级功能，因为我们从不具有用户帐户信息的访问权。用户必须转至相应的身份提供者来管理自己的信息。例如，如果用户想要更改其 Facebook 密码，那么必须转至 [https://www.facebook.com](https://www.facebook.com)。
+根据您的身份提供者配置，可以显示的页面会有所不同。此服务不提供社交身份提供者的高级功能，因为我们从不具有用户帐户信息的访问权。用户必须转至相应的身份提供者来管理自己的信息。例如，如果用户想要更改其 Facebook 密码，那么必须转至 [https://www.facebook.com](https://www.facebook.com){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")。
 
 查看下表以了解针对每种类型的身份提供者可以显示哪些页面。
 
@@ -210,7 +215,7 @@ lastupdated: "2019-01-14"
 要显示缺省页面，请执行以下操作：
 
 1. 打开 {{site.data.keyword.appid_short_notm}} 仪表板中的**管理身份提供者**选项卡，并将云目录设置为**开启**。
-2. 配置[目录和消息设置](/docs/services/appid/cloud-directory.html)。
+2. 配置[目录和消息设置](/docs/services/appid?topic=appid-cloud-directory#cloud-directory)。
 3. 选择要显示的登录页面的组合，并在应用程序中放入用于调用这些页面的代码。
 
 **登录**
@@ -273,7 +278,7 @@ lastupdated: "2019-01-14"
   ```
   {: codeblock}
 
-想要为用户提供定制体验？请查看 [{{site.data.keyword.appid_short_notm}} 文档](/docs/services/appid/login-widget.html#branding)，以了解如何显示您自己的 UI 页面。
+想要为用户提供定制体验？请查看 [{{site.data.keyword.appid_short_notm}} 文档](/docs/services/appid?topic=appid-login-widget#branding)，以了解如何显示您自己的 UI 页面。
 {: tip}
 
 ## 步骤 5. 测试应用程序
@@ -286,12 +291,12 @@ lastupdated: "2019-01-14"
 3. 更新 {{site.data.keyword.appid_short_notm}} 仪表板中的身份提供者或登录窗口小部件页面。单击**复查活动**以查看所发生的认证事件。
 4. 重复步骤 1 和 2 以查看更新是否会立即实现。不需要对应用程序代码进行更新。
 
-遇到困难？请查看[有关 {{site.data.keyword.appid_short_notm}} 的故障诊断](/docs/services/appid/ts_index.html)。
+遇到困难？请查看[有关 {{site.data.keyword.appid_short_notm}} 的故障诊断](/docs/services/appid?topic=appid-troubleshooting#troubleshooting)。
 
 ## 后续步骤
 {: #next-appid notoc}
 
 太棒了！您已将认证步骤添加到应用程序。请一鼓作气尝试下列其中一个选项：
 
-* 要了解有关 {{site.data.keyword.appid_short_notm}} 提供的所有功能的更多信息并利用这些功能，请[查看文档](/docs/services/appid/index.html)！
-* 入门模板工具包是使用 {{site.data.keyword.cloud}} 的功能的最快方法之一。请在[移动开发者仪表板 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} 中查看可用的入门模板工具包。下载代码。运行应用程序！
+* 要了解有关 {{site.data.keyword.appid_short_notm}} 提供的所有功能的更多信息并利用这些功能，请[查看文档](/docs/services/appid?topic=appid-getting-started#getting-started)！
+* 入门模板工具包是使用 {{site.data.keyword.cloud}} 的功能的最快方法之一。请在[移动开发者仪表板 ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 中查看可用的入门模板工具包。下载代码。运行应用程序！
