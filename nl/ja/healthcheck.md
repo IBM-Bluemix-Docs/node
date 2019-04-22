@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-03-28"
+
+keywords: healthcheck node, add healthcheck node, healthcheck endpoint nodes, readiness node, liveness node, endpoint node, probes node, health check node
+
+subcollection: nodejs
 
 ---
 
@@ -14,12 +18,13 @@ lastupdated: "2019-01-14"
 {:tip: .tip}
 
 # Node.js アプリでのヘルス・チェックの使用
-{: #healthcheck}
+{: #node-healthcheck}
 
-ヘルス・チェックには、サーバー・サイド・アプリケーションが正常に動作しているかどうかを判別するための単純なメカニズムが備わっています。 [Kubernetes](https://www.ibm.com/cloud/container-service) や [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry) などのクラウド環境は、サービスのインスタンスがトラフィックを受け入れる準備ができているかどうかを判別するためにヘルス・エンドポイントを定期的にポーリングするように構成できます。
+ヘルス・チェックには、サーバー・サイド・アプリケーションが正常に動作しているかどうかを判別するための単純なメカニズムが備わっています。 [Kubernetes](https://www.ibm.com/cloud/container-service){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") および [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") のようなクラウド環境は、ヘルス・エンドポイントを定期的にポーリングしてサービスのインスタンスがトラフィックを受け入れる準備ができているかどうかを判別するように構成することができます。
+ 
 
 ## ヘルス・チェックの概要
-{: #overview}
+{: #node-healthcheck-overview}
 
 ヘルス・チェックには、サーバー・サイド・アプリケーションが正常に動作しているかどうかを判別するための単純なメカニズムが備わっています。 通常は HTTP を介してコンシュームされ、標準の戻りコードを使用して UP または DOWN の状況を示します。 ヘルス・チェックの戻り値は変数ですが、`{"status": "UP"}` のような最小の JSON 応答が一般的です。
 
@@ -61,12 +66,11 @@ app.use("/health", router);
 ブラウザーで `/health` エンドポイントにアクセスして、アプリの状況をチェックします。
 
 ## Node.js スターター・キット・アプリからのヘルス・チェックへのアクセス
-{: #healthcheck-starterkit}
+{: #node-healthcheck-starterkit}
 
 デフォルトでは、スターター・キットを使用して Node.js アプリを生成すると、アプリの状況 (UP/DOWN) をチェックするための 1 つの基本的な (無許可) ヘルス・チェック・エンドポイントが `/health` で使用可能になります。
 
 ヘルス・チェック・エンドポイントのコードは、以下の `/server/routers/health.js` ファイルによって提供されます。
-
 ```js
 var express = require('express');
 
@@ -83,7 +87,7 @@ module.exports = function(app) {
 {: codeblock}
 
 ## readiness プローブおよび liveness プローブの推奨
-{: #readiness-recommend}
+{: #node-readiness-probes}
 
 readiness プローブには、ダウンストリーム・サービスが使用できないとき、許容可能なフォールバックがない場合に、その結果にダウンストリーム・サービスへの接続の可能性を含めることができます。 接続の可能性はインフラストラクチャーによってチェックされるため、これはダウンストリーム・サービスによって提供されるヘルス・チェックを直接呼び出すという意味ではありません。 代わりに、アプリケーションがダウンストリーム・サービスに対して持っている既存の参照のヘルスを検証することを検討してください。これは、WebSphere MQ への JMS 接続、または初期化された Kafka コンシューマーまたはプロデューサーである可能性があります。 ダウンストリーム・サービスへの内部参照の可能性をチェックする場合は、結果をキャッシュして、アプリケーションに対するヘルス・チェックの影響を最小限に抑えます。
 
@@ -92,7 +96,7 @@ readiness プローブには、ダウンストリーム・サービスが使用�
 ### Kubernetes の readiness および liveness のサポートの追加
 {: #kube-readiness-add}
 
-[CloudNativeJS] からの [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) ライブラリーは、liveness エンドポイントと readiness エンドポイントを Node 内に別個に定義するためのフレームワークを提供します。これにより、各エンドポイントの状態に対するソースの構成が可能になります。
+[CloudNativeJS](https://github.com/cloudnativejs){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") の [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") ライブラリーは、liveness エンドポイントと readiness エンドポイントを Node 内に別個に定義するためのフレームワークを提供します。これにより、各エンドポイントの状態に対するソースの構成が可能になります。
 
 ## Kubernetes での readiness プローブと liveness プローブの構成
 {: #kube-readiness-config}
@@ -135,4 +139,4 @@ spec:
 ```
 {: codeblock}
 
-詳しくは、[Configure liveness and readiness probes (readiness プローブと liveness プローブの構成)](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)方法を参照してください。
+詳しくは、[Configure liveness and readiness probes (readiness プローブと liveness プローブの構成)](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") 方法を参照してください。

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-04-04"
+
+keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
+
+subcollection: nodejs
 
 ---
 
@@ -16,13 +20,13 @@ lastupdated: "2019-01-14"
 # Node.js アプリでのアプリケーション・メトリックの使用
 {: #metrics}
 
-Node.js アプリケーションのメトリックをインストール、アクセス、および解釈する方法について説明します。 [Node Application Metrics](https://developer.ibm.com/code/open/projects/node-application-metrics/) ダッシュボードで Node.js アプリをモニターし、Web ベースのフロントエンドでメトリックを表示することによって、Node.js アプリケーションのパフォーマンスを視覚化できます。
+Node.js アプリケーションのメトリックをインストール、アクセス、および解釈する方法について説明します。 [Node Application Metrics](https://developer.ibm.com/open/projects/node-application-metrics/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") ダッシュボードで Node.js アプリをモニターし、Web ベースのフロントエンドでメトリックを表示することによって、Node.js アプリケーションのパフォーマンスを視覚化できます。
 {: shortdesc}
 
 ## 視覚的な問題識別
 {: #identify-problems}
 
-アプリケーション・メトリックは、アプリケーションのパフォーマンスをモニターするのに重要です。 CPU、メモリー、待ち時間、HTTP などのメトリックをライブで表示できることは、長時間にわたりアプリケーションが効果的に実行されていることを確認するために不可欠です。 メトリックに依存するクラウド・サービス (例えば、Cloud Foundry の[自動スケーリング](/docs/services/Auto-Scaling/index.html)など) を使用して、現行作業負荷に合わせて動的にインスタンスをスケーリングできます。 アプリケーション・メトリックを使用することによって、インスタンスのスケーリングや不要インスタンスのクリーンアップを行うタイミングを正確に把握して、コストを低く抑えることができます。
+アプリケーション・メトリックは、アプリケーションのパフォーマンスをモニターするのに重要です。 CPU、メモリー、待ち時間、HTTP などのメトリックをライブで表示できることは、長時間にわたりアプリケーションが効果的に実行されていることを確認するために不可欠です。 メトリックに依存するクラウド・サービス (例えば、Cloud Foundry の[自動スケーリング](/docs/services/Auto-Scaling?topic=services/Auto-Scaling-get-started#get-started)など) を使用して、現行作業負荷に合わせて動的にインスタンスをスケーリングできます。 アプリケーション・メトリックを使用することによって、インスタンスのスケーリングや不要インスタンスのクリーンアップを行うタイミングを正確に把握して、コストを低く抑えることができます。
 
 アプリケーション・メトリックは、時系列データとして収集されます。 収集されたメトリックを集約して視覚化することは、以下のような一般的なパフォーマンス上の問題を特定するのに役立ちます。
 
@@ -32,14 +36,14 @@ Node.js アプリケーションのメトリックをインストール、アク
 * CPU 使用率が予想より高い
 * メモリー使用量が多いか、増加している (メモリー・リークの可能性)
 
-組み込みの Application Metrics Dashboard ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash)) には「その他の要求」についてのグラフも含まれていて、サポートされるデータベース (MongoDB、MySQL、Postgres、LevelDB、および Redis)、Socket.IO、および Riak イベントのデータベース要求所要時間が示されます。
+組み込みの Application Metrics Dashboard ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")) には「その他の要求」についてのグラフも含まれていて、サポートされるデータベース (MongoDB、MySQL、Postgres、LevelDB、および Redis)、Socket.IO、および Riak イベントのデータベース要求所要時間が示されます。
 
 このダッシュボードからノード・レポートまたはヒープ・スナップショットを生成して、より詳細な分析を行うことができます。
 
 ## 既存の Node.js アプリへのメトリックの追加
 {: #add-appmetrics-existing}
 
-多数の構成オプションを渡すための [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) コンストラクターを使用して、既存の Express アプリケーションにモニター機能を追加します。 例えば、`appmetrics-dash` で追加のサーバーを開始するのではなく、既存のサーバーを使用するというオプションがあります。
+多数の構成オプションを渡すための [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") コンストラクターを使用して、既存の Express アプリケーションにモニター機能を追加します。 例えば、`appmetrics-dash` で追加のサーバーを開始するのではなく、既存のサーバーを使用するというオプションがあります。
 
 ### ダッシュボードのインストール
 {: #install-appmetrics}
@@ -57,7 +61,7 @@ Node.js アプリケーションのメトリックをインストール、アク
   ```
   {: codeblock}
 
-2. 以下の [npm](https://nodejs.org/) コマンドを使用して `appmetrics` ダッシュボードをインストールします。
+2. 以下の [npm](https://nodejs.org/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") コマンドを使用して `appmetrics` ダッシュボードをインストールします。
   ```
   npm install appmetrics-dash
   ```
@@ -109,7 +113,7 @@ var appzip = require('appmetrics-zipkin')({
 ローカルで実行されているアプリには、デフォルトの `localhost:3001/appmetrics-dash` を使用します。
 {: tip}
 
-Application Metrics for Node.js モニタリング・ダッシュボード UI では、HTTP 要求およびイベント・ループ待ち時間などの広範なメトリックが提供されます。詳しくは、ビデオ [Monitoring Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be) をご覧ください。
+Application Metrics for Node.js モニタリング・ダッシュボード UI では、HTTP 要求およびイベント・ループ待ち時間などの広範なメトリックが提供されます。詳しくは、ビデオ [Monitoring Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") をご覧ください。
 
 ## データの解釈
 {: #understanding-data}

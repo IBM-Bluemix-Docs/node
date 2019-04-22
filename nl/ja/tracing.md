@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-04-04"
+
+keywords: nodejs tracing, debug nodejs apps, troubleshooting nodejs, appmetrics-zipkin node, zipkin docker nodejs, nodejs slow, nodejs tracing
+
+subcollection: nodejs
 
 ---
 
@@ -16,14 +20,14 @@ lastupdated: "2019-01-14"
 # エンドツーエンド・トレースのセットアップ
 {: #e2e-tracing}
 
-以下のチュートリアルでは、Zipkin についてと、Node.js アプリケーションのトレースのための [appmetrics-zipkin](https://github.com/RuntimeTools/appmetrics-zipkin) モジュールの使用について重点的に説明します。 Zipkin について詳しくは、元の [appmetrics-zipkin 発表](https://developer.ibm.com/node/2017/10/26/add-zipkin-open-tracing-support-node-js-application-one-line-code/)を参照してください。 
+以下のチュートリアルでは、Zipkin についてと、Node.js アプリケーションのトレースのための [appmetrics-zipkin](https://github.com/CloudNativeJS/appmetrics-zipkin){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") モジュールの使用について重点的に説明します。 Zipkin について詳しくは、元々の [appmetrics-zipkin の発表](https://developer.ibm.com/node/2017/10/26/add-zipkin-open-tracing-support-node-js-application-one-line-code/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") を参照してください。 
 
 以下のステップでは、2 つの小さなアプリケーション (1 つはフロントエンド、もう 1 つはバックエンド) を使用して、2 つのエンドポイント間で `appmetrics-zipkin` モジュールを使用したトレースが行われます。 最初から開始することも、既存の Node.js アプリケーションにここで説明する原則を適用することもできます。 
 
 ## ステップ 1. appmetrics-zipkin モジュールのインストールと有効化
 {: #install-zipkin}
 
-Node.js アプリケーションの `package.json` ファイルと同じ場所で、以下の [npm](https://nodejs.org/) コマンドを入力して `appmetrics-zipkin` モジュールを依存関係リストに追加します。
+Node.js アプリケーションの `package.json` ファイルと同じ場所で、以下の [npm](https://nodejs.org/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") コマンドを入力して `appmetrics-zipkin` モジュールを依存関係リストに追加します。
 ```
 npm install --save appmetrics-zipkin
 ```
@@ -98,9 +102,9 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 **「トレースの検索」**をクリックし、検索オプションを変更して、特定の期間内のトレースのみを選択的に表示することができます。 特定のサービス名に関係するトレースを表示するようにフィルタリングすることもできます。 サービス名はコードの装備時に指定され、シナリオ例では「getter」および「pusher」が使用されています。
 
 ## ステップ 3. シナリオ例のテスト
-{: #example-scenario-tracing}
+{: #node-example-tracing}
 
-[GitHub プロジェクトの資料](https://github.com/ibm-developer/nodejs-zipkin-tracing)に従うと、最後に以下のサンプル・アプリケーションが得られます。 これは 2 つのエンドポイント間の要求と応答のトレースが関係する単純なプロセスです。 以下のイメージは、Zipkin サーバーと、収集されたトレース・データの表示を示しています。 覚えておくべき重要なポイントは、`require ('appmetrics-zipkin')`、およびオプションで Zipkin サーバー構成コードを含めることです。 以下のシナリオ例は、Zipkin トレースを既存の Node.js アプリケーションに迅速に追加する方法を示しています。
+[GitHub プロジェクトの資料](https://github.com/ibm-developer/nodejs-zipkin-tracing){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") に従うと、最後に以下のサンプル・アプリケーションが得られます。 これは 2 つのエンドポイント間の要求と応答のトレースが関係する単純なプロセスです。 以下のイメージは、Zipkin サーバーと、収集されたトレース・データの表示を示しています。 覚えておくべき重要なポイントは、`require ('appmetrics-zipkin')`、およびオプションで Zipkin サーバー構成コードを含めることです。 以下のシナリオ例は、Zipkin トレースを既存の Node.js アプリケーションに迅速に追加する方法を示しています。
 
 ### トレース・シナリオの概要
 {: #tracing-scenario}
@@ -160,7 +164,7 @@ Zipkin に送信されたトレース・データは `localhost:9411` で Zipkin
 ## 次のステップ
 {: #next-steps-tracing}
 
-* [CloudNativeJS](https://www.cloudnativejs.io/) コミュニティー・プロジェクトを利用して、クラウド・ネイティブ Node.js アプリケーションの作成方法を学習します (このコミュニティー・プロジェクトでは、それらを Docker および Kubernetes ベースのクラウドにデプロイするのを支援するためのアセットおよびツールが提供されています)。
+* [CloudNativeJS](https://www.cloudnativejs.io/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") コミュニティー・プロジェクトを利用して、クラウド・ネイティブ Node.js アプリケーションの作成方法を学習します (このコミュニティー・プロジェクトでは、それらを Docker および Kubernetes ベースのクラウドにデプロイするのを支援するためのアセットおよびツールが提供されています)。
 
-* Kubernetes 上で実行される Node.js アプリケーションにトレースを追加する準備ができている場合、[Kubernetes を使用する Node.js アプリケーションのトレース](https://developer.ibm.com/node/tutorial-end-end-tracing-node-js-applications/#appservice)を参照してください。
+* Kubernetes 上で実行される Node.js アプリケーションにトレースを追加する準備ができている場合、[Kubernetes を使用する Node.js アプリケーションのトレース](https://developer.ibm.com/node/tutorial-end-end-tracing-node-js-applications/#appservice){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") を参照してください。
 

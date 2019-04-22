@@ -4,6 +4,10 @@ copyright:
   years: 2018, 2019
 lastupdated: "2019-02-28"
 
+keywords: configure node env, node environment, node credentials, ibm-cloud-env node
+
+subcollection: nodejs
+
 ---
 
 {:new_window: target="_blank"}
@@ -18,14 +22,14 @@ lastupdated: "2019-02-28"
 
 クラウド・ネイティブの原則を実装することによって、Node.js アプリケーションを、テストから実動へなど、ある環境から別の環境へ移動することができ、その際、コードを変更することはなく、したがってテストされていないコード・パスを発生させることもありません。
 
-開発環境によって config の提供方法に大きな違いがある場合に問題が発生します。 例えば、ストリング化された JSON オブジェクトを使用する Cloud Foundry に対して、Kubernetes はフラット値またはストリング化された JSON オブジェクトを使用します。Kubernetes は別にして、ローカル開発では他にもさまざまな考慮事項があります。 パブリックとプライベートの間で資格情報の提供方法が異なることがあるため、環境間でアプリを変更しないことはさらに難しくなります。
+開発環境によって config の提供方法に大きな違いがある場合に問題が発生します。 例えば、ストリング化された JSON オブジェクトを使用する Cloud Foundry に対して、Kubernetes はフラット値またはストリング化された JSON オブジェクトを使用します。 Kubernetes は別にして、ローカル開発では他にもさまざまな考慮事項があります。 パブリックとプライベートの間で資格情報の提供方法が異なることがあるため、環境間でアプリを変更しないことはさらに難しくなります。
 
 既存のアプリケーションに {{site.data.keyword.cloud}} サポートを追加する必要があるのか、それともスターター・キットを使用してアプリを作成するのかにかかわらず、目標は、どのような開発プラットフォームでも Node.js アプリの移植性を確保することです。
 
 ## 既存の Node.js アプリケーションへの {{site.data.keyword.cloud_notm}} 構成の追加
 {: #addcloud-env-nodejs}
 
-[`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) モジュールはさまざまなクラウド・プロバイダー (CloudFoundry や Kubernetes など) から環境変数を集約するため、アプリケーションは環境から独立しています。
+[`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") モジュールはさまざまなクラウド・プロバイダー (CloudFoundry や Kubernetes など) から環境変数を集約するため、アプリケーションは環境から独立しています。
 
 ### `ibm-cloud-env` モジュールのインストール
 {: #install-module-nodejs}
@@ -67,8 +71,8 @@ lastupdated: "2019-02-28"
   ```
   {: codeblock}
 
-### Node.js アプリでの値の使用
-{: #values-nodejs}
+### サービス資格情報の取得
+{: #nodejs-get-creds}
 
 以下のコマンドを使用して、アプリケーション内で値を取得します。
 
@@ -99,7 +103,7 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## スターター・キット・アプリからの Node.js 構成マネージャーの使用
 {: #nodejs-config-skit}
 
-[スターター・キット](https://cloud.ibm.com/developer/appservice/starter-kits/)を使用して作成された Node.js アプリには、多くのクラウド・デプロイメント環境 (CF、K8s、VSI、および Functions) での実行に必要な構成および資格情報が自動的に付属します。
+[スターター・キット](https://cloud.ibm.com/developer/appservice/starter-kits/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") を使用して作成された Node.js アプリには、多くのクラウド・デプロイメント環境 (CF、K8s、VSI、および Functions) での実行に必要な構成および資格情報が自動的に付属します。
 
 ### サービス資格情報について
 {: #credentials-nodejs}
@@ -108,11 +112,11 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 
 アプリケーションは、構成マネージャーを使用して、環境およびこのファイルから接続情報および構成情報を読み取ります。 また、`server/config` ディレクトリーにあるカスタムビルトの `mappings.json` を使用して、各サービスの資格情報がある場所を伝達します。
 
-ローカルで実行されているアプリケーションは、`mappings.json` ファイルから読み取ったアンバインドされた資格情報を使用して、{{site.data.keyword.cloud_notm}} サービスに接続できます。 アンバインドされた資格情報を作成する必要がある場合、{{site.data.keyword.cloud_notm}} Web コンソールから行うか、または、[CloudFoundry CLI](https://docs.cloudfoundry.org/cf-cli/) `cf create-service-key` コマンドを使用して行うことができます。
+ローカルで実行されているアプリケーションは、`mappings.json` ファイルから読み取ったアンバインドされた資格情報を使用して、{{site.data.keyword.cloud_notm}} サービスに接続できます。 アンバインドされた資格情報を作成する必要がある場合、{{site.data.keyword.cloud_notm}} Web コンソールから行うか、または、[CloudFoundry CLI](https://docs.cloudfoundry.org/cf-cli/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") の `cf create-service-key` コマンドを使用して行うことができます。
 
 アプリケーションを {{site.data.keyword.cloud_notm}} にプッシュすると、これらの値は使用されなくなります。 代わりに、アプリケーションは環境変数を使用して、バインドされたサービスに自動的に接続します。
 
-* **Cloud Foundry**: サービス資格情報は、`VCAP_SERVICES` 環境変数から取得されます。Cloud Foundry Enrprise Edition について詳しくは、この[入門チュートリアル](/docs/cloud-foundry/getting-started.html#getting-started)を参照してください。
+* **Cloud Foundry**: サービス資格情報は、`VCAP_SERVICES` 環境変数から取得されます。 Cloud Foundry Enrprise Edition について詳しくは、この[入門チュートリアル](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started)を参照してください。
 
 * **Kubernetes**: サービス資格情報は、サービスごとに個別の環境変数から取得されます。
 
@@ -121,4 +125,4 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## 次のステップ
 {: #next_steps-config notoc}
 
-`ibm-cloud-config` では、値の検索に使用できる検索パターン・タイプとして、`cloudfoundry`、`env`、および `file` の 3 つがサポートされています。 サポートされる他の検索パターンおよび検索パターン例を確認したい場合は、[Usage](https://github.com/ibm-developer/ibm-cloud-env#usage) セクションを参照してください。
+`ibm-cloud-config` では、値の検索に使用できる検索パターン・タイプとして、`cloudfoundry`、`env`、および `file` の 3 つがサポートされています。 サポートされる他の検索パターンおよび検索パターン例を確認したい場合は、[Usage](https://github.com/ibm-developer/ibm-cloud-env#usage){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") セクションを参照してください。

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-03-28"
+
+keywords: ibmcloud dev enable, nodejs cloud deployment, cloud enable nodejs, deploy nodejs, build nodejs cloud, nodejs debug
+
+subcollection: nodejs
 
 ---
 
@@ -16,7 +20,7 @@ lastupdated: "2019-01-14"
 # 既存の Node.js アプリケーションのクラウド・デプロイメント使用可能化
 {: #enable_existing}
 
-[{{site.data.keyword.dev_cli_long}} CLI enable コマンド](/docs/cli/idt/commands.html#enable)を使用して、Node.js アプリケーションを {{site.data.keyword.cloud}} で実行できるようにするために必要なファイルを生成できます。
+[{{site.data.keyword.dev_cli_long}} CLI enable コマンド](/docs/cli/idt?topic=cloud-cli-idt-cli#enable)を使用して、Node.js アプリケーションを {{site.data.keyword.cloud}} で実行できるようにするために必要なファイルを生成できます。
 
 ## アプリケーションの使用可能化
 {: #enable_app}
@@ -78,17 +82,18 @@ Files can be easily compared with 'git diff' or a similar tool.
 The application, nodeapp, has been successfully saved into the current directory.
 demo: $
 ```
+{: screen}
 
 ## クラウド使用可能 Node アプリケーションのビルドおよびデプロイ
 {: #build_deploy}
 
-次に、[`build`](/docs/cli/idt/commands.html#build) コマンドを使用してアプリケーションをビルドします。
+次に、[`build`](/docs/cli/idt?topic=cloud-cli-idt-cli#build) コマンドを使用してアプリケーションをビルドします。
 ```
 ibmcloud dev build
 ```
 {: codeblock}
 
-ビルドが正常に完了した場合は、次の [`deploy`](/docs/cli/idt/commands.html#deploy) コマンドを使用して {{site.data.keyword.cloud_notm}} にアプリケーションをデプロイできます。
+ビルドが正常に完了した場合は、次の [`deploy`](/docs/cli/idt?topic=cloud-cli-idt-cli#deploy) コマンドを使用して {{site.data.keyword.cloud_notm}} にアプリケーションをデプロイできます。
 ```
 ibmcloud dev deploy
 ```
@@ -152,4 +157,4 @@ dockerfile-run : "docker-compose.yml"
 ## 次のステップ
 {: #next_steps-existing notoc}
 
-詳しくは、[IBM Cloud Developer Tools CLI](/docs/cli/idt/commands.html#idt-cli)を参照してください。
+詳しくは、[IBM Cloud Developer Tools CLI](/docs/cli/idt?topic=cloud-cli-idt-cli#idt-cli)を参照してください。
