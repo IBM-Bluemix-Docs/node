@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-03-28"
+
+keywords: ibmcloud dev enable, nodejs cloud deployment, cloud enable nodejs, deploy nodejs, build nodejs cloud, nodejs debug
+
+subcollection: nodejs
 
 ---
 
@@ -16,7 +20,7 @@ lastupdated: "2019-01-14"
 # 클라우드 배치를 위해 기존 Node.js 애플리케이션 사용
 {: #enable_existing}
 
-[{{site.data.keyword.dev_cli_long}} CLI 사용 명령](/docs/cli/idt/commands.html#enable)을 사용하여 Node.js 애플리케이션이 {{site.data.keyword.cloud}}에 실행되는 데 필요한 파일을 생성할 수 있습니다.
+[{{site.data.keyword.dev_cli_long}} CLI 사용 명령](/docs/cli/idt?topic=cloud-cli-idt-cli#enable)을 사용하여 Node.js 애플리케이션이 {{site.data.keyword.cloud}}에 실행되는 데 필요한 파일을 생성할 수 있습니다.
 
 ## 애플리케이션 사용
 {: #enable_app}
@@ -78,17 +82,18 @@ Files can be easily compared with 'git diff' or a similar tool.
 The application, nodeapp, has been successfully saved into the current directory.
 demo: $
 ```
+{: screen}
 
 ## 노드 애플리케이션에 사용 가능한 클라우드 빌드 및 배치
 {: #build_deploy}
 
-그런 다음 [`build`](/docs/cli/idt/commands.html#build) 명령을 사용하여 애플리케이션을 빌드하십시오.
+그런 다음 [`build`](/docs/cli/idt?topic=cloud-cli-idt-cli#build) 명령을 사용하여 애플리케이션을 빌드하십시오.
 ```
 ibmcloud dev build
 ```
 {: codeblock}
 
-빌드가 완료되면 다음 [`deploy`](/docs/cli/idt/commands.html#deploy) 명령을 사용하여 애플리케이션을 {{site.data.keyword.cloud_notm}}에 배치할 수 있습니다.
+빌드가 완료되면 다음 [`deploy`](/docs/cli/idt?topic=cloud-cli-idt-cli#deploy) 명령을 사용하여 애플리케이션을 {{site.data.keyword.cloud_notm}}에 배치할 수 있습니다.
 ```
 ibmcloud dev deploy
 ```
@@ -152,4 +157,4 @@ dockerfile-run : "docker-compose.yml"
 ## 다음 단계
 {: #next_steps-existing notoc}
 
-자세한 정보는 [IBM Cloud Developer Tools CLI](/docs/cli/idt/commands.html#idt-cli)를 참조하십시오.
+자세한 정보는 [IBM Cloud Developer Tools CLI](/docs/cli/idt?topic=cloud-cli-idt-cli#idt-cli)를 참조하십시오.

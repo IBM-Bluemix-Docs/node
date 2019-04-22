@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-04-04"
+
+keywords: nodejs tracing, debug nodejs apps, troubleshooting nodejs, appmetrics-zipkin node, zipkin docker nodejs, nodejs slow, nodejs tracing
+
+subcollection: nodejs
 
 ---
 
@@ -16,14 +20,14 @@ lastupdated: "2019-01-14"
 # 엔드-투-엔드 추적 설정
 {: #e2e-tracing}
 
-다음 튜토리얼은 Node.js 애플리케이션 추적을 위한 Zipkin 및 [appmetrics-zipkin](https://github.com/RuntimeTools/appmetrics-zipkin) 모듈 사용에 초점이 맞춰져 있습니다. 원본 [appmetrics-zipkin 공지사항](https://developer.ibm.com/node/2017/10/26/add-zipkin-open-tracing-support-node-js-application-one-line-code/)에서 Zipkin에 대해 더 자세히 알아볼 수 있습니다. 
+다음 튜토리얼은 Node.js 애플리케이션 추적을 위한 Zipkin 및 [appmetrics-zipkin](https://github.com/CloudNativeJS/appmetrics-zipkin){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘") 모듈 사용에 초점이 맞춰져 있습니다. 원본 [appmetrics-zipkin 공지사항](https://developer.ibm.com/node/2017/10/26/add-zipkin-open-tracing-support-node-js-application-one-line-code/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")에서 Zipkin에 대해 자세히 알아볼 수 있습니다. 
 
 다음 단계에서는 두 개의 소형 애플리케이션(하나는 프론트 엔드, 다른 하나는 백엔드)이 `appmetrics-zipkin` 모듈을 사용하여 두 엔드포인트 간을 추적하는 데 사용됩니다. 사용자는 처음부터 시작하거나 여기에 설명된 원리를 기존 Node.js 애플리케이션에 적용할 수 있습니다. 
 
 ## 1단계. appmetrics-zipkin 모듈 설치 및 사용 설정
 {: #install-zipkin}
 
-Node.js 애플리케이션의 `package.json` 파일과 동일한 위치에서 다음 [npm](https://nodejs.org/) 명령을 입력하여 `appmetrics-zipkin` 모듈을 종속 항목 목록에 추가하십시오.
+Node.js 애플리케이션의 `package.json` 파일과 동일한 위치에서 다음 [npm](https://nodejs.org/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘") 명령을 입력하여 `appmetrics-zipkin` 모듈을 종속 항목 목록에 추가하십시오.
 ```
 npm install --save appmetrics-zipkin
 ```
@@ -98,9 +102,9 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 **추적 찾기**를 클릭하고 검색 옵션을 수정하여 선택적으로 특정 기간 내의 추적만 표시할 수 있습니다. 특정 서비스 이름을 포함하는 추적만 표시하도록 필터링할 수도 있습니다. 서비스 이름은 코드를 작성할 때 지정되며, 이 예에서는 "getter" 및 "pusher"를 사용합니다.
 
 ## 3단계. 시나리오 예 테스트
-{: #example-scenario-tracing}
+{: #node-example-tracing}
 
-[GitHub 프로젝트 문서](https://github.com/ibm-developer/nodejs-zipkin-tracing)의 지시를 따르면 다음 샘플 애플리케이션이 작성됩니다. 이는 두 엔드포인트 간 요청 및 응답의 추적을 포함하는 간단한 프로세스입니다. 다음 이미지는 수집된 추적 데이터가 표시된 Zipkin 서버를 보여줍니다. 기억해야 하는 요점은 `require('appmetrics-zipkin')`이 포함되었다는 것이며, 선택적으로는 Zipkin 서버 구성 코드도 포함됩니다. 다음 시나리오 예는 얼마나 빨리 기존 Node.js 애플리케이션에 Zipkin 추적을 추가할 수 있는지 보여줍니다.
+[GitHub 프로젝트 문서](https://github.com/ibm-developer/nodejs-zipkin-tracing){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")를 따르면 다음 샘플 애플리케이션을 작성할 수 있습니다. 이는 두 엔드포인트 간 요청 및 응답의 추적을 포함하는 간단한 프로세스입니다. 다음 이미지는 수집된 추적 데이터가 표시된 Zipkin 서버를 보여줍니다. 기억해야 하는 요점은 `require('appmetrics-zipkin')`이 포함되었다는 것이며, 선택적으로는 Zipkin 서버 구성 코드도 포함됩니다. 다음 시나리오 예는 얼마나 빨리 기존 Node.js 애플리케이션에 Zipkin 추적을 추가할 수 있는지 보여줍니다.
 
 ### 추적 시나리오 개요
 {: #tracing-scenario}
@@ -160,7 +164,7 @@ Kubernetes를 사용하지 않은 배치에 대한 튜토리얼은 여기서 끝
 ## 다음 단계
 {: #next-steps-tracing}
 
-* 클라우드 네이티브 Node.js 애플리케이션을 Docker 및 Kubernetes 기반 클라우드에 배치하는 데 도움을 주는 자산 및 도구를 제공하는 [CloudNativeJS](https://www.cloudnativejs.io/) 커뮤니티 프로젝트의 도움을 받아, 클라우드 네이티브 Node.js 애플리케이션을 빌드하는 방법을 알아보십시오.
+* 클라우드 네이티브 Node.js 애플리케이션을 Docker 및 Kubernetes 기반 클라우드에 배치하는 데 도움을 주는 자산 및 도구를 제공하는 [CloudNativeJS](https://www.cloudnativejs.io/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘") 커뮤니티 프로젝트를 통해 클라우드 네이티브 Node.js 애플리케이션을 빌드하는 방법을 알아보십시오.
 
-* Kubernetes에서 실행되는 Node.js 애플리케이션에 추적을 추가할 준비가 된 경우에는 [Kubernetes를 사용하는 Node.js 애플리케이션 추적](https://developer.ibm.com/node/tutorial-end-end-tracing-node-js-applications/#appservice)을 참조하십시오.
+* Kubernetes에서 실행되는 Node.js 애플리케이션에 추적을 추가할 준비가 된 경우에는 [Kubernetes를 사용하는 Node.js 애플리케이션 추적](https://developer.ibm.com/node/tutorial-end-end-tracing-node-js-applications/#appservice){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")을 참조하십시오.
 

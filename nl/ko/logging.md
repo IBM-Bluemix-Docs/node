@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-04-04"
+
+keywords: nodejs logging, view logs nodejs, add logging nodejs, log4j nodejs, stdout nodejs, nodejs log, output nodejs, nodejs logger
+
+subcollection: nodejs
 
 ---
 
@@ -16,7 +20,7 @@ lastupdated: "2019-02-27"
 # Node.js에서의 로깅
 {: #logging_nodejs}
 
-로그 메시지는 로그 항목이 작성된 시점의, 마이크로서비스의 상태 및 활동에 대한 컨텍스트 정보를 포함하는 문자열입니다. 로그는 서비스가 어떻게, 그리고 왜 실패했는지 진단하는 데 필요하며, 애플리케이션 상태 모니터링에 있어서 [appmetrics](/docs/node/appmetrics.html#metrics)를 지원하는 역할을 수행합니다.
+로그 메시지는 로그 항목이 작성된 시점의, 마이크로서비스의 상태 및 활동에 대한 컨텍스트 정보를 포함하는 문자열입니다. 로그는 서비스가 어떻게, 그리고 왜 실패했는지 진단하는 데 필요하며, 애플리케이션 상태 모니터링에 있어서 [appmetrics](/docs/node?topic=nodejs-metrics)를 지원하는 역할을 수행합니다.
 
 클라우드 환경에서 프로세스의 임시성으로 인해, 로그는 일반적으로 수집된 후 분석을 위해 준비된 중심 위치로 전송됩니다. 클라우드 환경에서의 가장 일관된 로그 방법은 로그 항목을 표준 출력 및 오류 스트림으로 전송하여 인프라가 나머지를 처리하도록 하는 것입니다.
 
@@ -38,6 +42,7 @@ Node.js에 많이 사용되는 로깅 프레임워크이며 다음과 같은 여
 2. 이를 자신의 애플리케이션에서 사용하려면 앱에 다음 코드 행을 추가하십시오.
   ```js
   var log4js = require('log4js');
+
   var log = log4js.getLogger();
   log.level = 'debug';
   log.debug("My Debug message");
@@ -50,7 +55,7 @@ Node.js에 많이 사용되는 로깅 프레임워크이며 다음과 같은 여
   ```
   {: screen}
 
-3. 표준 오류 시스템에 대한 로그 이벤트를 작성하기 위해 다음 예와 같이 어펜더를 구성할 수 있습니다. 
+3. 표준 오류 시스템에 대한 로그 이벤트를 작성하기 위해 다음 예와 같이 어펜더를 구성할 수 있습니다.
   ```js
   var log4js = require('log4js');
   
@@ -66,7 +71,7 @@ Node.js에 많이 사용되는 로깅 프레임워크이며 다음과 같은 여
 ## App Service 앱을 사용한 모니터링
 {: #monitoring}
 
-{{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard)를 사용하여 작성된 Node.js 앱에는 기본적으로 Log4js가 제공됩니다. `server/server.js` 파일을 열어 다음 Log4js 코드를 볼 수 있습니다. 
+{{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")를 사용하여 작성된 Node.js 앱에는 기본적으로 Log4js가 제공됩니다. `server/server.js` 파일을 열어 다음 Log4js 코드를 볼 수 있습니다.
 ```js
 var logger = log4js.getLogger(appName);
 var app = express();
@@ -86,7 +91,7 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
 ```
 {: screen}
 
-다음 방법을 사용하여 로그 출력을 볼 수 있습니다. 
+다음 방법을 사용하여 로그 출력을 볼 수 있습니다.
 * 로컬 환경의 경우 `stdout`을 사용하십시오.
 * [Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html) 배치의 경우 다음을 실행하여 로그에 액세스할 수 있습니다.
   ```
@@ -94,7 +99,7 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
   ```
   {: codeblock}
 
-* [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘") 배치의 경우 다음을 실행하여 로그에 액세스할 수 있습니다. 
+* [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/) 배치의 경우 다음을 실행하여 로그에 액세스할 수 있습니다.
   ```
   kubectl logs <deployment name>
   ```
@@ -105,9 +110,9 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
 
 각 배치 환경에서 로그 보기에 대해 자세히 알아보려면 다음을 참조하십시오.
 * [Kubernetes 로그](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")
-* [Cloud Foundry 로그](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html#logging_cf_apps)
-* [{{site.data.keyword.openwhisk}} 로그 및 모니터링](/docs/openwhisk/openwhisk_logs.html#openwhisk_logs)
+* [Cloud Foundry 로그](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps#logging_cf_apps)
+* [{{site.data.keyword.openwhisk}} 로그 및 모니터링](/docs/openwhisk?topic=cloud-functions-openwhisk_logs#openwhisk_logs)
 
 로그 집계기 사용:
-* [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis/log_analysis_ov.html#log_analysis_ov)
+* [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis?topic=cloudloganalysis-log_analysis_ov#log_analysis_ov)
 * [{{site.data.keyword.cloud_notm}} Private ELK 스택](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.2/manage_metrics/logging_elk.html){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")
