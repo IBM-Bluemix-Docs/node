@@ -4,6 +4,10 @@ copyright:
   years: 2018, 2019
 lastupdated: "2019-02-28"
 
+keywords: configure node env, node environment, node credentials, ibm-cloud-env node
+
+subcollection: nodejs
+
 ---
 
 {:new_window: target="_blank"}
@@ -25,7 +29,7 @@ Que vous deviez ajouter un support {{site.data.keyword.cloud}} à des applicatio
 ## Ajout de configuration {{site.data.keyword.cloud_notm}} à des applications Node.js existantes
 {: #addcloud-env-nodejs}
 
-Le module [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) agrège des variables d'environnement à partir de différents fournisseurs cloud, tels que CloudFoundry et Kubernetes, afin que l'application ne dépende pas de l'environnement.
+Le module [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") agrège des variables d'environnement à partir de différents fournisseurs cloud, tels que Cloud Foundry et Kubernetes, afin que l'application ne dépende pas de l'environnement.
 
 ### Installation du module `ibm-cloud-env`
 {: #install-module-nodejs}
@@ -67,8 +71,8 @@ Le module [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) agr�
   ```
   {: codeblock}
 
-### Utilisation des valeurs d'une application Node.js
-{: #values-nodejs}
+### Extraction des données d'identification de service
+{: #nodejs-get-creds}
 
 Récupérez les valeurs de votre application à l'aide des commandes suivantes.
 
@@ -99,7 +103,7 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## Utilisation du gestionnaire de configuration Node.js depuis les applications du kit de démarrage (Starter Kit)
 {: #nodejs-config-skit}
 
-Les applications Node.js créées avec des [kits de démarrage](https://cloud.ibm.com/developer/appservice/starter-kits/) sont automatiquement fournies avec les données d'identification et configurations nécessaires pour l'exécution dans un grand nombre d'environnements de déploiement cloud (CF, K8s, VSI et Functions).
+Les applications Node.js créées avec des [kits de démarrage](https://cloud.ibm.com/developer/appservice/starter-kits/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") sont automatiquement fournies avec les données d'identification et les configurations nécessaires pour l'exécution dans un grand nombre d'environnements de déploiement Cloud (CF, K8s, VSI et Functions).
 
 ### Présentation des données d'identification de service
 {: #credentials-nodejs}
@@ -108,11 +112,11 @@ Vos informations de configuration d'application pour les services sont stockées
 
 L'application utilise le gestionnaire de configuration pour lire les informations de connexion et de configuration depuis l'environnement et ce fichier. Elle utilise un fichier `mappings.json` fait sur mesure, situé dans le répertoire `server/config`, pour communiquer l'emplacement des données d'identification pour chaque service.
 
-Les applications exécutées en local peuvent se connecter aux services {{site.data.keyword.cloud_notm}} en utilisant des données d'identification non liées, lues depuis le fichier `mappings.json`. Si vous devez créer des données d'identification non liées, vous pouvez le faire depuis la console Web {{site.data.keyword.cloud_notm}} ou en utilisant la commande `cf create-service-key` de l'[interface CLI CloudFoundry](https://docs.cloudfoundry.org/cf-cli/).
+Les applications exécutées en local peuvent se connecter aux services {{site.data.keyword.cloud_notm}} en utilisant des données d'identification non liées, lues depuis le fichier `mappings.json`. Si vous devez créer des données d'identification non liées, vous pouvez le faire depuis la console Web {{site.data.keyword.cloud_notm}} ou en utilisant l'[interface de ligne de commande CloudFoundry](https://docs.cloudfoundry.org/cf-cli/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") `cf create-service-key`.
 
 Lorsque vous envoyez par commande push votre application à {{site.data.keyword.cloud_notm}}, ces valeurs ne sont plus utilisées. A la place, l'application se connecte automatiquement aux services liés à l'aide de variables d'environnement.
 
-* **Cloud Foundry** : Les données d'identification du service sont récupérées à partir de la variable d'environnement `VCAP_SERVICES`. Pour Cloud Foundry Enterprise Edition, consultez ce [tutoriel d'initiation](/docs/cloud-foundry/getting-started.html#getting-started) pour plus d'informations.
+* **Cloud Foundry** : Les données d'identification du service sont récupérées à partir de la variable d'environnement `VCAP_SERVICES`. Pour Cloud Foundry Enterprise Edition, consultez ce [tutoriel d'initiation](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started) pour plus d'informations.
 
 * **Kubernetes** : Les données d'identification du service sont récupérées par service, à partir de variables d'environnement individuelles.
 
@@ -121,4 +125,4 @@ Lorsque vous envoyez par commande push votre application à {{site.data.keyword.
 ## Etapes suivantes
 {: #next_steps-config notoc}
 
-`ibm-cloud-config` prend en charge la recherche de valeurs à l'aide des trois types de modèle de recherche suivants : `cloudfoundry`, `env` et `file`. Si vous souhaitez consulter d'autres exemples de modèle de recherche, reportez-vous à la section [Usage](https://github.com/ibm-developer/ibm-cloud-env#usage).
+`ibm-cloud-config` prend en charge la recherche de valeurs à l'aide des trois types de modèle de recherche suivants : `cloudfoundry`, `env` et `file`. Si vous souhaitez consulter d'autres modèles de recherche/exemples de modèles de recherche pris en charge, reportez-vous à la section [Usage](https://github.com/ibm-developer/ibm-cloud-env#usage){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").

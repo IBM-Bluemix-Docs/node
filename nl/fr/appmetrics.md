@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-04-04"
+
+keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
+
+subcollection: nodejs
 
 ---
 
@@ -16,13 +20,13 @@ lastupdated: "2019-01-14"
 # Utilisation de métriques d'application avec des applications Node.js
 {: #metrics}
 
-Apprenez à installer et interpréter les métriques d'application Node.js ainsi qu'à y accéder. Vous pouvez surveiller les applications Node.js avec le tableau de bord [Node Application Metrics](https://developer.ibm.com/code/open/projects/node-application-metrics/) afin de visualiser les performances de votre application Node.js en affichant des métriques dans une interface Web.
+Apprenez à installer et interpréter les métriques d'application Node.js ainsi qu'à y accéder. Vous pouvez surveiller les applications Node.js via le tableau de bord [Node Application Metrics](https://developer.ibm.com/open/projects/node-application-metrics/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") afin de visualiser les performances de votre application Node.js en affichant des métriques dans une interface Web.
 {: shortdesc}
 
 ## Identification visuelle des problèmes
 {: #identify-problems}
 
-Les métriques d'application sont importantes pour la surveillance des performances de votre application. Une vue en direct de métriques comme l'UC, la mémoire, le temps d'attente et les métriques HTTP est essentielle pour vous assurer que votre application fonctionne efficacement dans le temps. Vous pouvez utiliser un service cloud comme Cloud Foundry [Auto-Scaling](/docs/services/Auto-Scaling/index.html), qui repose sur des métriques pour une mise à l'échelle dynamique des instances en fonction de la charge de travail en cours. En utilisant des métriques d'application, vous savez précisément quand augmenter ou réduire des instances, ou les nettoyer lorsqu'elles ne sont plus nécessaires, ce qui vous permet de limiter les coûts.
+Les métriques d'application sont importantes pour la surveillance des performances de votre application. Une vue en direct de métriques comme l'UC, la mémoire, le temps d'attente et les métriques HTTP est essentielle pour vous assurer que votre application fonctionne efficacement dans le temps. Vous pouvez utiliser un service cloud comme Cloud Foundry [Auto-Scaling](/docs/services/Auto-Scaling?topic=services/Auto-Scaling-get-started#get-started), qui repose sur des métriques pour une mise à l'échelle dynamique des instances en fonction de la charge de travail en cours. En utilisant des métriques d'application, vous savez précisément quand augmenter ou réduire des instances, ou les nettoyer lorsqu'elles ne sont plus nécessaires, ce qui vous permet de limiter les coûts.
 
 Les métriques d'application sont capturées sous forme de données de séries temporelles. L'agrégation et la visualisation des métriques capturées peut permettre d'identifier des problèmes de performance courants :
 
@@ -32,14 +36,14 @@ Les métriques d'application sont capturées sous forme de données de séries t
 * Utilisation d'UC plus élevée que prévu
 * Utilisation élevée ou en augmentation de la mémoire (fuite de mémoire potentielle)
 
-Le tableau de bord intégré Application Metrics ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash)) inclut également un diagramme pour les "autres demandes", qui indique la durée des requêtes de base de données pour les bases de données prises en charge (MongoDB, MySQL, Postgres, LevelDB et Redis), ainsi que les événements Socket.IO et Riak.
+Le tableau de bord Application Metrics intégré ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")) inclut également un diagramme pour les ‘autres demandes’, qui indique la durée des requêtes pour les bases de données prises en charge (MongoDB, MySQL, Postgres, LevelDB et Redis) et présente les événements Socket.IO et Riak.
 
 Il est possible de générer un rapport sur les noeuds (Node Report) ou un instantané de segment de mémoire (Heap Snapshot) depuis le tableau de bord, afin de permettre une analyse plus approfondie.
 
 ## Ajout de métriques à des applications Node.js existantes
 {: #add-appmetrics-existing}
 
-Ajoutez des fonctions de surveillance à des applications Express existantes avec le constructeur [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) afin de transmettre des options de configuration. Par exemple, l'une des options utilise un serveur existant plutôt que de faire appel à `appmetrics-dash` pour démarrer un serveur supplémentaire.
+Ajoutez des fonctions de surveillance à des applications Express existantes avec le constructeur [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") afin de transmettre des options de configuration. Par exemple, l'une des options utilise un serveur existant plutôt que de faire appel à `appmetrics-dash` pour démarrer un serveur supplémentaire.
 
 ### Installation du tableau de bord
 {: #install-appmetrics}
@@ -57,7 +61,7 @@ Ajoutez des fonctions de surveillance à des applications Express existantes ave
   ```
   {: codeblock}
 
-2. Installez le tableau de bord `appmetrics` à l'aide de la commande [npm](https://nodejs.org/) suivante :
+2. Installez le tableau de bord `appmetrics` à l'aide de la commande [npm](https://nodejs.org/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") suivante :
   ```
   npm install appmetrics-dash
   ```
@@ -109,7 +113,7 @@ Après avoir démarré votre application, accédez à `http://<hostname>:<port>/
 Utilisez l'adresse `localhost:3001/appmetrics-dash` pour des applications s'exécutant en local.
 {: tip}
 
-L'interface utilisateur du tableau de bord Application Metrics for Node.js fournit une gamme de métriques, incluant les demandes HTTP et le temps d'attente de boucle d'événements comme illustré dans la vidéo suivante : [Monitoring Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be).
+L'interface utilisateur du tableau de bord de surveillance Application Metrics for Node.js fournit une gamme de métriques, incluant les demandes HTTP et le temps d'attente de boucle d'événements comme illustré dans la vidéo suivante : [Monitoring Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").
 
 ## Compréhension des données
 {: #understanding-data}

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-04-04"
+
+keywords: nodejs logging, view logs nodejs, add logging nodejs, log4j nodejs, stdout nodejs, nodejs log, output nodejs, nodejs logger
+
+subcollection: nodejs
 
 ---
 
@@ -16,7 +20,7 @@ lastupdated: "2019-02-27"
 # Journalisation dans Node.js
 {: #logging_nodejs}
 
-Les messages de journal sont des chaînes avec des informations contextuelles sur l'état et l'activité du microservice au moment où l'entrée de journal est créée. Les journaux sont nécessaires pour diagnostiquer comment et pourquoi un service échoue ; ils jouent un rôle de support pour [appmetrics](/docs/node/appmetrics.html#metrics) dans la surveillance de la santé des applications.
+Les messages de journal sont des chaînes avec des informations contextuelles sur l'état et l'activité du microservice au moment où l'entrée de journal est créée. Les journaux sont nécessaires pour diagnostiquer comment et pourquoi un service échoue ; ils jouent un rôle de support pour [appmetrics](/docs/node?topic=nodejs-metrics) dans la surveillance de la santé des applications.
 
 Compte tenu de la nature transitoire des processus dans les environnements de cloud, les journaux doivent être collectés et envoyés ailleurs, généralement dans un emplacement centralisé pour analyse. La façon la plus cohérente de journaliser des environnements cloud consiste à envoyer les entrées de journal dans des flux d'erreur et de sortie standard, ce qui permet à l'infrastructure de gérer le reste.
 
@@ -38,6 +42,7 @@ Vous pouvez utiliser [Log4js](https://github.com/log4js-node/log4js-node){: new_
 2. Pour l'utiliser dans votre application, ajoutez les lignes de code suivantes dans votre application :
   ```js
   var log4js = require('log4js');
+
   var log = log4js.getLogger();
   log.level = 'debug';
   log.debug("My Debug message");
@@ -66,7 +71,7 @@ Vous pouvez utiliser [Log4js](https://github.com/log4js-node/log4js-node){: new_
 ## Surveillance à l'aide des applications App Service
 {: #monitoring}
 
-Par défaut, les applications Node.js créées à l'aide d'{{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard) sont fournies avec Log4js. Vous pouvez ouvrir le fichier `server/server.js` pour vérifier le code Log4js suivant :
+Par défaut, les applications Node.js créées à l'aide d'{{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") sont fournies avec Log4js. Vous pouvez ouvrir le fichier `server/server.js` pour vérifier le code Log4js suivant :
 ```js
 var logger = log4js.getLogger(appName);
 var app = express();
@@ -94,7 +99,7 @@ Vous pouvez afficher la sortie de journal de l'une des manières suivantes :
   ```
   {: codeblock}
 
-* Pour les déploiements [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe"), accédez aux journaux en exécutant :
+* Pour les déploiements [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/), accédez aux journaux en exécutant :
   ```
   kubectl logs <deployment name>
   ```
@@ -105,9 +110,9 @@ Vous pouvez afficher la sortie de journal de l'une des manières suivantes :
 
 Découvrez davantage d'informations en consultant les journaux dans chaque environnement de déploiement :
 * [Journaux de Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")
-* [Journaux de Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html#logging_cf_apps)
-* [Journaux & Surveillance d'{{site.data.keyword.openwhisk}}](/docs/openwhisk/openwhisk_logs.html#openwhisk_logs)
+* [Journaux de Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps#logging_cf_apps)
+* [Journaux et surveillance d'{{site.data.keyword.openwhisk}}](/docs/openwhisk?topic=cloud-functions-openwhisk_logs#openwhisk_logs)
 
 Utilisation d'un regroupeur de journaux
-* [Analyse de journal {{site.data.keyword.cloud_notm}}](/docs/services/CloudLogAnalysis/log_analysis_ov.html#log_analysis_ov)
+* [Analyse de journal {{site.data.keyword.cloud_notm}}](/docs/services/CloudLogAnalysis?topic=cloudloganalysis-log_analysis_ov#log_analysis_ov)
 * [Pile ELK privée {{site.data.keyword.cloud_notm}}](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.2/manage_metrics/logging_elk.html){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")

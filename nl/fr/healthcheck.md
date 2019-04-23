@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-03-28"
+
+keywords: healthcheck node, add healthcheck node, healthcheck endpoint nodes, readiness node, liveness node, endpoint node, probes node, health check node
+
+subcollection: nodejs
 
 ---
 
@@ -14,12 +18,12 @@ lastupdated: "2019-01-14"
 {:tip: .tip}
 
 # Utilisation d'un diagnostic d'intégrité dans les applications Node.js
-{: #healthcheck}
+{: #node-healthcheck}
 
-Les diagnostics d'intégrité fournissent un mécanisme simple pour déterminer si une application côté serveur se comporte de manière appropriée. Les environnements de cloud tels que [Kubernetes](https://www.ibm.com/cloud/container-service) et [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry) peuvent être configurés pour sonder les noeuds finaux d'intégrité périodiquement afin de déterminer si une instance de votre service est prête à recevoir du trafic.
+Les diagnostics d'intégrité fournissent un mécanisme simple pour déterminer si une application côté serveur se comporte de manière appropriée. Les environnements de cloud, tels [Kubernetes](https://www.ibm.com/cloud/container-service){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") et [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe"), peuvent être configurés pour sonder périodiquement les noeuds finaux d'intégrité afin de déterminer si une instance de votre service est prête à accepter du trafic.
 
 ## Présentation du diagnostic d'intégrité
-{: #overview}
+{: #node-healthcheck-overview}
 
 Les diagnostics d'intégrité fournissent un mécanisme simple pour déterminer si une application côté serveur se comporte de manière appropriée. Ils sont généralement consommés via HTTP et utilisent des codes de retour standard pour indiquer les états UP ou DOWN. La valeur de retour d'un diagnostic d'intégrité est variable, mais une réponse JSON minimale telle que `{"status": "UP"}` est typique.
 
@@ -61,12 +65,11 @@ app.use("/health", router);
 Vérifiez l'état de l'application avec un navigateur en accédant au noeud final `/health`.
 
 ## Accès au diagnostic d'intégrité depuis des applications de kit de démarrage Node.js
-{: #healthcheck-starterkit}
+{: #node-healthcheck-starterkit}
 
 Par défaut, lorsque vous générez une application Node.js à l'aide d'un kit de démarrage, un noeud final de diagnostic d'intégrité basique (non autorisé) est disponible dans `/health` afin de vérifier le statut (UP/DOWN) de cette application.
 
 Le code du noeud final de diagnostic d'intégrité est fourni par le fichier `/server/routers/health.js` suivant :
-
 ```js
 var express = require('express');
 
@@ -83,7 +86,7 @@ module.exports = function(app) {
 {: codeblock}
 
 ## Recommandations pour les sondes de préparation et de vivacité
-{: #readiness-recommend}
+{: #node-readiness-probes}
 
 Les sondes de préparation peuvent inclure la viabilité des connexions aux services situés en aval dans leur résultat si aucune rétromigration acceptable n'existe lorsque le service en aval n'est pas disponible. Il ne s'agit pas d'appeler directement le diagnostic d'intégrité qui est fourni par le service en aval, car l'infrastructure le vérifie pour vous. Vous devez plutôt envisager de vérifier l'état des références existantes de votre application aux services en aval : il peut s'agir d'une connexion JMS à WebSphere MQ, ou d'un consommateur ou producteur Kafka initialisé. Si vous vérifiez la viabilité des références internes aux services en aval, mettez en cache le résultat pour minimiser l'impact de la vérification de santé sur votre application.
 
@@ -92,7 +95,7 @@ Une sonde de vivacité, en revanche, est délibérée quant à ce qui est vérif
 ### Ajout d'une prise en charge de la préparation et de la vivacité pour Kubernetes
 {: #kube-readiness-add}
 
-La bibliothèque [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) de [CloudNativeJS] fournit une infrastructure permettant de définir des noeuds finaux de préparation et de vivacité séparés dans Node qui permettent une composition des sources pour l'état de chaque point final.
+La bibliothèque [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") de [CloudNativeJS](https://github.com/cloudnativejs){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") fournit une infrastructure permettant de définir des noeuds finaux de préparation et de vivacité séparés dans Node qui permettent une composition des sources pour l'état de chaque noeud final. 
 
 ## Configuration des sondes de préparation et de vivacité dans Kubernetes
 {: #kube-readiness-config}
@@ -135,4 +138,4 @@ spec:
 ```
 {: codeblock}
 
-Pour plus d'informations, voir [Configuration des sondes de vivacité et de préparation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).
+Pour plus d'informations, voir [Configure liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").

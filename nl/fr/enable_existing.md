@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-03-28"
+
+keywords: ibmcloud dev enable, nodejs cloud deployment, cloud enable nodejs, deploy nodejs, build nodejs cloud, nodejs debug
+
+subcollection: nodejs
 
 ---
 
@@ -16,7 +20,7 @@ lastupdated: "2019-01-14"
 # Activation des applications Node.js existantes pour le déploiement en cloud
 {: #enable_existing}
 
-Vous pouvez générer les fichiers nécessaires pour permettre à votre application Node.js de s'exécuter sur {{site.data.keyword.cloud}} à l'aide de la [commande enable de l'interface de ligne de commande {{site.data.keyword.dev_cli_long}}](/docs/cli/idt/commands.html#enable).
+Vous pouvez générer les fichiers permettant à votre application Node.js de s'exécuter sur {{site.data.keyword.cloud}} en utilisant la commande enable de l'interface de ligne de commande [{{site.data.keyword.dev_cli_long}}](/docs/cli/idt?topic=cloud-cli-idt-cli#enable).
 
 ## Activation de votre application
 {: #enable_app}
@@ -78,17 +82,18 @@ Files can be easily compared with 'git diff' or a similar tool.
 The application, nodeapp, has been successfully saved into the current directory.
 demo: $
 ```
+{: screen}
 
 ## Génération et déploiement d'une application Node activée pour le cloud
 {: #build_deploy}
 
-Ensuite, générez votre application avec la commande [`build`](/docs/cli/idt/commands.html#build) :
+Ensuite, générez votre application avec la commande [`build`](/docs/cli/idt?topic=cloud-cli-idt-cli#build) :
 ```
 ibmcloud dev build
 ```
 {: codeblock}
 
-Si la génération réussit, vous pouvez déployer votre application dans {{site.data.keyword.cloud_notm}} avec la commande [`deploy`](/docs/cli/idt/commands.html#deploy) suivante :
+Si la génération réussit, vous pouvez déployer votre application dans {{site.data.keyword.cloud_notm}} avec la commande [`deploy`](/docs/cli/idt?topic=cloud-cli-idt-cli#deploy) suivante :
 ```
 ibmcloud dev deploy
 ```
@@ -152,4 +157,4 @@ dockerfile-run : "docker-compose.yml"
 ## Etapes suivantes
 {: #next_steps-existing notoc}
 
-Pour plus d'informations, voir [Interface de ligne de commande IBM Cloud Developer Tools](/docs/cli/idt/commands.html#idt-cli).
+Pour plus d'informations, voir [Interface de ligne de commande IBM Cloud Developer Tools](/docs/cli/idt?topic=cloud-cli-idt-cli#idt-cli).
