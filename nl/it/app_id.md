@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-04-04"
+
+keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
+
+subcollection: nodejs
 
 ---
 
@@ -21,16 +25,16 @@ La sicurezza delle applicazioni può essere incredibilmente complicata. Per la m
 
 Richiedendo agli utenti di eseguire l'accesso alla tua applicazione, puoi memorizzare i dati utente quali le preferenze dell'applicazione o i loro profili social pubblici. Puoi quindi utilizzare tali dati per personalizzare l'esperienza di ogni utente all'interno dell'applicazione. {{site.data.keyword.appid_short_notm}} fornisce un framework di accesso per te ma puoi anche portare le tue pagine di accesso personalizzate da utilizzare con Cloud Directory.
 
-Per ulteriori informazioni su tutti i modi in cui puoi utilizzare {{site.data.keyword.appid_short_notm}} e le informazioni sull'architettura, consulta [Informazioni su {{site.data.keyword.appid_short_notm}}](/docs/services/appid/about.html).
+Per ulteriori informazioni su tutti i modi in cui puoi utilizzare {{site.data.keyword.appid_short_notm}} e le informazioni sull'architettura, consulta [Informazioni su {{site.data.keyword.appid_short_notm}}](/docs/services/appid?topic=appid-about#about).
 
 ## Prima di cominciare
 {: #prereqs-appid}
 
 Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
-1. Devi avere un [account {{site.data.keyword.cloud}} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
-2. Installa la [CLI {{site.data.keyword.cloud_notm}}](/docs/cli/index.html).
-3. Installa il [npm ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")supporto di gestione del pacchetto ](https://nodejs.org/){: new_window}.
-4. Implementa il tuo server Node.js con il [framework Express ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](http://expressjs.com/){: new_window}. Per installare il framework Express, utilizza la riga di comando per aprire la directory con la tua applicazione Node.js ed esegui questo comando:
+1. Devi disporre di un [account {{site.data.keyword.cloud}}](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
+2. Installa la [CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli).
+3. Installa il supporto di gestione del pacchetto [npm](https://nodejs.org/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")
+4. Implementa il tuo server Node.js con il [framework Express ](http://expressjs.com/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"). Per installare il framework Express, utilizza la riga di comando per aprire la directory con la tua applicazione Node.js ed esegui questo comando:
   ```
   npm install --save express
   ```
@@ -42,7 +46,8 @@ Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
   ```
   {: codeblock}
 
-  **Nota**: altri framework utilizzano i framework `Express`, come LoopBack. Puoi utilizzare l'SDK server {{site.data.keyword.appid_short_notm}} con uno qualsiasi di questi framework.
+  Altri framework utilizzano i framework `Express`, come LoopBack. Puoi utilizzare l'SDK server {{site.data.keyword.appid_short_notm}} con uno qualsiasi di questi framework.
+  {: note}
 
 6. Individua i valori chiave delle credenziali da utilizzare in seguito per l'inizializzazione SDK:
 
@@ -58,7 +63,7 @@ Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
 {: #create-instance-appid}
 
 **Esegui il provisioning di un'istanza del servizio**
-1. Nel [Catalogo {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/), seleziona la categoria **Web e mobile** e fai clic su {{site.data.keyword.appid_short_notm}}. Viene aperta la pagina di configurazione del servizio.
+1. Nel [catalogo {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"), seleziona la categoria **Web e mobile** e fai clic su {{site.data.keyword.appid_short_notm}}. Viene aperta la pagina di configurazione del servizio.
 2. Dai un nome alla tua istanza del servizio oppure utilizza il nome preimpostato.
 3. Seleziona il tuo piano dei prezzi e fai clic su **Crea**.
 
@@ -85,7 +90,7 @@ Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
     ```
     {: codeblock}
 
-2. Configura la tua applicazione Express per utilizzare il middleware express-session. **Nota**: devi configurare il middleware con l'archiviazione di sessione appropriata per gli ambienti di produzione. Per ulteriori informazioni, consulta la [documentazione di expressjs![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://github.com/expressjs/session){: new_window}.
+2. Configura la tua applicazione Express per utilizzare il middleware express-session. **Nota**: devi configurare il middleware con l'archiviazione di sessione appropriata per gli ambienti di produzione. Per ulteriori informazioni, consulta la [documentazione di expressjs](https://github.com/expressjs/session){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
     ```js
     var app = express();
     app.use(session({
@@ -110,10 +115,10 @@ Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
     ```
     {: codeblock}
 
-    Se hai bisogno di aiuto per trovare i valori chiave delle credenziali per la tua applicazione, consulta il *passo 5* della sezione [Prima di cominciare](/docs/node/app_id.html#prereqs-appid) per i dettagli relativi a dove trovarli. 
+    Se hai bisogno di aiuto per trovare i valori chiave delle credenziali per la tua applicazione, consulta il *passo 5* della sezione [Prima di cominciare](#prereqs-appid) per i dettagli relativi a dove trovarli. 
     {: tip}
 
-4. Configura passport con la serializzazione e la deserializzazione. Questo passo di configurazione è richiesto per la persistenza della sessione autenticata attraverso le richieste HTTP. Per ulteriori informazioni, consulta la [documentazione di passport ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](http://passportjs.org/docs){: new_window}.
+4. Configura passport con la serializzazione e la deserializzazione. Questo passo di configurazione è richiesto per la persistenza della sessione autenticata attraverso le richieste HTTP. Per ulteriori informazioni, consulta la [documentazione di passport ](http://passportjs.org/docs){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
   ```js
   passport.serializeUser(function(user, cb) {
     cb(null, user);
@@ -139,7 +144,7 @@ Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
   2. Un reindirizzamento eseguito correttamente, come specificato in `passport.authenticate(name, {successRedirect: "...."})`.
   3. La directory root dell'applicazione ("/").
 
-Per ulteriori informazioni, vedi il [repository GitHub di {{site.data.keyword.appid_short_notm}} Node.js ![icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window}.
+Per ulteriori informazioni, vedi il [repository GitHub Node.js {{site.data.keyword.appid_short_notm}}![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
 
 ## Passo 4. Gestione dell'esperienza di accesso
 {: #manage-signin-appid}
@@ -155,9 +160,9 @@ Un provider di identità fornisce le informazioni di autenticazione per i tuoi u
 Puoi aggiornare il tuo flusso di accesso in qualsiasi momento, senza modificare in alcun modo il tuo codice sorgente!
 {: tip}
 
-Il servizio utilizza i tipi di concessione `OAuth 2` per associare il processo di autorizzazione. Quando configuri i provider di identità social come Facebook, per richiamare il widget di accesso viene utilizzato il [flusso di concessione dell'autorizzazione Oauth2 ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: new_window}. Quando visualizzi le tue pagine dell'IU, per ottenere l'accesso ai token e per identificarli viene utilizzato il [flusso di credenziali della password del proprietario delle risorse![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: new_window}.
+Il servizio utilizza i tipi di concessione `OAuth 2` per associare il processo di autorizzazione. Quando configuri i provider di identità social come Facebook, per richiamare il widget di accesso viene utilizzato il [flusso di concessione dell'autorizzazione Oauth2 ](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"). Quando visualizzi le tue pagine dell'IU, per ottenere l'accesso ai token e per identificarli viene utilizzato il [flusso di credenziali della password del proprietario delle risorse](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
 
-Dopo che hai configurato le impostazioni per i [provider di identità social](/docs/services/appid/identity-providers.html) e [Cloud Directory](/docs/services/appid/cloud-directory.html), puoi iniziare a implementare il codice.
+Dopo che hai configurato le impostazioni per i [provider di identità social](/docs/services/appid?topic=appid-social#social) e [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory#cloud-directory), puoi iniziare a implementare il codice.
 
 ### Configurazione dei provider di identità social
 {: #social-identity-appid}
@@ -166,7 +171,7 @@ Per configurare i provider di identità social, completa la seguente procedura:
 
 1. Apri il dashboard {{site.data.keyword.appid_short_notm}} a **Identity Providers > Manage**.
 2. Imposta i provider di identità che vuoi utilizzare su **On**. Puoi utilizzare qualsiasi combinazione di provider di identità ma, se vuoi portare delle pagine di accesso personalizzate, abilita solo Cloud Directory.
-3. Aggiorna la [configurazione predefinita](/docs/services/appid/identity-providers.html) alle tue credenziali. {{site.data.keyword.appid_short_notm}} fornisce le credenziali IBM che puoi utilizzare per provare il servizio. Prima di pubblicare la tua applicazione, devi aggiornare la configurazione.
+3. Aggiorna la [configurazione predefinita](/docs/services/appid?topic=appid-social#social) alle tue credenziali. {{site.data.keyword.appid_short_notm}} fornisce le credenziali IBM che puoi utilizzare per provare il servizio. Prima di pubblicare la tua applicazione, devi aggiornare la configurazione.
 4. [Personalizza la pagina di accesso preconfigurata](#login-widget) per visualizzare l'immagine e i colori da te scelti.
 
 ### Configurazione di Cloud Directory
@@ -174,7 +179,7 @@ Per configurare i provider di identità social, completa la seguente procedura:
 
 Con {{site.data.keyword.appid_short_notm}}, puoi gestire il tuo registro utenti denominato Cloud Directory. Cloud Directory abilita gli utenti a registrarsi e ad accedere alle tue applicazioni mobili e web utilizzando la loro email e una password.
 
-Per configurare Cloud Directory, vedi [Cloud Directory](/docs/services/appid/cloud-directory.html).
+Per configurare Cloud Directory, vedi [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory#cloud-directory).
 
 ### Personalizzazione della pagina di accesso predefinita
 {: #login-widget-appid}
@@ -195,7 +200,7 @@ Per personalizzare la pagina:
 
 {{site.data.keyword.appid_short_notm}} fornisce una pagina di accesso predefinita che puoi richiamare se non hai delle tue pagine dell'IU da visualizzare.
 
-A seconda della configurazione del tuo provider di identità. le pagine che puoi visualizzare differiscono. Il servizio non fornisce funzioni avanzate per i provider di identità social perché non abbiamo mai accesso alle informazioni sull'account di un utente. Gli utenti devono andare al provider di identità per gestire le loro informazioni. Ad esempio, se vogliono modificare la loro password di Facebook, devono andare a [https://www.facebook.com](https://www.facebook.com).
+A seconda della configurazione del tuo provider di identità. le pagine che puoi visualizzare differiscono. Il servizio non fornisce funzioni avanzate per i provider di identità social perché non abbiamo mai accesso alle informazioni sull'account di un utente. Gli utenti devono andare al provider di identità per gestire le loro informazioni. Ad esempio, se vogliono modificare la loro password di Facebook, devono andare a [https://www.facebook.com](https://www.facebook.com){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
 
 Consulta la seguente tabella per vedere quali pagine puoi visualizzare per ciascun tipo di provider di identità.
 
@@ -210,7 +215,7 @@ Consulta la seguente tabella per vedere quali pagine puoi visualizzare per ciasc
 Per visualizzare le pagine predefinite:
 
 1. Apri il dashboard {{site.data.keyword.appid_short_notm}} alla scheda **Managing identity providers** e imposta Cloud Directory su **On**.
-2. Configura le tue [impostazioni di directory e messaggi](/docs/services/appid/cloud-directory.html).
+2. Configura le tue [impostazioni di directory e messaggi](/docs/services/appid?topic=appid-cloud-directory#cloud-directory).
 3. Scegli la combinazione di pagine di accesso che vuoi visualizzare e inserisci il codice per richiamare tali pagine nella tua applicazione.
 
 **Sign in**
@@ -273,7 +278,7 @@ Per visualizzare le pagine predefinite:
   ```
   {: codeblock}
 
-Vuoi fornire ai tuoi utenti un'esperienza personalizzata? Consulta la [documentazione di {{site.data.keyword.appid_short_notm}}](/docs/services/appid/login-widget.html#branding) per vedere come puoi visualizzare le tue pagine dell'IU.
+Vuoi fornire ai tuoi utenti un'esperienza personalizzata? Consulta la [documentazione di {{site.data.keyword.appid_short_notm}}](/docs/services/appid?topic=appid-login-widget#branding) per vedere come puoi visualizzare le tue pagine dell'IU.
 {: tip}
 
 ## Passo 5. Esecuzione di test della tua applicazione
@@ -286,12 +291,12 @@ Tutto è configurato correttamente? Puoi verificarlo eseguendo dei test.
 3. Aggiorna i provider di identità o la pagina del widget di accesso nel tuo dashboard {{site.data.keyword.appid_short_notm}}. Fai clic su **Review Activity** per visualizzare gli eventi di autenticazione che si sono verificati.
 4. Ripeti i passi 1 e 2 per appurare che le modifiche vengano implementate immediatamente. Non è richiesto alcun aggiornamento al tuo codice dell'applicazione.
 
-Hai riscontrato dei problemi? Consulta [Risoluzione dei problemi di {{site.data.keyword.appid_short_notm}}](/docs/services/appid/ts_index.html).
+Hai riscontrato dei problemi? Consulta [Risoluzione dei problemi di {{site.data.keyword.appid_short_notm}}](/docs/services/appid?topic=appid-troubleshooting#troubleshooting).
 
 ## Passi successivi
 {: #next-appid notoc}
 
 Ottimo lavoro! Hai aggiunto un passo di autenticazione alla tua applicazione. Non fermarti ora e continua provando una delle seguenti opzioni:
 
-* Per saperne di più su tutte le nuove funzioni offerte da {{site.data.keyword.appid_short_notm}} e per avvalertene, [consulta la documentazione](/docs/services/appid/index.html)!
-* I kit starter sono uno dei modi più rapidi per utilizzare le funzionalità di {{site.data.keyword.cloud}}. Visualizza i kit starter disponibili nel [dashboard degli sviluppatori di applicazioni mobili ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://cloud.ibm.com/developer/mobile/dashboard){: new_window}. Scarica il codice. Esegui l'applicazione!
+* Per saperne di più su tutte le nuove funzioni offerte da {{site.data.keyword.appid_short_notm}} e per avvalertene, [consulta la documentazione](/docs/services/appid?topic=appid-getting-started#getting-started)!
+* I kit starter sono uno dei modi più rapidi per utilizzare le funzionalità di {{site.data.keyword.cloud}}. Visualizza i kit starter disponibili nel [dashboard degli sviluppatori di applicazioni mobili ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"). Scarica il codice. Esegui l'applicazione!

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-04-04"
+
+keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
+
+subcollection: nodejs
 
 ---
 
@@ -16,13 +20,13 @@ lastupdated: "2019-01-14"
 # Utilizzo delle metriche dell'applicazione con le applicazioni Node.js
 {: #metrics}
 
-Impara come installare, accedere e comprendere le metriche dell'applicazione Node.js. Puoi monitorare le applicazioni Node.js con il dashboard [Node Application Metrics](https://developer.ibm.com/code/open/projects/node-application-metrics/) per visualizzare le prestazioni della tua applicazione Node.js visualizzando le metriche in un front end basato sul web.
+Impara come installare, accedere e comprendere le metriche dell'applicazione Node.js. Puoi monitorare le applicazioni Node.js con il dashboard [Node Application Metrics](https://developer.ibm.com/open/projects/node-application-metrics/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") per visualizzare le prestazioni della tua applicazione Node.js visualizzando le metriche in un front end basato sul web.
 {: shortdesc}
 
 ## Identificazione dei problemi visivamente
 {: #identify-problems}
 
-Le metriche dell'applicazione sono importanti per il monitoraggio delle prestazioni della tua applicazione. Disporre di una vista in diretta di metriche come CPU, memoria, latenza e metriche HTTP è essenziale per garantire un'efficace esecuzione della tua applicazione nel tempo. Puoi utilizzare un servizio cloud come il [ridimensionamento automatico](/docs/services/Auto-Scaling/index.html) di Cloud Foundry che si basa sulle metriche per modificare dinamicamente le dimensioni delle istanze in modo che corrispondano all'attuale carico di lavoro. Utilizzando le metriche dell'applicazione, sei informato precisamente quando aumentare o ridurre le istanze oppure quando eliminare quelle che non sono più necessarie per mantenere bassi i costi.
+Le metriche dell'applicazione sono importanti per il monitoraggio delle prestazioni della tua applicazione. Disporre di una vista in diretta di metriche come CPU, memoria, latenza e metriche HTTP è essenziale per garantire un'efficace esecuzione della tua applicazione nel tempo. Puoi utilizzare un servizio cloud come il [ridimensionamento automatico](/docs/services/Auto-Scaling?topic=services/Auto-Scaling-get-started#get-started) di Cloud Foundry che si basa sulle metriche per modificare dinamicamente le dimensioni delle istanze in modo che corrispondano all'attuale carico di lavoro. Utilizzando le metriche dell'applicazione, sei informato precisamente quando aumentare o ridurre le istanze oppure quando eliminare quelle che non sono più necessarie per mantenere bassi i costi.
 
 Le metriche dell'applicazione vengono acquisite come dati delle serie temporali. L'aggregazione e la visualizzazione delle metriche acquisite può essere di ausilio nell'identificazione di problemi delle prestazioni comuni quali:
 
@@ -32,14 +36,14 @@ Le metriche dell'applicazione vengono acquisite come dati delle serie temporali.
 * Un utilizzo della CPU più elevato del previsto
 * Un utilizzo della memoria elevato o crescente (potenziale perdita di memoria)
 
-Il dashboard Application Metrics integrato ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash)) include anche un grafico per 'Other Requests', che mostra la durata delle richieste database per i database supportati (MongoDB, MySQL, Postgres, LevelDB e Redis), Socket.IO ed eventi Riak.
+Il dashboard Application Metrics integrato ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")) include anche un grafico per 'Other Requests', che mostra la durata delle richieste database per i database supportati (MongoDB, MySQL, Postgres, LevelDB e Redis), Socket.IO ed eventi Riak.
 
 Dal dashboard è possibile generare un report dei nodi (Node Report) o un'istantanea dell'heap (Heap Snapshot) per abilitare un'analisi più approfondita.
 
 ## Aggiunta di metriche alle applicazioni Node.js esistenti
 {: #add-appmetrics-existing}
 
-Aggiungi le funzioni di monitoraggio alle applicazioni Express esistenti con il constructor [ `appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) per trasmettere svariate opzioni di configurazione. Ad esempio, una delle opzioni utilizza un server esistente invece di fare in modo che `appmetrics-dash` avvii un server supplementare.
+Aggiungi le funzioni di monitoraggio alle applicazioni Express esistenti con il constructor [ `appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") per trasmettere svariate opzioni di configurazione. Ad esempio, una delle opzioni utilizza un server esistente invece di fare in modo che `appmetrics-dash` avvii un server supplementare.
 
 ### Installazione del dashboard
 {: #install-appmetrics}
@@ -57,7 +61,7 @@ Aggiungi le funzioni di monitoraggio alle applicazioni Express esistenti con il 
   ```
   {: codeblock}
 
-2. Installa il dashboard `appmetrics` con il seguente comando [npm](https://nodejs.org/):
+2. Installa il dashboard `appmetrics` con il seguente comando [npm](https://nodejs.org/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
   ```
   npm install appmetrics-dash
   ```
@@ -109,7 +113,7 @@ Dopo che hai avviato la tua applicazione, vai a `http://<hostname>:<port>/appmet
 Utilizza il `localhost:3001/appmetrics-dash` predefinito per le applicazioni che sono in esecuzione in locale.
 {: tip}
 
-L'IU del dashboard di monitoraggio Application Metrics for Node.js fornisce una gamma di metriche, comprese le richieste HTTP e la latenza di loop degli eventi, come visto nel seguente video [Monitoring Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be).
+L'IU del dashboard di monitoraggio Application Metrics for Node.js fornisce una gamma di metriche, comprese le richieste HTTP e la latenza di loop degli eventi, come illustrato nel seguente video [Monitoring Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
 
 ## Descrizione dei dati
 {: #understanding-data}

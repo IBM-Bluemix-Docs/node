@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-03-28"
+
+keywords: healthcheck node, add healthcheck node, healthcheck endpoint nodes, readiness node, liveness node, endpoint node, probes node, health check node
+
+subcollection: nodejs
 
 ---
 
@@ -14,12 +18,12 @@ lastupdated: "2019-01-14"
 {:tip: .tip}
 
 # Utilizzo di un controllo di integrità nelle applicazioni Node.js
-{: #healthcheck}
+{: #node-healthcheck}
 
-I controlli di integrità forniscono un semplice meccanismo per determinare se un'applicazione lato server sta funzionando correttamente o meno. Gli ambienti cloud come [Kubernetes](https://www.ibm.com/cloud/container-service) e [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry), possono essere configurati per eseguire il polling degli endpoint di integrità con cadenza periodica per determinare se un'istanza del tuo servizio è pronta ad accettare traffico.
+I controlli di integrità forniscono un semplice meccanismo per determinare se un'applicazione lato server sta funzionando correttamente o meno. Ambienti cloud come [Kubernetes](https://www.ibm.com/cloud/container-service){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") e [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") possono essere configurati per eseguire il polling di endpoint di integrità per determinare se un'istanza del tuo servizio è pronta ad accettare traffico.
 
 ## Panoramica dei controlli di integrità
-{: #overview}
+{: #node-healthcheck-overview}
 
 I controlli di integrità forniscono un semplice meccanismo per determinare se un'applicazione lato server sta funzionando correttamente o meno. Normalmente sono utilizzati tramite HTTP e utilizzano i codici di ritorno standard per indicare lo stato UP o DOWN. Il valore di ritorno di un controllo di integrità è variabile, ma una risposta JSON minima, come `{"status": "UP"}`, è normale.
 
@@ -61,12 +65,11 @@ app.use("/health", router);
 Controlla lo stato dell'applicazione con un browser accedendo all'endpoint `/health`.
 
 ## Accesso al controllo di integrità dalle applicazioni kit starter Node.js
-{: #healthcheck-starterkit}
+{: #node-healthcheck-starterkit}
 
 Per impostazione predefinita, quando generi un'applicazione Node.js utilizzando un kit starter, un endpoint di controllo di integrità di base (non autorizzato) è disponibile in `/health` per controllare lo stato dell'applicazione (UP/DOWN).
 
 Il codice dell'endpoint di controllo di integrità viene fornito dal seguente file `/server/routers/health.js`:
-
 ```js
 var express = require('express');
 
@@ -83,7 +86,7 @@ module.exports = function(app) {
 {: codeblock}
 
 ## Suggerimenti per i probe di disponibilità e di attività
-{: #readiness-recommend}
+{: #node-readiness-probes}
 
 I probe di disponibilità possono includere l'applicabilità delle connessioni ai servizi in downstream nei propri risultati quando non è presente un fallback accettabile se il servizio in downstream non è disponibile. Questo non significa di chiamare il controllo di integrità fornito direttamente dal servizio in downstream, perché l'infrastruttura esegue il controllo per te. Invece, prendi in considerazione di verificare l'integrità dei riferimenti esistenti che la tua applicazione ha con i servizi in downstream: che potrebbero essere una connessione JMS a WebSphere MQ o un consumatore o produttore Kafka inizializzato. Se non controlli l'applicabilità dei riferimenti interni ai servizi in downstream, memorizza nella cache il risultato per ridurre al minimo l'impatto del controllo di integrità sulla tua applicazione.
 
@@ -92,7 +95,7 @@ Un probe di attività, al contrario, è cauto su cosa viene controllato, perché
 ### Aggiunta del supporto per la disponibilità e l'attività di Kubernetes
 {: #kube-readiness-add}
 
-La libreria [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) da [CloudNativeJS], fornisce un framework per la definizione di endpoint di disponibilità e di attività separati in Node che consentono la composizione delle origini per lo stato di ogni endpoint.
+La libreria [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") da [CloudNativeJS](https://github.com/cloudnativejs){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"), fornisce un framework per la definizione di endpoint di disponibilità e di attività separati in Node che consentono la composizione delle origini per lo stato di ogni endpoint.
 
 ## Configurazione dei probe di disponibilità e di attività in Kubernetes
 {: #kube-readiness-config}
@@ -135,4 +138,4 @@ spec:
 ```
 {: codeblock}
 
-Per ulteriori informazioni, consulta [Configure Liveness and Readiness Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).
+Per ulteriori informazioni, vedi [Configure liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").

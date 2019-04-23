@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-04-04"
+
+keywords: nodejs logging, view logs nodejs, add logging nodejs, log4j nodejs, stdout nodejs, nodejs log, output nodejs, nodejs logger
+
+subcollection: nodejs
 
 ---
 
@@ -16,7 +20,7 @@ lastupdated: "2019-02-27"
 # Esecuzione dell'accesso a Node.js
 {: #logging_nodejs}
 
-I messaggi di log sono stringhe con informazioni contestuali sullo stato e sull'attività del microservizio nel momento in cui viene creata la voce di log. I log sono necessari per diagnosticare la modalità e la causa dei malfunzionamenti dei servizi e hanno un ruolo di supporto per [appmetrics](/docs/node/appmetrics.html#metrics) nel monitoraggio dell'integrità delle applicazioni.
+I messaggi di log sono stringhe con informazioni contestuali sullo stato e sull'attività del microservizio nel momento in cui viene creata la voce di log. I log sono necessari per diagnosticare la modalità e la causa dei malfunzionamenti dei servizi e hanno un ruolo di supporto per [appmetrics](/docs/node?topic=nodejs-metrics) nel monitoraggio dell'integrità delle applicazioni.
 
 Data la natura transitoria dei processi negli ambienti cloud, i log devono essere raccolti e inviati altrove, di norma a un'ubicazione centralizzata per l'analisi. Il modo più congruente per registrare nei log negli ambienti cloud consiste nell'inviare le voci di log a flussi di output e di errore standard e lasciare che l'infrastruttura gestisca il resto.
 
@@ -38,6 +42,7 @@ Puoi utilizzare [Log4js](https://github.com/log4js-node/log4js-node){: new_windo
 2. Per utilizzarlo nella tua applicazione, aggiungi le seguenti righe di codice alla tua applicazione.
   ```js
   var log4js = require('log4js');
+
   var log = log4js.getLogger();
   log.level = 'debug';
   log.debug("My Debug message");
@@ -53,7 +58,7 @@ Puoi utilizzare [Log4js](https://github.com/log4js-node/log4js-node){: new_windo
 3. Per scrivere eventi di log nel flusso di errori standard, puoi configurare un appender come il seguente esempio:
   ```js
   var log4js = require('log4js');
-
+  
   log4js.configure({
     appenders: { err: { type: 'stderr' } },
     categories: { default: { appenders: ['err'], level: 'ERROR' } }
@@ -66,7 +71,7 @@ Puoi utilizzare [Log4js](https://github.com/log4js-node/log4js-node){: new_windo
 ## Monitoraggio con le applicazioni App Service
 {: #monitoring}
 
-Le applicazioni Node.js create utilizzando l'[App Service](https://cloud.ibm.com/developer/appservice/dashboard) {{site.data.keyword.cloud_notm}} sono fornite con Log4js per impostazione predefinita. Puoi aprire il file `server/server.js` per visualizzare il seguente codice Log4js:
+Le applicazioni Node.js create utilizzando l'[App Service](https://cloud.ibm.com/developer/appservice/dashboard){: new_window} {{site.data.keyword.cloud_notm}} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") vengono fornite con Log4js per impostazione predefinita. Puoi aprire il file `server/server.js` per visualizzare il seguente codice Log4js:
 ```js
 var logger = log4js.getLogger(appName);
 var app = express();
@@ -94,7 +99,7 @@ Puoi visualizzare l'output di log utilizzando i seguenti metodi:
   ```
   {: codeblock}
 
-* Per le distribuzioni [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"), puoi accedere ai log eseguendo:
+* Per le distribuzioni [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/), puoi accedere ai log eseguendo:
   ```
   kubectl logs <deployment name>
   ```
@@ -105,9 +110,9 @@ Puoi visualizzare l'output di log utilizzando i seguenti metodi:
 
 Ulteriori informazioni sulla visualizzazione dei log in ciascun ambiente di distribuzione:
 * [Log Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")
-* [Log Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html#logging_cf_apps)
-* [Log e monitoraggio {{site.data.keyword.openwhisk}}](/docs/openwhisk/openwhisk_logs.html#openwhisk_logs)
+* [Log Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps#logging_cf_apps)
+* [Log e monitoraggio {{site.data.keyword.openwhisk}}](/docs/openwhisk?topic=cloud-functions-openwhisk_logs#openwhisk_logs)
 
 Utilizzando un aggregatore di log:
-* [Analisi log {{site.data.keyword.cloud_notm}}](/docs/services/CloudLogAnalysis/log_analysis_ov.html#log_analysis_ov)
+* [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis?topic=cloudloganalysis-log_analysis_ov#log_analysis_ov)
 * [Stack ELK {{site.data.keyword.cloud_notm}} privato](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.2/manage_metrics/logging_elk.html){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")
