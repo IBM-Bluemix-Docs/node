@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-04-04"
+
+keywords: nodejs tracing, debug nodejs apps, troubleshooting nodejs, appmetrics-zipkin node, zipkin docker nodejs, nodejs slow, nodejs tracing
+
+subcollection: nodejs
 
 ---
 
@@ -16,14 +20,14 @@ lastupdated: "2019-01-14"
 # Configurando o rastreio de ponta a ponta
 {: #e2e-tracing}
 
-O tutorial a seguir concentra-se no Zipkin e no uso do módulo [appmetrics-zipkin](https://github.com/RuntimeTools/appmetrics-zipkin) para rastrear aplicativos Node.js. É possível aprender mais sobre o Zipkin no [anúncio do appmetrics-zipkin](https://developer.ibm.com/node/2017/10/26/add-zipkin-open-tracing-support-node-js-application-one-line-code/) original. 
+O tutorial a seguir tem como foco o Zipkin e o uso do módulo [appmetrics-zipkin](https://github.com/CloudNativeJS/appmetrics-zipkin){: new_window}![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") para rastrear aplicativos Node.js. É possível aprender mais sobre o Zipkin no [Comunicado sobre o appmetrics-zipkin](https://developer.ibm.com/node/2017/10/26/add-zipkin-open-tracing-support-node-js-application-one-line-code/){: new_window} original![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo"). 
 
 Nas etapas a seguir, dois pequenos aplicativos (um de front-end, um de backend) são usados para rastrear entre dois terminais usando o módulo `appmetrics-zipkin`. É possível iniciar do zero ou aplicar os princípios descritos aqui a seus aplicativos Node.js existentes. 
 
 ## Etapa 1. Instalando e ativando o módulo appmetrics-zipkin
 {: #install-zipkin}
 
-No mesmo local do arquivo `package.json` do aplicativo Node.js, insira o comando [npm](https://nodejs.org/) a seguir para incluir o módulo `appmetrics-zipkin` em sua lista de dependências:
+No mesmo local que o arquivo `package.json` do aplicativo Node.js, insira o comando [npm](https://nodejs.org/){: new_window}![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") a seguir para incluir o módulo `appmetrics-zipkin` em sua lista de dependências:
 ```
 npm install -- save appmetrics-zipkin
 ```
@@ -98,9 +102,9 @@ A imagem a seguir mostra o servidor Zipkin que é executado em `localhost` na po
 É possível clicar em **Localizar rastreios** e modificar as opções de procura para mostrar seletivamente apenas os rastreios dentro de um determinado período. Também é possível filtrar para mostrar rastreios que envolvem nomes de serviço específicos. Os nomes de serviço são especificados quando você instrumenta seu código e, no cenário de exemplo, usamos "getter" e "pusher".
 
 ## Etapa 3. Testando um Cenário de Exemplo
-{: #example-scenario-tracing}
+{: #node-example-tracing}
 
-Se você seguir a [documentação do projeto GitHub](https://github.com/ibm-developer/nodejs-zipkin-tracing), terminará com o aplicativo de amostra a seguir. É um processo simples que envolve rastrear uma solicitação e uma resposta entre dois terminais. As imagens a seguir mostram o servidor Zipkin com dados de rastreio coletados na exibição. O ponto chave a ser lembrado é a inclusão de `require('appmetrics-zipkin')` e, opcionalmente, o código de configuração do servidor Zipkin. O cenário de exemplo a seguir mostra como é possível incluir rapidamente o rastreio do Zipkin nos aplicativos Node.js existentes.
+Se você seguir a [documentação do projeto GitHub](https://github.com/ibm-developer/nodejs-zipkin-tracing){: new_window}![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo"), ficará com o aplicativo de amostra a seguir. É um processo simples que envolve rastrear uma solicitação e uma resposta entre dois terminais. As imagens a seguir mostram o servidor Zipkin com dados de rastreio coletados na exibição. O ponto chave a ser lembrado é a inclusão de `require('appmetrics-zipkin')` e, opcionalmente, o código de configuração do servidor Zipkin. O cenário de exemplo a seguir mostra como é possível incluir rapidamente o rastreio do Zipkin nos aplicativos Node.js existentes.
 
 ### Visão geral do cenário de rastreio
 {: #tracing-scenario}
@@ -160,7 +164,7 @@ O tutorial acaba aqui para implementações sem o Kubernetes. Verifique a próxi
 ## Etapas seguintes
 {: #next-steps-tracing}
 
-* Aprenda a construir aplicativos Node.js do Cloud Native com a ajuda do projeto da comunidade [CloudNativeJS](https://www.cloudnativejs.io/) que fornece ativos e ferramentas para ajudá-lo a implementá-los nas nuvens baseadas no Docker e no Kubernetes.
+* Aprenda a construir aplicativos Node.js do Cloud Native com a ajuda do projeto da comunidade [CloudNativeJS](https://www.cloudnativejs.io/){: new_window}![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo"), que fornece ativos e ferramentas para ajudar você a implementá-los nas nuvens baseadas no Docker e no Kubernetes.
 
-* Se você estiver pronto para incluir o rastreio nos aplicativos Node.js executados no Kubernetes, verifique o [rastreio de aplicativos Node.js que usam o Kubernetes](https://developer.ibm.com/node/tutorial-end-end-tracing-node-js-applications/#appservice).
+* Se você estiver pronto para incluir o rastreio em seus aplicativos Node.js que são executados no Kubernetes, consulte [Rastreando aplicativos Node.js que usam o Kubernetes](https://developer.ibm.com/node/tutorial-end-end-tracing-node-js-applications/#appservice){: new_window}![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").
 

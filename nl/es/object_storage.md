@@ -2,9 +2,14 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-04-04"
+
+keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
+
+subcollection: nodejs
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -21,7 +26,7 @@ lastupdated: "2019-01-14"
 <!-- Object storage tutorial under the Storing and sharing data topicgroup:
 https://cloud.ibm.com/docs/services/cloud-object-storage/about-cos.html#about-ibm-cloud-object-storage -->
 
-{{site.data.keyword.cos_full_notm}} es un componente fundamental de la computación en la nube y proporciona potentes funciones a los desarrolladores de Apple y sus aplicaciones. A diferencia del almacenamiento de información en una jerarquía de archivos (por ejemplo, almacenamiento en bloque o archivo), un almacén de objetos consta únicamente de los archivos y sus metadatos. Estos archivos están almacenados en colecciones conocidas como receptáculos. Por definición, estos objetos son inmutables, lo que los convierte en perfectos para datos como imágenes, vídeos y otros documentos estáticos. Para los datos que cambian con frecuencia o que son relacionales, puede utilizar el servicio de base de datos [{{site.data.keyword.cloudant_short_notm}}](/docs/node/cloudant.html).
+{{site.data.keyword.cos_full_notm}} es un componente fundamental de la computación en la nube y proporciona potentes funciones a los desarrolladores de Apple y sus aplicaciones. A diferencia del almacenamiento de información en una jerarquía de archivos (por ejemplo, almacenamiento en bloque o archivo), un almacén de objetos consta únicamente de los archivos y sus metadatos. Estos archivos están almacenados en colecciones conocidas como grupos (buckets). Por definición, estos objetos son inmutables, lo que los convierte en perfectos para datos como imágenes, vídeos y otros documentos estáticos. Para los datos que cambian con frecuencia o que son relacionales, puede utilizar el servicio de base de datos [{{site.data.keyword.cloudant_short_notm}}](/docs/node?topic=nodejs-cloudant).
 
 {{site.data.keyword.cos_short}} (COS) es un sistema de almacenamiento que se puede utilizar para almacenar datos no estructurados que son flexibles, rentables y escalables. Se puede acceder a los datos a través de SDK o mediante la interfaz de usuario de IBM. Puede utilizar {{site.data.keyword.cos_short}} para acceder a los datos no estructurados a través de un portal de autoservicio respaldado por las API y los SDK RESTful.
 
@@ -29,19 +34,19 @@ https://cloud.ibm.com/docs/services/cloud-object-storage/about-cos.html#about-ib
 {: #prereqs-cos}
 
 Asegúrese de que dispone de los siguientes requisitos previos listos para utilizar:
-1. Debe tener una [cuenta de {{site.data.keyword.cloud}} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
-2. Debe tener el [SDK de {{site.data.keyword.cos_short}} para Node.js ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/ibm/ibm-cos-sdk-js){: new_window}.
+1. Debe tener una [cuenta de {{site.data.keyword.cloud}}](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
+2. Debe tener el [SDK de {{site.data.keyword.cos_short}} para Node.js](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
 3. Debe tener Node 4.x +.
 4. Localice los valores de clave de credenciales que se utilizarán posteriormente para la inicialización del SDK:
 
-    * _**endpoint**_: Punto final público para Cloud Object Storage. El punto final está disponible en el [Panel de control de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/dashboard/apps){: new_window}.
+    * _**endpoint**_: Punto final público para Cloud Object Storage. El punto final está disponible en el [panel de control de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/dashboard/apps){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
     * _**api-key**_: La clave de API que se genera cuando se crean las credenciales de servicio. Es necesario tener acceso de escritura para crear y suprimir ejemplos.
-    * _**resource-instance-id**_: el ID de recurso para Cloud Object Storage. El ID de recurso está disponible a través de la [CLI de {{site.data.keyword.cloud_notm}}](/docs/cli/index.html) o del [Panel de control de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/dashboard/apps){: new_window}.
+    * _**resource-instance-id**_: el ID de recurso para Cloud Object Storage. El ID de recurso está disponible a través de la [CLI de {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) o del [Panel de control de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/dashboard/apps){: new_window}.
 
 ## Paso 1. Creación de una instancia de {{site.data.keyword.cos_short}}
 {: #create-instance-cos}
 
-1. En el [catálogo de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/), seleccione la categoría **Almacenamiento** y pulse {{site.data.keyword.cos_short}}. Se abre la página de configuración del servicio.
+1. En el [catálogo de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"), seleccione la categoría **Almacenamiento** y pulse {{site.data.keyword.cos_short}}. Se abre la página de configuración del servicio.
 2. Dé un nombre a la instancia de servicio, o utilice el nombre preestablecido.
 3. Seleccione el plan de precios y pulse **Crear**. Se abrirá la página de la instancia de Object Storage instance.
 4. En el menú de navegación, seleccione **Credenciales de servicio**.
@@ -51,7 +56,7 @@ Asegúrese de que dispone de los siguientes requisitos previos listos para utili
 ## Paso 2. Instalación del SDK
 {: #install-cos}
 
-Instale el SDK de {{site.data.keyword.cos_short}} para Node.js utilizando el gestor de paquetes [npm](https://nodejs.org/) desde la línea de mandatos:
+Instale el SDK de {{site.data.keyword.cos_short}} para Node.js mediante el gestor de paquetes [npm](https://nodejs.org/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo") desde la línea de mandatos:
 ```
 npm install ibm-cos-sdk
 ```
@@ -79,7 +84,7 @@ Después de inicializar el SDK en la app, puede utilizar {{site.data.keyword.cos
   ```
   {: codeblock}
 
-  Si necesita ayuda para encontrar los valores de clave de credenciales para la app, consulte el *paso 4* de la sección [Antes de empezar](/docs/node/object_storage.html#prereqs-cos) para obtener detalles sobre dónde encontrarlos.
+  Si necesita ayuda para encontrar los valores de clave de credenciales para la app, consulte el *paso 4* de la sección [Antes de empezar](#prereqs-cos) para obtener detalles sobre dónde encontrarlos.
   {: tip}
 
 3. Añada el código siguiente al archivo `server.js`.
@@ -106,7 +111,7 @@ function doCreateBucket() {
 ```
 {: codeblock}
 
-#### Cómo crear/cargar o sobrescribir un objeto
+#### Creación, carga y modificación de un objeto
 ```js
 function doCreateObject() {
     console.log('Creating object');
@@ -144,25 +149,25 @@ function doDeleteObject() {
 ```
 {: codeblock}
 
-Consulte la [documentación completa](/docs/services/cloud-object-storage/libraries/node.html#using-node-js) para las cargas de varias partes, las características de seguridad y otras operaciones.
+Consulte la [documentación completa](/docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-using-node-js#using-node-js) para las cargas de varias partes, las características de seguridad y otras operaciones.
 
 ## Paso 4. Comprobación de la app
 {: #test-cos}
 
 ¿Todo se ha configurado correctamente? Pruébelo.
 
-1. Ejecute la aplicación, asegurándose de empezar la inicialización y las operaciones respectivas, como por ejemplo crear un receptáculo y añadir datos al receptáculo.
+1. Ejecute la aplicación, asegurándose de empezar la inicialización y las operaciones respectivas, como por ejemplo crear un grupo y añadir datos al grupo.
 2. Vuelva a la instancia de servicio de {{site.data.keyword.cos_short}} que ha creado anteriormente en el navegador web y abra el panel de control del servicio.
-3. Seleccione el receptáculo que se utiliza, y verá los objetos recién creados en el panel de control.
+3. Seleccione el grupo que se utiliza, y verá los objetos recién creados en el panel de control.
 
-¿Tiene problemas? Consulte la [Referencia de API de {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage/api-reference/about-api.html){:new_window}.
+¿Tiene problemas? Revise la [Consulta de API de {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage/api-reference?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about).
 
 ## Pasos siguientes
 {: #next-cos notoc}
 
 ¡Buen trabajo! Ha añadido un nivel de persistencia segura a la app. Mantenga el ritmo probando una de las opciones siguientes:
 
-* Visualice el código fuente de [{{site.data.keyword.cos_short}} SDK for Node.js ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/ibm/ibm-cos-sdk-js){:new_window}.
-* Consulte el [código de ejemplo para las operaciones de grupo y de objeto ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/ibm/ibm-cos-sdk-js#example-code){:new_window}.
-* Los kits de inicio son una de las formas más rápidas de utilizar las prestaciones de {{site.data.keyword.cloud_notm}}. Vea los kits de inicio disponibles en el [panel de control de desarrollador de Mobile ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/developer/mobile/dashboard){:new_window}. Descargue el código. Ejecute la app.
-* Para obtener más información y aproveche todas las características que {{site.data.keyword.cos_short}} ofrece, [consulte los documentos](/docs/services/cloud-object-storage/about-cos.html).
+* Visualice el código fuente de [{{site.data.keyword.cos_short}} SDK for Node.js](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
+* Consulte el [código de ejemplo para las operaciones de grupo y de objeto](https://github.com/ibm/ibm-cos-sdk-js#example-code){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
+* Los kits de inicio son una de las formas más rápidas de utilizar las prestaciones de {{site.data.keyword.cloud_notm}}. Vea los kits de inicio disponibles en el [panel de control de desarrollador de Mobile](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"). Descargue el código. Ejecute la app.
+* Para obtener más información y aprovechar todas las características que {{site.data.keyword.cos_short}} ofrece, [consulte la documentación](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage#about-ibm-cloud-object-storage).

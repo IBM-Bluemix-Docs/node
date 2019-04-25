@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-03-28"
+
+keywords: ibmcloud dev enable, nodejs cloud deployment, cloud enable nodejs, deploy nodejs, build nodejs cloud, nodejs debug
+
+subcollection: nodejs
 
 ---
 
@@ -16,7 +20,7 @@ lastupdated: "2019-01-14"
 # Habilitación de aplicaciones Node.js existentes para despliegue en la nube
 {: #enable_existing}
 
-Puede generar los archivos necesarios para hacer que la aplicación Node.js pueda ejecutarse en {{site.data.keyword.cloud}} utilizando el [mandato enable de la CLI de {{site.data.keyword.dev_cli_long}}](/docs/cli/idt/commands.html#enable).
+Puede generar los archivos necesarios para hacer que la aplicación Node.js pueda ejecutarse en {{site.data.keyword.cloud}} mediante el [mandato enable de la CLI de {{site.data.keyword.dev_cli_long}}](/docs/cli/idt?topic=cloud-cli-idt-cli#enable).
 
 ## Habilitación de la aplicación
 {: #enable_app}
@@ -78,17 +82,18 @@ Files can be easily compared with 'git diff' or a similar tool.
 The application, nodeapp, has been successfully saved into the current directory.
 demo: $
 ```
+{: screen}
 
 ## Compilación y despliegue de una aplicación Node habilitada para la nube
 {: #build_deploy}
 
-A continuación, compile la aplicación con el mandato [`build`](/docs/cli/idt/commands.html#build):
+A continuación, compile la aplicación con el mandato [`build`](/docs/cli/idt?topic=cloud-cli-idt-cli#build):
 ```
 ibmcloud dev build
 ```
 {: codeblock}
 
-Si la compilación finaliza correctamente, puede desplegar la aplicación en {{site.data.keyword.cloud_notm}} con el siguiente [mandato `deploy`](/docs/cli/idt/commands.html#deploy):
+Si la compilación finaliza correctamente, puede desplegar la aplicación en {{site.data.keyword.cloud_notm}} con el siguiente [mandato `deploy`](/docs/cli/idt?topic=cloud-cli-idt-cli#deploy):
 ```
 ibmcloud dev deploy
 ```
@@ -152,4 +157,4 @@ dockerfile-run : "docker-compose.yml"
 ## Pasos siguientes
 {: #next_steps-existing notoc}
 
-Para obtener más información, consulte [CLI de IBM Cloud Developer Tools](/docs/cli/idt/commands.html#idt-cli).
+Para obtener más información, consulte [CLI de IBM Cloud Developer Tools](/docs/cli/idt?topic=cloud-cli-idt-cli#idt-cli).

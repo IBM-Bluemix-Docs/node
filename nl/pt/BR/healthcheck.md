@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-03-28"
+
+keywords: healthcheck node, add healthcheck node, healthcheck endpoint nodes, readiness node, liveness node, endpoint node, probes node, health check node
+
+subcollection: nodejs
 
 ---
 
@@ -14,12 +18,12 @@ lastupdated: "2019-01-14"
 {:tip: .tip}
 
 # Usando uma verificação de funcionamento nos apps Node.js
-{: #healthcheck}
+{: #node-healthcheck}
 
-As verificações de funcionamento fornecem um mecanismo simples para determinar se um aplicativo do lado do servidor está se comportando corretamente. Ambientes em nuvem, como o [Kubernetes](https://www.ibm.com/cloud/container-service) e o [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry), podem ser configurados para pesquisar terminais de funcionamento periodicamente para determinar se uma instância do serviço está pronta para aceitar o tráfego.
+As verificações de funcionamento fornecem um mecanismo simples para determinar se um aplicativo do lado do servidor está se comportando corretamente. Ambientes em nuvem, como o [Kubernetes](https://www.ibm.com/cloud/container-service){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") e o [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo"), podem ser configurados para pesquisar terminais de funcionamento periodicamente a fim de determinar se uma instância do seu serviço está pronta para aceitar o tráfego.
 
 ## Visão geral da verificação de
-{: #overview}
+{: #node-healthcheck-overview}
 
 As verificações de funcionamento fornecem um mecanismo simples para determinar se um aplicativo do lado do servidor está se comportando corretamente. Elas geralmente são consumidas por meio de HTTP e usam códigos de retorno padrão para indicar o status de UP ou DOWN. O valor de retorno de uma verificação de funcionamento é variável, mas uma resposta JSON mínima, como `{"status": "UP"}`, é típica.
 
@@ -61,12 +65,11 @@ app.use("/health", router);
 Verifique o status do app com um navegador, acessando o terminal `/health`.
 
 ## Acessando a verificação de funcionamento de apps Node.js Starter Kit
-{: #healthcheck-starterkit}
+{: #node-healthcheck-starterkit}
 
 Por padrão, quando você gera um app Node.js usando um Kit de Iniciador, um terminal de verificação de funcionamento básico (não autorizado) está disponível em `/health` para verificar o status do app (UP/DOWN).
 
 O código do terminal de verificação de funcionamento é fornecido pelo arquivo `/server/routers/health.js` a seguir:
-
 ```js
 var express = require('express');
 
@@ -81,7 +84,7 @@ module.exports = function (app) {
 {: codeblock}
 
 ## Recomendações para as análises de prontidão e vivacidade
-{: #readiness-recommend}
+{: #node-readiness-probes}
 
 As análises de prontidão podem incluir a viabilidade de conexões com os serviços de recebimento de dados em seu resultado quando não houver um fallback aceitável se o serviço de recebimento de dados estiver indisponível. Isso não significa chamar a verificação de funcionamento que é fornecida pelo serviço de recebimento de dados diretamente, pois a infraestrutura verifica isso para você. Em vez disso, considere verificar o funcionamento das referências existentes que seu aplicativo tem para os serviços de recebimento de dados: essa pode ser uma conexão JMS com o WebSphere MQ ou um consumidor ou produtor Kafka inicializado. Se você verificar a viabilidade de referências internas para os serviços de recebimento de dados, armazene em cache o resultado para minimizar o impacto que a verificação de funcionamento tem no aplicativo.
 
@@ -90,7 +93,7 @@ Uma análise de vivacidade, por contraste, é deliberada sobre o que é verifica
 ### Incluindo suporte para prontidão e vivacidade do Kubernetes
 {: #kube-readiness-add}
 
-A biblioteca [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) de [CloudNativeJS], fornece uma estrutura para definir terminais de vivacidade e de prontidão separados no Node que permite a composição de origens para o estado de cada terminal.
+A biblioteca [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") do [CloudNativeJS](https://github.com/cloudnativejs){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") fornece uma estrutura para definir terminais de prontidão e de vivacidade separados no Node, o que permite a composição de origens para o estado de cada terminal.
 
 ## Configurando as análises de prontidão e de vivacidade no Kubernetes
 {: #kube-readiness-config}
@@ -133,4 +136,4 @@ spec:
 ```
 {: codeblock}
 
-Para obter mais informações, consulte como [Configurar análises de prontidão e vivacidade](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).
+Para obter mais informações, consulte como [Configurar análises de prontidão e de vivacidade](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").

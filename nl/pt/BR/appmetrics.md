@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-04-04"
+
+keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
+
+subcollection: nodejs
 
 ---
 
@@ -13,16 +17,16 @@ lastupdated: "2019-01-14"
 {:pre: .pre}
 {:tip: .tip}
 
-# Usando Métricas do Aplicativo com apps Node.js
+# Usando métricas do aplicativo com apps Node.js
 {: #metrics}
 
-Saiba como instalar, acessar e entender as métricas do aplicativo Node.js. É possível monitorar apps Node.js com o Painel [Métricas do aplicativo de nó](https://developer.ibm.com/code/open/projects/node-application-metrics/) para visualizar o desempenho do seu aplicativo Node.js, exibindo métricas em um front-end baseado na web.
+Saiba como instalar, acessar e entender as métricas do aplicativo Node.js. É possível monitorar os apps Node.js com o [Node Application Metrics](https://developer.ibm.com/open/projects/node-application-metrics/){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") Dashboard para visualizar o desempenho de seu aplicativo Node.js exibindo as métricas em um front-end baseado na web.
 {: shortdesc}
 
 ## Identificando problemas visualmente
 {: #identify-problems}
 
-Métricas de aplicativo são importantes para monitorar o desempenho de seu aplicativo. Ter uma visualização em tempo real de métricas, como as de CPU, de Memória, de Latência e HTTP, é essencial para assegurar que seu aplicativo seja executado efetivamente ao longo do tempo. É possível usar um serviço de nuvem como o [autoscaling](/docs/services/Auto-Scaling/index.html) do Cloud Foundry que depende de métricas para escalar dinamicamente instâncias para corresponder à carga de trabalho atual. Ao usar métricas do aplicativo, você é informado com precisão quando aumentar a escala, reduzir a escala ou limpar instâncias que não são mais necessárias para manter os custos baixos.
+Métricas de aplicativo são importantes para monitorar o desempenho de seu aplicativo. Ter uma visualização em tempo real de métricas, como as de CPU, de Memória, de Latência e HTTP, é essencial para assegurar que seu aplicativo seja executado efetivamente ao longo do tempo. É possível usar um serviço de nuvem como o [autoscaling](/docs/services/Auto-Scaling?topic=services/Auto-Scaling-get-started#get-started) do Cloud Foundry que depende de métricas para escalar dinamicamente instâncias para corresponder à carga de trabalho atual. Ao usar métricas do aplicativo, você é informado com precisão quando aumentar a escala, reduzir a escala ou limpar instâncias que não são mais necessárias para manter os custos baixos.
 
 As métricas do aplicativo são capturadas como dados de série temporal. A agregação e a visualização de métricas capturadas podem ajudar a identificar problemas comuns de desempenho, como:
 
@@ -32,14 +36,14 @@ As métricas do aplicativo são capturadas como dados de série temporal. A agre
 * Uso de CPU maior que o esperado
 * Uso de memória alto ou crescente (potencial fuga de memória)
 
-O Painel de Métricas do aplicativo integrado ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash)) também inclui um gráfico para 'Outras solicitações', que mostra a duração da solicitação do banco de dados para bancos de dados suportados (MongoDB, MySQL, Postgres, LevelDB e Redis), Socket.IO e eventos do Riak.
+O Application Metrics Dashboard ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window}![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")) integrado também inclui um gráfico para 'Outras solicitações', que mostra a duração da solicitação do banco de dados para os bancos de dados suportados (MongoDB, MySQL, Postgres, LevelDB e Redis), o Socket.IO e os eventos do Riak.
 
 Um Relatório de nó ou uma Captura instantânea de heap podem ser gerados por meio do painel para ativar uma análise mais detalhada.
 
 ## Incluindo Métricas em apps Node.js existentes
 {: #add-appmetrics-existing}
 
-Inclua recursos de monitoramento em aplicativos Express existentes com o construtor [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) para passar várias opções de configuração. Por exemplo, uma das opções usa um servidor existente, em vez de deixar o `appmetrics-dash` iniciar um servidor extra.
+Inclua recursos de monitoramento em aplicativos Express existentes com o construtor [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") para passar várias opções de configuração. Por exemplo, uma das opções usa um servidor existente, em vez de deixar o `appmetrics-dash` iniciar um servidor extra.
 
 ### Instalando o painel
 {: #install-appmetrics}
@@ -57,7 +61,7 @@ Inclua recursos de monitoramento em aplicativos Express existentes com o constru
   ```
   {: codeblock}
 
-2. Instale o painel `appmetrics` com o comando [npm](https://nodejs.org/) a seguir:
+2. Instale o painel `appmetrics` com o comando [npm](https://nodejs.org/){: new_window}![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") a seguir:
   ```
   npm install appmetrics-dash
   ```
@@ -109,7 +113,7 @@ Depois de iniciar o aplicativo, acesse `http://<hostname>:<port>/appmetrics-dash
 Use o padrão `localhost:3001/appmetrics-dash` para apps que estão em execução localmente.
 {: tip}
 
-A UI do painel de monitoramento do Application Metrics for Node.js fornece uma gama de métricas, incluindo solicitações de HTTP e latência de loop de eventos, conforme visto no vídeo [Métricas de monitoramento para Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be) a seguir.
+A IU do painel de monitoramento Application Metrics for Node.js fornece uma gama de métricas, incluindo solicitações de HTTP e latência de loop de eventos, conforme o que pode ser visualizado no vídeo [Monitorando o Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be){: new_window}![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").
 
 ## Entendendo os dados
 {: #understanding-data}

@@ -4,6 +4,10 @@ copyright:
   years: 2018, 2019
 lastupdated: "2019-02-28"
 
+keywords: configure node env, node environment, node credentials, ibm-cloud-env node
+
+subcollection: nodejs
+
 ---
 
 {:new_window: target="_blank"}
@@ -25,7 +29,7 @@ Se você precisa incluir o suporte do {{site.data.keyword.cloud}} em aplicativos
 ## Incluindo a configuração do {{site.data.keyword.cloud_notm}} em aplicativos Node.js existentes
 {: #addcloud-env-nodejs}
 
-O módulo [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) agrega variáveis de ambiente de vários provedores em nuvem, como o CloudFoundry e o Kubernetes, portanto, o aplicativo é independente do ambiente.
+O módulo [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") agrega variáveis de ambiente de vários provedores do Cloud, como o Cloud Foundry e o Kubernetes, portanto, o aplicativo é independente de ambiente.
 
 ### Instalando o módulo  ` ibm-cloud-env `
 {: #install-module-nodejs}
@@ -67,8 +71,8 @@ O módulo [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) agre
   ```
   {: codeblock}
 
-### Usando os valores em um app Node.js
-{: #values-nodejs}
+### Recuperando credenciais de serviço
+{: #nodejs-get-creds}
 
 Recupere os valores em seu aplicativo usando os comandos a seguir.
 
@@ -99,7 +103,7 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## Usando o gerenciador de configuração Node.js por meio dos apps Starter Kit
 {: #nodejs-config-skit}
 
-Apps Node.js que são criados com [Kits de iniciador](https://cloud.ibm.com/developer/appservice/starter-kits/) automaticamente são fornecidos com credenciais e configurações necessárias para execução em vários ambientes de implementação na nuvem (CF, K8s, VSI e Functions).
+Os apps Node.js que são criados com os [Kits do iniciador](https://cloud.ibm.com/developer/appservice/starter-kits/){: new_window}![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") vêm automaticamente com credenciais e configurações que são necessárias para a execução em muitos ambientes de implementação do Cloud (CF, K8s, VSI e Functions).
 
 ### Entendendo credenciais de serviço
 {: #credentials-nodejs}
@@ -108,11 +112,11 @@ Suas informações de configuração de aplicativo para serviços são armazenad
 
 O aplicativo usa o gerenciador de configuração para ler as informações de conexão e de configuração do ambiente e desse arquivo. Ele usa um `mappings.json` customizado, que está localizado no diretório `server/config`, para comunicar onde as credenciais podem ser localizadas para cada serviço.
 
-Os aplicativos em execução localmente podem se conectar aos serviços do {{site.data.keyword.cloud_notm}} usando credenciais desvinculadas que são lidas por meio do arquivo `mappings.json`. Se for necessário criar credenciais desvinculadas, será possível fazer isso por meio do console da web do {{site.data.keyword.cloud_notm}} ou usando o comando `cf create-service-key` do [CloudFoundry CLI](https://docs.cloudfoundry.org/cf-cli/).
+Os aplicativos em execução localmente podem se conectar aos serviços do {{site.data.keyword.cloud_notm}} usando credenciais desvinculadas que são lidas por meio do arquivo `mappings.json`. Se for necessário criar credenciais desvinculadas, será possível fazer isso por meio do console da web do {{site.data.keyword.cloud_notm}} ou usando o comando `cf create-service-key` da [CLI do Cloud Foundry](https://docs.cloudfoundry.org/cf-cli/){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").
 
 Quando você enviar seu aplicativo por push para o {{site.data.keyword.cloud_notm}}, esses valores não serão mais usados. Em vez disso, o aplicativo se conecta automaticamente aos serviços ligados usando variáveis de ambiente.
 
-* **Cloud Foundry**: as credenciais de serviço são obtidas da variável de ambiente `VCAP_SERVICES`. Para o Cloud Foundry Enterprise Edition, consulte este [tutorial de introdução](/docs/cloud-foundry/getting-started.html#getting-started) para obter mais informações.
+* **Cloud Foundry**: as credenciais de serviço são obtidas da variável de ambiente `VCAP_SERVICES`. Para o Cloud Foundry Enterprise Edition, consulte este [tutorial de introdução](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started) para obter mais informações.
 
 * **Kubernetes**: as credenciais de serviço são obtidas de variáveis de ambiente individuais por serviço.
 
@@ -121,4 +125,4 @@ Quando você enviar seu aplicativo por push para o {{site.data.keyword.cloud_not
 ## Próximas Etapas
 {: #next_steps-config notoc}
 
-O `ibm-cloud-config` suporta a procura de valores usando três tipos de padrão de procura: `cloudfoundry`, `env` e `file`. Se quiser verificar outros padrões de procura suportados e exemplos de padrão de procura, verifique a seção [Uso](https://github.com/ibm-developer/ibm-cloud-env#usage).
+O `ibm-cloud-config` suporta a procura de valores usando três tipos de padrão de procura: `cloudfoundry`, `env` e `file`. Se você quiser consultar outros padrões de procura suportados e exemplos de padrão de procura, veja a seção [Uso](https://github.com/ibm-developer/ibm-cloud-env#usage){: new_window}![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").

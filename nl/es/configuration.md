@@ -4,6 +4,10 @@ copyright:
   years: 2018, 2019
 lastupdated: "2019-02-28"
 
+keywords: configure node env, node environment, node credentials, ibm-cloud-env node
+
+subcollection: nodejs
+
 ---
 
 {:new_window: target="_blank"}
@@ -25,7 +29,7 @@ Tanto si necesita añadir soporte para {{site.data.keyword.cloud}} a las aplicac
 ## Adición de la configuración de {{site.data.keyword.cloud_notm}} a aplicaciones de Node.js existentes
 {: #addcloud-env-nodejs}
 
-El módulo [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) agrega las variables de entorno de diversos proveedores de nube, como CloudFoundry y Kubernetes, por lo que la aplicación es independiente del entorno.
+El módulo [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo") agrega variables de entorno procedentes de diversos proveedores de nube, como CloudFoundry y Kubernetes, para que la aplicación no dependa del entorno.
 
 ### Instalación del módulo `ibm-cloud-env`
 {: #install-module-nodejs}
@@ -51,13 +55,13 @@ El módulo [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) agr
   {
     "service1-credentials": {
         "searchPatterns": [
-            "cloudfoundry:my-service1-instance-name", 
-            "env:my-service1-credentials", 
-            "file:/localdev/my-service1-credentials.json" 
+            "cloudfoundry:my-service1-instance-name",
+            "env:my-service1-credentials",
+            "file:/localdev/my-service1-credentials.json"
         ]
     },
     "service2-username": {
-        "searchPatterns": [
+        "searchPatterns":[
             "cloudfoundry:$.service2[@.name=='my-service2-instance-name'].credentials.username",
             "env:my-service2-credentials:$.username",
             "file:/localdev/my-service1-credentials.json:$.username"
@@ -67,8 +71,8 @@ El módulo [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env) agr
   ```
   {: codeblock}
 
-### Utilización de los valores en una app de Node.js
-{: #values-nodejs}
+### Recuperación de las credenciales de servicio
+{: #nodejs-get-creds}
 
 Recupere los valores de la aplicación utilizando los mandatos siguientes.
 
@@ -99,7 +103,7 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## Utilización del gestor de configuración de Node.js desde apps del Kit de inicio
 {: #nodejs-config-skit}
 
-Las apps Node.js creadas con [Kits de inicio](https://cloud.ibm.com/developer/appservice/starter-kits/) se proporcionan automáticamente con las credenciales y la configuración necesarias para ejecutarse en muchos entornos de despliegue de nube (CF, K8s, VSI y Functions).
+Las apps Node.js creadas con [Kits de inicio](https://cloud.ibm.com/developer/appservice/starter-kits/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo") se proporcionan automáticamente con las credenciales y la configuración necesarias para ejecutarse en muchos entornos de despliegue de nube (CF, K8s, VSI y Functions).
 
 ### Comprensión de las credenciales de servicio
 {: #credentials-nodejs}
@@ -108,11 +112,11 @@ La información de configuración de aplicación de servicios se almacena en el 
 
 La aplicación utiliza el gestor de configuración para leer la información de conexión y configuración del entorno y este archivo. Utiliza un `mappings.json` personalizado, que se encuentra en el directorio `server/config`, para comunicar dónde se pueden encontrar las credenciales para cada servicio.
 
-Las aplicaciones que se ejecutan localmente se pueden conectar a los servicios de {{site.data.keyword.cloud_notm}} utilizando credenciales desenlazadas que se leen desde el archivo `mappings.json`. Si necesita crear credenciales desenlazadas, puede hacerlo desde la consola web de {{site.data.keyword.cloud_notm}} o utilizando el mandato de la [CLI de CloudFoundry](https://docs.cloudfoundry.org/cf-cli/) `cf create-service-key`.
+Las aplicaciones que se ejecutan localmente se pueden conectar a los servicios de {{site.data.keyword.cloud_notm}} utilizando credenciales desenlazadas que se leen desde el archivo `mappings.json`. Si necesita crear credenciales desenlazadas, puede hacerlo desde la consola web de {{site.data.keyword.cloud_notm}} o mediante el mandato `cf create-service-key` de la [CLI de CloudFoundry](https://docs.cloudfoundry.org/cf-cli/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
 
 Cuando envía la aplicación a {{site.data.keyword.cloud_notm}}, estos valores ya no se utilizan. En su lugar, la aplicación se conecta automáticamente a los servicios enlazados utilizando variables de entorno.
 
-* **Cloud Foundry**: Las credenciales de servicio se toman de la variable de entorno `VCAP_SERVICES`. Para Cloud Foundry Enrprise Edition, consulte esta [Guía de aprendizaje de iniciación](/docs/cloud-foundry/getting-started.html#getting-started) para obtener más información.
+* **Cloud Foundry**: Las credenciales de servicio se toman de la variable de entorno `VCAP_SERVICES`. Para Cloud Foundry Enrprise Edition, consulte esta [Guía de aprendizaje de iniciación](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started) para obtener más información.
 
 * **Kubernetes**: Las credenciales de servicio se toman de variables de entorno individuales por servicio.
 
@@ -121,4 +125,4 @@ Cuando envía la aplicación a {{site.data.keyword.cloud_notm}}, estos valores y
 ## Pasos siguientes
 {: #next_steps-config notoc}
 
-`ibm-cloud-config` soporta la búsqueda de valores utilizando tres tipos de patrón de búsqueda: `cloudfoundry`, `env` y `file`. Si desea obtener información sobre otros patrones de búsqueda soportados y ejemplos de patrón de búsqueda, consulte la sección [Uso](https://github.com/ibm-developer/ibm-cloud-env#usage).
+`ibm-cloud-config` soporta la búsqueda de valores utilizando tres tipos de patrón de búsqueda: `cloudfoundry`, `env` y `file`. Si desea consultar otros patrones de búsqueda admitidos y ejemplos de patrones de búsqueda, consulte la sección [Uso](https://github.com/ibm-developer/ibm-cloud-env#usage){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").

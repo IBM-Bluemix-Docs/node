@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-04-04"
+
+keywords: nodejs logging, view logs nodejs, add logging nodejs, log4j nodejs, stdout nodejs, nodejs log, output nodejs, nodejs logger
+
+subcollection: nodejs
 
 ---
 
@@ -16,13 +20,13 @@ lastupdated: "2019-02-27"
 # Registro en Node.js
 {: #logging_nodejs}
 
-Los mensajes de registro son series con información contextual sobre el estado y la actividad del microservicio en el momento en que se realiza la entrada de registro. Los registros son necesarios para diagnosticar cómo y por qué fallan los servicios, y desempeñan un rol de soporte en [appmetrics](/docs/node/appmetrics.html#metrics) en la supervisión del estado de la aplicación.
+Los mensajes de registro son series con información contextual sobre el estado y la actividad del microservicio en el momento en que se realiza la entrada de registro. Los registros son necesarios para diagnosticar cómo y por qué fallan los servicios, y desempeñan un rol de soporte en [appmetrics](/docs/node?topic=nodejs-metrics) en la supervisión del estado de la aplicación.
 
 Dada la naturaleza transitoria de los procesos en entornos de nube, los registros deben recopilarse y enviarse a otro lugar, normalmente a una ubicación centralizada para su análisis. La forma más coherente de iniciar sesión en entornos de nube es enviar entradas de registro a la salida estándar y a las secuencias de error, que deja que la infraestructura maneje el resto.
 
 Puede utilizar [Log4js](https://github.com/log4js-node/log4js-node){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"), que es una infraestructura de registro popular para Node.js, y que proporciona muchas ventajas nativas, como: 
 * Registro en `stdout` o `stderr`
-* Diversas opciones de adjunción
+* Diversas opciones de adición
 * Diseño y patrones de mensajes de registro configurables
 * Utilización de `Niveles de registro` para distintas categorías de registro
 
@@ -67,7 +71,7 @@ Puede utilizar [Log4js](https://github.com/log4js-node/log4js-node){: new_window
 ## Supervisión con apps de App Service
 {: #monitoring}
 
-De forma predeterminada, las apps Node.js creadas utilizando {{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard) incluyen Log4js. Puede abrir el archivo `server/server.js` para ver el siguiente código de Log4js:
+De forma predeterminada, las apps Node.js creadas utilizando {{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo") incluyen Log4js. Puede abrir el archivo `server/server.js` para ver el siguiente código de Log4js:
 ```js
 var logger = log4js.getLogger(appName);
 var app = express();
@@ -95,7 +99,7 @@ Puede ver la salida de registro utilizando los siguientes métodos:
   ```
   {: codeblock}
 
-* Para despliegues de [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"), puede acceder a los registros ejecutando:
+* Para despliegues de [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/), puede acceder a los registros ejecutando:
   ```
   kubectl logs <deployment name>
   ```
@@ -106,9 +110,9 @@ Puede ver la salida de registro utilizando los siguientes métodos:
 
 Para obtener más información sobre la visualización de registros en cada entorno:
 * [Registros de Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")
-* [Registros de Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html#logging_cf_apps)
-* [Registros y supervisión de {{site.data.keyword.openwhisk}}](/docs/openwhisk/openwhisk_logs.html#openwhisk_logs)
+* [Registros de Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps#logging_cf_apps)
+* [Registros y supervisión de {{site.data.keyword.openwhisk}}](/docs/openwhisk?topic=cloud-functions-openwhisk_logs#openwhisk_logs)
 
 Utilización de un agregador de registros:
-* [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis/log_analysis_ov.html#log_analysis_ov)
+* [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis?topic=cloudloganalysis-log_analysis_ov#log_analysis_ov)
 * [Pila de ELK de {{site.data.keyword.cloud_notm}} Private](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.2/manage_metrics/logging_elk.html){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")

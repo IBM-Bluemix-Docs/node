@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-04-04"
+
+keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
+
+subcollection: nodejs
 
 ---
 
@@ -16,13 +20,13 @@ lastupdated: "2019-01-14"
 # Utilización de métricas de aplicación con apps Node.js
 {: #metrics}
 
-Obtenga información sobre cómo instalar, acceder y comprender las métricas de la aplicación Node.js. Puede supervisar las apps de Node.js con el panel de control de [Node Application Metrics](https://developer.ibm.com/code/open/projects/node-application-metrics/) para visualizar el rendimiento de la aplicación Node.js visualizando métricas en un frontal basado en web.
+Obtenga información sobre cómo instalar, acceder y comprender las métricas de la aplicación Node.js. Puede supervisar apps Node.js con el panel de control de [métricas de aplicación de nodo](https://developer.ibm.com/open/projects/node-application-metrics/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo") para visualizar el rendimiento de la aplicación Node.js examinando las métricas en una interfaz basada en la web.
 {: shortdesc}
 
 ## Identificación visual de problemas
 {: #identify-problems}
 
-Las métricas de aplicación son importantes para supervisar el rendimiento de la aplicación. Tener una vista en directo de métricas como CPU, memoria, latencia y métricas HTTP es esencial para asegurarse de que la aplicación se ejecuta de forma efectiva a lo largo del tiempo. Puede utilizar un servicio de nube como el [escalado automático](/docs/services/Auto-Scaling/index.html) de Cloud Foundry, que se basa en métricas para escalar dinámicamente las instancias para que coincidan con la carga de trabajo actual. Con el uso de métricas de aplicación, estará informado forma precisa para saber cuando se deben aumentar, reducir o borrar las instancias que ya no se necesitan para mantener los costes bajos.
+Las métricas de aplicación son importantes para supervisar el rendimiento de la aplicación. Tener una vista en directo de métricas como CPU, memoria, latencia y métricas HTTP es esencial para asegurarse de que la aplicación se ejecuta de forma efectiva a lo largo del tiempo. Puede utilizar un servicio de nube como el [escalado automático](/docs/services/Auto-Scaling?topic=services/Auto-Scaling-get-started#get-started) de Cloud Foundry, que se basa en métricas para escalar dinámicamente las instancias para que coincidan con la carga de trabajo actual. Con el uso de métricas de aplicación, estará informado forma precisa para saber cuando se deben aumentar, reducir o borrar las instancias que ya no se necesitan para mantener los costes bajos.
 
 Las métricas de aplicación se capturan como datos de serie temporal. La agregación y visualización de métricas capturadas puede ayudar a identificar problemas de rendimiento comunes como, por ejemplo:
 
@@ -32,14 +36,14 @@ Las métricas de aplicación se capturan como datos de serie temporal. La agrega
 * Uso de CPU mayor del esperado
 * Uso de memoria alto o creciente (fuga de memoria potencial)
 
-El panel de control de métricas de aplicación incorporado ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash)) también incluye un diagrama para 'Otras solicitudes', que muestra la duración de la solicitud de base de datos para bases de datos soportadas (MongoDB, MySQL, Postgres, LevelDB, y Redis), Socket.IO y Sucesos de Riak.
+El panel de control de métricas de aplicación incorporado ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")) también incluye un diagrama correspondiente a ‘Otras solicitudes’, que muestra la duración de la solicitud de base de datos para las bases de datos soportadas (MongoDB, MySQL, Postgres, LevelDB y Redis), Socket.IO y sucesos Riak.
 
 Desde el panel de control, se puede generar un informe de nodo o una instantánea de almacenamiento dinámico para conseguir un análisis más detallado.
 
 ## Adición de métricas a apps Node.js existentes
 {: #add-appmetrics-existing}
 
-Añada características de supervisión a las aplicaciones Express existentes con el constructor [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) para pasar en una serie de opciones de configuración. Por ejemplo, una de las opciones utiliza un servidor existente en lugar que `appmetrics-dash` inicie un servidor adicional.
+Añada características de supervisión a las aplicaciones Express existentes con el constructor [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo") para pasar en una serie de opciones de configuración. Por ejemplo, una de las opciones utiliza un servidor existente en lugar que `appmetrics-dash` inicie un servidor adicional.
 
 ### Instalación del panel de control
 {: #install-appmetrics}
@@ -57,7 +61,7 @@ Añada características de supervisión a las aplicaciones Express existentes co
   ```
   {: codeblock}
 
-2. Instale el panel de control `appmetrics` con el siguiente mandato [npm](https://nodejs.org/):
+2. Instale el panel de control `appmetrics` con el siguiente mandato [npm](https://nodejs.org/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"):
   ```
   npm install appmetrics-dash
   ```
@@ -104,12 +108,12 @@ var appzip = require('appmetrics-zipkin')({
 ## Acceso al panel de control
 {: #access-dashboard}
 
-Después de iniciar la aplicación, vaya a `http://<hostname>:<port>/appmetrics-dash` en un navegador.
+Después de iniciar la aplicación, vaya a `http://<hostname>:<port>/appmetrics-dash` in a browser.
 
 Utilice el valor predeterminado `localhost: 3001/appmetrics-dash` para las apps que se ejecutan localmente.
 {: tip}
 
-La interfaz de usuario de panel de control de supervisión de métricas de aplicación para Node.js proporciona un rango de métricas, incluidas las solicitudes HTTP e incluso la latencia de bucle de sucesos, tal como se muestra en el siguiente vídeo [Monitoring Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be).
+La interfaz de usuario de panel de control de supervisión de métricas de aplicación para Node.js proporciona un rango de métricas, incluidas las solicitudes HTTP e incluso la latencia de bucle de sucesos, tal como se muestra en el siguiente vídeo [Monitoring Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
 
 ## Explicación de los datos
 {: #understanding-data}

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-03-28"
+
+keywords: healthcheck node, add healthcheck node, healthcheck endpoint nodes, readiness node, liveness node, endpoint node, probes node, health check node
+
+subcollection: nodejs
 
 ---
 
@@ -14,12 +18,12 @@ lastupdated: "2019-01-14"
 {:tip: .tip}
 
 # Utilización de una comprobación de estado en las apps Node.js
-{: #healthcheck}
+{: #node-healthcheck}
 
-Las comprobaciones de estado proporcionan un mecanismo simple para determinar si una aplicación del lado del servidor se está comportando correctamente. Los entornos de nube, como [Kubernetes](https://www.ibm.com/cloud/container-service) y [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry), se pueden configurar para sondear los puntos finales de estado de forma periódica para determinar si una instancia del servicio está lista para aceptar tráfico.
+Las comprobaciones de estado proporcionan un mecanismo simple para determinar si una aplicación del lado del servidor se está comportando correctamente. Los entornos de nube, como [Kubernetes](https://www.ibm.com/cloud/container-service){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo") y [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"), se pueden configurar de modo que sondeen periódicamente el estado de los puntos finales para determinar si una instancia del servicio está lista para aceptar tráfico.
 
 ## Visión general de la comprobación de estado
-{: #overview}
+{: #node-healthcheck-overview}
 
 Las comprobaciones de estado proporcionan un mecanismo simple para determinar si una aplicación del lado del servidor se está comportando correctamente. Normalmente se consumen a través de HTTP y utilizan códigos de retorno estándares para indicar el estado UP (activo) o DOWN (inactivo). El valor de retorno de una comprobación de estado es variable, pero típicamente es una respuesta JSON mínima, como `{"status": "UP"}`.
 
@@ -40,9 +44,9 @@ La tabla siguiente proporciona una orientación sobre las respuestas que los pun
 | Estado    | Preparación                   | Actividad                   | Estado                    |
 |----------|-----------------------------|----------------------------|---------------------------|
 |          | No es correcta y no se carga       | No es correcto y provoca un reinicio      | No es correcto y provoca un reinicio     |
-| Iniciando | 503 - No disponible           | 200 - Bien                   | Utilizar retraso para evitar la prueba   |
-| Activo       | 200 - Bien                    | 200 - Bien                   | 200 - Bien                  |
-| Deteniendo | 503 - No disponible           | 200 - Bien                   | 503 - No disponible         |
+| Iniciando | 503 - No disponible           | 200 - Correcto                   | Utilizar retraso para evitar la prueba   |
+| Activo       | 200 - Correcto                    | 200 - Correcto                   | 200 - Correcto                  |
+| Deteniendo | 503 - No disponible           | 200 - Correcto                   | 503 - No disponible         |
 | Inactivo     | 503 - No disponible           | 503 - No disponible          | 503 - No disponible         |
 | Con errores  | 500 - Error del servidor          | 500 - Error del servidor         | 500 - Error del servidor        |
 
@@ -61,12 +65,11 @@ app.use("/health", router);
 Compruebe el estado de la app con un navegador accediendo al punto final `/health`.
 
 ## Acceso a la comprobación de estado desde las apps del kit de inicio de Node.js
-{: #healthcheck-starterkit}
+{: #node-healthcheck-starterkit}
 
 De forma predeterminada, al generar una app Node.js utilizando un kit de inicio, hay disponible un punto final de comprobación de estado básico (no autorizado) en `/health` para comprobar el estado de la app (activa/inactiva).
 
 El siguiente archivo `/server/routers/health.js` proporciona el código de punto final de comprobación de estado:
-
 ```js
 var express = require('express');
 
@@ -83,7 +86,7 @@ module.exports = function(app) {
 {: codeblock}
 
 ## Recomendaciones para pruebas de actividad y preparación
-{: #readiness-recommend}
+{: #node-readiness-probes}
 
 Las pruebas de comprobación pueden incluir la viabilidad de conexiones a servicios en sentido descendente en el resultado cuando no haya una reserva aceptable si el servicio en sentido descendente no está disponible. Esto no implica llamar a la comprobación de estado que proporciona directamente el servicio en sentido descendente, puesto que la infraestructura realiza la comprobación. En su lugar, considere la posibilidad de verificar el estado de las referencias existentes que tiene la aplicación en los servicios en sentido descendente: puede ser una conexión JMS a WebSphere MQ o un consumidor o productor Kafka inicializado. Si comprueba la viabilidad de referencias internas en servicios en sentido descendente, almacene en memoria caché el resultado para minimizar el impacto que tiene la comprobación de estado en la aplicación.
 
@@ -92,7 +95,7 @@ Una prueba de actividad, por el contrario, tiene en cuenta lo que se comprueba, 
 ### Adición de soporte para los puntos finales de preparación (readiness) y actividad (liveness) de Kubernetes
 {: #kube-readiness-add}
 
-La biblioteca [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) de [CloudNativeJS], proporciona una infraestructura para definir puntos finales de preparación y actividad en Node que permiten la composición de orígenes para el estado de cada punto final.
+La [biblioteca `cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo") de [CloudNativeJS](https://github.com/cloudnativejs){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo") proporciona una infraestructura para definir puntos finales de actividad y de preparación separados en Nodo que permitan la composición de orígenes para saber el estado de cada punto final.
 
 ## Configuración de pruebas de actividad y preparación en Kubernetes
 {: #kube-readiness-config}
@@ -135,4 +138,4 @@ spec:
 ```
 {: codeblock}
 
-Para obtener más información, consulte cómo [Configurar pruebas de actividad y comprobación](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).
+Para obtener más información, consulte cómo [Configurar pruebas de actividad y de preparación](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").

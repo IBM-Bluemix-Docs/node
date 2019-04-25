@@ -2,9 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-04-04"
+
+keywords: nodejs storage, nodejs cloudant, nodejs iam, initialize sdk nodejs, test nodejs app, dbaas nodejs, nodejs-cloudant, store documents nodejs
+
+subcollection: nodejs
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -19,15 +24,15 @@ O {{site.data.keyword.cloudantfull}} é um Banco de dados como um serviço (DBaa
 clusters de banco de dados, PCs desktop e dispositivos móveis.
 {:shortdesc}
 
-Para obter mais informações, consulte  [ {{site.data.keyword.cloudant_short_notm}}  Básico ](/docs/services/Cloudant/basics/index.html#cloudant-nosql-db-basics){:new_window}.
+Para obter mais informações, consulte [Informações básicas do {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant/basics?topic=cloudant-ibm-cloudant-basics#ibm-cloudant-basics).
 
 ## Antes de começar
 {: #prereqs-cloudant}
 
 Verifique se os pré-requisitos a seguir estão prontos:
- * Biblioteca do cliente [Nodejs-cloudant ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/nodejs-cloudant){:new_window} 2.3.0+.
- * Deve-se ter uma [conta do {{site.data.keyword.cloud}} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}.
- * Para acessar o {{site.data.keyword.cloudant_short_notm}}, deve-se criar um serviço no [Painel do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/dashboard/apps){: new_window} e, em seguida, ativar o Painel do {{site.data.keyword.cloudant_short_notm}} nessa instância de serviço.
+ * Biblioteca do cliente [Nodejs-cloudant ](https://github.com/cloudant/nodejs-cloudant){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") 2.3.0+.
+ * Deve-se ter uma [conta do {{site.data.keyword.cloud}}](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").
+ * Para acessar o {{site.data.keyword.cloudant_short_notm}}, deve-se criar um serviço no [painel do {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/dashboard/apps){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") e, em seguida, ativar o painel do {{site.data.keyword.cloudant_short_notm}} por meio dessa instância de serviço.
  * Os fragmentos de código nessas instruções usam a autenticação do IAM.
  
 ### Ativando o IAM com o  {{site.data.keyword.cloudant_short_notm}}
@@ -35,7 +40,7 @@ Verifique se os pré-requisitos a seguir estão prontos:
 
 Apenas novas instâncias de serviço do {{site.data.keyword.cloudant_short_notm}} podem ser usadas com o {{site.data.keyword.cloud_notm}} IAM.
 
-Todas as novas instâncias de serviço do {{site.data.keyword.cloudant_short_notm}} são ativadas para usar o {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) quando provisionado. Ao provisionar uma nova instância do Catálogo do {{site.data.keyword.cloud_notm}}, escolha o método de autenticação **Usar apenas IAM**. Esse modo significa que somente as credenciais do IAM são fornecidas pela ligação de serviço e a geração de credenciais. É possível localizar mais informações em [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/services/Cloudant/guides/iam.html).
+Todas as novas instâncias de serviço do {{site.data.keyword.cloudant_short_notm}} são ativadas para usar o {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) quando provisionado. Ao provisionar uma nova instância do Catálogo do {{site.data.keyword.cloud_notm}}, escolha o método de autenticação **Usar apenas IAM**. Esse modo significa que somente as credenciais do IAM são fornecidas pela ligação de serviço e a geração de credenciais. É possível localizar mais informações em [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/services/Cloudant/guides?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
 
 ## Etapa 1. Criando uma instância do  {{site.data.keyword.cloudant_short_notm}}
 {: #create-instance-cloudant}
@@ -43,9 +48,8 @@ Todas as novas instâncias de serviço do {{site.data.keyword.cloudant_short_not
 Quando você cria uma instância do {{site.data.keyword.cloudant_short_notm}}, também cria o banco de dados.
 
 1. Efetue login em sua conta do {{site.data.keyword.cloud_notm}}.
-2. No [Painel do {{site.data.keyword.cloud_notm}} ![Ícone de linkexterno](../icons/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/dashboard/apps){: new_window}, clique em **Criar um recurso**. O Catálogo do  {{site.data.keyword.cloud_notm}}  é aberto.
-
-3. No [Catálogo do {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/), selecione a categoria **Bancos de dados** e, em seguida, clique em {{site.data.keyword.cloudant_short_notm}}. A página de configuração de serviço é aberta.
+2. No [painel do {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/dashboard/apps){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo"), clique em **Criar recurso**. O Catálogo do  {{site.data.keyword.cloud_notm}}  é aberto.
+3. No [catálogo do {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo"), selecione a categoria **Bancos de dados** e, em seguida, clique em {{site.data.keyword.cloudant_short_notm}}. A página de configuração de serviço é aberta.
 4. Preencha as informações nos campos a seguir:
   * **Nome do serviço** - Digite um nome para sua instância de serviço ou use o nome pré-configurado.
   * **Escolhe uma região/local no qual implementar** - Selecione uma região na qual implementar seu serviço.
@@ -61,14 +65,14 @@ Quando você cria uma instância do {{site.data.keyword.cloudant_short_notm}}, t
 8. No menu de navegação, clique no ícone **Bancos de dados**.
 9. Clique em **Criar banco de dados**, forneça um nome de banco de dados e, em seguida, clique em **Criar.** A página do banco de dados é aberta
 
-Se desejar ver as informações relacionadas sobre o fornecimento de uma instância do serviço {{site.data.keyword.cloud_notm}}, consulte o [tutorial Criando uma instância do IBM Cloudant no IBM Cloud](/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-nosql-db-instance-on-ibm-cloud){: new_window}.
+Se desejar ver as informações relacionadas sobre o fornecimento de uma instância do serviço {{site.data.keyword.cloud_notm}}, consulte o [tutorial Criando uma instância do IBM Cloudant no IBM Cloud](/docs/services/Cloudant/tutorials?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-a-cloudant-nosql-db-instance-on-ibm-cloud).
 
 ## Etapa 2. Instalando o SDK
 {: #install-cloudant}
 
 <!--From github.com/cloudant/nodejs-cloudant#installation-and-usage-->
 
-Comece com seu próprio projeto Node.js e defina esse trabalho como sua dependência. Em outras palavras, coloque o {{site.data.keyword.cloudant_short_notm}} nas dependências do package.json. Use o gerenciador de pacote [npm](https://nodejs.org/) da linha de comandos para instalar o SDK:
+Comece com seu próprio projeto Node.js e defina esse trabalho como sua dependência. Em outras palavras, coloque o {{site.data.keyword.cloudant_short_notm}} nas dependências do package.json. Use o gerenciador de pacote [npm](https://nodejs.org/){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") na linha de comandos para instalar o SDK:
 ```
 npm install -- save @cloudant/cloudant
 ```
@@ -178,18 +182,17 @@ var deleteDocument = function (callback) {
 Está tudo configurado corretamente? Teste-o para fora!
 
 1. Execute seu aplicativo, certificando-se de iniciar a inicialização e as respectivas operações, como criar um documento.
-2. No [Painel do {{site.data.keyword.cloud_notm}} ![Ícone de linkexterno](../icons/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/dashboard/apps){: new_window}, clique na instância de serviço do {{site.data.keyword.cloudant_short_notm}} criada anteriormente. Quando a instância de serviço for aberta, clique em **Ativar o Painel do Cloudant**.
-
+2. No [painel do {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/dashboard/apps){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo"), clique na instância de serviço do {{site.data.keyword.cloudant_short_notm}} que você criou anteriormente. Quando a instância de serviço for aberta, clique em **Ativar o Painel do Cloudant**.
 3. No Painel do {{site.data.keyword.cloudant_short_notm}}, selecione o banco de dados no qual você criou os novos documentos.
 
-Tendo problemas? Verifique a [Referência de API do {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant/api/index.html#api-reference-overview){:new_window}.
+Tendo problemas? Consulte a [Referência de API do {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-api-reference-overview).
 
 ## Etapas seguintes
 {: #next-cloudant notoc}
 
 Ótimo trabalho! Você incluiu um nível de persistência segura em seu app. Tente uma das opções a seguir para manter o ritmo:
 
-* Visualize o código-fonte do [{{site.data.keyword.cloudant_short_notm}} SDK for Node.js ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/nodejs-cloudant){: new_window}.
-* Verifique o [código de exemplo para operações de banco de dados e de documento ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/nodejs-cloudant/tree/master/example){: new_window}.
-* Os Kits de iniciador são uma das maneiras mais rápidas de usar os recursos do {{site.data.keyword.cloud}}. Visualize os kits de iniciador disponíveis no [Painel do desenvolvedor de dispositivos móveis ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/developer/mobile/dashboard){: new_window}. Faça download do código. Execute o app!
-* Para saber mais e aproveitar todos os recursos oferecidos pelo {{site.data.keyword.cloudant_short_notm}}, [verifique os docs](/docs/services/Cloudant/getting-started.html).
+* Visualize o código-fonte do [{{site.data.keyword.cloudant_short_notm}} SDK for Node.js ](https://github.com/cloudant/nodejs-cloudant){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").
+* Verifique o [código de exemplo para operações de banco de dados e de documento ](https://github.com/cloudant/nodejs-cloudant/tree/master/example){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").
+* Os Kits de iniciador são uma das maneiras mais rápidas de usar os recursos do {{site.data.keyword.cloud}}. Visualize os kits de iniciador disponíveis no [Painel do desenvolvedor de dispositivos móveis ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo"). Faça download do código. Execute o app!
+* Para saber mais e aproveitar todos os recursos oferecidos pelo {{site.data.keyword.cloudant_short_notm}}, [consulte os docs](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started-with-cloudant).

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-04-04"
+
+keywords: nodejs logging, view logs nodejs, add logging nodejs, log4j nodejs, stdout nodejs, nodejs log, output nodejs, nodejs logger
+
+subcollection: nodejs
 
 ---
 
@@ -16,7 +20,7 @@ lastupdated: "2019-02-27"
 # Efetuando login no Node.js
 {: #logging_nodejs}
 
-Mensagens de log são sequências com informações contextuais sobre o estado e a atividade do microsserviço no momento em que a entrada de log é feita. Os logs são necessários para diagnosticar como e por que os serviços falham e desempenham uma função de suporte para [appmetrics](/docs/node/appmetrics.html#metrics) no funcionamento do aplicativo de monitoramento.
+Mensagens de log são sequências com informações contextuais sobre o estado e a atividade do microsserviço no momento em que a entrada de log é feita. Os logs são necessários para diagnosticar como e por que os serviços falham e desempenham uma função de suporte para [appmetrics](/docs/node?topic=nodejs-metrics) no funcionamento do aplicativo de monitoramento.
 
 Dada a natureza transitória de processos em ambientes de nuvem, os logs devem ser coletados e enviados para outros lugares, geralmente para um local centralizado para análise. A maneira mais consistente de efetuar login em ambientes de nuvem é enviar entradas de log para fluxos de saída e erro padrão, deixando a infraestrutura manipular o restante.
 
@@ -68,7 +72,7 @@ do log4js-node](https://log4js-node.github.io/log4js-node/){: new_window} ![Íco
 ## Monitorando com os apps do App Service
 {: #monitoring}
 
-Os apps Node.js criados usando o {{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard) são fornecidos com o Log4js por padrão. É possível abrir o arquivo `server/server.js` para ver o código Log4js a seguir:
+Os apps Node.js que são criados usando o {{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") vêm com Log4js por padrão. É possível abrir o arquivo `server/server.js` para ver o código Log4js a seguir:
 ```js
 var logger = log4js.getLogger(appName);
 var app = express();
@@ -96,7 +100,7 @@ Veja a saída de log de amostra a seguir gerada pela execução do app de forma 
   ```
   {: codeblock}
 
-* Para as implementações do [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo"), é possível acessar os logs executando:
+* Para implementações do [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/), é possível acessar os logs executando:
   ```
   kubectl logs <deployment name>
   ```
@@ -107,9 +111,9 @@ Veja a saída de log de amostra a seguir gerada pela execução do app de forma 
 
 Saiba mais sobre a visualização de logs em cada ambiente de implementação:
 * [Logs do Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")
-* [ Logs do Cloud Foundry ](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html#logging_cf_apps)
-* [Logs e monitoramento do {{site.data.keyword.openwhisk}} ](/docs/openwhisk/openwhisk_logs.html#openwhisk_logs)
+* [ Logs do Cloud Foundry ](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps#logging_cf_apps)
+* [{{site.data.keyword.openwhisk}} Logs & Monitoramento](/docs/openwhisk?topic=cloud-functions-openwhisk_logs#openwhisk_logs)
 
 Usando um agregador de log:
-* [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis/log_analysis_ov.html#log_analysis_ov)
+* [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis?topic=cloudloganalysis-log_analysis_ov#log_analysis_ov)
 * [Pilha ELK do {{site.data.keyword.cloud_notm}} Private](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.2/manage_metrics/logging_elk.html){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")
