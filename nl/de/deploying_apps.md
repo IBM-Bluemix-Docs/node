@@ -2,9 +2,14 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-08"
+lastupdated: "2019-03-28"
+
+keywords: deploy nodejs app, serverless nodejs, back-end nodejs, generated sdk nodejs, cloud foundry deploy nodejs, kubernetes deploy nodejs, virtual nodejs
+
+subcollection: nodejs
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -38,16 +43,16 @@ Weitere Informationen finden Sie in [Back-End-Services mit einem generierten SDK
 ## Bereitstellung in einem Kubernetes-Cluster
 {: #deploy_kube}
 
-Sie können erfahren, wie Sie den Kubernetes-Service von {{site.data.keyword.cloud_notm}} zur Bereitstellung einer containerisierten Node.js-App verwenden können, die Watson Tone Analyzer verwenden. Im vorliegenden Szenario verwendet eine fiktive PR-Firma den {{site.data.keyword.cloud_notm}}-Service, um ihre Pressemitteilungen zu analysieren und Feedback zum Ton ihrer Nachrichten zu erhalten. Weitere Informationen finden Sie im Lernprogramm [Apps in Kubernetes-Clustern bereitstellen](/docs/containers/cs_tutorials_apps.html#cs_apps_tutorial). 
+Sie können erfahren, wie Sie den Kubernetes-Service von {{site.data.keyword.cloud_notm}} zur Bereitstellung einer containerisierten Node.js-App verwenden können, die Watson Tone Analyzer verwenden. Im vorliegenden Szenario verwendet eine fiktive PR-Firma den {{site.data.keyword.cloud_notm}}-Service, um ihre Pressemitteilungen zu analysieren und Feedback zum Ton ihrer Nachrichten zu erhalten. Weitere Informationen finden Sie im Lernprogramm [Apps in Kubernetes-Clustern bereitstellen](/docs/containers/cs_tutorials_apps.html#cs_apps_tutorial).
 
 ## Bereitstellung in Cloud Foundry
 {: #node-deploy-cf}
 
-Mit dieser Option wird die cloudnative App bereitgestellt, ohne dass Sie die zugrunde liegende Infrastruktur verwalten müssen. 
+Mit dieser Option wird die cloudnative App bereitgestellt, ohne dass Sie die zugrunde liegende Infrastruktur verwalten müssen.
 
-Wenn Sie die App in [{{site.data.keyword.cfee_full}}](/docs/cloud-foundry/index.html#about) bereitstellen möchten, müssen Sie [Ihr {{site.data.keyword.cloud_notm}}-Konto vorbereiten](/docs/cloud-foundry/prepare-account.html#prepare). 
+Wenn Sie die App in [{{site.data.keyword.cfee_full}}](/docs/cloud-foundry/index.html#about) bereitstellen möchten, müssen Sie [Ihr {{site.data.keyword.cloud_notm}}-Konto vorbereiten](/docs/cloud-foundry/prepare-account.html#prepare).
 
-Wenn Ihr Konto über Zugriff auf {{site.data.keyword.cfee_full_notm}} verfügt, können Sie als Bereitstellertyp entweder **[Public Cloud](/docs/cloud-foundry-public/about-cf.html#about-cf)** oder **[Enterprise Environment](/docs/cloud-foundry-public/cfee.html#cfee)** auswählen, das zum Erstellen und Verwalten isolierter Umgebungen für das exklusive Hosting von Cloud Foundry-Anwendungen für Ihr Unternehmen verwendet werden kann. 
+Wenn Ihr Konto über Zugriff auf {{site.data.keyword.cfee_full_notm}} verfügt, können Sie als Bereitstellertyp entweder **[Public Cloud](/docs/cloud-foundry-public/about-cf.html#about-cf)** oder **[Enterprise Environment](/docs/cloud-foundry-public/cfee.html#cfee)** auswählen, das zum Erstellen und Verwalten isolierter Umgebungen für das exklusive Hosting von Cloud Foundry-Anwendungen für Ihr Unternehmen verwendet werden kann.
 
 ## Bereitstellung auf einem virtuellen Server
 {: #virtual_deploy}

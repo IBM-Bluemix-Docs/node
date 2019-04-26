@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-04-04"
+
+keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
+
+subcollection: nodejs
 
 ---
 
@@ -13,16 +17,16 @@ lastupdated: "2019-01-14"
 {:pre: .pre}
 {:tip: .tip}
 
-# Application Metrics mit Node.js-Apps verwenden
+# Anwendungsmetriken mit Node.js-Apps verwenden
 {: #metrics}
 
-Hier erfahren Sie, wie Sie die Node.js-Anwendungsmetriken installieren, auf sie zugreifen und sie besser verstehen können. Sie können Node.js-Apps mit dem [Node Application Metrics](https://developer.ibm.com/code/open/projects/node-application-metrics/)-Dashboard überwachen, um die Leistung Ihrer Node.js-Anwendung zu visualisieren, indem Metriken in einem webbasierten Front-End angezeigt werden.
+Hier erfahren Sie, wie Sie die Node.js-Anwendungsmetriken installieren, auf sie zugreifen und sie besser verstehen können. Sie können Node.js-Apps mit dem Dashboard [Node Application Metrics](https://developer.ibm.com/open/projects/node-application-metrics/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") überwachen, um die Leistung Ihrer Node.js-Anwendung zu visualisieren, indem Metriken in einem webbasierten Front-End angezeigt werden.
 {: shortdesc}
 
 ## Probleme in visueller Form darstellen
 {: #identify-problems}
 
-Anwendungsmetriken sind wichtig für die Überwachung der Leistung Ihrer Anwendung. Eine Live-Ansicht von Metriken wie CPU-, Speicher-, Latenzzeit- und HTTP-Metriken ist erforderlich, um sicherzustellen, dass Ihre Anwendung über einen bestimmten Zeitraum hinweg effektiv ausgeführt wird. Sie können einen Cloud-Service wie die [automatische Skalierung](/docs/services/Auto-Scaling/index.html) von Cloud Foundry verwenden, der auf Metriken angewiesen ist, um Instanzen dynamisch entsprechend der aktuellen Workload zu skalieren. Durch die Verwendung von Anwendungsmetriken werden Sie genau informiert, wann Sie ein Scale-up oder ein Scale-down für Instanzen durchführen oder Instanzen löschen müssen, wenn diese nicht mehr benötigt werden, um die Kosten niedrig zu halten.
+Anwendungsmetriken sind wichtig für die Überwachung der Leistung Ihrer Anwendung. Eine Live-Ansicht von Metriken wie CPU-, Speicher-, Latenzzeit- und HTTP-Metriken ist erforderlich, um sicherzustellen, dass Ihre Anwendung über einen bestimmten Zeitraum hinweg effektiv ausgeführt wird. Sie können einen Cloud-Service wie die [automatische Skalierung](/docs/services/Auto-Scaling?topic=services/Auto-Scaling-get-started#get-started) von Cloud Foundry verwenden, der auf Metriken angewiesen ist, um Instanzen dynamisch entsprechend der aktuellen Workload zu skalieren. Durch die Verwendung von Anwendungsmetriken werden Sie genau informiert, wann Sie ein Scale-up oder ein Scale-down für Instanzen durchführen oder Instanzen löschen müssen, wenn diese nicht mehr benötigt werden, um die Kosten niedrig zu halten.
 
 Anwendungsmetriken werden als Zeitreihendaten erfasst. Das Zusammenfassen und Visualisieren erfasster Metriken kann helfen, allgemeine Leistungsprobleme wie die folgenden zu erkennen:
 
@@ -32,14 +36,14 @@ Anwendungsmetriken werden als Zeitreihendaten erfasst. Das Zusammenfassen und Vi
 * Höhere CPU-Belastung als erwartet
 * Hohe oder steigende Speicherbelegung (möglicher Speicherverlust)
 
-Das integrierte Application Metrics-Dashboard ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash)) enthält auch ein Diagramm für 'Weitere Anforderungen', das die Dauer der Datenbankanforderung für unterstützte Datenbanken (MongoDB, MySQL, Postgres, LevelDB und Redis), Socket.IO und Riak-Ereignisse anzeigt.
+Das integrierte Dashboard für Anwendungsmetriken ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link")) enthält auch ein Diagramm für 'Weitere Anforderungen', das die Dauer der Datenbankanforderung für unterstützte Datenbanken (MongoDB, MySQL, Postgres, LevelDB und Redis), Socket.IO und Riak-Ereignisse anzeigt. 
 
 Über das Dashboard kann ein Knotenbericht oder eine Heapspeichermomentaufnahme generiert werden, um eine detailliertere Analyse zu ermöglichen.
 
 ## Metriken zu vorhandenen Node.js-Apps hinzufügen
 {: #add-appmetrics-existing}
 
-Fügen Sie Überwachungsfunktionen zu vorhandenen Express-Anwendungen mit dem Konstruktor [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash) hinzu, um eine Reihe von Konfigurationsoptionen zu übergeben. Eine der Optionen verwendet beispielsweise einen vorhandenen Server, anstatt mit `appmetrics-dash` einen zusätzlichen Server zu starten.
+Fügen Sie Überwachungsfunktionen zu vorhandenen Express-Anwendungen mit dem Konstruktor [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") hinzu, um eine Reihe von Konfigurationsoptionen zu übergeben. Eine der Optionen verwendet beispielsweise einen vorhandenen Server, anstatt mit `appmetrics-dash` einen zusätzlichen Server zu starten.
 
 ### Dashboard installieren
 {: #install-appmetrics}
@@ -57,7 +61,7 @@ Fügen Sie Überwachungsfunktionen zu vorhandenen Express-Anwendungen mit dem Ko
   ```
   {: codeblock}
 
-2. Installieren Sie das `appmetrics`-Dashboard mit dem folgenden [npm](https://nodejs.org/)-Befehl:
+2. Installieren Sie das Dashboard `appmetrics` mit dem folgenden Befehl [npm](https://nodejs.org/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link"): 
   ```
   npm install appmetrics-dash
   ```
@@ -109,7 +113,7 @@ Nachdem Sie Ihre Anwendung gestartet haben, rufen Sie `http://<hostname>:<port>/
 Verwenden Sie den Standardwert `localhost:3001/appmetrics-dash` für Apps, die lokal ausgeführt werden.
 {: tip}
 
-Die Benutzerschnittstelle des Überwachungsdashboards von Application Metrics for Node.js stellt eine Reihe von Metriken bereit, einschließlich HTTP-Anforderungen und Ereignisschleifenlatenz, wie im folgenden Video zu [Überwachungsmetriken für Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be) zu sehen.
+Die Benutzerschnittstelle des Überwachungsdashboards von Application Metrics for Node.js stellt eine Reihe von Metriken bereit, einschließlich HTTP-Anforderungen und Ereignisschleifenlatenz, wie im folgenden Video zu [Überwachungsmetriken für Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") zu sehen ist. 
 
 ## Informationen zu den Daten
 {: #understanding-data}

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-03-28"
+
+keywords: healthcheck node, add healthcheck node, healthcheck endpoint nodes, readiness node, liveness node, endpoint node, probes node, health check node
+
+subcollection: nodejs
 
 ---
 
@@ -14,12 +18,12 @@ lastupdated: "2019-01-14"
 {:tip: .tip}
 
 # Statusprüfung in Node.js-Apps verwenden
-{: #healthcheck}
+{: #node-healthcheck}
 
-Statusprüfungen bieten einen einfachen Mechanismus, um festzustellen, ob eine serverseitige Anwendung sich ordnungsgemäß verhält. Cloudumgebungen wie [Kubernetes](https://www.ibm.com/cloud/container-service) und [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry) können so konfiguriert werden, dass in regelmäßigen Abständen Statusendpunkte abgefragt werden, um festzustellen, ob eine Instanz Ihres Service bereit ist, Datenverkehr zu akzeptieren.
+Statusprüfungen bieten einen einfachen Mechanismus, um festzustellen, ob eine serverseitige Anwendung sich ordnungsgemäß verhält. Cloudumgebungen wie [Kubernetes](https://www.ibm.com/cloud/container-service){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") und [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") können so konfiguriert werden, dass in regelmäßigen Abständen Statusendpunkte abgefragt werden, um festzustellen, ob eine Instanz Ihres Service bereit ist, Datenverkehr zu akzeptieren. 
 
 ## Übersicht über die Statusprüfung
-{: #overview}
+{: #node-healthcheck-overview}
 
 Statusprüfungen bieten einen einfachen Mechanismus, um festzustellen, ob eine serverseitige Anwendung sich ordnungsgemäß verhält. Sie werden in der Regel über HTTP genutzt und verwenden zum Anzeigen der Statusangaben UP oder DOWN standardmäßige Rückgabecodes. Der Rückgabewert einer Statusprüfung ist zwar variabel, aber eine minimale JSON-Antwort wie `{"status": "UP"}` ist die Regel.
 
@@ -61,12 +65,11 @@ app.use("/health", router);
 Überprüfen Sie mithilfe eines Browsers den Status der App; greifen Sie hierfür auf den Endpunkt `/health` zu.
 
 ## Zugriff auf Statusprüfung von Node.js-Starter-Kit-Apps
-{: #healthcheck-starterkit}
+{: #node-healthcheck-starterkit}
 
 Wenn Sie eine Node.js-App mit einem Starter-Kit generieren, ist standardmäßig ein Basisendpunkt (nicht autorisiert) verfügbar, der unter `/health` verfügbar ist, um den Status der App zu überprüfen (UP/DOWN).
 
 Der Code für den Endpunkt der Statusprüfung wird von der folgenden Datei `/server/routers/health.js` bereitgestellt:
-
 ```js
 var express = require('express');
 
@@ -83,7 +86,7 @@ module.exports = function(app) {
 {: codeblock}
 
 ## Empfehlungen für Readiness- und Liveness-Tests
-{: #readiness-recommend}
+{: #node-readiness-probes}
 
 Readiness-Tests können die Viabilität von Verbindungen zu Downstream-Services in ihrem Ergebnis beinhalten, wenn bei Nichtverfügbarkeit des Downstream-Service kein zulässiger Fallback aufweisbar ist. Dies bedeutet nicht, dass die Statusprüfung direkt aufgerufen wird, die der Downstream-Service bereitstellt; dies wird von der Infrastruktur für Sie übernommen. Stattdessen sollten Sie den Status der bereits vorhandenen Verweise Ihrer Anwendung auf Downstream-Services prüfen: Dies kann eine JMS-Verbindung zu WebSphere MQ oder ein initialisierter Kafka-Consumer oder -Producer sein. Wenn Sie die Viabilität interner Verweise auf Downstream-Services prüfen, stellen Sie das Ergebnis in den Cache, um die Auswirkungen der Statusprüfung auf Ihre Anwendung zu minimieren.
 
@@ -92,7 +95,7 @@ Ein Liveness-Test hingegen verhält sich Überprüfungen gegenüber vorsichtig, 
 ### Unterstützung für Kubernetes-Readiness und -Liveness hinzufügen
 {: #kube-readiness-add}
 
-Die Bibliothek [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect) aus [CloudNativeJS] stellt ein Framework für die Definition separater Liveness- und Readiness-Endpunkte in Node bereit; diese ermöglichen die Erstellung von Quellen für den Zustand der einzelnen Endpunkte.
+Die Bibliothek [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") aus [CloudNativeJS](https://github.com/cloudnativejs){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") stellt ein Framework für die Definition separater Liveness- und Readiness-Endpunkte in Node bereit; diese ermöglichen die Erstellung von Quellen für den Zustand der einzelnen Endpunkte. 
 
 ## Readiness- und Liveness-Tests in Kubernetes konfigurieren
 {: #kube-readiness-config}
@@ -135,4 +138,4 @@ spec:
 ```
 {: codeblock}
 
-Weitere Informationen finden Sie in [Configure liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).
+Weitere Informationen finden Sie in [Configure Liveness and Readiness Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link"). 

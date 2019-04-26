@@ -2,7 +2,11 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-04-04"
+
+keywords: nodejs logging, view logs nodejs, add logging nodejs, log4j nodejs, stdout nodejs, nodejs log, output nodejs, nodejs logger
+
+subcollection: nodejs
 
 ---
 
@@ -16,7 +20,7 @@ lastupdated: "2019-02-27"
 # Protokollierung in Node.js
 {: #logging_nodejs}
 
-Protokollnachrichten sind Zeichenfolgen mit Kontextinformationen zum Status und der Aktivität des Mikroservice zu dem Zeitpunkt, an dem der Protokolleintrag erfolgt. Protokolle sind erforderlich, um zu diagnostizieren, wie und warum Services fehlschlagen, und spielen eine unterstützende Rolle für [appmetrics](/docs/node/appmetrics.html#metrics) bei der Anwendungsstatusprüfung.
+Protokollnachrichten sind Zeichenfolgen mit Kontextinformationen zum Status und der Aktivität des Mikroservice zu dem Zeitpunkt, an dem der Protokolleintrag erfolgt. Protokolle sind erforderlich, um zu diagnostizieren, wie und warum Services fehlschlagen, und spielen eine unterstützende Rolle für [appmetrics](/docs/node?topic=nodejs-metrics) bei der Anwendungsstatusprüfung.
 
 Angesichts der transienten Natur von Prozessen in Cloud-Umgebungen müssen Protokolle erfasst und an eine andere Stelle gesendet werden, in der Regel an eine zentrale Position für die Analyse. Die konsistenteste Möglichkeit, sich in Cloud-Umgebungen anzumelden, besteht darin, Protokolleinträge an die Standardausgabe- und Fehlerdatenströme zu senden; die Infrastruktur ist dann für die restliche Verarbeitung zuständig.
 
@@ -29,7 +33,7 @@ Sie können [Log4js](https://github.com/log4js-node/log4js-node){: new_window} !
 ## Log4js-Unterstützung zu einer vorhandenen Node.js-App hinzufügen
 {: #add_log4j}
 
-1. Installieren Sie als ersten Schritt `log4js`, indem Sie den folgenden [npm](https://nodejs.org/){: new_window}-Befehl ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") im Stammverzeichnis der Anwendung ausführen. Hierdurch wird das Paket installiert und zur Datei `package.json` hinzugefügt. 
+1. Installieren Sie als ersten Schritt `log4js`, indem Sie den folgenden [npm](https://nodejs.org/){: new_window}-Befehl ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") im Stammverzeichnis der Anwendung ausführen. Hierdurch wird das Paket installiert und zur Datei `package.json` hinzugefügt.
   ```bash
   npm install --save log4js
   ```
@@ -38,6 +42,7 @@ Sie können [Log4js](https://github.com/log4js-node/log4js-node){: new_window} !
 2. Um Log4js in der Anwendung zu verwenden, fügen Sie die folgenden Codezeilen zur App hinzu:
   ```js
   var log4js = require('log4js');
+
   var log = log4js.getLogger();
   log.level = 'debug';
   log.debug("My Debug message");
@@ -50,7 +55,7 @@ Sie können [Log4js](https://github.com/log4js-node/log4js-node){: new_window} !
   ```
   {: screen}
 
-3. Damit Protokollereignisse in den Standardfehlerdatenstrom geschrieben werden, können Sie einen Appender konfigurieren, wie im folgenden Beispiel veranschaulicht: 
+3. Damit Protokollereignisse in den Standardfehlerdatenstrom geschrieben werden, können Sie einen Appender konfigurieren, wie im folgenden Beispiel veranschaulicht:
   ```js
   var log4js = require('log4js');
   
@@ -61,12 +66,12 @@ Sie können [Log4js](https://github.com/log4js-node/log4js-node){: new_window} !
   ```
   {: codeblock}
 
-  Weitere Informationen zum Anpassen der Protokollnachrichten mit Appendern, `Protokollebenen` und Konfigurationsdetails finden Sie in der offiziellen Dokumentation zu [log4js-node](https://log4js-node.github.io/log4js-node/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link"). 
+  Weitere Informationen zum Anpassen der Protokollnachrichten mit Appendern, `Protokollebenen` und Konfigurationsdetails finden Sie in der offiziellen Dokumentation zu [log4js-node](https://log4js-node.github.io/log4js-node/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link").
 
 ## Überwachung mit App-Service-Apps
 {: #monitoring}
 
-Node.js-Apps, die mit dem {{site.data.keyword.cloud_notm}} [App-Service](https://cloud.ibm.com/developer/appservice/dashboard) erstellt werden, werden standardmäßig mit Log4js bereitgestellt. Sie können die Datei `server/server.js` öffnen, um den folgenden Log4js-Code anzuzeigen:
+Mit dem {{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") erstellte Node.js-Apps werden standardmäßig mit Log4js bereitgestellt. Sie können die Datei `server/server.js` öffnen, um den folgenden Log4js-Code anzuzeigen:
 ```js
 var logger = log4js.getLogger(appName);
 var app = express();
@@ -86,15 +91,15 @@ Die folgende Beispielprotokollausgabe stammt von einer nativen Ausführung der A
 ```
 {: screen}
 
-Zum Anzeigen der Protokollausgabe können die folgenden Methoden verwendet werden: 
-* Für lokale Umgebungen `stdout` verwenden. 
-* Für [Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html)-Bereitstellungen können Sie auf Protokolle zugreifen, indem Sie Folgendes ausführen: 
+Zum Anzeigen der Protokollausgabe können die folgenden Methoden verwendet werden:
+* Für lokale Umgebungen `stdout` verwenden.
+* Für [Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html)-Bereitstellungen können Sie auf Protokolle zugreifen, indem Sie Folgendes ausführen:
   ```
   ibmcloud app logs --recent <APP-NAME>
   ```
   {: codeblock}
 
-* Für Bereitstellungen in [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") können Sie auf Protokolle zugreifen, indem Sie Folgendes ausführen: 
+* Für [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/)-Bereitstellungen können Sie auf Protokolle zugreifen, indem Sie Folgendes ausführen: 
   ```
   kubectl logs <Bereitstellungsname>
   ```
@@ -103,11 +108,11 @@ Zum Anzeigen der Protokollausgabe können die folgenden Methoden verwendet werde
 ## Nächste Schritte
 {: #next_steps-logging notoc}
 
-Weitere Informationen zum Anzeigen von Protokollen in der jeweiligen Bereitstellungsumgebung: 
+Weitere Informationen zum Anzeigen von Protokollen in der jeweiligen Bereitstellungsumgebung:
 * [Kubernetes-Protokolle ](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link")
-* [Cloud Foundry-Protokolle](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html#logging_cf_apps)
-* [{{site.data.keyword.openwhisk}}-Protokolle & -Überwachung](/docs/openwhisk/openwhisk_logs.html#openwhisk_logs)
+* [Cloud Foundry-Protokolle](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps#logging_cf_apps)
+* [{{site.data.keyword.openwhisk}}-Protokolle & -Überwachung](/docs/openwhisk?topic=cloud-functions-openwhisk_logs#openwhisk_logs)
 
 Verwendung eines Protokollaggregators:
-* [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis/log_analysis_ov.html#log_analysis_ov)
+* [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis?topic=cloudloganalysis-log_analysis_ov#log_analysis_ov)
 * [ELK-Stack von {{site.data.keyword.cloud_notm}} Private ](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.2/manage_metrics/logging_elk.html){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link")
