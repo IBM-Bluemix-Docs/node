@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-30"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -149,7 +149,7 @@ function doDeleteObject() {
 ```
 {: codeblock}
 
-Check out the [full documentation](/docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-using-node-js#using-node-js) for multipart uploads, security features, and other operations.
+Check out the [full documentation](/docs/services/cloud-object-storage?topic=cloud-object-storage-node) for multipart uploads, security features, and other operations.
 
 ## Step 4. Testing your app
 {: #test-cos}
@@ -160,7 +160,7 @@ Is everything set up correctly? Test it out!
 2. Return to the {{site.data.keyword.cos_short}} service instance that you previously created in your web browser, and open the service dashboard.
 3. Select the bucket that is used, and you see your newly created objects in the dashboard.
 
-Having trouble? Check out the [{{site.data.keyword.cos_short}} API Reference](/docs/services/cloud-object-storage/api-reference?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about).
+Having trouble? Check out the [{{site.data.keyword.cos_short}} API Reference](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api).
 
 ## Next steps
 {: #next-cos notoc}
@@ -170,4 +170,4 @@ Great job! You added a level of secure persistence to your app. Keep the momentu
 * View the [{{site.data.keyword.cos_short}} SDK for Node.js](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") source code.
 * Check out the [example code for bucket and object operations](https://github.com/ibm/ibm-cos-sdk-js#example-code){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
 * Starter Kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud_notm}}. View the available starter kits in the [Mobile developer dashboard](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"). Download the code. Run the app!
-* To learn more about and take advantage of all of the features that {{site.data.keyword.cos_short}} offers, [check out the docs](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage#about-ibm-cloud-object-storage).
+* To learn more about and take advantage of all of the features that {{site.data.keyword.cos_short}} offers, [check out the docs](/docs/services/cloud-object-storage?topic=cloud-object-storage-about).
