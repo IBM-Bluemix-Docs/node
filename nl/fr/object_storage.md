@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-30"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -149,7 +149,7 @@ function doDeleteObject() {
 ```
 {: codeblock}
 
-Consultez la [documentation complète](/docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-using-node-js#using-node-js) pour les téléchargements à plusieurs parties, les fonctions de sécurité et autres opérations.
+Consultez la [documentation complète](/docs/services/cloud-object-storage?topic=cloud-object-storage-node) pour les téléchargements à plusieurs parties, les fonctions de sécurité et autres opérations.
 
 ## Etape 4. Test de votre application
 {: #test-cos}
@@ -160,7 +160,7 @@ Tout est correctement configuré ? Il est temps de tester !
 2. Revenez à l'instance de service {{site.data.keyword.cos_short}} précédemment créée dans votre navigateur Web et ouvrez le tableau de bord du service.
 3. Sélectionnez le compartiment utilisé, vous verrez les objets nouvelle créés dans le tableau de bord.
 
-Vous rencontrez des problèmes ? Consultez la [Référence d'API {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage/api-reference?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about).
+Vous rencontrez des problèmes ? Consultez les [informations de référence sur l'API {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api).
 
 ## Etapes suivantes
 {: #next-cos notoc}
@@ -170,4 +170,4 @@ Félicitations ! Vous avez ajouté un niveau de persistance sécurisé à votre 
 * Affichez le code source pour [{{site.data.keyword.cos_short}} SDK for Node.js ](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").
 * Consultez l'[exemple de code pour les opérations de compartiment et d'objet ](https://github.com/ibm/ibm-cos-sdk-js#example-code){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").
 * Les kits de démarrage (Starter Kits) constituent l'une des façons les plus rapides d'utiliser les fonctions d'{{site.data.keyword.cloud_notm}}. Affichez les kits de démarrage disponibles dans le tableau de bord [Mobile developer dashboard ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe"). Téléchargez le code. Exécutez l'application !
-* Pour en savoir plus et tirer pleinement parti des fonctions offertes par {{site.data.keyword.cos_short}}, [consultez la documentation](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage#about-ibm-cloud-object-storage).
+* Pour en savoir plus et tirer pleinement parti des fonctions offertes par {{site.data.keyword.cos_short}}, [consultez la documentation](/docs/services/cloud-object-storage?topic=cloud-object-storage-about).

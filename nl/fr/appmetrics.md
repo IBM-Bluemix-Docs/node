@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-30"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
 
@@ -26,7 +26,7 @@ Apprenez à installer et interpréter les métriques d'application Node.js ainsi
 ## Identification visuelle des problèmes
 {: #identify-problems}
 
-Les métriques d'application sont importantes pour la surveillance des performances de votre application. Une vue en direct de métriques comme l'UC, la mémoire, le temps d'attente et les métriques HTTP est essentielle pour vous assurer que votre application fonctionne efficacement dans le temps. Vous pouvez utiliser un service cloud comme Cloud Foundry [Auto-Scaling](/docs/services/Auto-Scaling?topic=services/Auto-Scaling-get-started#get-started), qui repose sur des métriques pour une mise à l'échelle dynamique des instances en fonction de la charge de travail en cours. En utilisant des métriques d'application, vous savez précisément quand augmenter ou réduire des instances, ou les nettoyer lorsqu'elles ne sont plus nécessaires, ce qui vous permet de limiter les coûts.
+Les métriques d'application sont importantes pour la surveillance des performances de votre application. Une vue en direct de métriques comme l'UC, la mémoire, le temps d'attente et les métriques HTTP est essentielle pour vous assurer que votre application fonctionne efficacement dans le temps. Vous pouvez utiliser un service cloud comme Cloud Foundry [Auto-Scaling](/docs/services/Auto-Scaling?topic=Auto-Scaling-get-started), qui repose sur des métriques pour une mise à l'échelle dynamique des instances en fonction de la charge de travail en cours. En utilisant des métriques d'application, vous savez précisément quand augmenter ou réduire des instances, ou les nettoyer lorsqu'elles ne sont plus nécessaires, ce qui vous permet de limiter les coûts.
 
 Les métriques d'application sont capturées sous forme de données de séries temporelles. L'agrégation et la visualisation des métriques capturées peut permettre d'identifier des problèmes de performance courants :
 

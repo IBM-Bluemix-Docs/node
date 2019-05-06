@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-30"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -149,7 +149,7 @@ function doDeleteObject() {
 ```
 {: codeblock}
 
-다중 부분 업로드, 보안 기능 및 기타 오퍼레이션에 대해서는 [전체 문서](/docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-using-node-js#using-node-js)를 참조하십시오.
+다중 부분 업로드, 보안 기능 및 기타 오퍼레이션에 대해서는 [전체 문서](/docs/services/cloud-object-storage?topic=cloud-object-storage-node)를 참조하십시오.
 
 ## 4단계. 앱 테스트
 {: #test-cos}
@@ -160,7 +160,7 @@ function doDeleteObject() {
 2. 웹 브라우저에서 이전에 작성한 {{site.data.keyword.cos_short}} 서비스 인스턴스로 돌아가 서비스 대시보드를 여십시오.
 3. 사용된 버킷을 선택하면 새로 작성된 오브젝트를 대시보드에서 볼 수 있습니다.
 
-문제가 있습니까? [{{site.data.keyword.cos_short}} API 참조](/docs/services/cloud-object-storage/api-reference?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about)를 참조하십시오.
+문제가 있습니까? [{{site.data.keyword.cos_short}} API 참조](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api)를 참조하십시오.
 
 ## 다음 단계
 {: #next-cos notoc}
@@ -170,4 +170,4 @@ function doDeleteObject() {
 * Node.js용 [{{site.data.keyword.cos_short}} SDK ](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘") 소스 코드를 보십시오.
 * [버킷 및 오브젝트 오퍼레이션에 대한 코드 예 ](https://github.com/ibm/ibm-cos-sdk-js#example-code){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")를 참조하십시오.
 * 스타터 킷은 {{site.data.keyword.cloud_notm}}의 기능을 사용하는 가장 빠른 방법 중 하나입니다. [모바일 개발자 대시보드 ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")에서 사용 가능한 스타터 킷을 보십시오. 코드를 다운로드하십시오. 앱을 실행하십시오.
-* {{site.data.keyword.cos_short}}에서 제공하는 모든 기능에 대해 자세히 알아보고 이를 이용하려면 [문서를 확인하십시오](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage#about-ibm-cloud-object-storage).
+* {{site.data.keyword.cos_short}}에서 제공하는 모든 기능에 대해 자세히 알아보고 이를 이용하려면 [문서를 확인하십시오](/docs/services/cloud-object-storage?topic=cloud-object-storage-about).

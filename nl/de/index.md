@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-25"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 
@@ -34,16 +34,14 @@ Stellen Sie sicher, dass Sie das neueste LTS-Release von Node.js verwenden.
 
 2. Klicken Sie auf **App erstellen**.
 3. Geben Sie der App einen **Namen**. Sie haben auch die Möglichkeit, einen generischen App-Namen zu verwenden.
-4. Geben Sie einen **eindeutigen Hostnamen** ein. Der Hostname wird für den Zugriff auf Ihre Anwendung verwendet, zum Beispiel: `expressjs-project.mybluemix.net`.
-5. Klicken Sie auf **Erstellen**. Nachdem Ihr Projekt erstellt wurde, können Sie es mit einer Toolchain bereitstellen; Sie können aber auch mit dem Erstellen fortfahren und das Projekt über die Befehlszeile bereitstellen.
-6. Klicken Sie zum Erstellen einer Bereitstellungstoolchain im Dashboard auf **Bereitstellen**. Richten Sie Ihr Bereitstellungsziel ein, indem Sie die Anweisungen für die von Ihnen ausgewählte Methode ausführen: 
+4. Klicken Sie auf **Erstellen**. Nachdem Ihr Projekt erstellt wurde, können Sie es mit einer Toolchain bereitstellen; Sie können aber auch mit dem Erstellen fortfahren und das Projekt über die Befehlszeile bereitstellen.
+5. Klicken Sie zum Erstellen einer Bereitstellungstoolchain im Dashboard auf **Bereitstellen**. Richten Sie Ihr Bereitstellungsziel ein, indem Sie die Anweisungen für die von Ihnen ausgewählte Methode ausführen:
   * **Bereitstellung in [IBM Kubernetes Service](/docs/apps/deploying?topic=creating-apps-containers-kube#containers)**. Mit dieser Option wird ein Cluster mit Hosts erstellen, die als Workerknoten bezeichnet werden, um hoch verfügbare Anwendungscontainer bereitzustellen und zu verwalten. Sie können einen Cluster erstellen oder die Bereitstellung in einem vorhandenen Cluster vornehmen.
   * **Bereitstellung in Cloud Foundry**. Mit dieser Option wird die cloudnative App bereitgestellt, ohne dass Sie die zugrunde liegende Infrastruktur verwalten müssen. Wenn Ihr Konto über Zugriff auf {{site.data.keyword.cfee_full_notm}} verfügt, können Sie als Bereitstellertyp entweder **[Public Cloud](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf#about-cf)** oder **[Enterprise Environment](/docs/cloud-foundry-public?topic=cloud-foundry-public-cfee#cfee)** auswählen, das zum Erstellen und Verwalten isolierter Umgebungen für das exklusive Hosting von Cloud Foundry-Anwendungen für Ihr Unternehmen verwendet werden kann.
   * **Bereitstellung auf einem [virtuellen Server](/docs/apps?topic=creating-apps-vsi-deploy#vsi-deploy)**. Mit dieser Option wird eine virtuelle Serverinstanz eingerichtet, ein Image mit Ihrer App geladen, eine DevOps-Toolchain erstellt und der erste Bereitstellungszyklus initiiert.
 
-7. Wählen Sie die gewünschten Optionen aus und klicken Sie dann auf **Erstellen**, um die Toolchain zu erstellen.
-
-8. Wenn Sie die CLI anstelle der Toolchain verwenden möchten, laden Sie das Projekt auf Ihre lokale Maschine herunter, dekomprimieren Sie das Projekt mit `unzip` und wechseln Sie mit `cd` in das Stammverzeichnis. Nun können Sie die Voraussetzungen mit der Befehlsmethode für Ihre Plattform installieren:
+6. Wählen Sie die gewünschten Optionen aus und klicken Sie dann auf **Erstellen**, um die Toolchain zu erstellen.
+7. Wenn Sie die CLI anstelle der Toolchain verwenden möchten, laden Sie das Projekt auf Ihre lokale Maschine herunter, dekomprimieren Sie das Projekt mit `unzip` und wechseln Sie mit `cd` in das Stammverzeichnis. Nun können Sie die Voraussetzungen mit der Befehlsmethode für Ihre Plattform installieren:
 
     MacOS:
     ```
@@ -60,10 +58,10 @@ Stellen Sie sicher, dass Sie das neueste LTS-Release von Node.js verwenden.
 ## Service hinzufügen
 {: #node-add-service}
 
-1. Kehren Sie zu Ihrem Projekt im {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} zurück. 
+1. Kehren Sie zu Ihrem Projekt im {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} zurück.
 2. Klicken Sie auf **Service hinzufügen**, wählen Sie die Kategorie des Service aus, den Sie hinzufügen möchten, klicken Sie auf **Weiter** und wählen Sie dann Ihren Service aus. Wenn Sie beispielsweise eine NoSQL-Datenbank zu Ihrer Anwendung hinzufügen möchten, klicken Sie auf die Kategorie **Daten** und wählen Sie dann **Cloudant** aus, das einen Lite-Plan für die kostenlose Entwicklung anbietet. {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} stellt den Service für Sie basierend auf dem ausgewählten Plan bereit.
 Hinweis: Wenn Sie den Service, den Sie verwenden möchten, bereits bereitgestellt haben, wählen Sie die Kategorie **Vorhanden** aus.
-3. Nachdem der Service bereitgestellt wurde, klicken Sie auf **Code herunterladen**, um das Projekt mit dem SDK neu zu generieren, das eine Verbindung zu Ihrem Service herstellt. 
+3. Nachdem der Service bereitgestellt wurde, klicken Sie auf **Code herunterladen**, um das Projekt mit dem SDK neu zu generieren, das eine Verbindung zu Ihrem Service herstellt.
 
 <!--
 <video of creating a project and adding a service>
@@ -75,7 +73,7 @@ Hinweis: Wenn Sie den Service, den Sie verwenden möchten, bereits bereitgestell
 1. Verwenden Sie den Befehl `ibmcloud dev build`, um Ihre Anwendung zu erstellen.
 2. Verwenden Sie den Befehl `ibmcloud dev run`, um die Anwendung lokal auszuführen. Ihre Anwendung wird in den Docker-Containern auf Ihrem lokalen System ausgeführt. Sie können die Anwendung in einem Browser testen, indem Sie auf `http://localhost:3000` zugreifen.
 3. Ein Endpunkt für die Statusprüfung ist unter `http://localhost:3000/health` verfügbar.
-4. Sie können unter `http://localhost:3000/appmetrics-dash` auf das Dashboard [App Metrics](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") zugreifen. 
+4. Sie können unter `http://localhost:3000/appmetrics-dash` auf das Dashboard [App Metrics](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") zugreifen.
 
 <!--
 <video>

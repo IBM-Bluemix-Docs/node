@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-25"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 
@@ -27,23 +27,21 @@ subcollection: nodejs
 ## Node.js 앱 작성
 {: #node-create-project}
 
-1. {{site.data.keyword.dev_console}}의 [스타터 킷](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘") 페이지에서 `Node.js`로 작성된 스타터 킷을 선택하십시오. **앱 작성**을 클릭하고 `Node.js`를 언어로 선택하여 비어 있는 스타터 앱을 작성할 수도 있습니다.
+1. {{site.data.keyword.dev_console}}의 [스타터 킷](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘") 페이지에서, `Node.js`로 작성된 스타터 킷을 선택하십시오. **앱 작성**을 클릭하고 `Node.js`를 언어로 선택하여 비어 있는 스타터 앱을 작성할 수도 있습니다.
 
     앱을 작성하려면 {{site.data.keyword.cloud_notm}} 계정에 로그인해야 합니다. 계정이 없는 경우에는 [무료 계정을 등록](https://cloud.ibm.com/registration){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")할 수 있습니다.
     {: tip}
 
 2. **앱 작성**을 클릭하십시오.
 3. 앱의 **이름**을 지정하십시오. 일반적인 앱 이름을 사용하고자 하는 경우에는 이러한 이름이 제공됩니다.
-4. **고유 호스트 이름**을 입력하십시오. 호스트 이름은 애플리케이션에 액세스하는 데 사용됩니다(예: `expressjs-project.mybluemix.net`).
-5. **작성**을 클릭하십시오. 프로젝트가 작성되고 나면 도구 체인을 사용하여 배치하거나, 빌드를 계속하다 명령행에서 프로젝트를 배치할 수 있습니다.
-6. 대시보드에서 배치 도구 체인을 작성하려면 **배치**를 클릭하십시오. 선택하는 방법의 지시사항에 따라 배치 대상을 설정하십시오.
+4. **작성**을 클릭하십시오. 프로젝트가 작성되고 나면 도구 체인을 사용하여 배치하거나, 빌드를 계속하다 명령행에서 프로젝트를 배치할 수 있습니다.
+5. 대시보드에서 배치 도구 체인을 작성하려면 **배치**를 클릭하십시오. 선택하는 방법의 지시사항에 따라 배치 대상을 설정하십시오.
   * **[IBM Kubernetes Service](/docs/apps/deploying?topic=creating-apps-containers-kube#containers)에 배치**. 이 옵션으로 고가용성 애플리케이션 컨테이너를 배치하고 관리하도록 작업자 노드라고 하는 호스트의 클러스터가 작성됩니다. 사용자는 클러스터를 작성하거나 기존 클러스터에 배치할 수 있습니다.
   * **Cloud Foundry에 배치**. 이 옵션으로 기본 인프라를 관리하지 않아도 클라우드 기반 앱이 배치됩니다. 계정에 {{site.data.keyword.cfee_full_notm}}에 대한 액세스 권한이 있는 경우 **[퍼블릭 클라우드](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf#about-cf)** 또는 **[엔터프라이즈 환경](/docs/cloud-foundry-public?topic=cloud-foundry-public-cfee#cfee)** 중에서 배치자 유형을 선택하여 사용자 엔터프라이즈 전용의 Cloud Foundry 애플리케이션을 호스팅하기 위한 격리된 환경을 작성하고 관리할 수 있습니다.
   * **[Virtual Server](/docs/apps?topic=creating-apps-vsi-deploy#vsi-deploy)에 배치**. 이 옵션으로 가상 서버 인스턴스가 프로비저닝되고, 앱을 포함한 이미지가 로드되고, 사용자를 위한 첫 번째 배치 주기가 시작됩니다.
 
-7. 선택사항을 마무리한 후 **작성**을 클릭하여 도구 체인을 작성하십시오.
-
-8. 도구 체인 대신 CLI를 사용하여 계속 진행하려는 경우에는 프로젝트를 로컬 시스템에 다운로드하고, `unzip`한 후 루트 디렉토리로 `cd`하십시오. 이제 플랫폼 명령 방법을 사용하여 필수 소프트웨어를 설치할 수 있습니다.
+6. 선택사항을 마무리한 후 **작성**을 클릭하여 도구 체인을 작성하십시오.
+7. 도구 체인 대신 CLI를 사용하여 계속 진행하려는 경우에는 프로젝트를 로컬 시스템에 다운로드하고, `unzip`한 후 루트 디렉토리로 `cd`하십시오. 이제 플랫폼 명령 방법을 사용하여 필수 소프트웨어를 설치할 수 있습니다.
 
     MacOS:
     ```

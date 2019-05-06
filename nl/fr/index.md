@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-25"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 
@@ -34,16 +34,14 @@ Veillez à utiliser l'édition du supplément à long terme (LTS) Node.js la plu
 
 2. Cliquez sur **Créer une application**.
 3. Donnez un **nom** à votre application. Un nom d'application générique est fourni si vous souhaitez l'utiliser.
-4. Entrez un **nom d'hôte unique**. Le nom d'hôte est utilisé pour accéder à votre application, par exemple `expressjs-project.mybluemix.net`.
-5. Cliquez sur **Créer**. Une fois votre projet créé, vous pouvez le déployer à l'aide d'une chaîne d'outils ou poursuivre pour générer et déployer le projet depuis une ligne de commande.
-6. Pour créer une chaîne d'outils de déploiement dans le tableau de bord, cliquez sur **Déployer**. Configurez votre cible de déploiement en fonction des instructions s'appliquant à la méthode choisie :
+4. Cliquez sur **Créer**. Une fois votre projet créé, vous pouvez le déployer à l'aide d'une chaîne d'outils ou poursuivre pour générer et déployer le projet depuis une ligne de commande.
+5. Pour créer une chaîne d'outils de déploiement dans le tableau de bord, cliquez sur **Déployer**. Configurez votre cible de déploiement en fonction des instructions s'appliquant à la méthode choisie :
   * **Déployer dans [IBM Kubernetes Service](/docs/apps/deploying?topic=creating-apps-containers-kube#containers)**. Cette option crée un cluster d'hôtes, appelé noeuds worker, afin de déployer et de gérer des conteneurs d'application à haute disponibilité. Vous pouvez créer un cluster ou effectuer un déploiement sur un cluster existant.
   * **Déployer dans Cloud Foundry**. Cette option déploie votre application cloud native sans qu'il soit nécessaire de gérer l'infrastructure sous-jacente. Si votre compte a accès à {{site.data.keyword.cfee_full_notm}}, vous pouvez sélectionner un déployeur de type **[Public Cloud](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf#about-cf)** ou **[Enterprise Environment](/docs/cloud-foundry-public?topic=cloud-foundry-public-cfee#cfee)**, que vous pouvez utiliser pour créer et gérer des environnements isolés pour l'hébergement de vos applications Cloud Foundry exclusivement pour votre entreprise.
   * **Déployer sur un [serveur virtuel](/docs/apps?topic=creating-apps-vsi-deploy#vsi-deploy)**. Cette option met à disposition une instance de serveur virtuel, charge une image qui inclut votre application, crée une chaîne d'outils DevOps et initie pour vous le premier cycle de déploiement.
 
-7. Finalisez vos options puis cliquez sur **Créer** pour créer la chaîne d'outils.
-
-8. Si vous choisissez de continuer avec l'interface de ligne de commande plutôt que la chaîne d'outils, téléchargez le projet sur votre machine locale, `unzip` puis `cd` dans le répertoire racine. Vous pouvez à présent installer les prérequis à l'aide de la méthode de commande de vos plateformes :
+6. Finalisez vos options puis cliquez sur **Créer** pour créer la chaîne d'outils.
+7. Si vous choisissez de continuer avec l'interface de ligne de commande plutôt que la chaîne d'outils, téléchargez le projet sur votre machine locale, `unzip` puis `cd` dans le répertoire racine. Vous pouvez à présent installer les prérequis à l'aide de la méthode de commande de vos plateformes :
 
     MacOS :
     ```

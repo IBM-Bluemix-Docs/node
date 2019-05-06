@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-30"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
 
@@ -26,7 +26,7 @@ subcollection: nodejs
 ## 以視覺化方式識別問題
 {: #identify-problems}
 
-應用程式度量值對於監視應用程式的效能而言，非常重要。具有 CPU、記憶體、延遲及 HTTP 這類度量值的度量值即時視圖非常重要，可確保應用程式有效地執行一段時間。您可以使用 Cloud Foundry 的[自動調整](/docs/services/Auto-Scaling?topic=services/Auto-Scaling-get-started#get-started)這類雲端服務，根據度量值動態調整實例，以符合現行工作負載。使用應用程式度量值，您可以精確地通知何時擴增、縮減或清除不再需要的實例以保留低成本。
+應用程式度量值對於監視應用程式的效能而言，非常重要。具有 CPU、記憶體、延遲及 HTTP 這類度量值的度量值即時視圖非常重要，可確保應用程式有效地執行一段時間。您可以使用 Cloud Foundry 的[自動調整](/docs/services/Auto-Scaling?topic=Auto-Scaling-get-started)這類雲端服務，根據度量值動態調整實例，以符合現行工作負載。使用應用程式度量值，您可以精確地通知何時擴增、縮減或清除不再需要的實例以保留低成本。
 
 應用程式度量值會擷取為時間序列資料。聚集及視覺化擷取的度量值有助於識別一般效能問題，例如：
 

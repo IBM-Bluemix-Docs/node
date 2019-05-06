@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-25"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 
@@ -27,23 +27,21 @@ subcollection: nodejs
 ## 建立 Node.js 應用程式
 {: #node-create-project}
 
-1. 從 {{site.data.keyword.dev_console}} 的[入門範本套件](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 頁面中，選取以 `Node.js` 撰寫的「入門範本套件」。您也可以藉由按一下**建立應用程式**，選取 `Node.js` 作為語言，來建立空白入門範本應用程式。
+1. 從 {{site.data.keyword.dev_console}} 的[入門範本套件](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 頁面中，選取以 `Node.js` 撰寫的入門範本套件。您也可以藉由按一下**建立應用程式**，選取 `Node.js` 作為語言，來建立空白入門範本應用程式。
 
     您必須登入 {{site.data.keyword.cloud_notm}} 帳戶，才能建立應用程式。如果您沒有帳戶，則可以[註冊以取得免費帳戶 ](https://cloud.ibm.com/registration){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
     {: tip}
 
 2. 按一下**建立應用程式**。
 3. 建立應用程式的**名稱**。如果您要使用，則會提供一個一般應用程式名稱。
-4. 輸入**唯一主機名稱**。主機名稱用來存取您的應用程式，例如：`expressjs-project.mybluemix.net`。
-5. 按一下**建立**。建立專案之後，您可以使用工具鏈來部署，或者從指令行繼續建置及部署專案。
-6. 若要在儀表板中建立部署工具鏈，請按一下**部署**。根據所選擇方法的指示，設定部署目標：
+4. 按一下**建立**。建立專案之後，您可以使用工具鏈來部署，或者從指令行繼續建置及部署專案。
+5. 若要在儀表板中建立部署工具鏈，請按一下**部署**。根據所選擇方法的指示，設定部署目標：
   * **部署至 [IBM Kubernetes Service](/docs/apps/deploying?topic=creating-apps-containers-kube#containers)**。此選項可建立主機（稱為工作者節點）的叢集，以部署及管理高可用性應用程式容器。您可以建立叢集或部署至現有的叢集。
   * **部署至 Cloud Foundry**。此選項可部署雲端原生應用程式，您不需要管理基礎架構。如果您的帳戶有權存取 {{site.data.keyword.cfee_full_notm}}，則可以選取**[公用雲端](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf#about-cf)**或**[企業環境](/docs/cloud-foundry-public?topic=cloud-foundry-public-cfee#cfee)**的部署者類型，您能夠使用此類型來建立及管理隔離環境，專供您的企業用來管理 Cloud Foundry 應用程式。
   * **部署至[虛擬伺服器](/docs/apps?topic=creating-apps-vsi-deploy#vsi-deploy)**。此選項可佈建虛擬伺服器實例、載入包含應用程式的映像檔、建立 DevOps 工具鏈，以及為您起始第一個部署週期。
 
-7. 最後確定您的選項，然後按一下**建立**來建立工具鏈。
-
-8. 如果您選擇繼續使用 CLI，而非工具鏈，請將專案下載至本端機器，將它 `unzip`，然後 `cd` 至根目錄。現在，您可以使用平台指令方法來安裝必備項目：
+6. 最後確定您的選項，然後按一下**建立**來建立工具鏈。
+7. 如果您選擇繼續使用 CLI，而非工具鏈，請將專案下載至本端機器，將它 `unzip`，然後 `cd` 至根目錄。現在，您可以使用平台指令方法來安裝必備項目：
 
     MacOS：
     ```

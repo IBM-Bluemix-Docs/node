@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-30"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -149,7 +149,7 @@ function doDeleteObject() {
 ```
 {: codeblock}
 
-有关多部分上传、安全功能和其他操作，请查看[完整文档](/docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-using-node-js#using-node-js)。
+有关多部分上传、安全功能和其他操作，请查看[完整文档](/docs/services/cloud-object-storage?topic=cloud-object-storage-node)。
 
 ## 步骤 4. 测试应用程序
 {: #test-cos}
@@ -160,7 +160,7 @@ function doDeleteObject() {
 2. 返回到先前在 Web 浏览器中创建的 {{site.data.keyword.cos_short}} 服务实例，然后打开服务仪表板。
 3. 选择使用的存储区，然后在仪表板中会看到新创建的对象。
 
-遇到困难？请查看 [{{site.data.keyword.cos_short}} API 参考](/docs/services/cloud-object-storage/api-reference?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about)。
+遇到困难？请查看 [{{site.data.keyword.cos_short}} API 参考](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api)。
 
 ## 后续步骤
 {: #next-cos notoc}
@@ -170,4 +170,4 @@ function doDeleteObject() {
 * 查看 [{{site.data.keyword.cos_short}}SDK for Node.js ](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 源代码。
 * 查看[存储区和对象操作的示例代码 ](https://github.com/ibm/ibm-cos-sdk-js#example-code){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")。
 * 入门模板工具包是使用 {{site.data.keyword.cloud_notm}} 的功能的最快方法之一。请在[移动开发者仪表板 ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 中查看可用的入门模板工具包。下载代码。运行应用程序！
-* 要了解有关 {{site.data.keyword.cos_short}} 提供的所有功能的更多信息并利用这些功能，请[查看文档](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage#about-ibm-cloud-object-storage)。
+* 要了解有关 {{site.data.keyword.cos_short}} 提供的所有功能的更多信息并利用这些功能，请[查看文档](/docs/services/cloud-object-storage?topic=cloud-object-storage-about)。

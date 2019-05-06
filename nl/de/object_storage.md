@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-30"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -56,7 +56,7 @@ Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
 ## Schritt 2. SDK installieren
 {: #install-cos}
 
-Installieren Sie das {{site.data.keyword.cos_short}} SDK for Node.js mithilfe des Paketmanagers [npm](https://nodejs.org/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") über die Befehlszeile: 
+Installieren Sie das {{site.data.keyword.cos_short}} SDK for Node.js mithilfe des Paketmanagers [npm](https://nodejs.org/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") über die Befehlszeile:
 ```
 npm install ibm-cos-sdk
 ```
@@ -149,7 +149,7 @@ function doDeleteObject() {
 ```
 {: codeblock}
 
-Informationen zu mehrteiligen Uploads, Sicherheitsfunktionen und weiteren Operationen finden Sie in der [vollständigen Dokumentation](/docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-using-node-js#using-node-js).
+Informationen zu mehrteiligen Uploads, Sicherheitsfunktionen und weiteren Operationen finden Sie in der [vollständigen Dokumentation](/docs/services/cloud-object-storage?topic=cloud-object-storage-node).
 
 ## Schritt 4. App testen
 {: #test-cos}
@@ -160,7 +160,7 @@ Ist alles richtig eingerichtet? Testen Sie es jetzt!
 2. Kehren Sie zur {{site.data.keyword.cos_short}}-Serviceinstanz zurück, die Sie zuvor in Ihrem Web-Browser erstellt haben, und öffnen Sie das Service-Dashboard.
 3. Wählen Sie das verwendete Bucket aus und die neu erstellten Objekte werden im Dashboard angezeigt.
 
-Haben Sie Schwierigkeiten? Lesen Sie die [{{site.data.keyword.cos_short}}-API-Referenz](/docs/services/cloud-object-storage/api-reference?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about). 
+Haben Sie Schwierigkeiten? Lesen Sie die [{{site.data.keyword.cos_short}}-API-Referenz](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api).
 
 ## Nächste Schritte
 {: #next-cos notoc}
@@ -170,4 +170,4 @@ Gut gemacht! Sie haben Ihrer App ein Maß an sicherer Persistenz hinzugefügt. M
 * Zeigen Sie die Quellcode für das [{{site.data.keyword.cos_short}} SDK for Node.js ](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") an.
 * Sehen Sie sich den [Beispielcode für Bucket- und Objektoperationen ](https://github.com/ibm/ibm-cos-sdk-js#example-code){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") genauer an.
 * Mit Starter-Kits können Sie die Funktionalität von {{site.data.keyword.cloud_notm}} optimal und schnell nutzen. Zeigen Sie die verfügbaren Starter-Kits im [Mobile-Enwicklerdashboard ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") an. Laden Sie den Code herunter. Führen Sie die App aus!
-* Wenn Sie mehr zu den Funktionen von {{site.data.keyword.cos_short}} und deren Verwendung erfahren möchten, [lesen Sie die Dokumentation](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage#about-ibm-cloud-object-storage). 
+* Wenn Sie mehr zu den Funktionen von {{site.data.keyword.cos_short}} und deren Verwendung erfahren möchten, [lesen Sie die Dokumentation](/docs/services/cloud-object-storage?topic=cloud-object-storage-about).

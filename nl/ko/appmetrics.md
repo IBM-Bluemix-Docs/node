@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-30"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
 
@@ -26,7 +26,7 @@ Node.js 애플리케이션 메트릭을 설치하고 액세스하는 방법과 �
 ## 문제점을 시각적으로 식별
 {: #identify-problems}
 
-애플리케이션 메트릭은 애플리케이션의 성능을 모니터하는 데 있어서 중요합니다. CPU, 메모리, 대기 시간 등의 메트릭과 HTTP 메트릭에 대한 실시간 보기를 확보하는 것은 애플리케이션이 시간 경과에 따라 효율적으로 실행되고 있는지 확인하는 데 있어서 필수적입니다. 메트릭에 의존하는 Cloud Foundry의 [Auto-Scaling](/docs/services/Auto-Scaling?topic=services/Auto-Scaling-get-started#get-started)과 같은 클라우드 서비스를 사용하여 현재 워크로드에 맞도록 인스턴스를 동적으로 스케일링할 수 있습니다. 애플리케이션 메트릭을 사용하면 인스턴스의 스케일링 업, 스케일링 다운 또는 정리 시점을 정확하게 파악하여 사용 비용을 적게 유지할 수 있습니다.
+애플리케이션 메트릭은 애플리케이션의 성능을 모니터하는 데 있어서 중요합니다. CPU, 메모리, 대기 시간 등의 메트릭과 HTTP 메트릭에 대한 실시간 보기를 확보하는 것은 애플리케이션이 시간 경과에 따라 효율적으로 실행되고 있는지 확인하는 데 있어서 필수적입니다. 메트릭에 의존하는 Cloud Foundry의 [Auto-Scaling](/docs/services/Auto-Scaling?topic=Auto-Scaling-get-started)과 같은 클라우드 서비스를 사용하여 현재 워크로드에 맞도록 인스턴스를 동적으로 스케일링할 수 있습니다. 애플리케이션 메트릭을 사용하면 인스턴스의 스케일링 업, 스케일링 다운 또는 정리 시점을 정확하게 파악하여 사용 비용을 적게 유지할 수 있습니다.
 
 애플리케이션 메트릭은 시계열 데이터로 캡처됩니다. 캡처된 메트릭을 집계하고 시각화하면 다음과 같은 일반적인 성능 문제점을 식별하는 데 도움이 됩니다.
 
