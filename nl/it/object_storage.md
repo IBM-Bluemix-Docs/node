@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-30"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -149,7 +149,7 @@ function doDeleteObject() {
 ```
 {: codeblock}
 
-Consulta la [documentazione completa](/docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-using-node-js#using-node-js) per i caricamenti a più parti, le funzioni di sicurezza e altre operazioni.
+Consulta la [documentazione completa](/docs/services/cloud-object-storage?topic=cloud-object-storage-node) per i caricamenti a più parti, le funzioni di sicurezza e altre operazioni.
 
 ## Passo 4. Esecuzione di test della tua applicazione
 {: #test-cos}
@@ -160,7 +160,7 @@ Tutto è configurato correttamente? Verificalo eseguendo dei test.
 2. Ritorna all'istanza del servizio {{site.data.keyword.cos_short}} che hai creato in precedenza nel tuo browser web e apri il dashboard del servizio.
 3. Seleziona il bucket utilizzato e visualizza i tuoi oggetti appena creati nel dashboard.
 
-Hai riscontrato dei problemi? Consulta la [guida di riferimento API {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage/api-reference?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about).
+Hai riscontrato dei problemi? Consulta la [guida di riferimento API {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api).
 
 ## Passi successivi
 {: #next-cos notoc}
@@ -170,4 +170,4 @@ Ottimo lavoro! Hai aggiunto un livello di persistenza protetta alla tua applicaz
 * Visualizza il codice sorgente di [{{site.data.keyword.cos_short}} SDK for Node.js ](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
 * Consulta il [codice di esempio per le operazioni bucket e oggetto ](https://github.com/ibm/ibm-cos-sdk-js#example-code){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
 * I kit starter sono uno dei modi più rapidi per utilizzare le funzionalità di {{site.data.keyword.cloud_notm}}. Visualizza i kit starter disponibili nel [dashboard degli sviluppatori di applicazioni mobili ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"). Scarica il codice. Esegui l'applicazione!
-* Per saperne di più su tutte le nuove funzioni offerte da {{site.data.keyword.cos_short}} e per avvalertene, [consulta la documentazione](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage#about-ibm-cloud-object-storage).
+* Per saperne di più su tutte le nuove funzioni offerte da {{site.data.keyword.cos_short}} e per avvalertene, [consulta la documentazione](/docs/services/cloud-object-storage?topic=cloud-object-storage-about).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-30"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
 
@@ -26,7 +26,7 @@ Impara come installare, accedere e comprendere le metriche dell'applicazione Nod
 ## Identificazione dei problemi visivamente
 {: #identify-problems}
 
-Le metriche dell'applicazione sono importanti per il monitoraggio delle prestazioni della tua applicazione. Disporre di una vista in diretta di metriche come CPU, memoria, latenza e metriche HTTP è essenziale per garantire un'efficace esecuzione della tua applicazione nel tempo. Puoi utilizzare un servizio cloud come il [ridimensionamento automatico](/docs/services/Auto-Scaling?topic=services/Auto-Scaling-get-started#get-started) di Cloud Foundry che si basa sulle metriche per modificare dinamicamente le dimensioni delle istanze in modo che corrispondano all'attuale carico di lavoro. Utilizzando le metriche dell'applicazione, sei informato precisamente quando aumentare o ridurre le istanze oppure quando eliminare quelle che non sono più necessarie per mantenere bassi i costi.
+Le metriche dell'applicazione sono importanti per il monitoraggio delle prestazioni della tua applicazione. Disporre di una vista in diretta di metriche come CPU, memoria, latenza e metriche HTTP è essenziale per garantire un'efficace esecuzione della tua applicazione nel tempo. Puoi utilizzare un servizio cloud come il [ridimensionamento automatico](/docs/services/Auto-Scaling?topic=Auto-Scaling-get-started) di Cloud Foundry che si basa sulle metriche per modificare dinamicamente le dimensioni delle istanze in modo che corrispondano all'attuale carico di lavoro. Utilizzando le metriche dell'applicazione, sei informato precisamente quando aumentare o ridurre le istanze oppure quando eliminare quelle che non sono più necessarie per mantenere bassi i costi.
 
 Le metriche dell'applicazione vengono acquisite come dati delle serie temporali. L'aggregazione e la visualizzazione delle metriche acquisite può essere di ausilio nell'identificazione di problemi delle prestazioni comuni quali:
 

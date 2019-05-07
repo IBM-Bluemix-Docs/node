@@ -184,7 +184,7 @@ var deleteDocument = function(callback) {
 2. En el [panel de control de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/dashboard/apps){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"), pulse la instancia de servicio de {{site.data.keyword.cloudant_short_notm}} que ha creado anteriormente. Cuando se abra la instancia de servicio, pulse **Iniciar panel de control de Cloudant**.
 3. En el Panel de control de {{site.data.keyword.cloudant_short_notm}}, seleccione la base de datos en la que ha creado los nuevos documentos.
 
-¿Tiene problemas? Revise la [Consulta de API de {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-api-reference-overview).
+¿Tiene problemas? Consulte la [Referencia de API de {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-api-reference-overview).
 
 ## Pasos siguientes
 {: #next-cloudant notoc}

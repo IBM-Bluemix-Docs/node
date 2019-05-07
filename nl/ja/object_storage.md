@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-30"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -149,7 +149,7 @@ function doDeleteObject() {
 ```
 {: codeblock}
 
-マルチパート・アップロード、セキュリティー機能、およびその他の操作については、[完全な資料](/docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-using-node-js#using-node-js)を参照してください。
+マルチパート・アップロード、セキュリティー機能、およびその他の操作については、[完全な資料](/docs/services/cloud-object-storage?topic=cloud-object-storage-node)を参照してください。
 
 ## ステップ 4. アプリのテスト
 {: #test-cos}
@@ -160,7 +160,7 @@ function doDeleteObject() {
 2. Web ブラウザーで以前に作成した {{site.data.keyword.cos_short}} サービス・インスタンスに戻り、サービス・ダッシュボードを開きます。
 3. 使用されるバケットを選択すると、新規に作成されたオブジェクトがダッシュボードに表示されます。
 
-問題がある場合、[{{site.data.keyword.cos_short}} API リファレンス](/docs/services/cloud-object-storage/api-reference?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about)を参照してください。
+問題がある場合、[{{site.data.keyword.cos_short}} API リファレンス](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api)を参照してください。
 
 ## 次のステップ
 {: #next-cos notoc}
@@ -170,4 +170,4 @@ function doDeleteObject() {
 * [{{site.data.keyword.cos_short}} SDK for Node.js](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") のソース・コードを調べます。
 * [バケット操作およびオブジェクト操作のコード例](https://github.com/ibm/ibm-cos-sdk-js#example-code){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") を参照します。
 * スターター・キットは、{{site.data.keyword.cloud_notm}} の機能を素早く使用するための 1 つの方法です。 [モバイル開発者ダッシュボード](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") で、使用可能なスターター・キットを確認できます。 コードをダウンロードし、アプリを実行してみてください。
-* {{site.data.keyword.cos_short}} が提供する機能のすべてについてさらに学習し、それらの機能を利用するには、[資料](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage#about-ibm-cloud-object-storage)をお読みください。
+* {{site.data.keyword.cos_short}} が提供する機能のすべてについてさらに学習し、それらの機能を利用するには、[資料](/docs/services/cloud-object-storage?topic=cloud-object-storage-about)をお読みください。

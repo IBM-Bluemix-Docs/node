@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-25"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 
@@ -34,16 +34,14 @@ Assicurati che stai utilizzando la release di LTS Node.js più recente.
 
 2. Fai clic su **Crea applicazione**.
 3. Usa **Nome** per denominare la tua applicazione. Viene fornito un nome applicazione generico, se vuoi utilizzarlo.
-4. Immetti un **nome host univoco**. Il nome host viene utilizzato per accedere alla tua applicazione, ad esempio: `expressjs-project.mybluemix.net`.
-5. Fare clic su **Crea**. Dopo che il tuo progetto è stato creato, puoi distribuirlo utilizzando una toolchain oppure puoi continuare a creare e distribuire il tuo progetto dalla riga di comando.
-6. Per creare una toolchain di distribuzione nel dashboard, fai clic su **Distribuisci**. Configura la tua destinazione di distribuzione in base alle istruzioni per il metodo che scegli:
+4. Fare clic su **Crea**. Dopo che il tuo progetto è stato creato, puoi distribuirlo utilizzando una toolchain oppure puoi continuare a creare e distribuire il tuo progetto dalla riga di comando.
+5. Per creare una toolchain di distribuzione nel dashboard, fai clic su **Distribuisci**. Configura la tua destinazione di distribuzione in base alle istruzioni per il metodo che scegli:
   * **Distribuisci a [IBM Kubernetes Service](/docs/apps/deploying?topic=creating-apps-containers-kube#containers)**. Questa opzione crea un cluster di host, denominati nodi di lavoro, per distribuire e gestire contenitori applicazione ad elevata disponibilità. Puoi creare un cluster o eseguire la distribuzione a un cluster esistente.
   * **Distribuisci a Cloud Foundry**. Questa opzione distribuisce la tua applicazione nativa del cloud senza che tu debba gestire l'infrastruttura sottostante. Se il tuo account ha accesso a {{site.data.keyword.cfee_full_notm}}, puoi selezionare un tipo di deployer **[Cloud pubblico](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf#about-cf)** o **[Ambiente aziendale](/docs/cloud-foundry-public?topic=cloud-foundry-public-cfee#cfee)**, che puoi utilizzare per creare e gestire ambienti isolati per ospitare applicazioni Cloud Foundry esclusivamente per la tua azienda.
   * **Distribuisci a un [Virtual Server](/docs/apps?topic=creating-apps-vsi-deploy#vsi-deploy)**. Questa opzione esegue il provisioning di un'istanza del server virtuale, carica un'immagine che include la tua applicazione, crea una toolchain DevOps e avvia il primo ciclo di distribuzione per tuo conto.
 
-7. Finalizza le tue opzioni e fai quindi clic su **Crea** per creare la toolchain.
-
-8. Se scegli di continuare con la CLI invece della toolchain, scarica il progetto sulla tua macchina locale, esegui la decompressione (`unzip`) e passa (`cd`) alla directory root. Ora puoi installare i prerequisiti utilizzando il metodo dei comandi delle piattaforme:
+6. Finalizza le tue opzioni e fai quindi clic su **Crea** per creare la toolchain.
+7. Se scegli di continuare con la CLI invece della toolchain, scarica il progetto sulla tua macchina locale, esegui la decompressione (`unzip`) e passa (`cd`) alla directory root. Ora puoi installare i prerequisiti utilizzando il metodo dei comandi delle piattaforme:
 
     MacOS:
     ```

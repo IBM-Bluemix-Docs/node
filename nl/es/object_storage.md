@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-30"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -41,7 +41,7 @@ Asegúrese de que dispone de los siguientes requisitos previos listos para utili
 
     * _**endpoint**_: Punto final público para Cloud Object Storage. El punto final está disponible en el [panel de control de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/dashboard/apps){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
     * _**api-key**_: La clave de API que se genera cuando se crean las credenciales de servicio. Es necesario tener acceso de escritura para crear y suprimir ejemplos.
-    * _**resource-instance-id**_: el ID de recurso para Cloud Object Storage. El ID de recurso está disponible a través de la [CLI de {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) o del [Panel de control de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/dashboard/apps){: new_window}.
+    * _**resource-instance-id**_: el ID de recurso para Cloud Object Storage. El ID de recurso está disponible a través de la [CLI de {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) o del [Panel de control de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/dashboard/apps){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
 
 ## Paso 1. Creación de una instancia de {{site.data.keyword.cos_short}}
 {: #create-instance-cos}
@@ -149,7 +149,7 @@ function doDeleteObject() {
 ```
 {: codeblock}
 
-Consulte la [documentación completa](/docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-using-node-js#using-node-js) para las cargas de varias partes, las características de seguridad y otras operaciones.
+Consulte la [documentación completa](/docs/services/cloud-object-storage?topic=cloud-object-storage-node) para las cargas de varias partes, las características de seguridad y otras operaciones.
 
 ## Paso 4. Comprobación de la app
 {: #test-cos}
@@ -160,7 +160,7 @@ Consulte la [documentación completa](/docs/services/cloud-object-storage/librar
 2. Vuelva a la instancia de servicio de {{site.data.keyword.cos_short}} que ha creado anteriormente en el navegador web y abra el panel de control del servicio.
 3. Seleccione el grupo que se utiliza, y verá los objetos recién creados en el panel de control.
 
-¿Tiene problemas? Revise la [Consulta de API de {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage/api-reference?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about).
+¿Tiene problemas? Consulte la [Referencia de API de {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api).
 
 ## Pasos siguientes
 {: #next-cos notoc}
@@ -170,4 +170,4 @@ Consulte la [documentación completa](/docs/services/cloud-object-storage/librar
 * Visualice el código fuente de [{{site.data.keyword.cos_short}} SDK for Node.js](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
 * Consulte el [código de ejemplo para las operaciones de grupo y de objeto](https://github.com/ibm/ibm-cos-sdk-js#example-code){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
 * Los kits de inicio son una de las formas más rápidas de utilizar las prestaciones de {{site.data.keyword.cloud_notm}}. Vea los kits de inicio disponibles en el [panel de control de desarrollador de Mobile](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"). Descargue el código. Ejecute la app.
-* Para obtener más información y aprovechar todas las características que {{site.data.keyword.cos_short}} ofrece, [consulte la documentación](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage#about-ibm-cloud-object-storage).
+* Para obtener más información y aprovechar todas las características que {{site.data.keyword.cos_short}} ofrece, [consulte la documentación](/docs/services/cloud-object-storage?topic=cloud-object-storage-about).

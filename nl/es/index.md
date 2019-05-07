@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-25"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 
@@ -34,16 +34,14 @@ Asegúrese de utilizar el release más reciente de Node.js LTS.
 
 2. Pulse **Crear app**.
 3. Dé un **Nombre** a su app. Se proporciona un nombre de app genérico si desea utilizarlo.
-4. Especifique un **nombre de host exclusivo**. El nombre de host se utiliza para acceder a la aplicación, por ejemplo: `expressjs-project.mybluemix.net`.
-5. Pulse **Crear**. Una vez que se haya creado el proyecto, puede desplegarlo utilizando una cadena de herramientas o puede seguir compilando y desplegando el proyecto desde la línea de mandatos.
-6. Para crear una cadena de herramientas de despliegue en el panel de control, pulse **Desplegar**. Configure el destino del despliegue de acuerdo con las instrucciones correspondientes al método que elija:
+4. Pulse **Crear**. Una vez que se haya creado el proyecto, puede desplegarlo utilizando una cadena de herramientas o puede seguir compilando y desplegando el proyecto desde la línea de mandatos.
+5. Para crear una cadena de herramientas de despliegue en el panel de control, pulse **Desplegar**. Configure el destino del despliegue de acuerdo con las instrucciones correspondientes al método que elija:
   * **Desplegar en el [servicio IBM Kubernetes](/docs/apps/deploying?topic=creating-apps-containers-kube#containers)**. Esta opción crea un clúster de hosts, denominado nodos trabajadores, para desplegar y gestionar contenedores de aplicaciones de alta disponibilidad. Puede crear un clúster o desplegar en un clúster existente.
   * **Desplegar en Cloud Foundry**. Esta opción despliega la app nativa de la nube sin necesidad de gestionar la infraestructura subyacente. Si la cuenta tiene acceso a {{site.data.keyword.cfee_full_notm}}, puede seleccionar el tipo de desplegador de **[nube pública](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf#about-cf)** o de **[entorno de empresa](/docs/cloud-foundry-public?topic=cloud-foundry-public-cfee#cfee)**, que puede utilizar para crear y gestionar entornos aislados para alojar aplicaciones de Cloud Foundry exclusivamente para su empresa.
   * **Desplegar en un [servidor virtual](/docs/apps?topic=creating-apps-vsi-deploy#vsi-deploy)**. Esta opción proporciona una instancia de servidor virtual, carga una imagen que incluye la app, crea una cadena de herramientas DevOps e inicia automáticamente el primer ciclo de despliegue.
 
-7. Finalice las opciones y, a continuación, pulse **Crear** para crear la cadena de herramientas.
-
-8. Si opta por continuar con la CLI en lugar de la cadena de herramientas, descargue el proyecto en la máquina local, haga `unzip` y `cd` en el directorio raíz. Ahora puede instalar los requisitos previos utilizando el método de mandato de las plataformas:
+6. Finalice las opciones y, a continuación, pulse **Crear** para crear la cadena de herramientas.
+7. Si opta por continuar con la CLI en lugar de la cadena de herramientas, descargue el proyecto en la máquina local, haga `unzip` y `cd` en el directorio raíz. Ahora puede instalar los requisitos previos utilizando el método de mandato de las plataformas:
 
     MacOS:
     ```

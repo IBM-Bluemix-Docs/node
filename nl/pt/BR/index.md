@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-25"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 
@@ -27,23 +27,21 @@ Certifique-se de que esteja usando a liberação LTS mais recente do Node.js.
 ## Criando um app Node.js
 {: #node-create-project}
 
-1. Na página [Kits do iniciador](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") no {{site.data.keyword.dev_console}}, selecione um kit do iniciador que seja escrito em `Node.js`. Também é possível criar um app iniciador em branco clicando em **Criar app** e selecionando `Node.js` como a linguagem.
+1. Na página [Kits do iniciador](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") do {{site.data.keyword.dev_console}}, selecione um kit do iniciador que esteja escrito em `Node.js`. Também é possível criar um app iniciador em branco clicando em **Criar app** e selecionando `Node.js` como a linguagem.
 
     Deve-se estar com login efetuado em uma conta do {{site.data.keyword.cloud_notm}} para criar um app. Se você não tem uma conta, é possível [registrar-se para uma conta grátis](https://cloud.ibm.com/registration){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").
     {: tip}
 
 2. Clique em  ** Criar app **.
 3. ** Nome **  seu app. Um nome genérico de app será fornecido se você quiser usá-lo.
-4. Insira um  ** nome do host exclusivo **. O nome do host é usado para acessar seu aplicativo, por exemplo: `expressjs-project.mybluemix.net`.
-5. Clique em  ** Criar **. Após a criação de seu projeto, será possível implementar usando uma cadeia de ferramentas ou continuar construindo e implementando o projeto por meio da linha de comandos.
-6. Para criar uma cadeia de ferramentas de implementação no painel, clique em **Implementar**. Configure o destino de implementação de acordo com as instruções para o método escolhido:
+4. Clique em  ** Criar **. Após a criação de seu projeto, será possível implementar usando uma cadeia de ferramentas ou continuar construindo e implementando o projeto por meio da linha de comandos.
+5. Para criar uma cadeia de ferramentas de implementação no painel, clique em **Implementar**. Configure o destino de implementação de acordo com as instruções para o método escolhido:
   * **Implementar no [IBM Kubernetes Service](/docs/apps/deploying?topic=creating-apps-containers-kube#containers)**. Essa opção cria um cluster de hosts, chamados de nós do trabalhador, para implementar e gerenciar contêineres de aplicativo altamente disponíveis. É possível criar um cluster ou implementar em um cluster existente.
   * **Implemente no Cloud Foundry**. Essa opção implementa o seu app nativo de nuvem sem você precisar gerenciar a infraestrutura subjacente. Se a sua conta tiver acesso ao {{site.data.keyword.cfee_full_notm}}, será possível selecionar um tipo de implementador do **[Public Cloud](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf#about-cf)** ou do **[Enterprise Environment](/docs/cloud-foundry-public?topic=cloud-foundry-public-cfee#cfee)**, que é possível usar para criar e gerenciar ambientes isolados para hospedar aplicativos do Cloud Foundry exclusivamente para a sua empresa.
   * **Implemente em um [Servidor virtual](/docs/apps?topic=creating-apps-vsi-deploy#vsi-deploy)**. Essa opção provisiona uma instância de servidor virtual, carrega uma imagem que inclui o seu app, cria uma cadeia de ferramentas do DevOps e inicia o primeiro ciclo de implementação para você.
 
-7. Finalize suas opções e, em seguida, clique em **Criar** para criar a cadeia de ferramentas.
-
-8. Se optar por continuar com a CLI, em vez da cadeia de ferramentas, faça download do projeto na máquina local, use `unzip` e `cd` no diretório-raiz. Agora é possível instalar os pré-requisitos usando o método de comando de plataformas:
+6. Finalize suas opções e, em seguida, clique em **Criar** para criar a cadeia de ferramentas.
+7. Se optar por continuar com a CLI, em vez da cadeia de ferramentas, faça download do projeto na máquina local, use `unzip` e `cd` no diretório-raiz. Agora é possível instalar os pré-requisitos usando o método de comando de plataformas:
 
     MacOS:
     ```

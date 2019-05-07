@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-30"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -146,7 +146,7 @@ function doDeleteObject () {
 ```
 {: codeblock}
 
-Verifique a [documentação completa](/docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-using-node-js#using-node-js) para uploads com múltiplas partes, recursos de segurança e outras operações.
+Verifique a [documentação completa](/docs/services/cloud-object-storage?topic=cloud-object-storage-node) para uploads com múltiplas partes, recursos de segurança e outras operações.
 
 ## Etapa 4. Testando o app
 {: #test-cos}
@@ -157,7 +157,7 @@ Está tudo configurado corretamente? Teste-o para fora!
 2. Retorne para a instância de serviço do {{site.data.keyword.cos_short}} criada anteriormente no navegador da web e abra o painel de serviço.
 3. Selecione o depósito usado e você verá os objetos recém-criados no painel.
 
-Tendo problemas? Consulte a [Referência de API do {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage/api-reference?topic=cloud-object-storage-compatibility-api-about#compatibility-api-about).
+Tendo problemas? Consulte a [Referência de API do {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api).
 
 ## Etapas seguintes
 {: #next-cos notoc}
@@ -167,4 +167,4 @@ Tendo problemas? Consulte a [Referência de API do {{site.data.keyword.cos_short
 * Visualize o código-fonte do [{{site.data.keyword.cos_short}} SDK for Node.js ](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").
 * Verifique o [código de exemplo para operações de depósito e de objeto ](https://github.com/ibm/ibm-cos-sdk-js#example-code){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").
 * Os Kits de iniciador são uma das maneiras mais rápidas de usar os recursos do {{site.data.keyword.cloud_notm}}. Visualize os kits de iniciador disponíveis no [Painel do desenvolvedor de dispositivos móveis ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo"). Faça download do código. Execute o app!
-* Para saber mais e aproveitar todos os recursos oferecidos pelo {{site.data.keyword.cos_short}}, [consulte os docs](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage#about-ibm-cloud-object-storage).
+* Para saber mais e aproveitar todos os recursos oferecidos pelo {{site.data.keyword.cos_short}}, [consulte os docs](/docs/services/cloud-object-storage?topic=cloud-object-storage-about).
