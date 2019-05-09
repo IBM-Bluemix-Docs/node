@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -62,7 +62,8 @@ Be sure that you have the following prerequisites ready to go:
 ## Step 1. Creating an instance of {{site.data.keyword.appid_short_notm}}
 {: #create-instance-appid}
 
-**Provision an instance of the service**
+Provision an instance of the service:
+
 1. In the [{{site.data.keyword.cloud_notm}} Catalog](https://cloud.ibm.com/catalog/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"), select the **Web and Mobile** category, and click {{site.data.keyword.appid_short_notm}}. The service configuration page opens.
 2. Give your service instance a name, or use the preset name.
 3. Select your pricing plan and click **Create**.
@@ -139,7 +140,7 @@ Be sure that you have the following prerequisites ready to go:
   ```
   {: codeblock}
 
-  **Note**: The service redirects in the following order:
+  The service redirects in the following order:
   1. The original URL of the request that triggered the authentication process is persisted in the HTTP session under the `WebAppStrategy.ORIGINAL_URL` key.
   2. A successful redirect, as specified in `passport.authenticate(name, {successRedirect: "...."})`.
   3. The application root directory ("/").
@@ -218,7 +219,8 @@ To display the default pages:
 2. Configure your [directory and message settings](/docs/services/appid?topic=appid-cloud-directory#cloud-directory).
 3. Choose the combinations of sign-on pages that you'd like to display, and place the code to call those pages in your application.
 
-**Sign in**
+#### Sign in
+
 1. Set cloud directory to **On** in your identity provider settings and specify a callback endpoint.
 2. Add a post route to your app that can be called with the user name and password parameters and log in by using the resource owner password.
   ```js
@@ -233,7 +235,8 @@ To display the default pages:
   `WebAppStrategy` allows users to sign in to your web apps with a user name and password. After a successful login, a user's access token is stored in the HTTP session and is available during the session. After the HTTP session is destroyed or expired, the token is invalid.
   {: tip}
 
-**Sign up**
+#### Sign up
+
 1. Set **Allow users to sign up and reset their password** to **On** in the cloud directory settings. If set to no, the process ends without retrieving access and identity tokens.
 2. Pass the WebAppStrategy `show` property and set it to `WebAppStrategy.SIGN_UP`.
   ```js
@@ -244,7 +247,8 @@ To display the default pages:
   ```
   {: codeblock}
 
-**Forgot password**
+#### Forgot password
+
 1. Set **Allow users to sign up and reset their password** and **Forgot password email** to **ON** in the cloud directory settings. If set to no, the process ends without retrieving access and identity tokens.
 2. Pass the WebAppStrategy `show` property and set it to `WebAppStrategy.FORGOT_PASSWORD`.
   ```js
@@ -255,7 +259,8 @@ To display the default pages:
   ```
   {: codeblock}
 
-**Change password**
+#### Change password
+
 1. Set **Allow users to sign up and reset their password** to **On** in the cloud directory settings.
 2. Pass the WebAppStrategy `show` property and set it to `WebAppStrategy.CHANGE_PASSWORD`.
   ```js
@@ -266,7 +271,8 @@ To display the default pages:
   ```
   {: codeblock}
 
-**Account details**
+#### Account details
+
 {: #default-account-details}
 1. Set **Allow users to sign up and reset their password** to **On** in the cloud directory settings
 2. Pass the WebAppStrategy `show` property and set it to `WebAppStrategy.CHANGE_DETAILS`.
