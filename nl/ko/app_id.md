@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -62,7 +62,8 @@ subcollection: nodejs
 ## 1단계. {{site.data.keyword.appid_short_notm}}의 인스턴스 작성
 {: #create-instance-appid}
 
-**서비스의 인스턴스 프로비저닝**
+서비스의 인스턴스를 프로비저닝하십시오.
+
 1. [{{site.data.keyword.cloud_notm}} 카탈로그](https://cloud.ibm.com/catalog/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")에서 **웹 및 모바일** 카테고리를 선택하고 {{site.data.keyword.appid_short_notm}}를 클릭하십시오. 서비스 구성 페이지가 열립니다.
 2. 서비스 인스턴스의 이름을 지정하거나 사전 설정된 이름을 사용하십시오.
 3. 가격 플랜을 선택하고 **작성**을 클릭하십시오.
@@ -139,7 +140,7 @@ subcollection: nodejs
   ```
   {: codeblock}
 
-  **참고**: 서비스는 다음 순서대로 경로 재지정합니다.
+  서비스는 다음 순서로 경로 재지정됩니다. 
   1. 인증 프로세스를 트리거한 요청의 원래 URL은 HTTP 세션의 `WebAppStrategy.ORIGINAL_URL` 키에 지속됩니다.
   2. `passport.authenticate(name, {successRedirect: "...."})`.
   3. 애플리케이션 루트 디렉토리("/").
@@ -218,7 +219,8 @@ ID 제공자는 사용자에게 권한을 부여할 수 있도록 사용자에 �
 2. [디렉토리 및 메시지 설정](/docs/services/appid?topic=appid-cloud-directory#cloud-directory)을 구성하십시오.
 3. 표시할 사인온 페이지의 조합을 선택한 후 자신의 애플리케이션에서 이러한 페이지를 호출하기 위한 코드를 배치하십시오.
 
-**로그인**
+####  로그인
+
 1. ID 제공자 설정에서 클라우드 디렉토리를 **켜짐**으로 설정하고 콜백 엔드포인트를 지정하십시오.
 2. 사용자 이름 및 비밀번호 매개변수를 사용하여 호출할 수 있는 POST 라우트를 추가하고 리소스 소유자 비밀번호를 사용하여 로그인하십시오.
   ```js
@@ -233,7 +235,8 @@ ID 제공자는 사용자에게 권한을 부여할 수 있도록 사용자에 �
   `WebAppStrategy`는 사용자가 사용자 이름 및 비밀번호를 사용하여 웹 앱에 로그인할 수 있도록 합니다. 로그인 성공 후 사용자의 액세스 토큰은 HTTP 세션에 저장되며 세션 중에 사용할 수 있습니다. 해당 HTTP 세션이 영구 삭제되거나 만료되면 해당 토큰이 무효화됩니다.
   {: tip}
 
-**등록**
+####  등록
+
 1. 클라우드 디렉토리 설정에서 **사용자가 등록하고 비밀번호를 재설정할 수 있도록 허용**을 **켜짐**으로 설정하십시오. 아니오로 설정된 경우에는 프로세스가 액세스 및 ID 토큰을 검색하지 않고 종료됩니다.
 2. WebAppStrategy `show` 특성을 전달하고 이를 `WebAppStrategy.SIGN_UP`으로 설정하십시오.
   ```js
@@ -244,7 +247,8 @@ ID 제공자는 사용자에게 권한을 부여할 수 있도록 사용자에 �
   ```
   {: codeblock}
 
-**비밀번호 찾기**
+####  비밀번호 찾기
+
 1. 클라우드 디렉토리 설정에서 **사용자가 등록하고 비밀번호를 재설정할 수 있도록 허용** 및 **비밀번호 찾기 이메일**을 **켜짐**으로 설정하십시오. 아니오로 설정된 경우에는 프로세스가 액세스 및 ID 토큰을 검색하지 않고 종료됩니다.
 2. WebAppStrategy `show` 특성을 전달하고 이를 `WebAppStrategy.FORGOT_PASSWORD`로 설정하십시오.
   ```js
@@ -255,7 +259,8 @@ ID 제공자는 사용자에게 권한을 부여할 수 있도록 사용자에 �
   ```
   {: codeblock}
 
-**비밀번호 변경**
+####  비밀번호 변경
+
 1. 클라우드 디렉토리 설정에서 **사용자가 등록하고 비밀번호를 재설정할 수 있도록 허용**을 **켜짐**으로 설정하십시오.
 2. WebAppStrategy `show` 특성을 전달하고 이를 `WebAppStrategy.CHANGE_PASSWORD`로 설정하십시오.
   ```js
@@ -266,7 +271,8 @@ ID 제공자는 사용자에게 권한을 부여할 수 있도록 사용자에 �
   ```
   {: codeblock}
 
-**계정 세부사항**
+####  계정 세부사항
+
 {: #default-account-details}
 1. 클라우드 디렉토리 설정에서 **사용자가 등록하고 비밀번호를 재설정할 수 있도록 허용**을 **켜짐**으로 설정하십시오.
 2. WebAppStrategy `show` 특성을 전달하고 이를 `WebAppStrategy.CHANGE_DETAILS`로 설정하십시오.

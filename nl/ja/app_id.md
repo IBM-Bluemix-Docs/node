@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -46,7 +46,8 @@ subcollection: nodejs
   ```
   {: codeblock}
 
-  他のフレームワークは `Express` フレームワークを使用します (LoopBack など)。 {{site.data.keyword.appid_short_notm}} Server SDK は、それらのどのフレームワークでも使用可能です。{: note}
+  他のフレームワークは `Express` フレームワークを使用します (LoopBack など)。 {{site.data.keyword.appid_short_notm}} Server SDK は、それらのどのフレームワークでも使用可能です。
+  {: note}
 
 6. 後で SDK の初期化に使用される資格情報キー値を見つけます。
 
@@ -61,7 +62,8 @@ subcollection: nodejs
 ## ステップ 1. {{site.data.keyword.appid_short_notm}} のインスタンスの作成
 {: #create-instance-appid}
 
-**サービス・インスタンスのプロビジョン**
+サービス・インスタンスのプロビジョン:
+
 1. [{{site.data.keyword.cloud_notm}} カタログ](https://cloud.ibm.com/catalog/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") から**「Web とモバイル」**カテゴリーを選択し、{{site.data.keyword.appid_short_notm}} をクリックします。 サービス構成ページが開きます。
 2. サービス・インスタンスに名前を付けます。または、事前設定された名前を使用します。
 3. 料金プランを選択し、**「作成」**をクリックします。
@@ -138,7 +140,7 @@ subcollection: nodejs
   ```
   {: codeblock}
 
-  **注:** サービスは、以下の順序でリダイレクトされます。
+  サービスは、以下の順序でリダイレクトされます:
   1. 認証プロセスを起動した要求の元の URL は、`WebAppStrategy.ORIGINAL_URL` キーの下で HTTP セッション内で永続的に保持されます。
   2. 成功したリダイレクト (`passport.authenticate(name, {successRedirect: "...."}` で指定)。
   3. アプリケーションのルート・ディレクトリー (「/」)。
@@ -217,7 +219,8 @@ ID プロバイダーのタイプごとの表示できるページは次の表�
 2. [ディレクトリーおよびメッセージの設定](/docs/services/appid?topic=appid-cloud-directory#cloud-directory)を構成します。
 3. 表示するサインオン・ページの組み合わせを選択し、それらのページを呼び出すコードをアプリケーション内に配置します。
 
-**サインイン**
+#### サインイン
+
 1. ID プロバイダー設定でクラウド・ディレクトリーを**「オン」**に設定し、コールバック・エンドポイントを指定します。
 2. ユーザー名とパスワードのパラメーターを使用して呼び出せる post ルートをアプリに追加し、リソース所有者のパスワードを使用してログインします。
   ```js
@@ -232,7 +235,8 @@ ID プロバイダーのタイプごとの表示できるページは次の表�
   `WebAppStrategy` により、ユーザーはユーザー名とパスワードを使用して Web アプリにサインインできます。 ログインに成功すると、ユーザーのアクセス・トークンは HTTP セッションに保管され、セッション中は使用可能です。 HTTP セッションが破棄されるか期限切れになると、トークンは無効になります。
   {: tip}
 
-**登録**
+#### 登録
+
 1. クラウド・ディレクトリーの設定で、**「登録とパスワード・リセットをユーザーに許可する」**を**「オン」**に設定します。 「いいえ」に設定した場合、プロセスはアクセス・トークンと識別トークンを取得せずに終了します。
 2. WebAppStrategy に `show` プロパティーを渡し、それを `WebAppStrategy.SIGN_UP` に設定します。
   ```js
@@ -243,7 +247,8 @@ ID プロバイダーのタイプごとの表示できるページは次の表�
   ```
   {: codeblock}
 
-**パスワードを忘れた場合**
+#### パスワードを忘れた場合
+
 1. クラウド・ディレクトリーの設定で**「登録とパスワード・リセットをユーザーに許可する」**と**「パスワードを忘れた場合の E メール」**を**「オン」**に設定します。 「いいえ」に設定した場合、プロセスはアクセス・トークンと識別トークンを取得せずに終了します。
 2. WebAppStrategy に `show` プロパティーを渡し、それを `WebAppStrategy.FORGOT_PASSWORD` に設定します。
   ```js
@@ -254,7 +259,8 @@ ID プロバイダーのタイプごとの表示できるページは次の表�
   ```
   {: codeblock}
 
-**パスワードの変更**
+#### パスワードの変更
+
 1. クラウド・ディレクトリーの設定で、**「登録とパスワード・リセットをユーザーに許可する」**を**「オン」**に設定します。
 2. WebAppStrategy に `show` プロパティーを渡し、それを `WebAppStrategy.CHANGE_PASSWORD` に設定します。
   ```js
@@ -265,7 +271,8 @@ ID プロバイダーのタイプごとの表示できるページは次の表�
   ```
   {: codeblock}
 
-**アカウント詳細**
+#### アカウント詳細
+
 {: #default-account-details}
 1. クラウド・ディレクトリーの設定で、**「登録とパスワード・リセットをユーザーに許可する」**を**「オン」**に設定します。
 2. WebAppStrategy に `show` プロパティーを渡し、それを `WebAppStrategy.CHANGE_DETAILS` に設定します。

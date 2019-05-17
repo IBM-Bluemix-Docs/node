@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -63,7 +63,8 @@ Verifique se os pré-requisitos a seguir estão prontos:
 ## Etapa 1. Criando uma instância do  {{site.data.keyword.appid_short_notm}}
 {: #create-instance-appid}
 
-** Provisão de uma instância do serviço **
+Provisem uma instância do serviço:
+
 1. No [catálogo do {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo"), selecione a categoria **Web e móvel** e clique em {{site.data.keyword.appid_short_notm}}. A página de configuração de serviço é aberta.
 2. Dê um nome à sua instância de serviço ou use o nome de pré-configuração.
 3. Selecione o seu plano de precificação e clique em **Criar**.
@@ -140,7 +141,7 @@ Verifique se os pré-requisitos a seguir estão prontos:
   ```
   {: codeblock}
 
-  **Nota**: o serviço redireciona na ordem a seguir:
+  O serviço redireciona na ordem a seguir:
   1. A URL original da solicitação que acionou o processo de autenticação é persistida na sessão HTTP sob a chave `WebAppStrategy.ORIGINAL_URL`.
   2. Um redirecionamento bem-sucedido, conforme especificado em `passport.authenticate(name, {successRedirect: "...."})`.
   3. O diretório raiz do aplicativo ("/").
@@ -220,7 +221,8 @@ Para exibir as páginas padrão:
 2. Configure seu  [ diretório e configurações de mensagem ](/docs/services/appid?topic=appid-cloud-directory#cloud-directory).
 3. Escolha as combinações de páginas de conexão que gostaria de exibir e coloque o código para chamar essas páginas em seu aplicativo.
 
-**Conectar**
+#### Efetuar sign in
+
 1. Configure o diretório da nuvem para **Ligado** em suas configurações de provedor de identidade e especifique um terminal de retorno de chamada.
 2. Inclua uma rota de post em seu app que possa ser chamada com o nome do usuário e os parâmetros de senha e efetue login usando a senha do proprietário do recurso.
   ```js
@@ -235,7 +237,8 @@ Para exibir as páginas padrão:
   `WebAppStrategy` permite que os usuários se conectem aos apps da web com um nome de usuário e uma senha. Após um login bem-sucedido, o token de acesso de um usuário é armazenado na sessão HTTP e fica disponível durante a sessão. Após a sessão HTTP ser destruída ou expirada, o token é invalidado.
   {: tip}
 
-**Inscrever**
+#### Inscrever
+
 1. Configure **Permitir que os usuários se inscrevam e reconfigurem sua senha** como **Ativado** nas configurações do Cloud Directory. Se configurado para "não", o processo termina sem recuperar os tokens de acesso e de identidade.
 2. Passe a propriedade de WebAppStrategy `show` e configure-a para `WebAppStrategy.SIGN_UP`.
   ```js
@@ -246,7 +249,8 @@ Para exibir as páginas padrão:
   ```
   {: codeblock}
 
-**Esqueci a senha**
+#### Esqueceu a senha
+
 1. Configure **Permitir que os usuários se inscrevam e reconfigurem sua senha** e **E-mail de Esqueci a senha** para **LIGADO** nas configurações do diretório da nuvem. Se configurado para "não", o processo termina sem recuperar os tokens de acesso e de identidade.
 2. Passe a propriedade de WebAppStrategy `show` e configure-a para `WebAppStrategy.FORGOT_PASSWORD`.
   ```js
@@ -257,7 +261,8 @@ Para exibir as páginas padrão:
   ```
   {: codeblock}
 
-**Alterar Senha**
+#### Alterar Senha
+
 1. Configure **Permitir que os usuários se inscrevam e reconfigurem sua senha** como **Ativado** nas configurações do Cloud Directory.
 2. Passe a propriedade de WebAppStrategy `show` e configurá-a para `WebAppStrategy.CHANGE_PASSWORD`.
   ```js
@@ -268,7 +273,8 @@ Para exibir as páginas padrão:
   ```
   {: codeblock}
 
-**Detalhes da conta**
+#### Detalhes da conta
+
 {: #default-account-details}
 1. Configure **Permitir que os usuários se inscrevam e reconfigurem sua senha** para **Ligado** nas configurações do diretório da nuvem
 2. Passe a propriedade de WebAppStrategy `show` e configure-a para `WebAppStrategy.CHANGE_DETAILS`.
