@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -62,7 +62,8 @@ Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
 ## Passo 1. Creazione di un'istanza di {{site.data.keyword.appid_short_notm}}
 {: #create-instance-appid}
 
-**Esegui il provisioning di un'istanza del servizio**
+Esegui il provisioning di un'istanza del servizio: 
+
 1. Nel [catalogo {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"), seleziona la categoria **Web e mobile** e fai clic su {{site.data.keyword.appid_short_notm}}. Viene aperta la pagina di configurazione del servizio.
 2. Dai un nome alla tua istanza del servizio oppure utilizza il nome preimpostato.
 3. Seleziona il tuo piano dei prezzi e fai clic su **Crea**.
@@ -139,7 +140,7 @@ Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
   ```
   {: codeblock}
 
-  **Nota**: il servizio esegue il reindirizzamento nel seguente ordine:
+  Il servizio esegue il reindirizzamento nel seguente ordine: 
   1. l'URL originale della richiesta che ha attivato il processo di autenticazione viene conservato nella sessione HTTP nella chiave `WebAppStrategy.ORIGINAL_URL`.
   2. Un reindirizzamento eseguito correttamente, come specificato in `passport.authenticate(name, {successRedirect: "...."})`.
   3. La directory root dell'applicazione ("/").
@@ -218,7 +219,8 @@ Per visualizzare le pagine predefinite:
 2. Configura le tue [impostazioni di directory e messaggi](/docs/services/appid?topic=appid-cloud-directory#cloud-directory).
 3. Scegli la combinazione di pagine di accesso che vuoi visualizzare e inserisci il codice per richiamare tali pagine nella tua applicazione.
 
-**Sign in**
+#### Sign in
+
 1. Imposta Cloud Directory su **On** nelle impostazioni del tuo provider di identità e specifica un endpoint di callback.
 2. Aggiungi un instradamento post alla tua applicazione che può essere richiamata con i parametri password e nome utente e accedi utilizzando la password del proprietario della risorsa.
   ```js
@@ -233,7 +235,8 @@ Per visualizzare le pagine predefinite:
   `WebAppStrategy` consente agli utenti di accedere alle tue applicazioni web con un nome utente e una password. Dopo un accesso eseguito correttamente, un token di accesso dell'utente viene memorizzato nella sessione HTTP ed è disponibile durante la sessione. Dopo che la sessione HTTP è stata interrotta o è scaduta, il token non è valido.
   {: tip}
 
-**Sign up**
+#### Sign up
+
 1. Imposta **Allow users to sign up and reset their password** su **On** nelle impostazioni di Cloud Directory. Se è impostata su no, il processo termina senza richiamare i token di accesso e di identità.
 2. Passa la proprietà WebAppStrategy `show` e impostala su `WebAppStrategy.SIGN_UP`.
   ```js
@@ -244,7 +247,8 @@ Per visualizzare le pagine predefinite:
   ```
   {: codeblock}
 
-**Forgot password**
+#### Forgot password
+
 1. Imposta **Allow users to sign up and reset their password** e **Forgot password email** su **ON** nelle impostazioni di Cloud Directory. Se è impostata su no, il processo termina senza richiamare i token di accesso e di identità.
 2. Passa la proprietà WebAppStrategy `show` e impostala su `WebAppStrategy.FORGOT_PASSWORD`.
   ```js
@@ -255,7 +259,8 @@ Per visualizzare le pagine predefinite:
   ```
   {: codeblock}
 
-**Change password**
+#### Change password
+
 1. Imposta **Allow users to sign up and reset their password** su **On** nelle impostazioni di Cloud Directory.
 2. Passa la proprietà WebAppStrategy `show` e impostala su `WebAppStrategy.CHANGE_PASSWORD`.
   ```js
@@ -266,7 +271,8 @@ Per visualizzare le pagine predefinite:
   ```
   {: codeblock}
 
-**Account details**
+#### Account details
+
 {: #default-account-details}
 1. Imposta **Allow users to sign up and reset their password** su **On** nelle impostazioni di Cloud Directory
 2. Passa la proprietà WebAppStrategy `show` e impostala su `WebAppStrategy.CHANGE_DETAILS`.
