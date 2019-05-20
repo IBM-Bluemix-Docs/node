@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -62,7 +62,8 @@ subcollection: nodejs
 ## 步骤 1. 创建 {{site.data.keyword.appid_short_notm}} 的实例
 {: #create-instance-appid}
 
-**供应服务的实例**
+供应服务的实例：
+
 1. 在 [{{site.data.keyword.cloud_notm}} 目录](https://cloud.ibm.com/catalog/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 中，选择 **Web 和移动**类别，然后单击 {{site.data.keyword.appid_short_notm}}。这将打开服务配置页面。
 2. 为服务实例提供名称或使用预设名称。
 3. 选择价格套餐，然后单击**创建**。
@@ -139,7 +140,7 @@ subcollection: nodejs
   ```
   {: codeblock}
 
-  **注**：服务将按以下顺序重定向：
+  服务将按以下顺序重定向：
   1. 触发认证过程的请求的原始 URL 将持久存储在 `WebAppStrategy.ORIGINAL_URL` 键下的 HTTP 会话中。
   2. 成功重定向，如 `passport.authenticate(name, {successRedirect: "...."})`.
   3. 应用程序根目录（“/”）。
@@ -218,7 +219,8 @@ subcollection: nodejs
 2. 配置[目录和消息设置](/docs/services/appid?topic=appid-cloud-directory#cloud-directory)。
 3. 选择要显示的登录页面的组合，并在应用程序中放入用于调用这些页面的代码。
 
-**登录**
+#### 登录
+
 1. 在身份提供者设置中，将云目录设置为**开启**，然后指定回调端点。
 2. 将发布路径添加到应用程序（该应用程序可以使用用户名和密码参数进行调用），并使用资源所有者密码登录。
   ```js
@@ -233,7 +235,8 @@ subcollection: nodejs
   `WebAppStrategy` 允许用户使用用户名和密码登录到 Web 应用程序。成功登录后，用户的访问令牌会存储在 HTTP 会话中，并在整个会话过程中可用。在 HTTP 会话被销毁或到期后，该令牌即无效。
   {: tip}
 
-**注册**
+#### 注册
+
 1. 在云目录设置中，将**允许用户注册并重置密码**设置为**开启**。如果设置为“否”，那么到该流程结束也不会检索访问令牌和身份令牌。
 2. 传递 WebAppStrategy `show` 属性并将其设置为 `WebAppStrategy.SIGN_UP`。
   ```js
@@ -244,7 +247,8 @@ subcollection: nodejs
   ```
   {: codeblock}
 
-**忘记密码**
+#### 忘记密码
+
 1. 在云目录设置中，将**允许用户注册并重置密码**和**忘记密码电子邮件**设置为**开启**。如果设置为“否”，那么到该流程结束也不会检索访问令牌和身份令牌。
 2. 传递 WebAppStrategy `show` 属性并将其设置为 `WebAppStrategy.FORGOT_PASSWORD`。
   ```js
@@ -255,7 +259,8 @@ subcollection: nodejs
   ```
   {: codeblock}
 
-**更改密码**
+#### 更改密码
+
 1. 在云目录设置中，将**允许用户注册并重置密码**设置为**开启**。
 2. 传递 WebAppStrategy `show` 属性并将其设置为 `WebAppStrategy.CHANGE_PASSWORD`。
   ```js
@@ -266,7 +271,8 @@ subcollection: nodejs
   ```
   {: codeblock}
 
-**帐户详细信息**
+#### 帐户详细信息
+
 {: #default-account-details}
 1. 在云目录设置中，将**允许用户注册并重置密码**设置为**开启**。
 2. 传递 WebAppStrategy `show` 属性并将其设置为 `WebAppStrategy.CHANGE_DETAILS`。

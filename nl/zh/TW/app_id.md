@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -61,7 +61,8 @@ subcollection: nodejs
 ## 步驟 1. 建立 {{site.data.keyword.appid_short_notm}} 實例
 {: #create-instance-appid}
 
-**佈建服務的實例**
+佈建服務的實例：
+
 1. 在 [{{site.data.keyword.cloud_notm}} 型錄](https://cloud.ibm.com/catalog/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中，選取 **Web 及行動**種類，然後按一下 {{site.data.keyword.appid_short_notm}}。即會開啟服務配置頁面。
 2. 提供服務實例的名稱，或使用預設名稱。
 3. 選取定價方案，然後按一下**建立**。
@@ -138,7 +139,7 @@ subcollection: nodejs
   ```
   {: codeblock}
 
-  **附註**：服務會依下列順序重新導向：
+  服務會依下列順序重新導向：
   1. 觸發鑑別處理程序之要求的原始 URL 會持續保存在 HTTP 階段作業的 `WebAppStrategy.ORIGINAL_URL` 金鑰下。
   2. 成功重新導向，如 `passport.authenticate(name, {successRedirect: "...."})` 中所指定。
   3. 應用程式根目錄 ("/")。
@@ -217,7 +218,8 @@ subcollection: nodejs
 2. 配置[目錄及訊息設定](/docs/services/appid?topic=appid-cloud-directory#cloud-directory)。
 3. 選擇您要顯示的登入頁面組合，並在應用程式中放置程式碼以呼叫那些頁面。
 
-**登入**
+####  登入 
+
 1. 在身分提供者設定中，將雲端目錄設為**開啟**，並指定回呼端點。
 2. 將貼文路徑新增至可使用使用者名稱和密碼參數來呼叫的應用程式，並使用資源擁有者密碼登入。
   ```js
@@ -232,7 +234,8 @@ subcollection: nodejs
   `WebAppStrategy` 可讓使用者利用使用者名稱和密碼來登入您的 Web 應用程式。登入成功之後，使用者的存取記號會儲存在 HTTP 階段作業中，並且可在階段作業期間使用。在 HTTP 階段作業損毀或過期之後，記號無效。
   {: tip}
 
-**註冊**
+####  註冊 
+
 1. 在雲端目錄設定中，將**容許使用者註冊及重設其密碼**設為**開啟**。如果設為否，則處理程序會結束，而不會擷取存取及身分記號。
 2. 傳遞 WebAppStrategy `show` 內容，並將其設為 `WebAppStrategy.SIGN_UP`。
   ```js
@@ -243,7 +246,8 @@ subcollection: nodejs
   ```
   {: codeblock}
 
-**忘記密碼**
+####  忘記密碼 
+
 1. 在雲端目錄設定中，將**容許使用者註冊及重設其密碼**及**忘記密碼電子郵件**設為**開啟**。如果設為否，則處理程序會結束，而不會擷取存取及身分記號。
 2. 傳遞 WebAppStrategy `show` 內容，並將其設為 `WebAppStrategy.FORGOT_PASSWORD`。
   ```js
@@ -254,7 +258,8 @@ subcollection: nodejs
   ```
   {: codeblock}
 
-**變更密碼**
+####  變更密碼 
+
 1. 在雲端目錄設定中，將**容許使用者註冊及重設其密碼**設為**開啟**。
 2. 傳遞 WebAppStrategy `show` 內容，並將其設為 `WebAppStrategy.CHANGE_PASSWORD`。
   ```js
@@ -265,7 +270,8 @@ subcollection: nodejs
   ```
   {: codeblock}
 
-**帳戶詳細資料**
+####  帳戶詳細資料 
+
 {: #default-account-details}
 1. 在雲端目錄設定中，將**容許使用者註冊及重設其密碼**設為**開啟**
 2. 傳遞 WebAppStrategy `show` 內容，並將其設為 `WebAppStrategy.CHANGE_DETAILS`。
@@ -298,4 +304,4 @@ subcollection: nodejs
 做得好！您已將鑑別步驟新增至應用程式。嘗試下列其中一個選項，以保持動力：
 
 * 若要進一步瞭解並充分運用 {{site.data.keyword.appid_short_notm}} 提供的所有特性，[請參閱文件](/docs/services/appid?topic=appid-getting-started#getting-started)！
-* 入門範本套件是使用 {{site.data.keyword.cloud}} 功能最快的方式之一。請檢視[行動開發人員儀表板](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中的可用入門範本套件。下載程式碼。執行應用程式！
+* 入門範本套件是使用 {{site.data.keyword.cloud}} 功能最快的方式之一。請檢視[行動開發人員儀表板 ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中的可用入門範本套件。下載程式碼。執行應用程式！

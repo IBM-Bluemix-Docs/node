@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -62,7 +62,8 @@ Assurez-vous que les prérequis suivants sont satisfaits :
 ## Etape 1. Création d'une instance de {{site.data.keyword.appid_short_notm}}
 {: #create-instance-appid}
 
-**Mise à disposition d'une instance du service**
+Mise à disposition d'une instance du service
+
 1. Dans le catalogue [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe"), sélectionnez la catégorie **Web et Mobile** puis cliquez sur {{site.data.keyword.appid_short_notm}}. La page de configuration de service s'ouvre.
 2. Donnez un nom à votre instance de service ou utilisez le nom prédéfini.
 3. Sélectionnez votre plan de tarification, puis cliquez sur **Créer**.
@@ -139,7 +140,7 @@ Assurez-vous que les prérequis suivants sont satisfaits :
   ```
   {: codeblock}
 
-  **Remarque** : le service procède à la redirection dans l'ordre suivant :
+  Le service procède à la redirection dans l'ordre suivant :
   1. L'URL d'origine de la demande qui a déclenché le processus d'authentification est conservée dans la session HTTP sous la clé `WebAppStrategy.ORIGINAL_URL`.
   2. Redirection réussie, comme spécifié dans `passport.authenticate(name, {successRedirect: "...."})`.
   3. Le répertoire racine de l'application ("/").
@@ -218,7 +219,8 @@ Pour afficher les pages par défaut :
 2. Configurez votre répertoire [ et les paramètres de message](/docs/services/appid?topic=appid-cloud-directory#cloud-directory).
 3. Choisissez les combinaisons de pages de connexion que vous souhaitez afficher, et placez le code pour appeler ces pages dans votre application.
 
-**Connexion**
+#### Connexion
+
 1. Activez le répertoire cloud dans les paramètres de votre fournisseur d'identité et spécifiez un noeud final de rappel.
 2. Ajoutez une route post à votre application qui pourra être appelée avec les paramètres de nom d'utilisateur et de mot de passe pour la connexion à l'aide du mot de passe du propriétaire de la ressource.
   ```js
@@ -233,7 +235,8 @@ Pour afficher les pages par défaut :
   `WebAppStrategy` permet aux utilisateurs de se connecter à vos applications Web à l'aide d'un nom d'utilisateur et d'un mot de passe. Une fois la connexion établie, le jeton d'accès d'un utilisateur est stocké dans la session HTTP et reste disponible pendant la session. Lorsque la session HTTP a été détruite ou est arrivée à expiration, le jeton n'est plus valide.
   {: tip}
 
-**Inscription**
+#### Inscription
+
 1. Activez **Autoriser les utilisateurs à s'inscrire et à réinitialiser leur mot de passe** dans les paramètres de répertoire cloud. Si cette option est définie sur no, le processus se termine sans extraction des jetons d'accès et d'identité.
 2. Transmettez la propriété WebAppStrategy `show` et définissez-la sur `WebAppStrategy.SIGN_UP`.
   ```js
@@ -244,7 +247,8 @@ Pour afficher les pages par défaut :
   ```
   {: codeblock}
 
-**Mot de passe oublié**
+#### Mot de passe oublié
+
 1. Activez **Autoriser les utilisateurs à s'inscrire et à réinitialiser leur mot de passe** et **E-mail d'oubli de mot de passe** dans les paramètres de répertoire cloud. Si cette option est définie sur no, le processus se termine sans extraction des jetons d'accès et d'identité.
 2. Transmettez la propriété WebAppStrategy `show` et définissez-la sur `WebAppStrategy.FORGOT_PASSWORD`.
   ```js
@@ -255,7 +259,8 @@ Pour afficher les pages par défaut :
   ```
   {: codeblock}
 
-**Changement du mot de passe**
+#### Changement du mot de passe
+
 1. Activez **Autoriser les utilisateurs à s'inscrire et à réinitialiser leur mot de passe** dans les paramètres de répertoire cloud.
 2. Transmettez la propriété WebAppStrategy `show` et définissez-la sur `WebAppStrategy.CHANGE_PASSWORD`.
   ```js
@@ -266,7 +271,8 @@ Pour afficher les pages par défaut :
   ```
   {: codeblock}
 
-**Détails du compte**
+#### Détails du compte
+
 {: #default-account-details}
 1. Activez **Autoriser les utilisateurs à s'inscrire et à réinitialiser leur mot de passe** dans les paramètres de répertoire cloud.
 2. Transmettez la propriété WebAppStrategy `show` et définissez-la sur `WebAppStrategy.CHANGE_DETAILS`.

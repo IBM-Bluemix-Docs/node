@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -62,7 +62,8 @@ Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
 ## Schritt 1. Instanz von {{site.data.keyword.appid_short_notm}} erstellen
 {: #create-instance-appid}
 
-**Stellen Sie eine Instanz des Service bereit.**
+Stellen Sie eine Instanz des Service bereit:
+
 1. Im [{{site.data.keyword.cloud_notm}}-Katalog](https://cloud.ibm.com/catalog/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") wählen Sie die Kategorie **Web und Mobil** aus und klicken Sie auf {{site.data.keyword.appid_short_notm}}. Die Seite mit der Servicekonfiguration wird geöffnet.
 2. Geben Sie der Serviceinstanz entweder einen Namen oder verwenden Sie den voreingestellten Namen.
 3. Wählen Sie Ihren Preistarif aus und klicken Sie auf **Erstellen**.
@@ -139,12 +140,12 @@ Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
   ```
   {: codeblock}
 
-  **Hinweis**: Der Service wird in der folgenden Reihenfolge umgeleitet:
+  Der Service wird in der folgenden Reihenfolge umgeleitet:
   1. Die ursprüngliche URL der Anforderung, die den Authentifizierungsprozess ausgelöst hat, wird in der HTTP-Sitzung unter dem Schlüssel `WebAppStrategy.ORIGINAL_URL` als persistent definiert.
   2. Eine erfolgreiche Umleitung, wie in `passport.authenticate(name, {successRedirect: "...."})` angegeben.
   3. Das Stammverzeichnis der Anwendung ("/").
 
-Weitere Informationen finden Sie im [GitHub-Repository zu Node.js für {{site.data.keyword.appid_short_notm}} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link"). 
+Weitere Informationen finden Sie im [GitHub-Repository zu Node.js für {{site.data.keyword.appid_short_notm}} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link").
 
 ## Schritt 4. Anmeldungserfahrung verwalten
 {: #manage-signin-appid}
@@ -200,7 +201,7 @@ Führen Sie die folgenden Schritte aus, um die Seite anzupassen:
 
 {{site.data.keyword.appid_short_notm}} stellt eine Standardanmeldeseite bereit, die Sie aufrufen können, wenn Sie nicht über eigene Benutzerschnittstellenseiten zum Anzeigen verfügen.
 
-Abhängig von der Konfiguration Ihres Identitätsproviders sind die Seiten, die Sie anzeigen können, unterschiedlich. Der Service stellt keine erweiterten Funktionen für Social Media-Identitätsprovider bereit, da IBM niemals Zugriff auf die Kontoinformationen eines Benutzers hat. Die Benutzer müssen zum Identitätsprovider wechseln, um ihre Informationen zu verwalten. Wenn sie beispielsweise ihr Facebook-Kennwort ändern möchten, müssen sie zu [https://www.facebook.com](https://www.facebook.com){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") wechseln. 
+Abhängig von der Konfiguration Ihres Identitätsproviders sind die Seiten, die Sie anzeigen können, unterschiedlich. Der Service stellt keine erweiterten Funktionen für Social Media-Identitätsprovider bereit, da IBM niemals Zugriff auf die Kontoinformationen eines Benutzers hat. Die Benutzer müssen zum Identitätsprovider wechseln, um ihre Informationen zu verwalten. Wenn sie beispielsweise ihr Facebook-Kennwort ändern möchten, müssen sie zu [https://www.facebook.com](https://www.facebook.com){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") wechseln.
 
 Sehen Sie sich die folgende Tabelle an, um zu sehen, welche Seiten Sie für die verschiedenen Typen von Identitätsprovider anzeigen können.
 
@@ -218,7 +219,8 @@ Gehen Sie folgendermaßen vor, um die Standardseiten anzuzeigen:
 2. Konfigurieren Sie Ihre [Verzeichnis- und Nachrichteneinstellungen](/docs/services/appid?topic=appid-cloud-directory#cloud-directory).
 3. Wählen Sie die Kombinationen von Anmeldeseiten aus, die angezeigt werden sollen, und legen Sie den Code zum Aufrufen dieser Seite in Ihrer Anmeldung fest.
 
-**Anmelden**
+#### Anmelden
+
 1. **Aktivieren** Sie Cloud Directory in den Einstellungen Ihres Identitätsproviders und geben Sie einen Callback-Endpunkt an.
 2. Fügen Sie eine Post-Route zu Ihrer App hinzu, die mit den Parametern für den Benutzernamen und das Kennwort aufgerufen werden kann, und melden Sie sich unter Verwendung des Ressourceneignerkennworts an.
   ```js
@@ -233,8 +235,9 @@ Gehen Sie folgendermaßen vor, um die Standardseiten anzuzeigen:
   `WebAppStrategy` ermöglicht es Benutzern, sich mit einem Benutzernamen und einem Kennwort in Ihren Web-Apps anzumelden. Nach einer erfolgreichen Anmeldung wird das Zugriffstoken eines Benutzers in der HTTP-Sitzung gespeichert und steht während der Sitzung zur Verfügung. Wenn die HTTP-Sitzung gelöscht wird oder abgelaufen ist, ist das Token ungültig.
   {: tip}
 
-**Registrieren**
-1. **Aktivieren** Sie in den Cloud Directory-Einstellungen die Option, die es **Benutzern ermöglicht, sich zu registrieren und ihre Kennwörter zurückzusetzen**. Ist diese Option inaktiviert, wird der Prozess beendet, ohne dass Zugriffs- und Identitätstokens abgerufen werden. 
+#### Registrieren
+
+1. **Aktivieren** Sie in den Cloud Directory-Einstellungen die Option, die es **Benutzern ermöglicht, sich zu registrieren und ihre Kennwörter zurückzusetzen**. Ist diese Option inaktiviert, wird der Prozess beendet, ohne dass Zugriffs- und Identitätstokens abgerufen werden.
 2. Übergeben Sie die WebAppStrategy-Eigenschaft `show` und legen Sie sie auf `WebAppStrategy.SIGN_UP` fest.
   ```js
   app.get("/sign_up", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
@@ -244,8 +247,9 @@ Gehen Sie folgendermaßen vor, um die Standardseiten anzuzeigen:
   ```
   {: codeblock}
 
-**Kennwort vergessen**
-1. **Aktivieren** Sie in den Cloud Directory-Einstellungen die Option, die es **Benutzern ermöglicht, sich zu registrieren und ihre Kennwörter zurückzusetzen**, und die Option für das Senden einer **E-Mail für vergessenes Kennwort**. Ist diese Option inaktiviert, wird der Prozess beendet, ohne dass Zugriffs- und Identitätstokens abgerufen werden. 
+#### Kennwort vergessen
+
+1. **Aktivieren** Sie in den Cloud Directory-Einstellungen die Option, die es **Benutzern ermöglicht, sich zu registrieren und ihre Kennwörter zurückzusetzen**, und die Option für das Senden einer **E-Mail für vergessenes Kennwort**. Ist diese Option inaktiviert, wird der Prozess beendet, ohne dass Zugriffs- und Identitätstokens abgerufen werden.
 2. Übergeben Sie die WebAppStrategy-Eigenschaft `show` und legen Sie sie auf `WebAppStrategy.FORGOT_PASSWORD` fest.
   ```js
   app.get("/forgot_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
@@ -255,7 +259,8 @@ Gehen Sie folgendermaßen vor, um die Standardseiten anzuzeigen:
   ```
   {: codeblock}
 
-**Kennwort ändern**
+#### Kennwort ändern
+
 1. **Aktivieren** Sie in den Cloud Directory-Einstellungen die Option, die es **Benutzern ermöglicht, sich zu registrieren und ihre Kennwörter zurückzusetzen**.
 2. Übergeben Sie die WebAppStrategy-Eigenschaft `show` und legen Sie sie auf `WebAppStrategy.CHANGE_PASSWORD` fest.
   ```js
@@ -266,7 +271,8 @@ Gehen Sie folgendermaßen vor, um die Standardseiten anzuzeigen:
   ```
   {: codeblock}
 
-**Kontodetails**
+#### Kontodetails
+
 {: #default-account-details}
 1. **Aktivieren** Sie in den Cloud Directory-Einstellungen die Option, die es **Benutzern ermöglicht, sich zu registrieren und ihre Kennwörter zurückzusetzen**.
 2. Übergeben Sie die WebAppStrategy-Eigenschaft `show` und legen Sie sie auf `WebAppStrategy.CHANGE_DETAILS` fest.
