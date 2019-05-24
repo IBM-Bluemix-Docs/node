@@ -104,7 +104,7 @@ Puede pulsar **Find traces** y modificar las opciones de búsqueda para mostrar 
 ## Paso 3. Prueba de un caso de ejemplo
 {: #node-example-tracing}
 
-Si sigue la [documentación del proyecto GitHub](https://github.com/ibm-developer/nodejs-zipkin-tracing){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"), obtendrá la siguiente aplicación de ejemplo. Es un proceso simple que implica el rastreo de una solicitud y respuesta entre dos puntos finales. Las imágenes siguientes muestran el servidor Zipkin con los datos de rastreo recopilados en la pantalla. El punto clave a recordar es la inclusión de `require ('appmetrics-zipkin')` y, opcionalmente, el código de configuración del servidor Zipkin. El siguiente caso de ejemplo muestra cómo puede añadir rápidamente el rastreo de Zipkin a las aplicaciones Node.js existentes.
+Si sigue la [documentación del proyecto GitHub](https://github.com/ibm-developer/nodejs-zipkin-tracing){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"), obtendrá la siguiente aplicación de ejemplo. Es un proceso simple que implica el rastreo de una solicitud y respuesta entre dos puntos finales. Las imágenes siguientes muestran el servidor Zipkin con los datos de rastreo recopilados en la pantalla. El punto clave a recordar es la inclusión de `require('appmetrics-zipkin')` y, opcionalmente, el código de configuración del servidor Zipkin. El siguiente caso de ejemplo muestra cómo puede añadir rápidamente el rastreo de Zipkin a las aplicaciones Node.js existentes.
 
 ### Visión general del caso de ejemplo de rastreo
 {: #tracing-scenario}

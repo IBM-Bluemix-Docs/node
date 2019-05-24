@@ -110,7 +110,7 @@ var appzip = require('appmetrics-zipkin')({
 
 Después de iniciar la aplicación, vaya a `http://<hostname>:<port>/appmetrics-dash` in a browser.
 
-Utilice el valor predeterminado `localhost: 3001/appmetrics-dash` para las apps que se ejecutan localmente.
+Utilice el valor predeterminado `localhost:3001/appmetrics-dash` para las apps que se ejecutan localmente.
 {: tip}
 
 La interfaz de usuario de panel de control de supervisión de métricas de aplicación para Node.js proporciona un rango de métricas, incluidas las solicitudes HTTP e incluso la latencia de bucle de sucesos, tal como se muestra en el siguiente vídeo [Monitoring Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").

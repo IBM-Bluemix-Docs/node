@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -62,7 +62,8 @@ Asegúrese de que dispone de los siguientes requisitos previos listos para utili
 ## Paso 1. Creación de una instancia de {{site.data.keyword.appid_short_notm}}
 {: #create-instance-appid}
 
-**Suministre una instancia del servicio**
+Suministre una instancia del servicio:
+
 1. En el [catálogo de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"), seleccione la categoría **Web y móvil** y pulse {{site.data.keyword.appid_short_notm}}. Se abre la página de configuración del servicio.
 2. Dé un nombre a la instancia de servicio, o utilice el nombre preestablecido.
 3. Seleccione el plan de precios y pulse **Crear**.
@@ -139,7 +140,7 @@ Asegúrese de que dispone de los siguientes requisitos previos listos para utili
   ```
   {: codeblock}
 
-  **Nota**: el servicio se redirige en el orden siguiente:
+  El servicio se redirige en el orden siguiente:
   1. El URL original de la solicitud que ha desencadenado el proceso de autenticación persiste en la sesión HTTP en la clave `WebAppStrategy.ORIGINAL_URL`.
   2. Una redirección correcta, tal como se especifica en `passport.authenticate(name, {successRedirect: "...."})`.
   3. El directorio raíz de la aplicación ("/").
@@ -218,7 +219,8 @@ Para mostrar las páginas predeterminadas:
 2. Configure los [valores de directorios y mensajes](/docs/services/appid?topic=appid-cloud-directory#cloud-directory).
 3. Elija las combinaciones de páginas de inicio de sesión que desee mostrar y coloque el código para llamar a dichas páginas en la aplicación.
 
-**Iniciar sesión**
+#### Iniciar sesión
+
 1. Establezca el directorio en la nube en **Activado** en los valores de proveedor de identidad y especifique un punto final de devolución de llamada.
 2. Añada una ruta de envío a su app a la que pueda llamarse con los parámetros de nombre de usuario y contraseña e inicie la sesión utilizando la contraseña del propietario del recurso.
   ```js
@@ -233,7 +235,8 @@ Para mostrar las páginas predeterminadas:
   `WebAppStrategy` permite a los usuarios iniciar sesión en sus apps web con un nombre de usuario y una contraseña. Después de un inicio de sesión satisfactorio, la señal de acceso de un usuario se almacena en la sesión HTTP y está disponible durante la sesión. Una vez que la sesión HTTP se ha destruido o ha caducado, la señal deja de ser válida.
   {: tip}
 
-**Registro**
+#### Registro
+
 1. Establezca **Permitir a los usuarios registrarse y restablecer su contraseña** en **Activado** en los valores del directorio en la nube. Si se establece en no, el proceso finaliza sin recuperar las señales de acceso e identidad.
 2. Pase la propiedad `show` de WebAppStrategy y establézcala en `WebAppStrategy.SIGN_UP`.
   ```js
@@ -244,7 +247,8 @@ Para mostrar las páginas predeterminadas:
   ```
   {: codeblock}
 
-**Contraseña olvidada**
+#### Contraseña olvidada
+
 1. Establezca **Permitir a los usuarios registrarse y restablecer su contraseña** y **Correo electrónico de contraseña olvidada** en **Activado** en los valores del directorio en la nube. Si se establece en no, el proceso finaliza sin recuperar las señales de acceso e identidad.
 2. Pase la propiedad `show` de WebAppStrategy y establézcala en `WebAppStrategy.FORGOT_PASSWORD`.
   ```js
@@ -255,7 +259,8 @@ Para mostrar las páginas predeterminadas:
   ```
   {: codeblock}
 
-**Cambio de contraseña**
+#### Cambio de contraseña
+
 1. Establezca **Permitir a los usuarios registrarse y restablecer su contraseña** en **Activado** en los valores del directorio en la nube.
 2. Pase la propiedad `show` de WebAppStrategy y establézcala en `WebAppStrategy.CHANGE_PASSWORD`.
   ```js
@@ -266,7 +271,8 @@ Para mostrar las páginas predeterminadas:
   ```
   {: codeblock}
 
-**Detalles de la cuenta**
+#### Detalles de la cuenta
+
 {: #default-account-details}
 1. Establezca **Permitir a los usuarios registrarse y restablecer su contraseña** en **Activado** en los valores del directorio en la nube.
 2. Pase la propiedad `show` de WebAppStrategy y establézcala en `WebAppStrategy.CHANGE_DETAILS`.

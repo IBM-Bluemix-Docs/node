@@ -36,7 +36,7 @@ Para obtener más información, consulte [Desarrollo de apps sin servidor](/docs
 ## Integración de los servicios de fondo con un SDK generado
 {: #backend_gensdk}
 
-El plug-in de generador de SDK de {{site.data.keyword.IBM_notm}} integra fácilmente servicios de fondo en la app con un SDK generado. Cuando se produzca un cambio en una API REST, puede volver a generar el SDK y sustituir el antiguo por una actualización de SDK. También puede integrar la CLI en un conducto de DevOps y garantizar que el SDK sea siempre coherente con la especificación de la API cada vez que se cree la app.
+El plugin SDK Generator de {{site.data.keyword.IBM_notm}} integra fácilmente servicios de fondo en la app con un SDK generado. Cuando se produzca un cambio en una API REST, puede volver a generar el SDK y sustituir el antiguo por una actualización de SDK. También puede integrar la CLI en un conducto de DevOps y garantizar que el SDK sea siempre coherente con la especificación de la API cada vez que se cree la app.
 
 Para obtener más información, consulte [Integración de los servicios de fondo con un SDK generado](/docs/swift/backend/cli_sdkgen.html#sdkgen-cli).
 

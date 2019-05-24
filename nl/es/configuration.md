@@ -47,7 +47,7 @@ El módulo [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env){: n
   ```
   {: codeblock}
 
-  Si la vía de acceso del archivo de correlaciones no se especifica en `IBMCloudEnv.init ()`, el módulo intenta cargar las correlaciones de una vía de acceso predeterminada de `/server/config/mappings.json`.
+  Si la vía de acceso del archivo de correlaciones no se especifica en `IBMCloudEnv.init()`, el módulo intenta cargar las correlaciones de una vía de acceso predeterminada de `/server/config/mappings.json`.
   {: tip}
 
   Archivo `mappings.json` de ejemplo:
