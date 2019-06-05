@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-06-05"
 
 keywords: healthcheck node, add healthcheck node, healthcheck endpoint nodes, readiness node, liveness node, endpoint node, probes node, health check node
 
@@ -49,6 +49,7 @@ The following table provides guidance on the responses that readiness, liveness,
 | Stopping | 503 - Unavailable           | 200 - OK                   | 503 - Unavailable         |
 | Down     | 503 - Unavailable           | 503 - Unavailable          | 503 - Unavailable         |
 | Errored  | 500 - Server Error          | 500 - Server Error         | 500 - Server Error        |
+{: caption="Table 1. HTTP status codes." caption-side="bottom"}
 
 ## Adding a health check to an existing Node.js app
 {: #add-healthcheck-existing}

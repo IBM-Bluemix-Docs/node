@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-05"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -212,6 +212,10 @@ Check out the following table to see which pages you can display for each type o
 | Forgot password |  | <img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /> |
 | Change password |  | <img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /> |
 | Account details |  | <img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /> |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="Table comparison. Displaying pages for social identity providers vs cloud directory." caption-side="bottom"}
+{: summary="This table has row and column headers. The row headers identify the account pages that can be displayed. The column headers indentify what identity service can display them. To understand where an account page can be displayed in the table, navigate to the row for the account page, and find the column for the identity service you are interested in."}
 
 To display the default pages:
 
