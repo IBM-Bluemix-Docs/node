@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-05"
 
 keywords: configure node env, node environment, node credentials, ibm-cloud-env node
 
@@ -116,7 +116,7 @@ Locally running applications can connect to {{site.data.keyword.cloud_notm}} ser
 
 When you push your application to {{site.data.keyword.cloud_notm}}, these values are no longer used. Instead, the application automatically connects to bound services by using environment variables.
 
-* **Cloud Foundry**: Service credentials are taken from the `VCAP_SERVICES` environment variable. For Cloud Foundry Enrprise Edition, see this [getting started tutorial](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started) for more information.
+* **Cloud Foundry**: Service credentials are taken from the `VCAP_SERVICES` environment variable. For Cloud Foundry Enterprise Edition, see this [getting started tutorial](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started) for more information.
 
 * **Kubernetes**: Service credentials are taken from individual environment variables per service.
 

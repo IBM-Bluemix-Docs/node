@@ -64,7 +64,7 @@ Be sure that you have the following prerequisites ready to go:
 
 Provision an instance of the service:
 
-1. In the [{{site.data.keyword.cloud_notm}} Catalog](https://cloud.ibm.com/catalog){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"), select the **Web and Mobile** category, and click {{site.data.keyword.appid_short_notm}}. The service configuration page opens.
+1. In the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"), select the **Web and Mobile** category, and click {{site.data.keyword.appid_short_notm}}. The service configuration page opens.
 2. Give your service instance a name, or use the preset name.
 3. Select your pricing plan and click **Create**.
 
@@ -116,7 +116,7 @@ Provision an instance of the service:
     ```
     {: codeblock}
 
-    If you need help finding the credential key values for your app, check *step 5* of the [Before you begin](#prereqs-appid) section for details on where to find them. 
+    If you need help with finding the credential key values for your app, check *step 5* of the [Before you begin](#prereqs-appid) section for details on where to find them. 
     {: tip}
 
 4. Configure passport with serialization and deserialization. This configuration step is required for authenticated session persistence across HTTP requests. For more information, see the [passport docs](http://www.passportjs.org/docs/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").

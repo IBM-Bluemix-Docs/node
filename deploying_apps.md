@@ -20,7 +20,7 @@ subcollection: nodejs
 # Deploying and integrating Node.js apps
 {: #deploy_apps-nodejs}
 
-You can deploy your Node.js apps with a toolchain or by using the command line interface. A toolchain is a set of tool integrations. The command line interface is a simple way to deploy your apps and service instances.
+You can deploy your Node.js apps with a toolchain or by using the command-line interface. A toolchain is a set of tool integrations. The command-line interface is a simple way to deploy your apps and service instances.
 
 For more information, see [Deploying apps](/docs/apps?topic=creating-apps-deploying-apps).
 

@@ -59,7 +59,7 @@ Make sure that you are using the latest Node.js LTS release.
 {: #node-add-service}
 
 1. Return to your project in the {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}}.
-2. Click **Add service**, select the category of the service you want to add, click **Next**, then choose your service. For example, to add a NoSQL database to your application, click on the **Data** category, then select **Cloudant**, which offers a lite plan for free development. {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} provisions the service for you based on the selected plan.
+2. Click **Add service**, select the category of the service you want to add, click **Next**, then choose your service. For example, to add a NoSQL database to your application, select the **Data** category, then select **Cloudant**, which offers a lite plan for free development. {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} provisions the service for you based on the selected plan.
 Note: If you previously provisioned the service that you plan to use, choose the **Existing** category.
 3. After the service is provisioned, click **Download code** to regenerate the project with the SDK that connects to your service.
 

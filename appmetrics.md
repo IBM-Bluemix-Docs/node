@@ -128,7 +128,7 @@ A maximum of 15 minutes of data is shown across all graphs.
 
 If a large amount of data is being produced by the application that is being monitored, then the dashboard automatically starts to display data. When you look at the HTTP Incoming Requests chart again, you can see that each point shows all requests for a 2-second period. The following tooltip shows the total number of requests along with the average time taken, and the longest time. The longest time is the value that is plotted.
 
-![Show Tooltip](images/tooltip-1.png)
+![Show tooltip](images/tooltip-1.png)
 
 
 

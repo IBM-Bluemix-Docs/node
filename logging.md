@@ -99,7 +99,7 @@ You can view log output by using the following methods:
   ```
   {: codeblock}
 
-* For [Kubernetes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon")  deployments, you can access logs by running:
+* For [Kubernetes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") deployments, you can access logs by running:
   ```
   kubectl logs <deployment name>
   ```
