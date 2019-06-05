@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-06-05"
 
 keywords: nodejs tracing, debug nodejs apps, troubleshooting nodejs, appmetrics-zipkin node, zipkin docker nodejs, nodejs slow, nodejs tracing
 
@@ -27,7 +27,7 @@ In the following steps, two small applications (one front end, one back end) are
 ## Step 1. Installing and enabling the appmetrics-zipkin module
 {: #install-zipkin}
 
-In the same location as your Node.js application’s `package.json` file, enter the following [npm](https://nodejs.org/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") command to add the `appmetrics-zipkin` module into your dependency list:
+In the same location as your Node.js application’s `package.json` file, enter the following [npm](https://nodejs.org/en/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") command to add the `appmetrics-zipkin` module into your dependency list:
 ```
 npm install --save appmetrics-zipkin
 ```

@@ -33,7 +33,7 @@ For more information about all of the ways that you can use {{site.data.keyword.
 Be sure that you have the following prerequisites ready to go:
 1. You must have an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
 2. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli).
-3. Install [npm](https://nodejs.org/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") package management support.
+3. Install [npm](https://nodejs.org/en/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") package management support.
 4. Implement your Node.js server with the [Express framework](http://expressjs.com/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"). To install the Express framework, use the command line to open the directory with your Node.js app, and run the following command:
   ```
   npm install --save express
@@ -64,7 +64,7 @@ Be sure that you have the following prerequisites ready to go:
 
 Provision an instance of the service:
 
-1. In the [{{site.data.keyword.cloud_notm}} Catalog](https://cloud.ibm.com/catalog/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"), select the **Web and Mobile** category, and click {{site.data.keyword.appid_short_notm}}. The service configuration page opens.
+1. In the [{{site.data.keyword.cloud_notm}} Catalog](https://cloud.ibm.com/catalog){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"), select the **Web and Mobile** category, and click {{site.data.keyword.appid_short_notm}}. The service configuration page opens.
 2. Give your service instance a name, or use the preset name.
 3. Select your pricing plan and click **Create**.
 
@@ -119,7 +119,7 @@ Provision an instance of the service:
     If you need help finding the credential key values for your app, check *step 5* of the [Before you begin](#prereqs-appid) section for details on where to find them. 
     {: tip}
 
-4. Configure passport with serialization and deserialization. This configuration step is required for authenticated session persistence across HTTP requests. For more information, see the [passport docs](http://passportjs.org/docs){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+4. Configure passport with serialization and deserialization. This configuration step is required for authenticated session persistence across HTTP requests. For more information, see the [passport docs](http://www.passportjs.org/docs/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
   ```js
   passport.serializeUser(function(user, cb) {
     cb(null, user);
@@ -214,8 +214,8 @@ Check out the following table to see which pages you can display for each type o
 | Account details |  | <img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /> |
 {: row-headers}
 {: class="comparison-table"}
-{: caption="Table comparison. Displaying pages for social identity providers vs cloud directory." caption-side="bottom"}
-{: summary="This table has row and column headers. The row headers identify the account pages that can be displayed. The column headers indentify what identity service can display them. To understand where an account page can be displayed in the table, navigate to the row for the account page, and find the column for the identity service you are interested in."}
+{: caption="Table comparison. Displaying pages for social identity providers and cloud directory." caption-side="bottom"}
+{: summary="This table has row and column headers. The row headers identify the account pages that can be displayed. The column headers identify which identity service can display them. To understand where an account page can be displayed in the table, navigate to the row for the account page, and find the column for the identity service that you are interested in."}
 
 To display the default pages:
 

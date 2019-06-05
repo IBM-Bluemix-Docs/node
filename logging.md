@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-06-05"
 
 keywords: nodejs logging, view logs nodejs, add logging nodejs, log4j nodejs, stdout nodejs, nodejs log, output nodejs, nodejs logger
 
@@ -33,7 +33,7 @@ You can use [Log4js](https://github.com/log4js-node/log4js-node){: new_window} !
 ## Adding Log4js support to existing Node.js app
 {: #add_log4j}
 
-1. First, install `log4js` by running the following [npm](https://nodejs.org/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") command in the root directory of your application, which installs the package and adds it to your `package.json` file.
+1. First, install `log4js` by running the following [npm](https://nodejs.org/en/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") command in the root directory of your application, which installs the package and adds it to your `package.json` file.
   ```bash
   npm install --save log4js
   ```
@@ -93,13 +93,13 @@ See the following sample log output from running the app natively or in a cloud 
 
 You can view log output by using the following methods:
 * For local environments, use `stdout`.
-* For [Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html) deployments, you can access logs by running:
+* For [Cloud Foundry](/docs/cli/reference?topic=cloud-cli-ibmcloud_commands_apps#ibmcloud_app_logs) deployments, you can access logs by running:
   ```
   ibmcloud app logs --recent <APP_NAME>
   ```
   {: codeblock}
 
-* For [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/) deployments, you can access logs by running:
+* For [Kubernetes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon")  deployments, you can access logs by running:
   ```
   kubectl logs <deployment name>
   ```
@@ -109,8 +109,8 @@ You can view log output by using the following methods:
 {: #next_steps-logging notoc}
 
 Learn more about viewing logs in each deployment environment:
-* [Kubernetes Logs](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon")
-* [Cloud Foundry Logs](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps#logging_cf_apps)
+* [Kubernetes Logs](https://kubernetes.io/docs/concepts/cluster-administration/logging/#basic-logging-in-kubernetes){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon")
+* [Cloud Foundry Logs](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps)
 * [{{site.data.keyword.openwhisk}} Logs & Monitoring](/docs/openwhisk?topic=cloud-functions-openwhisk_logs#openwhisk_logs)
 
 Using a Log aggregator:

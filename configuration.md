@@ -103,7 +103,7 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## Using the Node.js configuration manager from Starter Kit apps
 {: #nodejs-config-skit}
 
-Node.js apps that are created with [Starter Kits](https://cloud.ibm.com/developer/appservice/starter-kits/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") automatically come with credentials and configurations that are needed to run in many Cloud deployment environments (CF, K8s, VSI, and Functions).
+Node.js apps that are created with [Starter Kits](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") automatically come with credentials and configurations that are needed to run in many Cloud deployment environments (CF, K8s, VSI, and Functions).
 
 ### Understanding service credentials
 {: #credentials-nodejs}

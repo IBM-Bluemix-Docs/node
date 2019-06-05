@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-30"
+lastupdated: "2019-06-05"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
 
@@ -26,7 +26,7 @@ Learn how to install, access, and understand Node.js application metrics. You ca
 ## Identifying problems visually
 {: #identify-problems}
 
-Application metrics are important for monitoring the performance of your application. Having a live view of metrics like CPU, Memory, Latency, and HTTP metrics is essential to ensure that your application runs effectively over time. You can use a cloud service like Cloud Foundry's [autoscaling](/docs/services/Auto-Scaling?topic=Auto-Scaling-get-started) that relies on metrics to dynamically scale instances to match current workload. By using application metrics, you are informed precisely when to scale up, down, or clean up instances that are no longer needed to keep costs low.
+Application metrics are important for monitoring the performance of your application. Having a live view of metrics like CPU, Memory, Latency, and HTTP metrics is essential to ensure that your application runs effectively over time. You can use a cloud service like Cloud Foundry's [autoscaling](/docs/services/Auto-Scaling?topic=Auto-Scaling) that relies on metrics to dynamically scale instances to match current workload. By using application metrics, you are informed precisely when to scale up, down, or clean up instances that are no longer needed to keep costs low.
 
 Application metrics are captured as time series data. Aggregating and visualizing captured metrics can help to identify common performance problems such as:
 
@@ -61,7 +61,7 @@ Add monitoring features to existing Express applications with the [`appmetrics-d
   ```
   {: codeblock}
 
-2. Install the `appmetrics` dashboard with the following [npm](https://nodejs.org/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") command:
+2. Install the `appmetrics` dashboard with the following [npm](https://nodejs.org/en/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") command:
   ```
   npm install appmetrics-dash
   ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-06-05"
 
 keywords: nodejs support, nodejs help, dwanswers nodejs, nodejs runtimes, nodejs buildpack, ibm support nodejs, foundation support nodejs, runtime support nodejs, nodejs app support
 
@@ -24,7 +24,7 @@ subcollection: nodejs
 ## Asking for help on dWanswers
 {: #dwanswers-nodejs}
 
-Ask questions on [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/index.html){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") by using the `#nodejs` tag or join the discussion in the [{{site.data.keyword.cloud_notm}} Slack](https://slack-invite-ibm-cloud-tech.mybluemix.net/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") within the `#nodejs-at-ibm` channel.
+Ask questions on [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/index.html){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") by using the `#nodejs` tag or join the discussion in the [{{site.data.keyword.cloud_notm}} Slack](https://ibm-cloud-tech.slack.com){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") within the `#nodejs-at-ibm` channel.
 
 ## Using official IBM Support for Runtimes
 {: #runtimes-support-nodejs}
@@ -35,7 +35,7 @@ The Node.js runtime support is available regardless of which modules you are usi
 
 IBM Advanced Support for Runtimes expands on Foundation Support, providing coverage for Express.js, Loopback, and Kitura (Swift framework) frameworks (including package dependencies).
 
-To learn more, visit [IBM's Digital Marketplace](https://www.ibm.com/us-en/marketplace/support-for-runtimes){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+To learn more, visit [IBM's Digital Marketplace](https://www.ibm.com/cloud/support-for-runtimes){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
 
 ## Buildpack Support Statement
 {: #buildpack-nodejs}
