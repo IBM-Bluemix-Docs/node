@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-05"
+lastupdated: "2019-06-06"
 
 keywords: nodejs support, nodejs help, dwanswers nodejs, nodejs runtimes, nodejs buildpack, ibm support nodejs, foundation support nodejs, runtime support nodejs, nodejs app support
 
@@ -40,4 +40,4 @@ To learn more, see [IBM's Digital Marketplace](https://www.ibm.com/cloud/support
 ## Buildpack Support Statement
 {: #buildpack-nodejs}
 
-[Buildpack support statement](/docs/runtimes-common?topic=runtimes-common-buildpack_support_statement)
+Issues can be reported against any version of the built-in IBM buildpack currently supported on {{site.data.keyword.cloud_notm}}, however, they must be verified against the latest version. If a defect is found, IBM will provide a fix in a future level of the runtime and corresponding buildpack. For more information, see the [buildpack support statement](/docs/runtimes-common?topic=runtimes-common-buildpack_support_statement).
