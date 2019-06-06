@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-05"
+lastupdated: "2019-06-06"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -308,5 +308,5 @@ Having trouble? Check out [troubleshooting {{site.data.keyword.appid_short_notm}
 
 Great job! You added an authentication step to your app. Keep the momentum by trying one of the following options:
 
-* To learn more about and take advantage of all of the features that {{site.data.keyword.appid_short_notm}} offers, [check out the docs](/docs/services/appid?topic=appid-getting-started#getting-started)!
+* To learn more about, and take advantage of all of the features that {{site.data.keyword.appid_short_notm}} offers, [check out the docs](/docs/services/appid?topic=appid-getting-started).
 * Starter kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud}}. View the available starter kits in the [Mobile developer dashboard](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"). Download the code. Run the app!
