@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-06-07"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -32,7 +32,7 @@ For more information about all of the ways that you can use {{site.data.keyword.
 
 Be sure that you have the following prerequisites ready to go:
 1. You must have an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
-2. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli).
+2. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started).
 3. Install [npm](https://nodejs.org/en/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") package management support.
 4. Implement your Node.js server with the [Express framework](http://expressjs.com/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"). To install the Express framework, use the command line to open the directory with your Node.js app, and run the following command:
   ```

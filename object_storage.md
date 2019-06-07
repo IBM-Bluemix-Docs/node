@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-05"
+lastupdated: "2019-06-07"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -41,7 +41,7 @@ Be sure that you have the following prerequisites ready to go:
 
     * _**endpoint**_ - The public endpoint for your Cloud Object Storage. The endpoint is available from the [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/resources){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
     * _**api-key**_ - The API key that is generated when the service credentials are created. Write access is required for creation and deletion examples.
-    * _**resource-instance-id**_ - The resource ID for your Cloud Object Storage. The resource ID is available through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) or [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/resources){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+    * _**resource-instance-id**_ - The resource ID for your Cloud Object Storage. The resource ID is available through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started) or [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/resources){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
 
 ## Step 1. Creating an instance of {{site.data.keyword.cos_short}}
 {: #create-instance-cos}
