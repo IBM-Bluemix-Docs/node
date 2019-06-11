@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-07"
+lastupdated: "2019-06-10"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -34,7 +34,7 @@ https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-stor
 {: #prereqs-cos}
 
 Be sure that you have the following prerequisites ready to go:
-1. You must have an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+1. You must have an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/registration){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
 2. You must have the [{{site.data.keyword.cos_short}} SDK for Node.js](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
 3. You must have Node 4.x+.
 4. Locate the credential key values to be used later for SDK initialization:
