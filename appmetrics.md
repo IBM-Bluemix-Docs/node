@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-05"
+lastupdated: "2019-06-11"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
 
@@ -118,7 +118,7 @@ The Application Metrics for Node.js monitoring dashboard UI provides a range of 
 ## Understanding the data
 {: #understanding-data}
 
-![Appmetrics Dashboard](images/appmetricsdash-1.png)
+![Appmetrics Dashboard](images/appmetricsdash-1.png "Appmetrics dashboard."){: caption="Figure 1. Application Metrics dashboard for Node.js." caption-side="bottom"}
 
 Most of the data is plotted as line graphs. HTTP Incoming Requests, HTTP Outgoing Requests, and Other Requests show event duration against time. HTTP Throughput shows requests per second. Average Response Times shows the most-used five incoming HTTP requests that took the longest on average. CPU and Memory graphs show system and process usage over time. Heap shows the maximum heap size, and used heap size over time. Event Loop Latency shows latency samples that are taken at intervals from the Node.js event loop, with one point for the shortest latency, one for the average, and one for the longest for each sample taken.
 
@@ -128,7 +128,7 @@ A maximum of 15 minutes of data is shown across all graphs.
 
 If a large amount of data is being produced by the application that is being monitored, then the dashboard automatically starts to display data. When you look at the HTTP Incoming Requests chart again, you can see that each point shows all requests for a 2-second period. The following tooltip shows the total number of requests along with the average time taken, and the longest time. The longest time is the value that is plotted.
 
-![Show tooltip](images/tooltip-1.png)
+![Show tooltip](images/tooltip-1.png){: caption="Figure 2. Show tooltip details." caption-side="bottom"}
 
 
 
