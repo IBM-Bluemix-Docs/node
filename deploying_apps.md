@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-05"
+lastupdated: "2019-06-13"
 
 keywords: deploy nodejs app, serverless nodejs, back-end nodejs, generated sdk nodejs, cloud foundry deploy nodejs, kubernetes deploy nodejs, virtual nodejs
 
@@ -16,6 +16,7 @@ subcollection: nodejs
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
 
 # Deploying and integrating Node.js apps
 {: #deploy_apps-nodejs}
@@ -58,5 +59,8 @@ If your account has access to {{site.data.keyword.cfee_full_notm}}, you can sele
 {: #virtual_deploy}
 
 A virtual service delivers a higher degree of transparency, predictability, and automation for all workload types. Terraform is used for building, changing, and versioning your infrastructure safely and efficiently.
+
+  VSI deployment is available for some starter kits. To use this feature, go to the [{{site.data.keyword.cloud_notm}} dashboard](https://{DomainName}), and click **Create an app** in the **Apps** tile.
+  {: note} 
 
 For more information, see [Deploying to a Virtual Server](/docs/vsi?topic=virtual-servers-deploying-to-a-virtual-server).
