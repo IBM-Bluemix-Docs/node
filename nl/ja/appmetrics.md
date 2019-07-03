@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-30"
+lastupdated: "2019-06-11"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
 
@@ -26,14 +26,14 @@ Node.js アプリケーションのメトリックをインストール、アク
 ## 視覚的な問題識別
 {: #identify-problems}
 
-アプリケーション・メトリックは、アプリケーションのパフォーマンスをモニターするのに重要です。 CPU、メモリー、待ち時間、HTTP などのメトリックをライブで表示できることは、長時間にわたりアプリケーションが効果的に実行されていることを確認するために不可欠です。 メトリックに依存するクラウド・サービス (例えば、Cloud Foundry の[自動スケーリング](/docs/services/Auto-Scaling?topic=Auto-Scaling-get-started)など) を使用して、現行作業負荷に合わせて動的にインスタンスをスケーリングできます。 アプリケーション・メトリックを使用することによって、インスタンスのスケーリングや不要インスタンスのクリーンアップを行うタイミングを正確に把握して、コストを低く抑えることができます。
+アプリケーション・メトリックは、アプリケーションのパフォーマンスをモニターするのに重要です。 CPU、メモリー、待ち時間、HTTP などのメトリックをライブで表示できることは、長時間にわたりアプリケーションが効果的に実行されていることを確認するために不可欠です。 メトリックに依存するクラウド・サービス (例えば、Cloud Foundry の[自動スケーリング](/docs/services/Auto-Scaling?topic=Auto-Scaling)など) を使用して、現行作業負荷に合わせて動的にインスタンスをスケーリングできます。 アプリケーション・メトリックを使用することによって、インスタンスのスケーリングや不要インスタンスのクリーンアップを行うタイミングを正確に把握して、コストを低く抑えることができます。
 
 アプリケーション・メトリックは、時系列データとして収集されます。 収集されたメトリックを集約して視覚化することは、以下のような一般的なパフォーマンス上の問題を特定するのに役立ちます。
 
 * 一部またはすべての経路で HTTP 応答時間が遅くなる
 * アプリケーションのスループットが低下する
 * 需要の急上昇によりスローダウンが発生する
-* CPU 使用率が予想より高い
+* 予想より CPU 使用量が多い
 * メモリー使用量が多いか、増加している (メモリー・リークの可能性)
 
 組み込みの Application Metrics Dashboard ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン")) には「その他の要求」についてのグラフも含まれていて、サポートされるデータベース (MongoDB、MySQL、Postgres、LevelDB、および Redis)、Socket.IO、および Riak イベントのデータベース要求所要時間が示されます。
@@ -61,7 +61,7 @@ Node.js アプリケーションのメトリックをインストール、アク
   ```
   {: codeblock}
 
-2. 以下の [npm](https://nodejs.org/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") コマンドを使用して `appmetrics` ダッシュボードをインストールします。
+2. 以下の [npm](https://nodejs.org/en/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") コマンドを使用して `appmetrics` ダッシュボードをインストールします。
   ```
   npm install appmetrics-dash
   ```
@@ -118,7 +118,7 @@ Application Metrics for Node.js モニタリング・ダッシュボード UI �
 ## データの解釈
 {: #understanding-data}
 
-![Appmetrics ダッシュボード](images/appmetricsdash-1.png)
+![Appmetrics ダッシュボード](images/appmetricsdash-1.png "Appmetrics ダッシュボード。")
 
 ほとんどのデータは折れ線グラフとして作図されます。 「HTTP 着信要求」、「HTTP 発信要求」、および「その他の要求」では、時間に対するイベント所要時間が示されます。 「HTTP スループット」では、1 秒当たりの要求数が示されます。 「平均応答時間」では、平均所要時間が最も長い、最も使用された 5 つの着信 HTTP 要求が示されます。 「CPU」グラフおよび「メモリー」グラフでは、システムおよびプロセスの使用量が経時的に示されます。 「ヒープ」では、最大ヒープ・サイズと使用ヒープ・サイズが経時的に示されます。 「イベント・ループ待ち時間」では、Node.js イベント・ループから一定の間隔で採取された待ち時間サンプルが示されます。採取されたサンプルごとに、最短、平均、および最長の待ち時間を示す点が 1 つずつ示されます。
 

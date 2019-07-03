@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-06-05"
 
 keywords: healthcheck node, add healthcheck node, healthcheck endpoint nodes, readiness node, liveness node, endpoint node, probes node, health check node
 
@@ -25,7 +25,7 @@ Les diagnostics d'intégrité fournissent un mécanisme simple pour déterminer 
 ## Présentation du diagnostic d'intégrité
 {: #node-healthcheck-overview}
 
-Les diagnostics d'intégrité fournissent un mécanisme simple pour déterminer si une application côté serveur se comporte de manière appropriée. Ils sont généralement consommés via HTTP et utilisent des codes de retour standard pour indiquer les états UP ou DOWN. La valeur de retour d'un diagnostic d'intégrité est variable, mais une réponse JSON minimale telle que `{"status": "UP"}` est typique.
+Les diagnostics d'intégrité fournissent un mécanisme simple pour déterminer si une application côté serveur se comporte de manière appropriée. Ils sont généralement consommés via HTTP et utilisent des codes retour standard pour indiquer l'état UP ou DOWN. La valeur de retour d'un diagnostic d'intégrité est variable, mais une réponse JSON minimale telle que `{"status": "UP"}` est typique.
 
 Kubernetes a une notion nuancée de l'intégrité des processus. Il définit deux sondes :
 
@@ -49,6 +49,7 @@ Le tableau suivant donne des indications sur les réponses fournies par les noeu
 | Stopping | 503 - Unavailable           | 200 - OK                   | 503 - Unavailable         |
 | Down     | 503 - Unavailable           | 503 - Unavailable          | 503 - Unavailable         |
 | Errored  | 500 - Server Error          | 500 - Server Error         | 500 - Server Error        |
+{: caption="Tableau 1. Codes d'état HTTP" caption-side="bottom"}
 
 ## Ajout d'un diagnostic d'intégrité à une application Node.js existante
 {: #add-healthcheck-existing}
@@ -90,12 +91,12 @@ module.exports = function(app) {
 
 Les sondes de préparation peuvent inclure la viabilité des connexions aux services situés en aval dans leur résultat si aucune rétromigration acceptable n'existe lorsque le service en aval n'est pas disponible. Il ne s'agit pas d'appeler directement le diagnostic d'intégrité qui est fourni par le service en aval, car l'infrastructure le vérifie pour vous. Vous devez plutôt envisager de vérifier l'état des références existantes de votre application aux services en aval : il peut s'agir d'une connexion JMS à WebSphere MQ, ou d'un consommateur ou producteur Kafka initialisé. Si vous vérifiez la viabilité des références internes aux services en aval, mettez en cache le résultat pour minimiser l'impact de la vérification de santé sur votre application.
 
-Une sonde de vivacité, en revanche, est délibérée quant à ce qui est vérifié, car une défaillance entraîne l'arrêt immédiat du processus. Un noeud final http simple qui renvoie toujours `{"statut" : "UP"}` avec le code d'état `200` est un choix raisonnable.
+Une sonde de vivacité, en revanche, est délibérée quant à ce qui est vérifié, car une défaillance entraîne l'arrêt immédiat du processus. Un noeud final http simple qui renvoie toujours `{"statut" : "UP"}` avec le code de statut `200` est un choix raisonnable.
 
 ### Ajout d'une prise en charge de la préparation et de la vivacité pour Kubernetes
 {: #kube-readiness-add}
 
-La bibliothèque [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") de [CloudNativeJS](https://github.com/cloudnativejs){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") fournit une infrastructure permettant de définir des noeuds finaux de préparation et de vivacité séparés dans Node qui permettent une composition des sources pour l'état de chaque noeud final. 
+La bibliothèque [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") de [CloudNativeJS](https://github.com/cloudnativejs){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") fournit une infrastructure permettant de définir des noeuds finaux de préparation et de vivacité séparés dans Node qui permettent une composition des sources pour l'état de chaque noeud final.
 
 ## Configuration des sondes de préparation et de vivacité dans Kubernetes
 {: #kube-readiness-config}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-10"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -31,9 +31,9 @@ Pour plus d'informations sur toutes les façons dont vous pouvez utiliser {{site
 {: #prereqs-appid}
 
 Assurez-vous que les prérequis suivants sont satisfaits :
-1. Vous devez avoir un [compte {{site.data.keyword.cloud}}](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").
-2. Installez l'interface de ligne de commande [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli).
-3. Vous avez installé le support de gestion de package [npm ](https://nodejs.org/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").
+1. Vous devez disposer d'un [compte {{site.data.keyword.cloud}}](https://cloud.ibm.com/registration){: new_window}![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").
+2. Installez l'[interface de ligne de commande {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started).
+3. Vous avez installé le support de gestion de package [npm ](https://nodejs.org/en/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").
 4. Vous avez implémenté votre serveur Node.js avec l'[infrastructure Express ](http://expressjs.com/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe"). Afin d'installer l'infrastructure Express, utilisez la ligne de commande pour ouvrir le répertoire contenant votre application Node.js et exécutez la commande suivante :
   ```
   npm install --save express
@@ -64,7 +64,7 @@ Assurez-vous que les prérequis suivants sont satisfaits :
 
 Mise à disposition d'une instance du service
 
-1. Dans le catalogue [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe"), sélectionnez la catégorie **Web et Mobile** puis cliquez sur {{site.data.keyword.appid_short_notm}}. La page de configuration de service s'ouvre.
+1. Dans le [catalogue {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe"), sélectionnez la catégorie **Web et mobile** puis cliquez sur {{site.data.keyword.appid_short_notm}}. La page de configuration de service s'ouvre.
 2. Donnez un nom à votre instance de service ou utilisez le nom prédéfini.
 3. Sélectionnez votre plan de tarification, puis cliquez sur **Créer**.
 
@@ -116,10 +116,10 @@ Mise à disposition d'une instance du service
     ```
     {: codeblock}
 
-    Si vous avez besoin d'aide pour trouver les valeurs de clé de données d'identification pour votre application, consultez l'*étape 5* de la section [Avant de commencer](#prereqs-appid) pour plus de détails. 
+    Si vous avez besoin d'aide pour trouver les valeurs de clé de données d'identification pour votre application, consultez l'*étape 5* de la section [Avant de commencer](#prereqs-appid) pour plus de détails.
     {: tip}
 
-4. Configurez passport avec la sérialisation et la désérialisation. Cette étape de configuration est requise pour la persistance de session authentifiée dans les demandes HTTP. Pour plus d'informations, voir la [documentation de Passport ](http://passportjs.org/docs){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").
+4. Configurez passport avec la sérialisation et la désérialisation. Cette étape de configuration est requise pour la persistance de session authentifiée dans les demandes HTTP. Pour plus d'informations, voir la [documentation de Passport ](http://www.passportjs.org/docs/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").
   ```js
   passport.serializeUser(function(user, cb) {
     cb(null, user);
@@ -212,6 +212,10 @@ Consultez le tableau ci-dessous pour voir les pages que vous pouvez afficher pou
 | Mot de passe oublié |  | <img src="images/confirm.png" width="32" alt="Fonction disponible" style="width:32px;" /> |
 | Changement du mot de passe |  | <img src="images/confirm.png" width="32" alt="Fonction disponible" style="width:32px;" /> |
 | Détails du compte |  | <img src="images/confirm.png" width="32" alt="Fonction disponible" style="width:32px;" /> |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="Comparaison de tableaux. Affichage des pages pour les fournisseur d'identité sociaux et le répertoire cloud. " caption-side="bottom"}
+{: summary="This table has row and column headers. The row headers identify the account pages that can be displayed. The column headers identify which identity service can display them. To understand where an account page can be displayed in the table, navigate to the row for the account page, and find the column for the identity service that you are interested in."}
 
 Pour afficher les pages par défaut :
 
@@ -297,12 +301,12 @@ Tout est correctement configuré ? Il est temps de tester !
 3. Mettez à jour les fournisseurs d'identité pour la page du widget de connexion dans le tableau de bord {{site.data.keyword.appid_short_notm}}. Cliquez sur **Vérification de l'activité** pour visualiser les événements d'authentification qui se sont produits.
 4. Répétez les étapes 1 et 2 pour vérifier que les modifications sont immédiatement appliquées. Aucune mise à jour du code de votre application n'est nécessaire.
 
-Vous rencontrez des problèmes ? Consultez la section [troubleshooting {{site.data.keyword.appid_short_notm}}](/docs/services/appid?topic=appid-troubleshooting#troubleshooting).
+Vous rencontrez des problèmes ? Consultez la section [Traitement des incidents dans {{site.data.keyword.appid_short_notm}}](/docs/services/appid?topic=appid-troubleshooting#troubleshooting).
 
 ## Etapes suivantes
 {: #next-appid notoc}
 
-Félicitations ! Vous avez ajouté une étape d'authentification à votre application. Poursuivez sur votre lancée en essayant l'une des options suivantes :
+Félicitations ! Vous avez ajouté une étape d'authentification à votre application. Continuez sur votre lancée en essayant l'une des options suivantes :
 
-* Pour en savoir plus et tirer pleinement parti des fonctions offertes par {{site.data.keyword.appid_short_notm}}, [consultez la documentation](/docs/services/appid?topic=appid-getting-started#getting-started) !
-* Les kits de démarrage constituent l'une des façons les plus rapides d'utiliser les fonctions d'{{site.data.keyword.cloud}}. Affichez les kits de démarrage disponibles dans le tableau de bord [Mobile developer dashboard ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe"). Téléchargez le code. Exécutez l'application !
+* Pour en savoir plus et tirer pleinement parti des fonctions offertes par {{site.data.keyword.appid_short_notm}}, [consultez la documentation](/docs/services/appid?topic=appid-getting-started).
+* Les kits de démarrage constituent l'une des façons les plus rapides d'utiliser les fonctions d'{{site.data.keyword.cloud}}. Affichez les kits de démarrage disponibles dans le tableau de bord [Mobile developer dashboard ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe"). Téléchargez le code. Lancez l'application.

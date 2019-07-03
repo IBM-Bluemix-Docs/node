@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-30"
+lastupdated: "2019-06-10"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -16,15 +16,15 @@ subcollection: nodejs
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Stockage de contenu statique dans Object Storage
+# Stockage d'un contenu statique dans Object Storage
 {: #object-storage}
 
 <!-- Sample Code for the SDK: https://github.com/ibm/ibm-cos-sdk-js#example-code -->
 
-<!-- More sample code: https://cloud.ibm.com/docs/services/cloud-object-storage/libraries/node.html#using-node-js -->
+<!-- More sample code: https://cloud.ibm.com/docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-node -->
 
 <!-- Object storage tutorial under the Storing and sharing data topicgroup:
-https://cloud.ibm.com/docs/services/cloud-object-storage/about-cos.html#about-ibm-cloud-object-storage -->
+https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-about -->
 
 {{site.data.keyword.cos_full_notm}} est un composant fondamental du Cloud Computing et fournit de puissantes fonctionnalités aux développeurs Apple ainsi qu'à leurs applications. A la différence du stockage d'informations dans une hiérarchie de fichier (comme le stockage par blocs ou le stockage de fichiers), un conteneur d'objets se compose uniquement de fichiers et de leurs métadonnées. Ces fichiers sont stockés dans des collections appelées compartiments. Par définition, ces objets sont non modifiables, ce qui les rend parfaits pour les données comme les images, les vidéos et d'autres documents statiques. Pour que les données qui changent fréquemment ou sont des données relationnelles, vous pouvez utiliser le service de base de données [{{site.data.keyword.cloudant_short_notm}}](/docs/node?topic=nodejs-cloudant).
 
@@ -34,29 +34,29 @@ https://cloud.ibm.com/docs/services/cloud-object-storage/about-cos.html#about-ib
 {: #prereqs-cos}
 
 Assurez-vous que les prérequis suivants sont satisfaits :
-1. Vous devez avoir un [compte {{site.data.keyword.cloud}}](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window}![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").
+1. Vous devez disposer d'un [compte {{site.data.keyword.cloud}}](https://cloud.ibm.com/registration){: new_window}![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").
 2. Vous devez disposer du logiciel [{{site.data.keyword.cos_short}} SDK for Node.js ](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").
 3. Vous devez disposer de Node 4.x+.
 4. Localisez les valeurs de clé de données d'identification à utiliser ultérieurement pour l'initialisation du kit SDK :
 
-    * _**endpoint**_ - Noeud final public pour votre stockage d'objets Cloud. Le noeud final est disponible dans le tableau de bord [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/dashboard/apps){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").
-    * _**api-key**_ - Clé d'API générée lorsque les données d'identification du service sont créées. L'accès en écriture est obligatoire pour la création et la suppression d'exemples.
-    * _**resource-instance-id**_ - ID ressource de votre stockage d'objets Cloud. L'ID ressource est disponible via l'interface de ligne de commande [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) ou le tableau de bord [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/dashboard/apps){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").
+    * _**endpoint**_ - noeud final public de votre instance Cloud Object Storage. Ce noeud final est disponible dans le [tableau de bord {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").
+    * _**api-key**_ - Clé d'API qui est générée lors de la création des données d'identification du service. Un accès en écriture est nécessaire pour la création et la suppression d'exemples.
+    * _**resource-instance-id**_ - ID ressource pour votre instance Cloud Object Storage. L'ID ressource est disponible via l'interface de ligne de commande [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started) ou le tableau de bord [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe").
 
 ## Etape 1. Création d'une instance de {{site.data.keyword.cos_short}}
 {: #create-instance-cos}
 
-1. Dans le catalogue [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe"), sélectionnez la catégorie **Stockage** puis cliquez sur {{site.data.keyword.cos_short}}. La page de configuration de service s'ouvre.
+1. Dans le [catalogue {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe"), sélectionnez la catégorie **Stockage** et cliquez sur {{site.data.keyword.cos_short}}. La page de configuration de service s'ouvre.
 2. Donnez un nom à votre instance de service ou utilisez le nom prédéfini.
-3. Sélectionnez votre plan de tarification, puis cliquez sur **Créer**. La page de votre instance Object Storage s'ouvre.
+3. Sélectionnez votre plan de tarification, puis cliquez sur **Créer**. La page de votre instance Object Storage s'affiche.
 4. Dans le menu de navigation, sélectionnez **Données d'identification du service**.
-5. Sur la page des données d'identification du service, cliquez sur **Nouvelles données d'identification**.
-6. Sur cette page, assurez-vous que le rôle est défini sur **Writer** puis cliquez sur **Ajouter**. Les nouvelles données d'identification sont créées et affichées dans la page des données d'identification du service.
+5. Dans la page Données d'identification du service, cliquez sur **Nouvelles données d'identification**.
+6. Dans la page Ajouter de nouvelles données d'identification, vérifiez que le rôle est défini sur **Auteur,** puis cliquez sur **Ajouter.** Les nouvelles données d'identification sont créées et affichées dans la page Données d'identification du service.
 
 ## Etape 2. Installation du logiciel SDK
 {: #install-cos}
 
-Installez le logiciel {{site.data.keyword.cos_short}} SDK for Node.js en utilisant le gestionnaire de package [npm](https://nodejs.org/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") à partir de la ligne de commande :
+Installez le logiciel {{site.data.keyword.cos_short}} SDK for Node.js en utilisant le gestionnaire de package [npm](https://nodejs.org/en/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") à partir de la ligne de commande :
 ```
 npm install ibm-cos-sdk
 ```
@@ -84,7 +84,7 @@ Une fois que vous avez initialisé le logiciel SDK dans votre application, vous 
   ```
   {: codeblock}
 
-  Si vous avez besoin d'aide pour trouver les valeurs de clé de données d'identification pour votre application, consultez l'*étape 4* de la section [Avant de commencer](#prereqs-cos) pour plus de détails.
+  Si vous avez besoin d'aide pour trouver les valeurs de clé de données d'identification pour votre application, consultez l'*étape 4* de la section [Avant de commencer](#prereqs-cos) pour plus de détails. Voir également [Données d'identification du service pour {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials).
   {: tip}
 
 3. Ajoutez le code suivant à votre fichier `server.js`.
@@ -149,16 +149,16 @@ function doDeleteObject() {
 ```
 {: codeblock}
 
-Consultez la [documentation complète](/docs/services/cloud-object-storage?topic=cloud-object-storage-node) pour les téléchargements à plusieurs parties, les fonctions de sécurité et autres opérations.
+Consultez la [documentation complète](/docs/services/cloud-object-storage?topic=cloud-object-storage-node) pour plus de détails sur les téléchargements à plusieurs parties, les fonctions de sécurité et d'autres opérations.
 
 ## Etape 4. Test de votre application
 {: #test-cos}
 
 Tout est correctement configuré ? Il est temps de tester !
 
-1. Exécutez votre application, en veillant à démarrer l'initialisation et les opérations appropriées, comme la création d'un compartiment et l'ajout de données à ce compartiment.
-2. Revenez à l'instance de service {{site.data.keyword.cos_short}} précédemment créée dans votre navigateur Web et ouvrez le tableau de bord du service.
-3. Sélectionnez le compartiment utilisé, vous verrez les objets nouvelle créés dans le tableau de bord.
+1. Lancez cette application, en vous assurant de démarrer l'initialisation et les opérations respectives, comme la création d'un compartiment et l'ajout de données à ce dernier.
+2. Retournez dans l'instance de service {{site.data.keyword.cos_short}} que vous avez préalablement créée dans votre navigateur Web, puis ouvrez le tableau de bord des services.
+3. Sélectionnez le compartiment qui est utilisé afin de voir les objets nouvellement créés dans votre tableau de bord.
 
 Vous rencontrez des problèmes ? Consultez les [informations de référence sur l'API {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api).
 

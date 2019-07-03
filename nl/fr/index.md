@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-06-07"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 
@@ -18,9 +18,9 @@ subcollection: nodejs
 {:tip: .tip}
 
 # Tutoriel d'initiation
-{: #node-getting-started}
+{: #getting-started}
 
-Le tutoriel suivant vous guide dans les procédures de génération, d'exécution en local et de déploiement d'une application Node.js à l'aide des outils {{site.data.keyword.cloud_notm}} fournis. Vous pouvez utiliser les outils [{{site.data.keyword.dev_cli_long}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) sur la ligne de commande ou le service Web [{{site.data.keyword.cloud}} {{site.data.keyword.dev_console}}](https://cloud.ibm.com/developer/appservice/dashboard){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") comme illustré dans la procédure suivante du tutoriel. L'utilisation de l'une ou l'autre de ces méthodes vous permet de générer en quelques minutes une application Node.js prête à l'emploi.
+Le tutoriel suivant vous guide dans les procédures de génération, d'exécution en local et de déploiement d'une application Node.js à l'aide des outils {{site.data.keyword.cloud_notm}} fournis. Vous pouvez utiliser les outils [{{site.data.keyword.dev_cli_long}}](/docs/cli?topic=cloud-cli-getting-started) sur la ligne de commande ou le service Web [{{site.data.keyword.cloud}} {{site.data.keyword.dev_console}}](https://cloud.ibm.com/developer/appservice/dashboard){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe"), comme illustré dans la procédure suivante du tutoriel. L'utilisation de l'une ou l'autre de ces méthodes vous permet de générer en quelques minutes une application Node.js prête à l'emploi.
 
 Veillez à utiliser l'édition du supplément à long terme (LTS) Node.js la plus récente.
 
@@ -34,11 +34,11 @@ Veillez à utiliser l'édition du supplément à long terme (LTS) Node.js la plu
 
 2. Cliquez sur **Créer une application**.
 3. Donnez un **nom** à votre application. Un nom d'application générique est fourni si vous souhaitez l'utiliser.
-4. Cliquez sur **Créer**. Une fois votre projet créé, vous pouvez le déployer à l'aide d'une chaîne d'outils ou poursuivre pour générer et déployer le projet depuis une ligne de commande.
+4. Cliquez sur **Créer**. Une fois votre projet créé, vous pouvez procéder au déploiement à l'aide d'une chaîne d'outils, ou vous pouvez continuer à générer, puis déployer votre projet depuis la ligne de commande.
 5. Pour créer une chaîne d'outils de déploiement dans le tableau de bord, cliquez sur **Déployer**. Configurez votre cible de déploiement en fonction des instructions s'appliquant à la méthode choisie :
-  * **Déployer dans [IBM Kubernetes Service](/docs/apps/deploying?topic=creating-apps-containers-kube#containers)**. Cette option crée un cluster d'hôtes, appelé noeuds worker, afin de déployer et de gérer des conteneurs d'application à haute disponibilité. Vous pouvez créer un cluster ou effectuer un déploiement sur un cluster existant.
-  * **Déployer dans Cloud Foundry**. Cette option déploie votre application cloud native sans qu'il soit nécessaire de gérer l'infrastructure sous-jacente. Si votre compte a accès à {{site.data.keyword.cfee_full_notm}}, vous pouvez sélectionner un déployeur de type **[Public Cloud](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf#about-cf)** ou **[Enterprise Environment](/docs/cloud-foundry-public?topic=cloud-foundry-public-cfee#cfee)**, que vous pouvez utiliser pour créer et gérer des environnements isolés pour l'hébergement de vos applications Cloud Foundry exclusivement pour votre entreprise.
-  * **Déployer sur un [serveur virtuel](/docs/apps?topic=creating-apps-vsi-deploy#vsi-deploy)**. Cette option met à disposition une instance de serveur virtuel, charge une image qui inclut votre application, crée une chaîne d'outils DevOps et initie pour vous le premier cycle de déploiement.
+  * **Déployer dans [IBM Kubernetes Service](/docs/containers?topic=containers-app)**. Cette option crée un cluster d'hôtes, appelé noeuds worker, afin de déployer et de gérer des conteneurs d'application à haute disponibilité. Vous pouvez créer un cluster ou effectuer un déploiement sur un cluster existant.
+  * **Déployer dans Cloud Foundry**. Cette option déploie votre application cloud native sans qu'il soit nécessaire de gérer l'infrastructure sous-jacente. Si votre compte a accès à {{site.data.keyword.cfee_full_notm}}, vous pouvez sélectionner un déployeur de type **[Public Cloud](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf)** ou **[Enterprise Environment](/docs/cloud-foundry-public?topic=cloud-foundry-public-cfee)**, que vous pouvez utiliser pour créer et gérer des environnements isolés pour l'hébergement de vos applications Cloud Foundry exclusivement pour votre entreprise.
+  * **Déployer sur un [serveur virtuel](/docs/vsi?topic=virtual-servers-deploying-to-a-virtual-server)**. Cette option met à disposition une instance de serveur virtuel, charge une image qui inclut votre application, crée une chaîne d'outils DevOps et initie pour vous le premier cycle de déploiement.
 
 6. Finalisez vos options puis cliquez sur **Créer** pour créer la chaîne d'outils.
 7. Si vous choisissez de continuer avec l'interface de ligne de commande plutôt que la chaîne d'outils, téléchargez le projet sur votre machine locale, `unzip` puis `cd` dans le répertoire racine. Vous pouvez à présent installer les prérequis à l'aide de la méthode de commande de vos plateformes :
@@ -59,7 +59,7 @@ Veillez à utiliser l'édition du supplément à long terme (LTS) Node.js la plu
 {: #node-add-service}
 
 1. Revenez à votre projet dans {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}}.
-2. Cliquez sur **Ajouter un service**, sélectionnez la catégorie du service à ajouter, cliquez sur **Suivant** puis choisissez votre service. Par exemple, pour ajouter une base de données NoSQL à votre application, cliquez sur la catégorie **Data**, puis sélectionnez **Cloudant** pour bénéficier d'un développement gratuit avec le plan Lite. {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} met à disposition le service pour vous en fonction du plan sélectionné.
+2. Cliquez sur **Ajouter un service**, sélectionnez la catégorie du service à ajouter, cliquez sur **Suivant** puis choisissez votre service. Ainsi, pour ajouter une base de données NoSQL à votre application, sélectionnez la catégorie **Data**, puis sélectionnez **Cloudant** pour bénéficier d'un développement gratuit avec le plan Lite. {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} met à disposition le service pour vous en fonction du plan sélectionné.
 Remarque : Si vous avez précédemment mis à disposition le service que vous prévoyez d'utiliser, choisissez la catégorie **existante**.
 3. Une fois le service mis à disposition, cliquez sur **Télécharger le code** pour régénérer le projet avec le logiciel SDK qui se connecte à votre service.
 
@@ -96,7 +96,7 @@ ibmcloud dev deploy –target container
 Continuez à consultez les rubriques du guide de programmation de Node.js. Pour des déploiements plus avancés, vous pouvez apprendre à créer un cluster Kubernetes sur lequel déployer votre application Node.js.
 
 ### Configuration d'un cluster Kubernetes
-Pour plus d'informations sur la configuration d'un cluster Kubernetes dans {{site.data.keyword.cloud_notm}}, consultez la [procédure du tutoriel](/docs/containers?topic=containers-clusters#clusters).
+Pour plus d'informations sur la configuration d'un cluster Kubernetes dans {{site.data.keyword.cloud_notm}}, consultez les [étapes du tutoriel](/docs/containers?topic=containers-clusters).
 
 ### Déploiement d'applications Node.js sur un cluster Kubernetes
-Apprenez à [déployer des applications Node.js sur un cluster Kubernetes](/docs/containers?topic=containers-cs_apps_tutorial#cs_apps_tutorial).
+Apprenez à [déployer des applications Node.js sur un cluster Kubernetes](/docs/containers?topic=containers-cs_apps_tutorial).

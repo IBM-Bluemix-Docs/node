@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-13"
 
 keywords: configure node env, node environment, node credentials, ibm-cloud-env node
 
@@ -16,6 +16,7 @@ subcollection: nodejs
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
 
 # Node.js 環境の構成
 {: #configure-nodejs}
@@ -103,7 +104,10 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## スターター・キット・アプリからの Node.js 構成マネージャーの使用
 {: #nodejs-config-skit}
 
-[スターター・キット](https://cloud.ibm.com/developer/appservice/starter-kits/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") を使用して作成された Node.js アプリには、多くのクラウド・デプロイメント環境 (CF、K8s、VSI、および Functions) での実行に必要な構成および資格情報が自動的に付属します。
+[スターター・キット](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") を使用して作成された Node.js アプリには、多くのクラウド・デプロイメント・ターゲット ([Kubernetes](/docs/containers?topic=containers-getting-started)、[Cloud Foundry](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf)、[{{site.data.keyword.cfee_full_notm}}](/docs/cloud-foundry?topic=cloud-foundry-about)、[仮想サーバー (VSI)](/docs/vsi?topic=virtual-servers-getting-started-tutorial)、または [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started) など) での実行に必要な資格情報と構成が自動的に付属します。
+
+  いくつかのスターター・キットで VSI デプロイメントを使用できます。この機能を使用するには、[{{site.data.keyword.cloud_notm}} ダッシュボード](https://{DomainName})に移動し、**「アプリ」**タイルで**「アプリの作成」**をクリックします。
+  {: note} 
 
 ### サービス資格情報について
 {: #credentials-nodejs}
@@ -116,7 +120,7 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 
 アプリケーションを {{site.data.keyword.cloud_notm}} にプッシュすると、これらの値は使用されなくなります。 代わりに、アプリケーションは環境変数を使用して、バインドされたサービスに自動的に接続します。
 
-* **Cloud Foundry**: サービス資格情報は、`VCAP_SERVICES` 環境変数から取得されます。 Cloud Foundry Enrprise Edition について詳しくは、この[入門チュートリアル](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started)を参照してください。
+* **Cloud Foundry**: サービス資格情報は、`VCAP_SERVICES` 環境変数から取得されます。 Cloud Foundry Enterprise Edition の場合、詳細については、[入門チュートリアル](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started)を参照してください。
 
 * **Kubernetes**: サービス資格情報は、サービスごとに個別の環境変数から取得されます。
 

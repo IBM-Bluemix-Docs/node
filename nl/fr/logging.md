@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-06-10"
 
 keywords: nodejs logging, view logs nodejs, add logging nodejs, log4j nodejs, stdout nodejs, nodejs log, output nodejs, nodejs logger
 
@@ -33,7 +33,7 @@ Vous pouvez utiliser [Log4js](https://github.com/log4js-node/log4js-node){: new_
 ## Ajout de support Log4js à une application Node.js existante
 {: #add_log4j}
 
-1. Installez tout d'abord `log4js` à l'aide de la commande [npm](https://nodejs.org/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") suivante dans le répertoire racine de votre application, ce qui installe le module et l'ajoute à votre fichier `package.json`.
+1. Installez tout d'abord `log4js` à l'aide de la commande [npm](https://nodejs.org/en/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") suivante dans le répertoire racine de votre application, ce qui installe le module et l'ajoute à votre fichier `package.json`.
   ```bash
   npm install --save log4js
   ```
@@ -85,21 +85,21 @@ Par défaut, le `niveau de journalisation` est défini sur `OFF` pour pouvoir ê
 ### Affichage de la sortie de journal
 {: #node-view-log-output}
 
-Consultez la sortie de journal ci-dessous liée à l'exécution de l'application en mode natif ou dans un environnement cloud :
+Consultez l'exemple suivant de sortie de journal provenant de l'exécution de l'application en mode natif ou dans un environnement cloud :
 ```
 2018-07-26 12:40:15.121 [INFO] MyAppName - MyAppName listening on http://localhost:3000
 ```
 {: screen}
 
-Vous pouvez afficher la sortie de journal de l'une des manières suivantes :
-* Pour les environnements locaux, utilisez `stdout`.
-* Pour les déploiements [Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html), accédez aux journaux en exécutant :
+Vous pouvez afficher la sortie du journal à l'aide des méthodes suivantes :
+* Pour des environnements locaux, utilisez `stdout`.
+* Pour des déploiements [Cloud Foundry](/docs/cli/reference?topic=cloud-cli-ibmcloud_commands_apps#ibmcloud_app_logs), vous pouvez accéder aux journaux en exécutant la commande suivante :
   ```
   ibmcloud app logs --recent <APP_NAME>
   ```
   {: codeblock}
 
-* Pour les déploiements [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/), accédez aux journaux en exécutant :
+* Pour des déploiements [Kubernetes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe"), vous pouvez accéder aux journaux en exécutant la commande suivante :
   ```
   kubectl logs <deployment name>
   ```
@@ -109,9 +109,9 @@ Vous pouvez afficher la sortie de journal de l'une des manières suivantes :
 {: #next_steps-logging notoc}
 
 Découvrez davantage d'informations en consultant les journaux dans chaque environnement de déploiement :
-* [Journaux de Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")
-* [Journaux de Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps#logging_cf_apps)
-* [Journaux et surveillance d'{{site.data.keyword.openwhisk}}](/docs/openwhisk?topic=cloud-functions-openwhisk_logs#openwhisk_logs)
+* [Journaux de Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/#basic-logging-in-kubernetes){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")
+* [Journaux de Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps)
+* [Journaux & surveillance d'{{site.data.keyword.openwhisk}}](/docs/openwhisk?topic=cloud-functions-logs)
 
 Utilisation d'un regroupeur de journaux
 * [Analyse de journal {{site.data.keyword.cloud_notm}}](/docs/services/CloudLogAnalysis?topic=cloudloganalysis-log_analysis_ov#log_analysis_ov)

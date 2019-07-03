@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-06-05"
 
 keywords: ibmcloud dev enable, nodejs cloud deployment, cloud enable nodejs, deploy nodejs, build nodejs cloud, nodejs debug
 
@@ -33,7 +33,7 @@ ibmcloud dev enable
 
 Node.js プロジェクトの確認を求めるプロンプトが出されたら、「`y`」と応答します。`enable` コマンドは、サービスを作成して、それをアプリケーションにバインドすることもできます。 この基本的な例では、「`n`」と応答します。
 
-次の出力例を参照してください。
+以下のサンプル出力を参照してください。
 ```
 demo: $ ibmcloud dev enable
 The enable feature is currently in Beta.
@@ -102,7 +102,7 @@ ibmcloud dev deploy
 ## 使用可能アプリケーションがビルドまたはデプロイされていない場合の対応
 {: #build_failure}
 
-`enable` コマンドによってすべてのアプリケーションが正常に使用可能になる訳ではありません。 このコマンドは、アプリケーションの「クラウド使用可能化」に必要な構成を判別するためにベスト・エフォートを試行します。 少なくとも、元のアプリケーションは、`npm install` と `npm start` を正常に実行できるようにする必要があります。 `npm start` とは異なる実行コマンドを使用するアプリケーションの場合は、`Dockerfile` の `CMD` 行を変更できます。
+すべてのアプリケーションが `enable` コマンドで正常に使用可能になるわけではなりません。 アプリケーションが「クラウド対応」になるために必要な構成を判別するために、できる限りのことが試みられます。 少なくとも、元のアプリケーションは、`npm install` と `npm start` を正常に実行できるようにする必要があります。 `npm start` とは異なる実行コマンドを使用するアプリケーションの場合は、`Dockerfile` の `CMD` 行を変更できます。
 
 `ibmcloud dev enable` を実行した後にアプリケーションがビルドやデプロイを行わない場合は、生成されたファイルを手動で変更してクラウド使用可能化を完了できます。
 
@@ -138,7 +138,7 @@ services:
 ```
 {: codeblock}
 
-これにより、アプリケーションがポート `3000` に公開され、MongoDB サーバーがポート `27017` 経由でクライアントに接続できるようになります。
+アプリケーションはポート `3000` で公開され、MongoDB サーバーはポート `27017` をクライアント接続用に使用できます。
 
 `cli-config.yml` の次の行を更新して、新しい Dockerfile ファイルを指すようにする必要があります。 
 ```yaml

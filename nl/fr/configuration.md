@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-13"
 
 keywords: configure node env, node environment, node credentials, ibm-cloud-env node
 
@@ -16,6 +16,7 @@ subcollection: nodejs
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
 
 # Configuration de l'environnement Node.js
 {: #configure-nodejs}
@@ -103,7 +104,10 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## Utilisation du gestionnaire de configuration Node.js depuis les applications du kit de démarrage (Starter Kit)
 {: #nodejs-config-skit}
 
-Les applications Node.js créées avec des [kits de démarrage](https://cloud.ibm.com/developer/appservice/starter-kits/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") sont automatiquement fournies avec les données d'identification et les configurations nécessaires pour l'exécution dans un grand nombre d'environnements de déploiement Cloud (CF, K8s, VSI et Functions).
+Les applications Node.js créées avec les [kits de démarrage](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") incluent automatiquement des données d'identification et des configurations qui sont requises pour une exécution sur de nombreuses cibles de déploiement de cloud, telles [Kubernetes](/docs/containers?topic=containers-getting-started), [Cloud Foundry](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf), [{{site.data.keyword.cfee_full_notm}}](/docs/cloud-foundry?topic=cloud-foundry-about), [Virtual Server (VSI)](/docs/vsi?topic=virtual-servers-getting-started-tutorial) ou [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started).
+
+  Le déploiement de VSI est disponible pour certains kits de démarrage. Pour utiliser cette fonctionnalité, accédez au [tableau de bord {{site.data.keyword.cloud_notm}}](https://{DomainName}) et cliquez sur **Créer une application** dans la vignette **Applications**.
+  {: note} 
 
 ### Présentation des données d'identification de service
 {: #credentials-nodejs}
@@ -116,7 +120,7 @@ Les applications exécutées en local peuvent se connecter aux services {{site.d
 
 Lorsque vous envoyez par commande push votre application à {{site.data.keyword.cloud_notm}}, ces valeurs ne sont plus utilisées. A la place, l'application se connecte automatiquement aux services liés à l'aide de variables d'environnement.
 
-* **Cloud Foundry** : Les données d'identification du service sont récupérées à partir de la variable d'environnement `VCAP_SERVICES`. Pour Cloud Foundry Enterprise Edition, consultez ce [tutoriel d'initiation](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started) pour plus d'informations.
+* **Cloud Foundry** : Les données d'identification du service sont récupérées à partir de la variable d'environnement `VCAP_SERVICES`. Pour Cloud Foundry Enterprise Edition, voir le [tutoriel d'initiation](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started) pour plus d'informations.
 
 * **Kubernetes** : Les données d'identification du service sont récupérées par service, à partir de variables d'environnement individuelles.
 

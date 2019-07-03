@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-30"
+lastupdated: "2019-06-11"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
 
@@ -26,14 +26,14 @@ Apprenez à installer et interpréter les métriques d'application Node.js ainsi
 ## Identification visuelle des problèmes
 {: #identify-problems}
 
-Les métriques d'application sont importantes pour la surveillance des performances de votre application. Une vue en direct de métriques comme l'UC, la mémoire, le temps d'attente et les métriques HTTP est essentielle pour vous assurer que votre application fonctionne efficacement dans le temps. Vous pouvez utiliser un service cloud comme Cloud Foundry [Auto-Scaling](/docs/services/Auto-Scaling?topic=Auto-Scaling-get-started), qui repose sur des métriques pour une mise à l'échelle dynamique des instances en fonction de la charge de travail en cours. En utilisant des métriques d'application, vous savez précisément quand augmenter ou réduire des instances, ou les nettoyer lorsqu'elles ne sont plus nécessaires, ce qui vous permet de limiter les coûts.
+Les métriques d'application sont importantes pour la surveillance des performances de votre application. Une vue en direct de métriques comme l'UC, la mémoire, le temps d'attente et les métriques HTTP est essentielle pour vous assurer que votre application fonctionne efficacement dans le temps. Vous pouvez utiliser un service cloud comme Cloud Foundry [Auto-Scaling](/docs/services/Auto-Scaling?topic=Auto-Scaling), qui repose sur des métriques pour adapter dynamiquement les instances aux charges de travail actuelles. En utilisant des métriques d'application, vous savez précisément quand augmenter ou réduire des instances, ou les nettoyer lorsqu'elles ne sont plus nécessaires, ce qui vous permet de limiter les coûts.
 
 Les métriques d'application sont capturées sous forme de données de séries temporelles. L'agrégation et la visualisation des métriques capturées peut permettre d'identifier des problèmes de performance courants :
 
 * Temps de réponse HTTP trop longs sur tout ou partie des routes
 * Débit médiocre dans l'application
 * Pics de demandes entraînant des ralentissements
-* Utilisation d'UC plus élevée que prévu
+* Utilisation de l'UC plus élevée que prévu
 * Utilisation élevée ou en augmentation de la mémoire (fuite de mémoire potentielle)
 
 Le tableau de bord Application Metrics intégré ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")) inclut également un diagramme pour les ‘autres demandes’, qui indique la durée des requêtes pour les bases de données prises en charge (MongoDB, MySQL, Postgres, LevelDB et Redis) et présente les événements Socket.IO et Riak.
@@ -61,7 +61,7 @@ Ajoutez des fonctions de surveillance à des applications Express existantes ave
   ```
   {: codeblock}
 
-2. Installez le tableau de bord `appmetrics` à l'aide de la commande [npm](https://nodejs.org/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") suivante :
+2. Installez le tableau de bord `appmetrics` à l'aide de la commande [npm](https://nodejs.org/en/){: new_window} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe") suivante :
   ```
   npm install appmetrics-dash
   ```
@@ -118,7 +118,7 @@ L'interface utilisateur du tableau de bord de surveillance Application Metrics f
 ## Compréhension des données
 {: #understanding-data}
 
-![Tableau de bord Appmetrics](images/appmetricsdash-1.png)
+![Tableau de bord Appmetrics](images/appmetricsdash-1.png "Tableau de bord Appmetrics")
 
 La plupart des données sont représentées sous forme de diagrammes linéaires. Les demandes entrantes HTTP, demandes sortantes HTTP et autres demandes indiquent la durée des événements en fonction du temps. Le débit HTTP montre le nombre de demandes par seconde. Les temps de réponse moyens indiquent les cinq demandes HTTP entrantes les plus utilisées qui ont duré le plus longtemps en moyenne. Les diagrammes d'UC et de mémoire montrent l'utilisation du système et des processus dans le temps. Le segment de mémoire indique la taille de segment de mémoire maximale ainsi que son utilisation dans le temps. Le temps d'attente de boucle d'événements montre des exemples de temps d'attente pris à différents moments dans la boucle d'événements Node.js, avec un point pour le temps d'attente le plus court, un pour le temps moyen et un autre pour le plus long (pour chaque exemple pris).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-10"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -31,9 +31,9 @@ subcollection: nodejs
 {: #prereqs-appid}
 
 以下の前提条件が整っていることを確認します。
-1. [{{site.data.keyword.cloud}} アカウント](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") を持っている必要があります。
-2. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) をインストールします。
-3. [npm](https://nodejs.org/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") パッケージ管理サポートをインストールします。
+1. [{{site.data.keyword.cloud}} アカウント](https://cloud.ibm.com/registration){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") を持っている必要があります。
+2. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started) をインストールします。
+3. [npm](https://nodejs.org/en/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") パッケージ管理サポートをインストールします。
 4. [Express フレームワーク](http://expressjs.com/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") を使用して Node.js サーバーを実装します。 Express フレームワークをインストールするには、コマンド・ラインを使用して、Node.js アプリのディレクトリーを開き、以下のコマンドを実行します。
   ```
   npm install --save express
@@ -49,7 +49,7 @@ subcollection: nodejs
   他のフレームワークは `Express` フレームワークを使用します (LoopBack など)。 {{site.data.keyword.appid_short_notm}} Server SDK は、それらのどのフレームワークでも使用可能です。
   {: note}
 
-6. 後で SDK の初期化に使用される資格情報キー値を見つけます。
+6. 後で SDK の初期化に使用する資格情報キー値を見つけます。
 
     * _**tenantID**_ - テナント ID は、アプリの初期化に使用される固有 ID です。 この値を入手するには、{{site.data.keyword.appid_short_notm}} サービス・ダッシュボードの**「サービス資格情報」**タブで**「資格情報の表示」**をクリックします。
     * _**clientID**_、_**secret**_、_**oauth-server-url**_ - これらの値を入手するには、サービス・ダッシュボードの**「サービス資格情報」**タブで**「資格情報の表示」**をクリックします。
@@ -64,7 +64,7 @@ subcollection: nodejs
 
 サービス・インスタンスのプロビジョン:
 
-1. [{{site.data.keyword.cloud_notm}} カタログ](https://cloud.ibm.com/catalog/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") から**「Web とモバイル」**カテゴリーを選択し、{{site.data.keyword.appid_short_notm}} をクリックします。 サービス構成ページが開きます。
+1. [{{site.data.keyword.cloud_notm}} カタログ](https://cloud.ibm.com/catalog){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") から**「Web とモバイル」**カテゴリーを選択し、{{site.data.keyword.appid_short_notm}} をクリックします。 サービス構成ページが開きます。
 2. サービス・インスタンスに名前を付けます。または、事前設定された名前を使用します。
 3. 料金プランを選択し、**「作成」**をクリックします。
 
@@ -116,10 +116,10 @@ subcollection: nodejs
     ```
     {: codeblock}
 
-    アプリ用の資格情報のキー値を知るためにヘルプが必要な場合、『[始める前に](#prereqs-appid)』セクションの*ステップ 5* で、それらの値を入手できる場所についての詳しい説明を参照してください。 
+    アプリ用の資格情報のキー値を知るためにヘルプが必要な場合は、『[始める前に](#prereqs-appid)』セクションの*ステップ 5* で、それらの値を入手できる場所についての詳細を参照してください。
     {: tip}
 
-4. Passport にシリアライゼーションとデシリアライゼーションを構成します。 この構成手順は、複数の HTTP 要求にわたって認証済みセッション・パーシスタンスを維持するために必要です。 詳しくは、[Passport の資料](http://passportjs.org/docs){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") を参照してください。
+4. Passport にシリアライゼーションとデシリアライゼーションを構成します。 この構成手順は、複数の HTTP 要求にわたって認証済みセッション・パーシスタンスを維持するために必要です。 詳しくは、[Passport の資料](http://www.passportjs.org/docs/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") を参照してください。
   ```js
   passport.serializeUser(function(user, cb) {
     cb(null, user);
@@ -170,15 +170,15 @@ ID プロバイダーが提供するユーザー認証情報を使用して、�
 
 ソーシャル ID プロバイダーを構成するには、以下のステップを実行します。
 
-1. {{site.data.keyword.appid_short_notm}} ダッシュボードを開いて**「ID プロバイダー」>「管理」**と進みます。
+1. {{site.data.keyword.appid_short_notm}} ダッシュボードを開いて**「ID プロバイダー」>「管理」**に移動します。
 2. 使用する ID プロバイダーを**「オン」**に設定します。 複数の ID プロバイダーを任意に組み合わせることができますが、カスタマイズされたサインオン・ページを使用したい場合はクラウド・ディレクトリーのみを有効にしてください。
-3. [デフォルト構成](/docs/services/appid?topic=appid-social#social)を自分の資格情報に更新します。 {{site.data.keyword.appid_short_notm}} には、このサービスを試してみるために使用できる IBM 資格情報が用意されています。 アプリを公開する前に、構成を更新する必要があります。
+3. [デフォルト構成](/docs/services/appid?topic=appid-social#social)を実際の資格情報に更新します。 {{site.data.keyword.appid_short_notm}} には、このサービスを試してみるために使用できる IBM 資格情報が用意されています。 アプリを公開する前に、構成を更新する必要があります。
 4. [事前構成されたサインイン・ページをカスタマイズ](#login-widget)して、選択したイメージと色が表示されるようにします。
 
 ### クラウド・ディレクトリーの構成
 {: #cloud-directory-appid}
 
-{{site.data.keyword.appid_short_notm}} では、クラウド・ディレクトリーという独自のユーザー・レジストリーを管理できます。 クラウド・ディレクトリーによって、モバイル・アプリおよび Web アプリにユーザーが各自の E メールとパスワードを使用して登録/サインインすることが可能になります。
+{{site.data.keyword.appid_short_notm}} では、クラウド・ディレクトリーという独自のユーザー・レジストリーを管理できます。 クラウド・ディレクトリーを使用すると、ユーザーは自分の E メールとパスワードを使用してモバイル・アプリや Web アプリにサインアップ/サインインできます。
 
 クラウド・ディレクトリーを構成するには、[クラウド・ディレクトリー](/docs/services/appid?topic=appid-cloud-directory#cloud-directory)を参照してください。
 
@@ -212,6 +212,10 @@ ID プロバイダーのタイプごとの表示できるページは次の表�
 | パスワードを忘れた場合 |  | <img src="images/confirm.png" width="32" alt="機能は使用可能" style="width:32px;" /> |
 | パスワードの変更 |  | <img src="images/confirm.png" width="32" alt="機能は使用可能" style="width:32px;" /> |
 | アカウント詳細 |  | <img src="images/confirm.png" width="32" alt="機能は使用可能" style="width:32px;" /> |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="表による比較。ソーシャル ID プロバイダーおよびクラウド・ディレクトリーのページの表示。" caption-side="bottom"}
+{: summary="This table has row and column headers. The row headers identify the account pages that can be displayed. The column headers identify which identity service can display them. To understand where an account page can be displayed in the table, navigate to the row for the account page, and find the column for the identity service that you are interested in."}
 
 デフォルトのページを表示するには、次のようにします。
 
@@ -290,19 +294,19 @@ ID プロバイダーのタイプごとの表示できるページは次の表�
 ## ステップ 5. アプリのテスト
 {: #test-appid}
 
-すべて正しくセットアップされましたか? テストしてみましょう!
+すべて正しくセットアップされましたか? テストできます。
 
 1. 従属関係をインストールし、アプリケーション・サーバーを開始します。
-2. GUI を使用してアプリケーションへのサインイン・プロセスをウォークスルーします。 クラウド・ディレクトリーを構成した場合は、すべてのページが意図したとおりに表示されることを確認します。
+2. GUI を使用してアプリケーションへのサインイン・プロセスを実行します。 クラウド・ディレクトリーを構成した場合は、すべてのページが意図したとおりに表示されることを確認します。
 3. {{site.data.keyword.appid_short_notm}} ダッシュボードで ID プロバイダーまたはログイン・ウィジェットのページを更新します。 **「アクティビティーの確認」**をクリックして、発生した認証イベントを表示します。
 4. ステップ 1 と 2 を繰り返して、変更が即時に実装されることを確認します。 アプリ・コードを更新する必要はありません。
 
-問題がある場合、[{{site.data.keyword.appid_short_notm}} のトラブルシューティング](/docs/services/appid?topic=appid-troubleshooting#troubleshooting)を参照してください。
+問題がある場合は、 [{{site.data.keyword.appid_short_notm}} のトラブルシューティング](/docs/services/appid?topic=appid-troubleshooting#troubleshooting)を確認してください。
 
 ## 次のステップ
 {: #next-appid notoc}
 
 お疲れさまでした。 アプリに認証ステップを追加しました。 この調子で、以下のいずれかのオプションを試してみてください。
 
-* {{site.data.keyword.appid_short_notm}} が提供する機能のすべてについてさらに学習し、それらの機能を利用するには、[資料](/docs/services/appid?topic=appid-getting-started#getting-started)をお読みください。
-* スターター・キットは、{{site.data.keyword.cloud}} の機能を素早く使用するための 1 つの方法です。 [モバイル開発者ダッシュボード](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") で、使用可能なスターター・キットを確認できます。 コードをダウンロードし、アプリを実行してみてください。
+* {{site.data.keyword.appid_short_notm}} が提供する機能のすべてについてさらに学習し、それらの機能を利用するには、[資料](/docs/services/appid?topic=appid-getting-started)をお読みください。
+* スターター・キットは、{{site.data.keyword.cloud}} の機能を素早く使用するための 1 つの方法です。 [モバイル開発者ダッシュボード](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") で、使用可能なスターター・キットを確認できます。 コードをダウンロードして アプリを実行してください。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-06-10"
 
 keywords: nodejs storage, nodejs cloudant, nodejs iam, initialize sdk nodejs, test nodejs app, dbaas nodejs, nodejs-cloudant, store documents nodejs
 
@@ -20,19 +20,19 @@ subcollection: nodejs
 # {{site.data.keyword.cloud_notm}} への文書の保管
 {: #cloudant}
 
-{{site.data.keyword.cloudantfull}} は、文書向けの Database as a Service (DBaaS) です。 データは JSON フォーマットの文書として保管されます。 {{site.data.keyword.cloudant_short_notm}} は、スケーラビリティー、高可用性、耐久性を考慮に入れて構築されており、Node.js アプリケーションで使用するために簡単に構成できるようになっています。 これには、MapReduce、{{site.data.keyword.cloudant_short_notm}} Query、全文索引付け、地理情報索引付けなど、さまざまな索引付けオプションが付属しています。 複製機能により、データベース・クラスター、デスクトップ PC、モバイル・デバイス間で簡単にデータを同期させておくことができます。
+{{site.data.keyword.cloudantfull}} は、文書向けの Database as a Service (DBaaS) です。 JSON 形式の文書としてデータを保管します。 {{site.data.keyword.cloudant_short_notm}} は、スケーラビリティー、高可用性、耐久性を考慮に入れて構築されており、Node.js アプリケーションで使用するために簡単に構成できるようになっています。 これには、MapReduce、{{site.data.keyword.cloudant_short_notm}} Query、全文索引付け、地理情報索引付けなど、さまざまな索引付けオプションが付属しています。 複製機能により、データベース・クラスター、デスクトップ PC、モバイル・デバイス間で簡単にデータを同期させておくことができます。
 {:shortdesc}
 
-詳しくは、[{{site.data.keyword.cloudant_short_notm}} 概要](/docs/services/Cloudant/basics?topic=cloudant-ibm-cloudant-basics#ibm-cloudant-basics)を参照してください。
+詳しくは、[{{site.data.keyword.cloudant_short_notm}} 概要](/docs/services/Cloudant/basics?topic=cloudant-ibm-cloudant-basics)を参照してください。
 
 ## 始める前に
 {: #prereqs-cloudant}
 
 以下の前提条件が整っていることを確認します。
  * [Nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") 2.3.0+ クライアント・ライブラリー。
- * [{{site.data.keyword.cloud}} アカウント](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") を持っている必要があります。
- * {{site.data.keyword.cloudant_short_notm}} にアクセスするには、[{{site.data.keyword.cloud_notm}} ダッシュボード](https://cloud.ibm.com/dashboard/apps){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") でサービスを作成し、そのサービス・インスタンスから {{site.data.keyword.cloudant_short_notm}} ダッシュボードを起動する必要があります。
- * 以下の手順のコード・スニペットは、IAM 認証を使用します。
+ * [{{site.data.keyword.cloud}} アカウント](https://cloud.ibm.com/registration){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") を持っている必要があります。
+ * {{site.data.keyword.cloudant_short_notm}} にアクセスするには、[{{site.data.keyword.cloud_notm}} ダッシュボード ](https://cloud.ibm.com/resources){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") でサービスを作成し、そのサービス・インスタンスから {{site.data.keyword.cloudant_short_notm}} ダッシュボードを開始する必要があります。
+ * 以下の手順で示すコード・スニペットでは、IAM 認証を使用しています。
  
 ### {{site.data.keyword.cloudant_short_notm}} での IAM の有効化
 {: #enable_IAM-cloudant}
@@ -41,28 +41,28 @@ subcollection: nodejs
 
 すべての新規 {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスでは、プロビジョン時に {{site.data.keyword.cloud_notm}} ID およびアクセス管理 (IAM) の使用が有効化されます。 {{site.data.keyword.cloud_notm}} カタログから新規インスタンスをプロビジョンするときに、**「IAM のみを使用」**認証方式を選択してください。 このモードは、サービス・バインディングおよび資格情報の生成で IAM 資格情報のみが提供されることを意味します。 詳しくは、[{{site.data.keyword.cloud_notm}} ID およびアクセス管理 (IAM)](/docs/services/Cloudant/guides?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) を参照してください。
 
-## ステップ 1. {{site.data.keyword.cloudant_short_notm}} のインスタンスの作成
+## 手順 1. {{site.data.keyword.cloudant_short_notm}} インスタンスの作成
 {: #create-instance-cloudant}
 
 {{site.data.keyword.cloudant_short_notm}} のインスタンスを作成するときには、データベースも作成します。
 
 1. {{site.data.keyword.cloud_notm}} アカウントにログインします。
-2. [{{site.data.keyword.cloud_notm}} ダッシュボード](https://cloud.ibm.com/dashboard/apps){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") で**「リソースの作成」**をクリックします。 {{site.data.keyword.cloud_notm}} カタログが開きます。
-3. [{{site.data.keyword.cloud_notm}} カタログ](https://cloud.ibm.com/catalog/){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") から**「データベース」**カテゴリーを選択し、{{site.data.keyword.cloudant_short_notm}} をクリックします。 サービス構成ページが開きます。
+2. [{{site.data.keyword.cloud_notm}} ダッシュボード](https://cloud.ibm.com/resources){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") で**「リソースの作成」**をクリックします。 {{site.data.keyword.cloud_notm}} カタログが開きます。
+3. [{{site.data.keyword.cloud_notm}} カタログ](https://cloud.ibm.com/catalog){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") から**「データベース」**カテゴリーを選択し、{{site.data.keyword.cloudant_short_notm}} をクリックします。 サービス構成ページが開きます。
 4. 以下のフィールドに情報を入力します。
-  * **サービス名** - サービス・インスタンスの名前を入力するか、事前設定されている名前を使用します。
+  * **サービス名** - サービス・インスタンスの名前を入力するか、事前設定された名前を使用します。
   * **デプロイする地域/ロケーションの選択** - サービスをデプロイする地域を選択します。
   * **リソース・グループの選択** - リソース・グループを選択するか、デフォルトを受け入れます。
-  * **使用可能な認証方式** - 認証方式に**「IAM のみを使用」**を選択します。
+  * **使用可能な認証方式 (Available authentication methods)** - 認証方式として**「IAM のみを使用 (Use only IAM)」**を選択します。
 5. 料金プランを選択し、**「作成」**をクリックします。 サービス・インスタンスのページが開きます。
-6. サービス資格情報を作成するため、以下のステップを実行します。
-  1. ナビゲーション・メニューから**「サービス資格情報」**を選択します。
+6. サービス資格情報を作成するには、以下の手順を実行します。
+  1. ナビゲーション・メニューから、**「サービス資格情報」**を選択します。
   2. **「新規資格情報」**をクリックします。 「新規資格情報の追加」ページが開きます。
-  3. 「新規資格情報の追加」ページで、各フィールドに入力し、**「追加」**をクリックします。 この新しいサービス資格情報がサービス・インスタンスに追加されます。
-  4. サービス資格情報の詳細を表示するには、新規資格情報の**「アクション」**列の**「資格情報の表示」**をクリックします。
-7. ナビゲーション・メニューから**「管理」**を選択し、**「Cloudant ダッシュボードの起動」**をクリックします。
-8. ナビゲーション・メニューから**「データベース」**アイコンをクリックします。
-9. **「データベースの作成」**をクリックし、データベース名を入力し、**「作成」**をクリックします。 データベース・ページが開きます。
+  3. 「新規資格情報の追加」ページの各フィールドに入力し、**「追加」**をクリックします。 新規サービス資格情報がサービス・インスタンスに追加されます。
+  4. サービス資格情報の詳細を表示するには、新規資格情報の**「アクション」**列で**「資格情報の表示」**をクリックします。
+7. ナビゲーション・メニューから**「管理」**を選択し、**「Cloudant ダッシュボードの起動 (Launch Cloudant Dashboard)」**をクリックします。
+8. ナビゲーション・メニューから、**「データベース」**アイコンをクリックします。
+9. **「データベースの作成 (Create Database)」**をクリックし、データベース名を入力し、**「作成」**をクリックします。 データベース・ページが開きます。
 
 {{site.data.keyword.cloud_notm}} サービスのインスタンスのプロビジョンについての関連情報は、[IBM Cloud での IBM Cloudant インスタンスの作成チュートリアル](/docs/services/Cloudant/tutorials?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-a-cloudant-nosql-db-instance-on-ibm-cloud)を参照してください。
 
@@ -113,7 +113,7 @@ npm install --save @cloudant/cloudant
 {: #basic_operations-cloudant}
 <!--Borrowed from https://github.com/cloudant/nodejs-cloudant/blob/master/example/crud.js-->
 
-以下の基本操作では、初期化済みクライアントを使用した、文書の作成、読み取り、更新、および削除を行うアクションを示します。
+基本的な操作として、初期化したクライアントを使用して文書を作成、読み取り、更新、削除するアクションを以下に示します。
 
 #### 文書の作成
 ```js
@@ -175,16 +175,16 @@ var deleteDocument = function(callback) {
 ```
 {: codeblock}
 
-## ステップ 4. アプリのテスト
+## 手順 4. アプリのテスト
 {: #test-cloudant}
 
-すべて正しくセットアップされましたか? テストしてみましょう!
+すべて正しくセットアップされましたか? テストしてみましょう。
 
-1. アプリケーションを実行します。このとき、初期化操作と、それぞれの操作 (文書の作成など) を必ず開始するようにしてください。
-2. [{{site.data.keyword.cloud_notm}} ダッシュボード](https://cloud.ibm.com/dashboard/apps){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") で、前に作成した {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスをクリックします。 サービス・インスタンスが開いたら、**「Cloudant ダッシュボードの起動」**をクリックします。
+1. アプリケーションを実行して、初期化操作と各操作 (文書作成など) を開始します。
+2. [{{site.data.keyword.cloud_notm}} ダッシュボード](https://cloud.ibm.com/resources){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") で、前に作成した {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスをクリックします。 サービス・インスタンスが開いたら、**「Cloudant ダッシュボードの起動 (Launch Cloudant Dashboard)」**をクリックします。
 3. {{site.data.keyword.cloudant_short_notm}} ダッシュボードで、新規文書を作成したデータベースを選択します。
 
-問題がある場合、[{{site.data.keyword.cloudant_short_notm}} API リファレンス](/docs/services/Cloudant?topic=cloudant-api-reference-overview)を参照してください。
+問題がある場合は、 [{{site.data.keyword.cloudant_short_notm}} API リファレンス](/docs/services/Cloudant?topic=cloudant-api-reference-overview)を確認してください。
 
 ## 次のステップ
 {: #next-cloudant notoc}
@@ -193,5 +193,5 @@ var deleteDocument = function(callback) {
 
 * [{{site.data.keyword.cloudant_short_notm}} SDK for Node.js](https://github.com/cloudant/nodejs-cloudant){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") のソース・コードを調べます。
 * [データベース操作および文書操作のコード例 ](https://github.com/cloudant/nodejs-cloudant/tree/master/example){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") を確認します。
-* スターター・キットは、{{site.data.keyword.cloud}} の機能を素早く使用するための 1 つの方法です。 [モバイル開発者ダッシュボード](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") で、使用可能なスターター・キットを確認できます。 コードをダウンロードし、アプリを実行してみてください。
-* {{site.data.keyword.cloudant_short_notm}} が提供する機能のすべてについてさらに学習し、それらの機能を利用するには、[資料](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started-with-cloudant)をお読みください。
+* スターター・キットは、{{site.data.keyword.cloud}} の機能を素早く使用するための 1 つの方法です。 [モバイル開発者ダッシュボード](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![外部リンク・アイコン](../icons/launch-glyph.svg "外部リンク・アイコン") で、使用可能なスターター・キットを確認できます。 コードをダウンロードして アプリを実行してください。
+* {{site.data.keyword.cloudant_short_notm}} が提供する機能のすべてについてさらに学習し、それらの機能を利用するには、[資料](/docs/services/Cloudant?topic=cloudant-getting-started)をお読みください。
