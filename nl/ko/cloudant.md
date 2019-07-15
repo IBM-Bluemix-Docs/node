@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-06-10"
 
 keywords: nodejs storage, nodejs cloudant, nodejs iam, initialize sdk nodejs, test nodejs app, dbaas nodejs, nodejs-cloudant, store documents nodejs
 
@@ -20,18 +20,18 @@ subcollection: nodejs
 # {{site.data.keyword.cloud_notm}}에 문서 저장
 {: #cloudant}
 
-{{site.data.keyword.cloudantfull}}는 문서 중심 DBaaS(Database as a Service)입니다. 데이터를 JSON 형식의 문서로 저장합니다. {{site.data.keyword.cloudant_short_notm}}는 확장성, 고가용성 및 내구성을 중시하여 빌드되었으며, Node.js 애플리케이션에서 사용할 수 있도록 쉽게 구성할 수 있습니다. 이는 MapReduce, {{site.data.keyword.cloudant_short_notm}} Query, 전체 텍스트 색인 작성, 지리공간 색인 작성을 포함한 다양한 색인 작성 선택사항과 함께 제공됩니다. 복제 기능은 데이터베이스 클러스터, 데스크탑 PC 및 모바일 디바이스 간에 데이터 동기화 상태를 쉽게 유지할 수 있게 해 줍니다.
+{{site.data.keyword.cloudantfull}}는 문서 기반의 DBaaS(DataBase as a Service)입니다. 데이터를 JSON 형식의 문서로 저장합니다. {{site.data.keyword.cloudant_short_notm}}는 확장성, 고가용성 및 내구성을 중시하여 빌드되었으며, Node.js 애플리케이션에서 사용할 수 있도록 쉽게 구성할 수 있습니다. 이는 MapReduce, {{site.data.keyword.cloudant_short_notm}} Query, 전체 텍스트 색인 작성, 지리공간 색인 작성을 포함한 다양한 색인 작성 선택사항과 함께 제공됩니다. 복제 기능을 사용하면 데이터베이스 클러스터, 데스크탑 PC 및 모바일 디바이스 간에 데이터 동기화를 쉽게 유지할 수 있습니다.
 {:shortdesc}
 
-자세한 정보는 [{{site.data.keyword.cloudant_short_notm}} 기본 사항](/docs/services/Cloudant/basics?topic=cloudant-ibm-cloudant-basics#ibm-cloudant-basics)을 참조하십시오.
+자세한 정보는 [{{site.data.keyword.cloudant_short_notm}} 기본 사항](/docs/services/Cloudant/basics?topic=cloudant-ibm-cloudant-basics)을 참조하십시오.
 
 ## 시작하기 전에
 {: #prereqs-cloudant}
 
 다음 전제조건이 준비되어 있어야 합니다.
  * [Nodejs-cloudant ](https://github.com/cloudant/nodejs-cloudant){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘") 2.3.0+ 클라이언트 라이브러리.
- * [{{site.data.keyword.cloud}} 계정 ](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")이 있어야 합니다.
- * {{site.data.keyword.cloudant_short_notm}}에 액세스하려면 [{{site.data.keyword.cloud_notm}} 대시보드 ](https://cloud.ibm.com/dashboard/apps){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")에서 서비스를 작성한 후 해당 서비스 인스턴스에서 {{site.data.keyword.cloudant_short_notm}} 대시보드를 실행해야 합니다.
+ * [{{site.data.keyword.cloud}} 계정 ](https://cloud.ibm.com/registration){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")이 있어야 합니다.
+ * {{site.data.keyword.cloudant_short_notm}}에 액세스하려면 [{{site.data.keyword.cloud_notm}} 대시보드 ](https://cloud.ibm.com/resources){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")에서 서비스를 작성한 후 해당 서비스 인스턴스에서 {{site.data.keyword.cloudant_short_notm}} 대시보드를 시작해야 합니다.
  * 이 지시사항의 코드 스니펫에서는 IAM 인증을 사용합니다.
  
 ### IAM을 {{site.data.keyword.cloudant_short_notm}}와 함께 사용할 수 있도록 설정
@@ -47,8 +47,8 @@ subcollection: nodejs
 {{site.data.keyword.cloudant_short_notm}}의 인스턴스를 작성할 때는 데이터베이스 또한 작성합니다.
 
 1. {{site.data.keyword.cloud_notm}} 계정에 로그인하십시오.
-2. [{{site.data.keyword.cloud_notm}} 대시보드 ](https://cloud.ibm.com/dashboard/apps){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")에서 **리소스 작성**을 클릭하십시오. {{site.data.keyword.cloud_notm}} 카탈로그가 열립니다.
-3. [{{site.data.keyword.cloud_notm}} 카탈로그 ](https://cloud.ibm.com/catalog/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")에서 **데이터베이스** 카테고리를 선택한 다음 {{site.data.keyword.cloudant_short_notm}}를 클릭하십시오. 서비스 구성 페이지가 열립니다.
+2. [{{site.data.keyword.cloud_notm}} 대시보드 ](https://cloud.ibm.com/resources){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")에서 **리소스 작성**을 클릭하십시오. {{site.data.keyword.cloud_notm}} 카탈로그가 열립니다.
+3. [{{site.data.keyword.cloud_notm}} 카탈로그 ](https://cloud.ibm.com/catalog){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")에서 **데이터베이스** 카테고리를 선택한 다음 {{site.data.keyword.cloudant_short_notm}}를 클릭하십시오. 서비스 구성 페이지가 열립니다.
 4. 다음 필드에 정보를 채우십시오.
   * **서비스 이름** - 서비스 인스턴스의 이름을 입력하거나 사전 설정된 이름을 사용하십시오.
   * **배치할 지역/위치 선택** - 서비스를 배치할 지역을 선택하십시오.
@@ -180,8 +180,8 @@ var deleteDocument = function(callback) {
 
 모든 항목이 올바르게 설정되었습니까? 테스트를 통해 확인해 보십시오.
 
-1. 초기화 및 각 오퍼레이션(문서 작성 등)이 시작되는지 확인하면서 애플리케이션을 실행하십시오.
-2. [{{site.data.keyword.cloud_notm}} 대시보드 ](https://cloud.ibm.com/dashboard/apps){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")에서 이전에 작성한 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스를 클릭하십시오. 해당 서비스 인스턴스가 열리면 **Cloudant 대시보드 실행**을 클릭하십시오.
+1. 애플리케이션을 실행하여 초기화 및 각 오퍼레이션(문서 작성 등)이 시작되는지 확인하십시오.
+2. [{{site.data.keyword.cloud_notm}} 대시보드 ](https://cloud.ibm.com/resources){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")에서 이전에 작성한 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스를 클릭하십시오. 해당 서비스 인스턴스가 열리면 **Cloudant 대시보드 실행**을 클릭하십시오.
 3. {{site.data.keyword.cloudant_short_notm}} 대시보드에서 새 문서를 작성한 데이터베이스를 선택하십시오.
 
 문제가 있습니까? [{{site.data.keyword.cloudant_short_notm}} API 참조](/docs/services/Cloudant?topic=cloudant-api-reference-overview)를 참조하십시오.
@@ -189,9 +189,9 @@ var deleteDocument = function(callback) {
 ## 다음 단계
 {: #next-cloudant notoc}
 
-수고하셨습니다! 앱에 보안 지속성 레벨이 추가되었습니다. 다음 선택사항 중 하나를 따라 작업을 계속 진행하십시오.
+잘 하셨습니다! 앱에 보안 지속성 레벨을 추가했습니다. 다음 옵션 중 하나를 사용하여 계속 진행하십시오.
 
 * Node.js용 [{{site.data.keyword.cloudant_short_notm}} SDK ](https://github.com/cloudant/nodejs-cloudant){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘") 소스 코드를 보십시오.
 * [데이터베이스 및 문서 오퍼레이션에 대한 코드 예 ](https://github.com/cloudant/nodejs-cloudant/tree/master/example){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")를 참조하십시오.
-* 스타터 킷은 {{site.data.keyword.cloud}}의 기능을 사용하는 가장 빠른 방법 중 하나입니다. [모바일 개발자 대시보드 ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")에서 사용 가능한 스타터 킷을 보십시오. 코드를 다운로드하십시오. 앱을 실행하십시오.
-* {{site.data.keyword.cloudant_short_notm}}에서 제공하는 모든 기능에 대해 자세히 알아보고 이를 이용하려면 [문서를 확인하십시오](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started-with-cloudant).
+* 스타터 킷은 {{site.data.keyword.cloud}}의 기능을 사용하는 가장 빠른 방법 중 하나입니다. [모바일 개발자 대시보드 ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")에서 사용 가능한 스타터 킷을 보십시오. 코드를 다운로드하십시오. 앱을 실행하십시오!
+* {{site.data.keyword.cloudant_short_notm}}에서 제공하는 모든 기능에 대해 자세히 알아보고 이를 이용하려면 [문서를 확인하십시오](/docs/services/Cloudant?topic=cloudant-getting-started).

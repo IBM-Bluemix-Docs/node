@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="nodejs" audience="platform" arm="4088035" href="/docs/node/index.html" path="node"}
+{: .toc subcollection="nodejs" category="devops" audience="platform" arm="4088035" href="/docs/node?topic=nodejs-getting-started" path="node"}
 Programmazione con Node.js su IBM Cloud
 
     {: .navgroup id="learn"}
@@ -22,7 +22,7 @@ Programmazione con Node.js su IBM Cloud
     appmetrics.md
    
     {: .topicgroup}
-    Archiviazione e condivisione dei dati
+    Storing and sharing data
         cloudant.md
         object_storage.md
       
@@ -31,8 +31,8 @@ Programmazione con Node.js su IBM Cloud
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [Documentazione API](https://cloud.ibm.com/apidocs)
-    [Applicazioni di esempio su IBM Code](https://developer.ibm.com/code/technologies/node-js/)
+    [Documenti API](https://cloud.ibm.com/apidocs)
+    [Sample apps on IBM Code](https://developer.ibm.com/code/technologies/node-js/)
     {: .navgroup-end}
 
     {: .navgroup id="help"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-06-05"
 
 keywords: ibmcloud dev enable, nodejs cloud deployment, cloud enable nodejs, deploy nodejs, build nodejs cloud, nodejs debug
 
@@ -138,7 +138,7 @@ services:
 ```
 {: codeblock}
 
-이를 통해 포트 `3000`에서 애플리케이션이 노출되고 포트 `27017`을 통해 클라이언트 연결에 MongoDB 서버를 사용할 수 있게 됩니다.
+애플리케이션은 `3000` 포트에서 노출되며 MongoDB 서버는 `27017` 포트에서 클라이언트 연결에 사용할 수 있습니다.
 
 새 Dockerfile을 가리키려면 `cli-config.yml`에 다음 행을 업데이트해야 합니다. 
 ```yaml

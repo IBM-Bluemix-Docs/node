@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-30"
+lastupdated: "2019-06-11"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
 
@@ -26,12 +26,12 @@ Saiba como instalar, acessar e entender as métricas do aplicativo Node.js. É p
 ## Identificando problemas visualmente
 {: #identify-problems}
 
-Métricas de aplicativo são importantes para monitorar o desempenho de seu aplicativo. Ter uma visualização em tempo real de métricas, como as de CPU, de Memória, de Latência e HTTP, é essencial para assegurar que seu aplicativo seja executado efetivamente ao longo do tempo. É possível usar um serviço de nuvem como o [autoscaling](/docs/services/Auto-Scaling?topic=Auto-Scaling-get-started) do Cloud Foundry que depende de métricas para escalar dinamicamente instâncias para corresponder à carga de trabalho atual. Ao usar métricas do aplicativo, você é informado com precisão quando aumentar a escala, reduzir a escala ou limpar instâncias que não são mais necessárias para manter os custos baixos.
+Métricas de aplicativo são importantes para monitorar o desempenho de seu aplicativo. Ter uma visualização em tempo real de métricas, como as de CPU, de Memória, de Latência e HTTP, é essencial para assegurar que seu aplicativo seja executado efetivamente ao longo do tempo. É possível usar um serviço de nuvem como o [autoscaling](/docs/services/Auto-Scaling?topic=Auto-Scaling) do Cloud Foundry que depende de métricas para escalar dinamicamente instâncias para corresponder à carga de trabalho atual. Ao usar métricas do aplicativo, você é informado com precisão quando aumentar a escala, reduzir a escala ou limpar instâncias que não são mais necessárias para manter os custos baixos.
 
 As métricas do aplicativo são capturadas como dados de série temporal. A agregação e a visualização de métricas capturadas podem ajudar a identificar problemas comuns de desempenho, como:
 
 * Tempos de resposta lentos de HTTP em algumas ou em todas as rotas
-* Rendimento de rendimento no aplicativo
+* Rendimento insatisfatório no aplicativo
 * Espiões na demanda que causam desaceleração
 * Uso de CPU maior que o esperado
 * Uso de memória alto ou crescente (potencial fuga de memória)
@@ -61,7 +61,7 @@ Inclua recursos de monitoramento em aplicativos Express existentes com o constru
   ```
   {: codeblock}
 
-2. Instale o painel `appmetrics` com o comando [npm](https://nodejs.org/){: new_window}![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") a seguir:
+2. Instale o painel `appmetrics` com o comando [npm](https://nodejs.org/en/){: new_window}![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") a seguir:
   ```
   npm install appmetrics-dash
   ```
@@ -118,7 +118,7 @@ A IU do painel de monitoramento Application Metrics for Node.js fornece uma gama
 ## Entendendo os dados
 {: #understanding-data}
 
-![Appmetrics Dashboard](images/appmetricsdash-1.png)
+![Painel do Appmetrics](images/appmetricsdash-1.png "Painel do Appmetrics.")
 
 A maioria dos dados é criada como gráficos de linha. Solicitações recebidas HTTP, Solicitações realizadas HTTP e Outras solicitações mostram a duração do evento com relação ao tempo. Rendimento de HTTP mostra as solicitações por segundo. Tempos médios de resposta mostram as cinco solicitações de HTTP recebidas mais usadas que demoraram mais tempo, em média. Os gráficos de CPU e de Memória mostram o uso do sistema e do processo ao longo do tempo. Heap mostra o tamanho máximo de heap e o tamanho de heap usado ao longo do tempo. A Latência de loop de eventos mostra as amostras de latência obtidas em intervalos do loop de eventos Node.js, com um ponto para a latência mais curta, um para a média e um para a mais longa para cada amostra obtida.
 
@@ -128,7 +128,7 @@ Um máximo de 15 minutos de dados é mostrado em todos os gráficos.
 
 Se uma grande quantia de dados estiver sendo produzida pelo aplicativo que está sendo monitorado, o painel será iniciado automaticamente para exibir dados. Ao examinar o gráfico Solicitações de HTTP recebidas novamente, será possível ver que cada ponto mostra todas as solicitações para um período de 2 segundos. A dica de ferramenta a seguir mostra o número total de solicitações junto ao tempo médio gasto e o tempo mais longo. O tempo mais longo é o valor plotado.
 
-![Show Tooltip](images/tooltip-1.png)
+![Mostrar a dica de ferramenta](images/tooltip-1.png)
 
 
 

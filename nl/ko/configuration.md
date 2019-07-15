@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-13"
 
 keywords: configure node env, node environment, node credentials, ibm-cloud-env node
 
@@ -16,6 +16,7 @@ subcollection: nodejs
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
 
 # Node.js 환경 구성
 {: #configure-nodejs}
@@ -76,14 +77,14 @@ subcollection: nodejs
 
 다음 명령을 사용하여 애플리케이션 내의 값을 검색하십시오.
 
-1. 변수 `service1credentials`를 검색하십시오.
+1. `service1credentials` 변수를 검색하십시오.
   ```js
   // this will be a dictionary
   var service1credentials = IBMCloudEnv.getDictionary("service1-credentials");
   ```
   {: codeblock}
 
-2. 변수 `service2username`을 검색하십시오.
+2. `service2username` 변수를 검색하십시오.
   ```js
   var service2username = IBMCloudEnv.getString("service2-username"); // this will be a string
   ```
@@ -94,7 +95,7 @@ subcollection: nodejs
 ### 태그 및 레이블의 값 필터링
 {: #filter-values-nodejs}
 
-다음 예에 표시되어 있는 바와 같이 서비스 태그 및 서비스 레이블을 기반으로 모듈이 생성한 인증 정보를 필터링할 수 있습니다.
+다음 예에 표시된 대로 서비스 태그와 서비스 레이블을 기반으로 모듈에서 생성된 인증 정보를 필터링할 수 있습니다.
 ```js
 var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'label', credentials)); // returns a Json with credentials for specified service tag and label
 ```
@@ -103,22 +104,25 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## 스타터 킷 앱에서 Node.js 구성 관리자 사용
 {: #nodejs-config-skit}
 
-[스타터 킷](https://cloud.ibm.com/developer/appservice/starter-kits/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")을 사용하여 작성된 Node.js 앱에는 많은 클라우드 배치 환경(CF, K8s, VSI 및 Functions)에서 실행하는 데 필요한 인증 정보 및 구성이 자동으로 제공됩니다.
+[스타터 킷](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")을 사용하여 작성된 Node.js 앱에는 여러 클라우드 배치 환경(예: [Kubernetes](/docs/containers?topic=containers-getting-started), [Cloud Foundry](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf), [{{site.data.keyword.cfee_full_notm}}](/docs/cloud-foundry?topic=cloud-foundry-about), [Virtual Server(VSI)](/docs/vsi?topic=virtual-servers-getting-started-tutorial) 또는 [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started))에서 실행하는 데 필요한 인증 정보 및 구성이 자동으로 제공됩니다.
+
+  VSI 배치는 일부 스타터 킷에 사용할 수 있습니다. 이 기능을 사용하려면 [{{site.data.keyword.cloud_notm}} 대시보드](https://{DomainName})로 이동하여 **앱** 타일에서 **앱 작성**을 클릭하십시오.
+  {: note} 
 
 ### 서비스 인증 정보 이해
 {: #credentials-nodejs}
 
-서비스의 애플리케이션 구성 정보는 `/server/config` 디렉토리의 `localdev-config.json` 파일에 저장됩니다. 이 파일은 민감한 정보가 Git에 저장되는 것을 방지하기 위해 `.gitignore` 디렉토리에 있습니다. 로컬에서 실행되는 모든 구성된 서비스에 대한 연결 정보(사용자 이름, 비밀번호, 호스트 이름 등)는 이 파일에 저장됩니다.
+서비스에 대한 애플리케이션 구성 정보는 `/server/config` 디렉토리의 `localdev-config.json` 파일에 저장됩니다. Git에 민감한 정보가 저장되지 않도록 파일이 `.gitignore` 디렉토리에 있습니다. 로컬로 실행되는 구성된 서비스에 대한 연결 정보(예: 사용자 이름, 비밀번호 및 호스트 이름)가 이 파일에 저장됩니다.
 
-애플리케이션은 환경 및 이 파일에서 연결 및 구성 정보를 읽는 데 구성 관리자를 사용합니다. 이는 사용자 정의 빌드된 `mappings.json`(`server/config` 디렉토리에 있음)을 사용하여 각 서비스의 인증 정보를 찾을 수 있는 위치와 통신합니다.
+애플리케이션이 구성 관리자를 사용하여 환경 및 이 파일의 연결 및 구성 정보를 읽습니다. `server/config` 디렉토리에 있는 사용자 정의 빌드 `mappings.json`을 사용하여 각 서비스에 대해 인증 정보를 찾을 수 있는 위치를 전달합니다.
 
 로컬에서 실행 중인 애플리케이션은 `mappings.json` 파일에서 읽는 바인드되지 않은 인증 정보를 사용하여 {{site.data.keyword.cloud_notm}} 서비스에 연결할 수 있습니다. 바인드되지 않은 인증 정보를 작성해야 하는 경우에는 {{site.data.keyword.cloud_notm}} 웹 콘솔에서, 또는 [Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘") `cf create-service-key` 명령을 사용하여 이를 작성할 수 있습니다.
 
-애플리케이션을 {{site.data.keyword.cloud_notm}}에 푸시하면 이러한 값이 더 이상 필요하지 않습니다. 대신 애플리케이션은 환경 변수를 사용하여 바인드된 서비스에 자동으로 연결합니다.
+애플리케이션을 {{site.data.keyword.cloud_notm}}에 푸시하면 이러한 값이 더 이상 사용되지 않습니다. 대신 애플리케이션이 환경 변수를 사용하여 서비스를 바인드하도록 자동으로 연결됩니다.
 
-* **Cloud Foundry**: `VCAP_SERVICES` 환경 변수에서 서비스 인증 정보를 가져옵니다. Cloud Foundry Enterprise Edition의 경우 자세한 정보는 이 [시작하기 튜토리얼](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started)을 참조하십시오.
+* **Cloud Foundry**: 서비스 인증 정보는 `VCAP_SERVICES` 환경 변수에서 가져옵니다. Cloud Foundry Enterprise Edition의 경우 자세한 정보는 이 [시작하기 튜토리얼](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started)을 참조하십시오.
 
-* **Kubernetes**: 서비스별 개별 환경 변수에서 서비스 인증 정보를 가져옵니다.
+* **Kubernetes**: 서비스 인증 정보는 서비스마다 개별 환경 변수에서 가져옵니다.
 
 * **{{site.data.keyword.cloud_notm}} Container Service**: VSI 또는 {{site.data.keyword.openwhisk}}(Openwhisk)에서 서비스 인증 정보를 가져옵니다.
 

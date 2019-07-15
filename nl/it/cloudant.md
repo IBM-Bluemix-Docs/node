@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-06-10"
 
 keywords: nodejs storage, nodejs cloudant, nodejs iam, initialize sdk nodejs, test nodejs app, dbaas nodejs, nodejs-cloudant, store documents nodejs
 
@@ -24,15 +24,15 @@ subcollection: nodejs
 sincronizzati tra i cluster di database, i PC desktop e i dispositivi mobili.
 {:shortdesc}
 
-Per ulteriori informazioni, vedi [Principi di base di {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant/basics?topic=cloudant-ibm-cloudant-basics#ibm-cloudant-basics).
+Per ulteriori informazioni, vedi [Principi di base di {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant/basics?topic=cloudant-ibm-cloudant-basics).
 
 ## Prima di cominciare
 {: #prereqs-cloudant}
 
-Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
+Assicurati di avere i seguenti prerequisiti pronti:
  * La libreria client [Nodejs-cloudant ](https://github.com/cloudant/nodejs-cloudant){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") 2.3.0+.
- * Devi disporre di un [account {{site.data.keyword.cloud}}](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
- * Per accedere a {{site.data.keyword.cloudant_short_notm}}, devi creare un servizio nel [dashboard {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/dashboard/apps){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") e avviare quindi il dashboard {{site.data.keyword.cloudant_short_notm}} da tale istanza del servizio.
+ * Devi disporre di un [account {{site.data.keyword.cloud}}](https://cloud.ibm.com/registration){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
+ * Per accedere a {{site.data.keyword.cloudant_short_notm}}, devi creare un servizio nel [Dashboard {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") e poi avviare il dashboard {{site.data.keyword.cloudant_short_notm}} da tale istanza del servizio.
  * I frammenti di codice in queste istruzioni utilizzano l'autenticazione IAM.
  
 ### Abilitazione di IAM con {{site.data.keyword.cloudant_short_notm}}
@@ -48,8 +48,8 @@ Tutte le nuove istanze del servizio {{site.data.keyword.cloudant_short_notm}} so
 Quando crei un'istanza di {{site.data.keyword.cloudant_short_notm}}, crei anche il database.
 
 1. Esegui l'accesso al tuo account {{site.data.keyword.cloud_notm}}.
-2. Dal [dashboard {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/dashboard/apps){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"), fai clic su **Crea risorsa**. Viene aperto il catalogo {{site.data.keyword.cloud_notm}}.
-3. Nel [catalogo {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"), seleziona la categoria **Database** e fai quindi clic su {{site.data.keyword.cloudant_short_notm}}. Viene aperta la pagina di configurazione del servizio.
+2. Dal [Dashboard {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"), fai clic **Crea risorsa**. Viene aperto il catalogo {{site.data.keyword.cloud_notm}}.
+3. Nel [Catalogo {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"), seleziona la categoria **Database** e fai quindi clic su {{site.data.keyword.cloudant_short_notm}}. Viene aperta la pagina di configurazione del servizio.
 4. Completa le informazioni nei seguenti campi:
   * **Nome servizio** - Immetti un nome per la tua istanza del servizio oppure utilizza il nome preimpostato.
   * **Scegli una regione/ubicazione in cui distribuire** - seleziona una regione in cui distribuire il tuo servizio.
@@ -65,7 +65,7 @@ Quando crei un'istanza di {{site.data.keyword.cloudant_short_notm}}, crei anche 
 8. Dal menu di navigazione, fai clic sull'icona **Database**.
 9. Fai clic su **Crea database**, fornisci un nome di database e fai quindi clic su **Crea** Viene aperta la tua pagina del database.
 
-Se vuoi visualizzare le informazioni correlate relative al provisioning di un'istanza del servizio {{site.data.keyword.cloud_notm}}, vedi l'[esercitazione Creazione di un'istanza IBM Cloudant su IBM Cloud](/docs/services/Cloudant/tutorials?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-a-cloudant-nosql-db-instance-on-ibm-cloud).
+Se vuoi visualizzare le informazioni relative al provisioning di un'istanza del servizio {{site.data.keyword.cloud_notm}}, vedi [Creazione di un'istanza IBM Cloudant nell'esercitazione IBM Cloud](/docs/services/Cloudant/tutorials?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-a-cloudant-nosql-db-instance-on-ibm-cloud).
 
 ## Passo 2. Installazione dell'SDK
 {: #install-cloudant}
@@ -176,23 +176,23 @@ var deleteDocument = function(callback) {
 ```
 {: codeblock}
 
-## Passo 4. Esecuzione di test della tua applicazione
+## Passo 4. Verifica la tua applicazione
 {: #test-cloudant}
 
 Tutto è configurato correttamente? Verificalo eseguendo dei test.
 
 1. Esegui la tua applicazione, assicurandoti di avviare l'inizializzazione e le rispettive operazioni, come ad esempio la creazione di un documento.
-2. Dal [dashboard {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/dashboard/apps){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"), fai clic sull'istanza del servizio {{site.data.keyword.cloudant_short_notm}} che hai creato in precedenza. Quando l'istanza del servizio viene aperta, fai clic su **Avvia dashboard Cloudant**.
+2. Dal [Dashboard {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"), fai clic sull'istanza del servizio {{site.data.keyword.cloudant_short_notm}} che hai creato in precedenza. Quando l'istanza del servizio viene aperta, fai clic su **Avvia dashboard Cloudant**.
 3. Nel dashboard {{site.data.keyword.cloudant_short_notm}}, seleziona il database dove hai creato i nuovi documenti.
 
-Hai riscontrato dei problemi? Consulta la [guida di riferimento API {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-api-reference-overview).
+Hai riscontrato dei problemi? Controlla la [Guida di riferimento API {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-api-reference-overview).
 
 ## Passi successivi
 {: #next-cloudant notoc}
 
-Ottimo lavoro! Hai aggiunto un livello di persistenza protetta alla tua applicazione. Non fermarti ora e continua provando una delle seguenti opzioni:
+Ottimo lavoro. Hai aggiunto un livello di persistenza protetta alla tua applicazione. Non fermarti ora e continua provando una delle seguenti opzioni:
 
 * Visualizza il codice sorgente di [{{site.data.keyword.cloudant_short_notm}} SDK for Node.js ](https://github.com/cloudant/nodejs-cloudant){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
 * Consulta il [codice di esempio per le operazioni database e documento ](https://github.com/cloudant/nodejs-cloudant/tree/master/example){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
 * I kit starter sono uno dei modi più rapidi per utilizzare le funzionalità di {{site.data.keyword.cloud}}. Visualizza i kit starter disponibili nel [dashboard degli sviluppatori di applicazioni mobili ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"). Scarica il codice. Esegui l'applicazione!
-* Per saperne di più su tutte le nuove funzioni offerte da {{site.data.keyword.cloudant_short_notm}} e per avvalertene, [consulta la documentazione](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started-with-cloudant).
+* Per saperne di più su tutte le nuove funzioni offerte da {{site.data.keyword.cloudant_short_notm}} e per avvalertene, [consulta la documentazione](/docs/services/Cloudant?topic=cloudant-getting-started).

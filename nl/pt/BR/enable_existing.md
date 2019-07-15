@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-06-05"
 
 keywords: ibmcloud dev enable, nodejs cloud deployment, cloud enable nodejs, deploy nodejs, build nodejs cloud, nodejs debug
 
@@ -104,7 +104,7 @@ ibmcloud dev deploy
 
 Nem todos os aplicativos são ativados com êxito pelo comando `enable`. Ele tenta ao máximo determinar a configuração que é necessária para "ativar a nuvem" no aplicativo. No mínimo, o aplicativo original precisa ser capaz de executar `npm install` e `npm start` com êxito. Para um aplicativo que usa um comando de execução diferente de `npm start`, é possível modificar a linha `CMD` no `Dockerfile`.
 
-Se o aplicativo não construir e/ou implementar após executar `ibmcloud dev enable enable`, modifique os arquivos gerados manualmente para concluir a ativação da nuvem.
+Se o seu aplicativo não construir e/ou implementar após você executar `ibmcloud dev enable`, será possível modificar os arquivos gerados manualmente para concluir a ativação de nuvem.
 
 ### Modificando manualmente os arquivos de ativação de nuvem gerados
 {: #manual_modify}
@@ -138,7 +138,7 @@ services:
 ```
 {: codeblock}
 
-Isso expõe seu aplicativo na porta `3000`, e o servidor MongoDB fica disponível para a conexão do cliente por meio da porta `27017`.
+O seu aplicativo é exposto na porta `3000` e o servidor do MongoDB está disponível para conexão do cliente na porta `27017`.
 
 Deve-se atualizar a linha a seguir em `cli-config.yml` para apontar para o novo Dockerfile: 
 ```yaml
@@ -154,7 +154,7 @@ dockerfile-run : "docker-compose.yml"
 ```
 {: codeblock}
 
-## Próximas Etapas
+## Próximas etapas
 {: #next_steps-existing notoc}
 
 Para obter mais informações, consulte a [CLI do IBM Cloud Developer Tools](/docs/cli/idt?topic=cloud-cli-idt-cli#idt-cli).

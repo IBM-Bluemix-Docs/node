@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-06-05"
 
 keywords: nodejs tracing, debug nodejs apps, troubleshooting nodejs, appmetrics-zipkin node, zipkin docker nodejs, nodejs slow, nodejs tracing
 
@@ -20,14 +20,14 @@ subcollection: nodejs
 # Impostazione della traccia end-to-end
 {: #e2e-tracing}
 
-La seguente esercitazione si concentra su Zipkin e sull'utilizzo del modulo [appmetrics-zipkin](https://github.com/CloudNativeJS/appmetrics-zipkin){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") per la traccia delle applicazioni Node.js. Puoi trovare ulteriori informazioni su Zipkin nell'[annuncio relativo a appmetrics-zipkin](https://developer.ibm.com/node/2017/10/26/add-zipkin-open-tracing-support-node-js-application-one-line-code/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") originale. 
+La seguente esercitazione si concentra su Zipkin e sull'utilizzo del modulo [appmetrics-zipkin](https://github.com/CloudNativeJS/appmetrics-zipkin){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") per la traccia delle applicazioni Node.js. Puoi imparare di più su Zipkin nell'[appmetrics-zipkin announcement](https://developer.ibm.com/node/2017/10/26/add-zipkin-open-tracing-support-node-js-application-one-line-code/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") originale. 
 
 Nei seguenti passi, due piccole applicazioni (una front end e una back end) vengono utilizzate per la traccia tra due endpoint utilizzando il modulo `appmetrics-zipkin`. Puoi iniziare da zero oppure applicare i principi qui descritti alle tue applicazioni Node.js esistenti. 
 
 ## Passo 1. Installazione e abilitazione del modulo appmetrics-zipkin
 {: #install-zipkin}
 
-Nella stessa ubicazione del file `package.json`, immetti il seguente comando [npm](https://nodejs.org/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") per aggiungere il modulo `appmetrics-zipkin` nel tuo elenco dipendenze:
+Nella stessa ubicazione del file `package.json` della tua applicazione Node.js, immetti il seguente comando [npm](https://nodejs.org/en/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") per aggiungere il modulo `appmetrics-zipkin` nel tuo elenco di dipendenze:
 ```
 npm install --save appmetrics-zipkin
 ```
@@ -101,7 +101,7 @@ La seguente immagine mostra il server Zipkin in esecuzione su `localhost` sulla 
 
 Puoi fare clic su **Find traces** e modificare le opzioni di ricerca per visualizzare in modo selettivo solo le tracce entro uno specifico periodo di tempo. Puoi anche applicare un filtro per visualizzare le tracce che coinvolgono degli specifici nomi del servizio. I nomi del servizio vengono specificati quando strumenti il tuo codice e, nello scenario di esempio, utilizziamo “getter” e “pusher”.
 
-## Passo 3. Esecuzione del test di uno scenario di esempio
+## Passo 3. Verifica di uno scenario di esempio
 {: #node-example-tracing}
 
 Se segui la [documentazione del progetto GitHub](https://github.com/ibm-developer/nodejs-zipkin-tracing){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"), ti ritrovi con la seguente applicazione di esempio. È un semplice processo che implica la traccia di una richiesta e di una risposta tra due endpoint. Le seguenti immagini mostrano il server Zipkin con visualizzati i dati di traccia raccolti. Il punto chiave da ricordare è l'inclusione di `require('appmetrics-zipkin')` e, facoltativamente, il codice di configurazione del server Zipkin. Il seguente scenario di esempio mostra come puoi aggiungere rapidamente la traccia Zipkin nelle tue applicazioni Node.js esistenti.

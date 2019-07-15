@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-06-05"
 
 keywords: ibmcloud dev enable, nodejs cloud deployment, cloud enable nodejs, deploy nodejs, build nodejs cloud, nodejs debug
 
@@ -20,7 +20,7 @@ subcollection: nodejs
 # Abilitazione delle applicazioni Node.js esistenti per la distribuzione cloud
 {: #enable_existing}
 
-Puoi generare i file necessari per abilitare l'esecuzione della tua applicazione Node.js su {{site.data.keyword.cloud}} utilizzando il [comando enable della CLI {{site.data.keyword.dev_cli_long}}](/docs/cli/idt?topic=cloud-cli-idt-cli#enable).
+Puoi generare i file necessari per abilitare la tua applicazione Node.js all'esecuzione su {{site.data.keyword.cloud}} utilizzando il [comando enable della CLI {{site.data.keyword.dev_cli_long}}](/docs/cli/idt?topic=cloud-cli-idt-cli#enable).
 
 ## Abilitazione della tua applicazione
 {: #enable_app}
@@ -138,7 +138,7 @@ services:
 ```
 {: codeblock}
 
-Questo esporrà la tua applicazione sulla porta `3000` e il server MongoDB sarà disponibile per la connessione client tramite la porta `27017`.
+La tua applicazione viene esposta sulla porta `3000` e il server MongoDB è disponibile per la connessione client sulla porta `27017`.
 
 Devi aggiornare la seguente riga in `cli-config.yml` in modo che punti al nuovo Dockerfile: 
 ```yaml

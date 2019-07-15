@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-06-10"
 
 keywords: nodejs logging, view logs nodejs, add logging nodejs, log4j nodejs, stdout nodejs, nodejs log, output nodejs, nodejs logger
 
@@ -22,7 +22,7 @@ subcollection: nodejs
 
 로그 메시지는 로그 항목이 작성된 시점의, 마이크로서비스의 상태 및 활동에 대한 컨텍스트 정보를 포함하는 문자열입니다. 로그는 서비스가 어떻게, 그리고 왜 실패했는지 진단하는 데 필요하며, 애플리케이션 상태 모니터링에 있어서 [appmetrics](/docs/node?topic=nodejs-metrics)를 지원하는 역할을 수행합니다.
 
-클라우드 환경에서 프로세스의 임시성으로 인해, 로그는 일반적으로 수집된 후 분석을 위해 준비된 중심 위치로 전송됩니다. 클라우드 환경에서의 가장 일관된 로그 방법은 로그 항목을 표준 출력 및 오류 스트림으로 전송하여 인프라가 나머지를 처리하도록 하는 것입니다.
+클라우드 환경에서 프로세스의 일시적인 특성을 고려하면, 로그는 수집되고 다른 위치(일반적으로 분석을 위해 중앙 위치)로 전송되어야 합니다. 클라우드 환경에서의 가장 일관된 로그 방법은 로그 항목을 표준 출력 및 오류 스트림으로 전송하여 인프라가 나머지를 처리하도록 하는 것입니다.
 
 Node.js에 많이 사용되는 로깅 프레임워크이며 다음과 같은 여러 기본적인 이점을 제공하는 [Log4js](https://github.com/log4js-node/log4js-node){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")를 사용할 수 있습니다. 
 * `stdout` 또는 `stderr`에 로깅
@@ -33,7 +33,7 @@ Node.js에 많이 사용되는 로깅 프레임워크이며 다음과 같은 여
 ## 기존 Node.js 앱에 Log4js 지원 추가
 {: #add_log4j}
 
-1. 먼저 다음 [npm](https://nodejs.org/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘") 명령을 실행하여 `log4js`를 설치하십시오. 이 명령은 패키지를 설치하고 이를 `package.json` 파일에 추가합니다.
+1. 먼저 다음 [npm](https://nodejs.org/en/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘") 명령을 실행하여 `log4js`를 설치하십시오. 이 명령은 패키지를 설치하고 이를 `package.json` 파일에 추가합니다.
   ```bash
   npm install --save log4js
   ```
@@ -93,13 +93,13 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
 
 다음 방법을 사용하여 로그 출력을 볼 수 있습니다.
 * 로컬 환경의 경우 `stdout`을 사용하십시오.
-* [Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html) 배치의 경우 다음을 실행하여 로그에 액세스할 수 있습니다.
+* [Cloud Foundry](/docs/cli/reference?topic=cloud-cli-ibmcloud_commands_apps#ibmcloud_app_logs) 배치의 경우 다음을 실행하여 로그에 액세스할 수 있습니다.
   ```
   ibmcloud app logs --recent <APP_NAME>
   ```
   {: codeblock}
 
-* [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/) 배치의 경우 다음을 실행하여 로그에 액세스할 수 있습니다.
+* [Kubernetes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘") 배치의 경우 다음을 실행하여 로그에 액세스할 수 있습니다.
   ```
   kubectl logs <deployment name>
   ```
@@ -109,9 +109,9 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
 {: #next_steps-logging notoc}
 
 각 배치 환경에서 로그 보기에 대해 자세히 알아보려면 다음을 참조하십시오.
-* [Kubernetes 로그](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")
-* [Cloud Foundry 로그](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps#logging_cf_apps)
-* [{{site.data.keyword.openwhisk}} 로그 및 모니터링](/docs/openwhisk?topic=cloud-functions-openwhisk_logs#openwhisk_logs)
+* [Kubernetes 로그](https://kubernetes.io/docs/concepts/cluster-administration/logging/#basic-logging-in-kubernetes){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")
+* [Cloud Foundry 로그](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps)
+* [{{site.data.keyword.openwhisk}} 로그 및 모니터링](/docs/openwhisk?topic=cloud-functions-logs)
 
 로그 집계기 사용:
 * [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis?topic=cloudloganalysis-log_analysis_ov#log_analysis_ov)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-13"
 
 keywords: configure node env, node environment, node credentials, ibm-cloud-env node
 
@@ -16,6 +16,7 @@ subcollection: nodejs
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
 
 # Configurazione dell'ambiente Node.js
 {: #configure-nodejs}
@@ -89,7 +90,7 @@ Richiama i valori nella tua applicazione utilizzando i seguenti comandi.
   ```
   {: codeblock}
 
-Ora la tua applicazione può essere implementata in qualsiasi ambiente di runtime astraendo le differenze introdotte dai diversi provider di elaborazione Cloud.
+Ora la tua applicazione può essere implementata in ogni ambiente di runtime astraendo le differenze introdotte dai diversi provider di elaborazione cloud.
 
 ### Filtro dei valori per tag ed etichette
 {: #filter-values-nodejs}
@@ -103,16 +104,19 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## Utilizzo del gestore configurazione Node.js dalle applicazioni kit starter
 {: #nodejs-config-skit}
 
-Le applicazioni Node.js create con i [kit starter](https://cloud.ibm.com/developer/appservice/starter-kits/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") vengono automaticamente fornite con le credenziali e le configurazioni necessarie per l'esecuzione in molti ambienti di distribuzione Cloud (CF, K8s, VSI e Functions).
+Le applicazioni Node.js create con i [Kit Starter](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") vengono automaticamente fornite con le credenziali e le configurazioni necessarie per l'esecuzione in molte destinazioni di distribuzione cloud, come ad esempio [Kubernetes](/docs/containers?topic=containers-getting-started), [Cloud Foundry](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf), [{{site.data.keyword.cfee_full_notm}}](/docs/cloud-foundry?topic=cloud-foundry-about), [Virtual Server (VSI)](/docs/vsi?topic=virtual-servers-getting-started-tutorial) o [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started).
 
-### Informazioni sulle credenziali del servizio
+  La distribuzione di VSI è disponibile per alcuni kit starter. Per utilizzare questa funzione, vai al [dashboard {{site.data.keyword.cloud_notm}}](https://{DomainName}) e fai clic su **Create an app** nel tile **Apps**.
+  {: note} 
+
+### Descrizione delle credenziali del servizio
 {: #credentials-nodejs}
 
-Le tue informazioni sulla configurazione delle applicazioni per i servizi vengono memorizzate nel file `localdev-config.json` nella directory `/server/config`. Il file si trova nella directory `.gitignore` per evitare che informazioni sensibili vengano memorizzate in Git. Le informazioni sulla connessione per qualsiasi servizio configurato che viene eseguito localmente, come nome utente, password e nome host, sono memorizzate in questo file.
+Le tue informazioni sulla configurazione dell'applicazione per i servizi vengono memorizzate nel file `localdev-config.json` nella directory `/server/config`. Il file si trova nella directory `.gitignore` per evitare che informazioni sensibili vengano memorizzate in Git. Le informazioni sulla connessione per qualsiasi servizio configurato che viene eseguito localmente, come nome utente, password e nome host, sono memorizzate in questo file.
 
-L'applicazione utilizza il gestore configurazione per leggere le informazioni sulla connessione e sulla configurazione dall'ambiente e da questo file. Utilizza un `mappings.json`, personalizzato che si trova nella directory `server/config` per comunicare dove è possibile trovare le credenziali per ciascun servizio.
+L'applicazione utilizza il gestore configurazione per leggere le informazioni sulla connessione e sulla configurazione dall'ambiente e da questo file. Utilizza un `mappings.json` integrato e personalizzato, che si trova nella directory `server/config`, per comunicare dove è possibile trovare le credenziali per ciascun servizio.
 
-Le applicazioni in esecuzione in locale possono connettersi ai servizi {{site.data.keyword.cloud_notm}} utilizzando le credenziali senza binding lette dal file `mappings.json`. Se hai bisogno di creare delle credenziali senza binding, puoi farlo dalla console web {{site.data.keyword.cloud_notm}} oppure utilizzando il comando `cf create-service-key` della [CLI CloudFoundry](https://docs.cloudfoundry.org/cf-cli/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
+Le applicazioni in esecuzione in locale possono connettersi ai servizi {{site.data.keyword.cloud_notm}} utilizzando le credenziali senza binding lette dal file `mappings.json`. Se hai bisogno di creare delle credenziali senza binding, puoi farlo dalla console web {{site.data.keyword.cloud_notm}} oppure utilizzando il comando [CLI CloudFoundry](https://docs.cloudfoundry.org/cf-cli/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") `cf create-service-key`.
 
 Quando esegui il push della tua applicazione a {{site.data.keyword.cloud_notm}}, questi valori non vengono più utilizzati. L'applicazione stabilisce invece automaticamente una connessione ai servizi di cui è stato eseguito il bind utilizzando le variabili di ambiente.
 
@@ -125,4 +129,4 @@ Quando esegui il push della tua applicazione a {{site.data.keyword.cloud_notm}},
 ## Passi successivi
 {: #next_steps-config notoc}
 
-`ibm-cloud-config` supporta la ricerca di valori utilizzando tre tipo di modello di ricerca: `cloudfoundry`, `env` e `file`. Se vuoi verificare altri modelli di ricerca supportati e degli esempi di modelli di ricerca, consulta la sezione [Usage](https://github.com/ibm-developer/ibm-cloud-env#usage){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
+`ibm-cloud-config` supporta la ricerca di valori utilizzando tre tipo di modello di ricerca: `cloudfoundry`, `env` e `file`. Se desideri controllare gli altri modelli di ricerca supportati e gli esempi del modello di ricerca, consulta la sezione [Usage](https://github.com/ibm-developer/ibm-cloud-env#usage){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").

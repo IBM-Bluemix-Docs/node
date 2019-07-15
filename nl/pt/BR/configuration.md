@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-13"
 
 keywords: configure node env, node environment, node credentials, ibm-cloud-env node
 
@@ -16,6 +16,7 @@ subcollection: nodejs
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
 
 # Configurando o ambiente Node.js
 {: #configure-nodejs}
@@ -103,7 +104,10 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## Usando o gerenciador de configuração Node.js por meio dos apps Starter Kit
 {: #nodejs-config-skit}
 
-Os apps Node.js que são criados com os [Kits do iniciador](https://cloud.ibm.com/developer/appservice/starter-kits/){: new_window}![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") vêm automaticamente com credenciais e configurações que são necessárias para a execução em muitos ambientes de implementação do Cloud (CF, K8s, VSI e Functions).
+Os apps do Node.js que são criados com [Kits do iniciador](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") são fornecidos automaticamente com credenciais e configurações necessárias para serem executados em muitos destinos de implementação de nuvem, como [Kubernetes](/docs/containers?topic=containers-getting-started), [Cloud Foundry](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf), [{{site.data.keyword.cfee_full_notm}}](/docs/cloud-foundry?topic=cloud-foundry-about), [Servidor virtual (VSI)](/docs/vsi?topic=virtual-servers-getting-started-tutorial) ou [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started).
+
+  A implementação do VSI está disponível para alguns kits do iniciador. Para usar esse recurso, acesse o [painel do {{site.data.keyword.cloud_notm}}](https://{DomainName}) e clique em **Criar um app** no ladrilho **Apps**.
+  {: note} 
 
 ### Entendendo credenciais de serviço
 {: #credentials-nodejs}
@@ -122,7 +126,7 @@ Quando você enviar seu aplicativo por push para o {{site.data.keyword.cloud_not
 
 * **Serviço de contêiner do {{site.data.keyword.cloud_notm}}**: as credenciais de serviço são obtidas de VSIs ou do {{site.data.keyword.openwhisk}} (Openwhisk).
 
-## Próximas Etapas
+## Próximas etapas
 {: #next_steps-config notoc}
 
 O `ibm-cloud-config` suporta a procura de valores usando três tipos de padrão de procura: `cloudfoundry`, `env` e `file`. Se você quiser consultar outros padrões de procura suportados e exemplos de padrão de procura, veja a seção [Uso](https://github.com/ibm-developer/ibm-cloud-env#usage){: new_window}![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-10"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -31,9 +31,9 @@ subcollection: nodejs
 {: #prereqs-appid}
 
 다음 전제조건이 준비되어 있어야 합니다.
-1. [{{site.data.keyword.cloud}} 계정 ](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")이 있어야 합니다.
-2. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)를 설치하십시오.
-3. [npm ](https://nodejs.org/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘") 패키지 관리 지원을 설치하십시오.
+1. [{{site.data.keyword.cloud}} 계정 ](https://cloud.ibm.com/registration){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")이 있어야 합니다.
+2. [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started)를 설치하십시오.
+3. [npm ](https://nodejs.org/en/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘") 패키지 관리 지원을 설치하십시오.
 4. [Express 프레임워크 ](http://expressjs.com/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")를 사용하여 Node.js 서버를 구현하십시오. Express 프레임워크를 설치하려면 명령행을 사용하여 Node.js 앱이 있는 디렉토리를 열고 다음 명령을 실행하십시오.
   ```
   npm install --save express
@@ -55,7 +55,7 @@ subcollection: nodejs
     * _**clientID**_, _**secret**_, _**oauth-server-url**_ - 이 값들은 서비스 대시보드의 **서비스 인증 정보** 탭에서 **인증 정보 보기**를 클릭하여 찾을 수 있습니다.
     * _**CALLBACK_URL**_ - 사용자가 로그인한 후 보게 되는 페이지의 URL입니다.
     * _**redirectUri**_ - `redirectUri` 값은 세 가지 방식으로 제공될 수 있습니다.
-      * 새 `WebAppStrategy({redirectUri: "...."})`에서 수동으로.
+      * 새 `WebAppStrategy({redirectUri: "...."})`
       * `redirectUri`라는 환경 변수로. 
       * `redirectUri` 값이 제공되지 않은 경우 App ID SDK는 {{site.data.keyword.cloud_notm}}에서 실행 중인 애플리케이션의 `application_uri`를 검색하고 기본 접미부 `/ibm/cloud/appid/callback`을 추가합니다.
 
@@ -64,8 +64,8 @@ subcollection: nodejs
 
 서비스의 인스턴스를 프로비저닝하십시오.
 
-1. [{{site.data.keyword.cloud_notm}} 카탈로그](https://cloud.ibm.com/catalog/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")에서 **웹 및 모바일** 카테고리를 선택하고 {{site.data.keyword.appid_short_notm}}를 클릭하십시오. 서비스 구성 페이지가 열립니다.
-2. 서비스 인스턴스의 이름을 지정하거나 사전 설정된 이름을 사용하십시오.
+1. [{{site.data.keyword.cloud_notm}} 카탈로그](https://cloud.ibm.com/catalog){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")에서 **웹 및 모바일** 카테고리를 선택하고 {{site.data.keyword.appid_short_notm}}를 클릭하십시오. 서비스 구성 페이지가 열립니다.
+2. 서비스 인스턴스에 이름을 지정하거나 사전 설정된 이름을 사용하십시오.
 3. 가격 플랜을 선택하고 **작성**을 클릭하십시오.
 
 ## 2단계. SDK 설치
@@ -116,10 +116,10 @@ subcollection: nodejs
     ```
     {: codeblock}
 
-    앱의 인증 정보 키 값을 찾는 데 대해 도움이 필요한 경우에는 [시작하기 전에](#prereqs-appid) 섹션의 *5단계*에서 이를 찾을 수 있는 위치에 대한 세부사항을 확인하십시오. 
+    앱의 인증 정보 키 값을 찾는 데 대해 도움이 필요한 경우에는 [시작하기 전에](#prereqs-appid) 섹션의 *5단계*에서 이를 찾을 수 있는 위치에 대한 세부사항을 확인하십시오.
     {: tip}
 
-4. Passport의 직렬화 및 역직렬화를 구성하십시오. 이 구성 단계는 HTTP 요청 간의 인증된 세션 지속성을 위해 필요합니다. 자세한 정보는 [Passport 문서 ](http://passportjs.org/docs){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")를 참조하십시오.
+4. Passport의 직렬화 및 역직렬화를 구성하십시오. 이 구성 단계는 HTTP 요청 간의 인증된 세션 지속성을 위해 필요합니다. 자세한 정보는 [Passport 문서 ](http://www.passportjs.org/docs/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")를 참조하십시오.
   ```js
   passport.serializeUser(function(user, cb) {
     cb(null, user);
@@ -140,7 +140,7 @@ subcollection: nodejs
   ```
   {: codeblock}
 
-  서비스는 다음 순서로 경로 재지정됩니다. 
+  서비스는 다음 순서로 경로 재지정됩니다.
   1. 인증 프로세스를 트리거한 요청의 원래 URL은 HTTP 세션의 `WebAppStrategy.ORIGINAL_URL` 키에 지속됩니다.
   2. `passport.authenticate(name, {successRedirect: "...."})`.
   3. 애플리케이션 루트 디렉토리("/").
@@ -178,7 +178,7 @@ ID 제공자는 사용자에게 권한을 부여할 수 있도록 사용자에 �
 ### 클라우드 디렉토리 구성
 {: #cloud-directory-appid}
 
-{{site.data.keyword.appid_short_notm}}를 사용하면 클라우드 디렉토리라는 고유 사용자 레지스트리를 관리할 수 있습니다. 클라우드 디렉토리는 사용자가 자신의 이메일 및 비밀번호를 사용하여 모바일 및 웹 앱에 등록하고 로그인할 수 있게 해 줍니다.
+{{site.data.keyword.appid_short_notm}}를 사용하면 클라우드 디렉토리라는 고유 사용자 레지스트리를 관리할 수 있습니다. 클라우드 디렉토리는 사용자가 자신의 이메일 및 비밀번호를 사용하여 모바일 및 웹 앱에 가입하고 로그인할 수 있게 해 줍니다.
 
 클라우드 디렉토리를 구성하려면 [클라우드 디렉토리](/docs/services/appid?topic=appid-cloud-directory#cloud-directory)를 참조하십시오.
 
@@ -208,10 +208,14 @@ ID 제공자는 사용자에게 권한을 부여할 수 있도록 사용자에 �
 | 페이지 표시 | 소셜 ID 제공자 | 클라우드 디렉토리 | 
 |:-----|:-----|:-----|
 | 로그인 | <img src="images/confirm.png" width="32" alt="기능 사용 가능" style="width:32px;" /> | <img src="images/confirm.png" width="32" alt="기능 사용 가능" style="width:32px;" /> |
-| 등록 |  | <img src="images/confirm.png" width="32" alt="기능 사용 가능" style="width:32px;" /> |
+| 가입 |  | <img src="images/confirm.png" width="32" alt="기능 사용 가능" style="width:32px;" /> |
 | 비밀번호 찾기 |  | <img src="images/confirm.png" width="32" alt="기능 사용 가능" style="width:32px;" /> |
 | 비밀번호 변경 |  | <img src="images/confirm.png" width="32" alt="기능 사용 가능" style="width:32px;" /> |
 | 계정 세부사항 |  | <img src="images/confirm.png" width="32" alt="기능 사용 가능" style="width:32px;" /> |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="표 비교. 소셜 ID 제공자 및 클라우드 디렉터리의 페이지를 표시합니다." caption-side="bottom"}
+{: summary="This table has row and column headers. The row headers identify the account pages that can be displayed. The column headers identify which identity service can display them. To understand where an account page can be displayed in the table, navigate to the row for the account page, and find the column for the identity service that you are interested in."}
 
 기본 페이지를 표시하려면 다음 작업을 수행하십시오.
 
@@ -235,9 +239,9 @@ ID 제공자는 사용자에게 권한을 부여할 수 있도록 사용자에 �
   `WebAppStrategy`는 사용자가 사용자 이름 및 비밀번호를 사용하여 웹 앱에 로그인할 수 있도록 합니다. 로그인 성공 후 사용자의 액세스 토큰은 HTTP 세션에 저장되며 세션 중에 사용할 수 있습니다. 해당 HTTP 세션이 영구 삭제되거나 만료되면 해당 토큰이 무효화됩니다.
   {: tip}
 
-####  등록
+#### 가입
 
-1. 클라우드 디렉토리 설정에서 **사용자가 등록하고 비밀번호를 재설정할 수 있도록 허용**을 **켜짐**으로 설정하십시오. 아니오로 설정된 경우에는 프로세스가 액세스 및 ID 토큰을 검색하지 않고 종료됩니다.
+1. 클라우드 디렉토리 설정에서 **사용자가 가입하고 비밀번호를 재설정할 수 있도록 허용**을 **켜짐**으로 설정하십시오. 아니오로 설정된 경우에는 프로세스가 액세스 및 ID 토큰을 검색하지 않고 종료됩니다.
 2. WebAppStrategy `show` 특성을 전달하고 이를 `WebAppStrategy.SIGN_UP`으로 설정하십시오.
   ```js
   app.get("/sign_up", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
@@ -249,7 +253,7 @@ ID 제공자는 사용자에게 권한을 부여할 수 있도록 사용자에 �
 
 ####  비밀번호 찾기
 
-1. 클라우드 디렉토리 설정에서 **사용자가 등록하고 비밀번호를 재설정할 수 있도록 허용** 및 **비밀번호 찾기 이메일**을 **켜짐**으로 설정하십시오. 아니오로 설정된 경우에는 프로세스가 액세스 및 ID 토큰을 검색하지 않고 종료됩니다.
+1. 클라우드 디렉토리 설정에서 **사용자가 가입하고 비밀번호를 재설정할 수 있도록 허용** 및 **비밀번호 찾기 이메일**을 **켜짐**으로 설정하십시오. 아니오로 설정된 경우에는 프로세스가 액세스 및 ID 토큰을 검색하지 않고 종료됩니다.
 2. WebAppStrategy `show` 특성을 전달하고 이를 `WebAppStrategy.FORGOT_PASSWORD`로 설정하십시오.
   ```js
   app.get("/forgot_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
@@ -261,7 +265,7 @@ ID 제공자는 사용자에게 권한을 부여할 수 있도록 사용자에 �
 
 ####  비밀번호 변경
 
-1. 클라우드 디렉토리 설정에서 **사용자가 등록하고 비밀번호를 재설정할 수 있도록 허용**을 **켜짐**으로 설정하십시오.
+1. 클라우드 디렉토리 설정에서 **사용자가 가입하고 비밀번호를 재설정할 수 있도록 허용**을 **켜짐**으로 설정하십시오.
 2. WebAppStrategy `show` 특성을 전달하고 이를 `WebAppStrategy.CHANGE_PASSWORD`로 설정하십시오.
   ```js
   app.get("/change_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
@@ -274,7 +278,7 @@ ID 제공자는 사용자에게 권한을 부여할 수 있도록 사용자에 �
 ####  계정 세부사항
 
 {: #default-account-details}
-1. 클라우드 디렉토리 설정에서 **사용자가 등록하고 비밀번호를 재설정할 수 있도록 허용**을 **켜짐**으로 설정하십시오.
+1. 클라우드 디렉토리 설정에서 **사용자가 가입하고 비밀번호를 재설정할 수 있도록 허용**을 **켜짐**으로 설정하십시오.
 2. WebAppStrategy `show` 특성을 전달하고 이를 `WebAppStrategy.CHANGE_DETAILS`로 설정하십시오.
   ```js
   app.get("/change_details", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
@@ -302,7 +306,7 @@ ID 제공자는 사용자에게 권한을 부여할 수 있도록 사용자에 �
 ## 다음 단계
 {: #next-appid notoc}
 
-수고하셨습니다! 이제 앱에 인증 단계가 추가되었습니다. 다음 선택사항 중 하나를 따라 작업을 계속 진행하십시오.
+잘 하셨습니다! 앱에 인증 단계를 추가했습니다. 다음 옵션 중 하나를 사용하여 계속 진행하십시오.
 
-* {{site.data.keyword.appid_short_notm}}에서 제공하는 모든 기능에 대해 자세히 알아보고 이를 이용하려면 [문서를 확인하십시오](/docs/services/appid?topic=appid-getting-started#getting-started)!
-* 스타터 킷은 {{site.data.keyword.cloud}}의 기능을 사용하는 가장 빠른 방법 중 하나입니다. [모바일 개발자 대시보드 ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")에서 사용 가능한 스타터 킷을 보십시오. 코드를 다운로드하십시오. 앱을 실행하십시오.
+* {{site.data.keyword.appid_short_notm}}에서 제공하는 모든 기능에 대해 자세히 알아보고 이를 이용하려면 [문서를 확인하십시오](/docs/services/appid?topic=appid-getting-started).
+* 스타터 킷은 {{site.data.keyword.cloud}}의 기능을 사용하는 가장 빠른 방법 중 하나입니다. [모바일 개발자 대시보드 ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")에서 사용 가능한 스타터 킷을 보십시오. 코드를 다운로드하십시오. 앱을 실행하십시오!

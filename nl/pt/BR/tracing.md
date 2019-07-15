@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-06-05"
 
 keywords: nodejs tracing, debug nodejs apps, troubleshooting nodejs, appmetrics-zipkin node, zipkin docker nodejs, nodejs slow, nodejs tracing
 
@@ -27,7 +27,7 @@ Nas etapas a seguir, dois pequenos aplicativos (um de front-end, um de backend) 
 ## Etapa 1. Instalando e ativando o módulo appmetrics-zipkin
 {: #install-zipkin}
 
-No mesmo local que o arquivo `package.json` do aplicativo Node.js, insira o comando [npm](https://nodejs.org/){: new_window}![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") a seguir para incluir o módulo `appmetrics-zipkin` em sua lista de dependências:
+No mesmo local que o arquivo `package.json` do aplicativo Node.js, insira o comando [npm](https://nodejs.org/en/){: new_window}![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo") a seguir para incluir o módulo `appmetrics-zipkin` em sua lista de dependências:
 ```
 npm install -- save appmetrics-zipkin
 ```
@@ -161,7 +161,7 @@ Com esse exemplo, agora você tem o seguinte cenário:
 
 O tutorial acaba aqui para implementações sem o Kubernetes. Verifique a próxima seção se quiser prosseguir com o rastreio de apps Node.js executados no Kubernetes.
 
-## Etapas seguintes
+## Próximas etapas
 {: #next-steps-tracing}
 
 * Aprenda a construir aplicativos Node.js do Cloud Native com a ajuda do projeto da comunidade [CloudNativeJS](https://www.cloudnativejs.io/){: new_window}![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo"), que fornece ativos e ferramentas para ajudar você a implementá-los nas nuvens baseadas no Docker e no Kubernetes.

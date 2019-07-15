@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-30"
+lastupdated: "2019-06-11"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
 
@@ -26,9 +26,9 @@ Impara come installare, accedere e comprendere le metriche dell'applicazione Nod
 ## Identificazione dei problemi visivamente
 {: #identify-problems}
 
-Le metriche dell'applicazione sono importanti per il monitoraggio delle prestazioni della tua applicazione. Disporre di una vista in diretta di metriche come CPU, memoria, latenza e metriche HTTP è essenziale per garantire un'efficace esecuzione della tua applicazione nel tempo. Puoi utilizzare un servizio cloud come il [ridimensionamento automatico](/docs/services/Auto-Scaling?topic=Auto-Scaling-get-started) di Cloud Foundry che si basa sulle metriche per modificare dinamicamente le dimensioni delle istanze in modo che corrispondano all'attuale carico di lavoro. Utilizzando le metriche dell'applicazione, sei informato precisamente quando aumentare o ridurre le istanze oppure quando eliminare quelle che non sono più necessarie per mantenere bassi i costi.
+Le metriche dell'applicazione sono importanti per il monitoraggio delle prestazioni della tua applicazione. Disporre di una vista in diretta di metriche come CPU, memoria, latenza e metriche HTTP è essenziale per garantire un'efficace esecuzione della tua applicazione nel tempo. Puoi utilizzare un servizio cloud come il [ridimensionamento automatico](/docs/services/Auto-Scaling?topic=Auto-Scaling) di Cloud Foundry che si basa sulle metriche per modificare dinamicamente le dimensioni delle istanze in modo che corrispondano all'attuale carico di lavoro. Utilizzando le metriche dell'applicazione, sei informato precisamente quando aumentare o ridurre le istanze oppure quando eliminare quelle che non sono più necessarie per mantenere bassi i costi.
 
-Le metriche dell'applicazione vengono acquisite come dati delle serie temporali. L'aggregazione e la visualizzazione delle metriche acquisite può essere di ausilio nell'identificazione di problemi delle prestazioni comuni quali:
+Le metriche dell'applicazione vengono acquisite come dati delle serie temporali. L'aggregazione e la visualizzazione delle metriche acquisite possono essere di ausilio nell'identificazione di problemi delle prestazioni comuni quali:
 
 * Tempi di risposta HTTP lenti su qualche instradamento o su tutti gli instradamenti
 * Una scarsa velocità effettiva nell'applicazione
@@ -43,7 +43,7 @@ Dal dashboard è possibile generare un report dei nodi (Node Report) o un'istant
 ## Aggiunta di metriche alle applicazioni Node.js esistenti
 {: #add-appmetrics-existing}
 
-Aggiungi le funzioni di monitoraggio alle applicazioni Express esistenti con il constructor [ `appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") per trasmettere svariate opzioni di configurazione. Ad esempio, una delle opzioni utilizza un server esistente invece di fare in modo che `appmetrics-dash` avvii un server supplementare.
+Aggiungi le funzioni di monitoraggio alle applicazioni Express esistenti con il constructor [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") per trasmettere svariate opzioni di configurazione. Ad esempio, una delle opzioni utilizza un server esistente invece di fare in modo che `appmetrics-dash` avvii un server supplementare.
 
 ### Installazione del dashboard
 {: #install-appmetrics}
@@ -61,7 +61,7 @@ Aggiungi le funzioni di monitoraggio alle applicazioni Express esistenti con il 
   ```
   {: codeblock}
 
-2. Installa il dashboard `appmetrics` con il seguente comando [npm](https://nodejs.org/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
+2. Installa il dashboard `appmetrics` con il seguente comando [npm](https://nodejs.org/en/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"):
   ```
   npm install appmetrics-dash
   ```
@@ -75,7 +75,7 @@ Aggiungi le funzioni di monitoraggio alle applicazioni Express esistenti con il 
 
   Questo comando indica a `appmetrics-dash` di utilizzare il server che è già creato e di aggiungere un endpoint `appmetrics-dash`.
 
-  Il codice aggiornato si presenta ora come il seguente esempio:
+  Il codice revisionato è ora simile al seguente esempio:
   ```js
   var express = require('express')
   var app = express()
@@ -113,12 +113,12 @@ Dopo che hai avviato la tua applicazione, vai a `http://<hostname>:<port>/appmet
 Utilizza il `localhost:3001/appmetrics-dash` predefinito per le applicazioni che sono in esecuzione in locale.
 {: tip}
 
-L'IU del dashboard di monitoraggio Application Metrics for Node.js fornisce una gamma di metriche, comprese le richieste HTTP e la latenza di loop degli eventi, come illustrato nel seguente video [Monitoring Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
+L'IU del dashboard di monitoraggio Application Metrics for Node.js fornisce una gamma di metriche, comprese le richieste HTTP e la latenza di loop degli eventi, come visto nel seguente video [Monitoring Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
 
 ## Descrizione dei dati
 {: #understanding-data}
 
-![Dashboard Appmetrics](images/appmetricsdash-1.png)
+![Dashboard Appmetrics](images/appmetricsdash-1.png "Dashboard Appmetrics.")
 
 La maggior parte dei dati viene tracciata come grafici a linee. HTTP Incoming Requests, HTTP Outgoing Requests e Other Requests mostrano la durata degli eventi rispetto al tempo. HTTP Throughput mostra le richieste al secondo. Average Response Times mostra le cinque richieste HTTP in entrata più usate che hanno impiegato, in media, più tempo. I grafici CPU e Memory mostrano l'utilizzo di sistema e processi nel tempo. Heap mostra la dimensione heap massima e la dimensione heap utilizzata nel tempo. Event Loop Latency mostra dei campioni di latenza presi a intervalli dal loop di eventi Node.js, con un punto per la latenza più breve, uno per la media e uno per quella più lunga per ogni campione preso.
 

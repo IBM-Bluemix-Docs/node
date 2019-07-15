@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-10"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -31,9 +31,9 @@ Para obter mais informações sobre todas as maneiras que é possível usar o {{
 {: #prereqs-appid}
 
 Verifique se os pré-requisitos a seguir estão prontos:
-1. Deve-se ter uma [conta do {{site.data.keyword.cloud}}](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").
-2. Instale a [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli).
-3. Instale o suporte de gerenciamento de pacote [npm ](https://nodejs.org/){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").
+1. Deve-se ter uma [conta do {{site.data.keyword.cloud}}](https://cloud.ibm.com/registration){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").
+2. Instale a [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started).
+3. Instale o suporte de gerenciamento de pacote [npm ](https://nodejs.org/en/){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").
 4. Implemente o servidor Node.js com a [Estrutura do Express ](http://expressjs.com/){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo"). Para instalar a estrutura Express, use a linha de comandos para abrir o diretório com o aplicativo Node.js e execute o comando a seguir:
   ```
   npm install -- save express
@@ -65,7 +65,7 @@ Verifique se os pré-requisitos a seguir estão prontos:
 
 Provisem uma instância do serviço:
 
-1. No [catálogo do {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo"), selecione a categoria **Web e móvel** e clique em {{site.data.keyword.appid_short_notm}}. A página de configuração de serviço é aberta.
+1. No [catálogo do {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo"), selecione a categoria **da web e móvel** e clique em {{site.data.keyword.appid_short_notm}}. A página de configuração de serviço é aberta.
 2. Dê um nome à sua instância de serviço ou use o nome de pré-configuração.
 3. Selecione o seu plano de precificação e clique em **Criar**.
 
@@ -117,10 +117,10 @@ Provisem uma instância do serviço:
     ```
     {: codeblock}
 
-    Se precisar de ajuda para localizar os valores da chave de credencial para seu app, verifique a *etapa 5* da seção [Antes de iniciar](#prereqs-appid) para obter detalhes sobre onde localizá-los. 
+    Se você precisar de ajuda para localizar os valores da chave de credencial para o seu app, marque *etapa 5* da seção [Antes de iniciar](#prereqs-appid) para obter detalhes sobre em qual local localizá-los.
     {: tip}
 
-4. Configure o passaporte com serialização e desserialização. Essa etapa de configuração é necessária para a persistência de sessão autenticada nas solicitações de HTTP. Para obter mais informações, consulte os [docs de passaporte ](http://passportjs.org/docs){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").
+4. Configure o passaporte com serialização e desserialização. Essa etapa de configuração é necessária para a persistência de sessão autenticada nas solicitações de HTTP. Para obter mais informações, consulte os [docs de passaporte ](http://www.passportjs.org/docs/){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo").
   ```js
   passport.serializeUser (function (user, cb) {
     cb(null, user);
@@ -214,6 +214,10 @@ Verifique a tabela a seguir para ver quais páginas você pode exibir para cada 
 | Esqueceu a senha |  | <img src="images/confirm.png" width="32" alt="Recurso disponível" style="width:32px;" /> |
 | Alterar Senha |  | <img src="images/confirm.png" width="32" alt="Recurso disponível" style="width:32px;" /> |
 | Detalhes da conta |  | <img src="images/confirm.png" width="32" alt="Recurso disponível" style="width:32px;" /> |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="Comparação de tabela. Exibindo páginas para provedores de identidade social e diretório da nuvem." caption-side="bottom"}
+{: summary="This table has row and column headers. The row headers identify the account pages that can be displayed. The column headers identify which identity service can display them. To understand where an account page can be displayed in the table, navigate to the row for the account page, and find the column for the identity service that you are interested in."}
 
 Para exibir as páginas padrão:
 
@@ -301,10 +305,10 @@ Está tudo configurado corretamente? Você pode testá-lo!
 
 Tendo problemas? Efetue o registro de saída de  [ resolução de problemas  {{site.data.keyword.appid_short_notm}} ](/docs/services/appid?topic=appid-troubleshooting#troubleshooting).
 
-## Etapas seguintes
+## Próximas etapas
 {: #next-appid notoc}
 
 Ótimo trabalho! Você incluiu uma etapa de autenticação em seu app. Tente uma das opções a seguir para manter o ritmo:
 
-* Para saber mais e aproveitar todos os recursos oferecidos pelo {{site.data.keyword.appid_short_notm}}, [verifique os docs](/docs/services/appid?topic=appid-getting-started#getting-started)!
+* Para saber mais sobre e tirar proveito de todos os recursos que o {{site.data.keyword.appid_short_notm}} oferece, [confira os docs](/docs/services/appid?topic=appid-getting-started).
 * Os kits do iniciador são uma das maneiras mais rápidas de usar os recursos do {{site.data.keyword.cloud}}. Visualize os kits de iniciador disponíveis no [Painel do desenvolvedor de dispositivos móveis ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo"). Faça download do código. Execute o app!

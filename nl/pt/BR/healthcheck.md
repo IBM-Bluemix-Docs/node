@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-06-05"
 
 keywords: healthcheck node, add healthcheck node, healthcheck endpoint nodes, readiness node, liveness node, endpoint node, probes node, health check node
 
@@ -27,13 +27,13 @@ As verificações de funcionamento fornecem um mecanismo simples para determinar
 
 As verificações de funcionamento fornecem um mecanismo simples para determinar se um aplicativo do lado do servidor está se comportando corretamente. Elas geralmente são consumidas por meio de HTTP e usam códigos de retorno padrão para indicar o status de UP ou DOWN. O valor de retorno de uma verificação de funcionamento é variável, mas uma resposta JSON mínima, como `{"status": "UP"}`, é típica.
 
-O Kubernetes tem uma noção diferenciada do funcionamento do processo. Ele define duas análises:
+O Kubernetes tem uma noção matizada do funcionamento do processo. Ele define duas análises:
 
 - Uma análise de _**prontidão**_ é usada para indicar se o processo pode manipular solicitações (é roteável).
 
-  O Kubernetes não roteia trabalho para um contêiner com uma análise de prontidão falha. Uma análise de prontidão poderá falhar se um serviço não tiver terminado de iniciar ou estiver ocupado, sobrecarregado ou for incapaz de processar solicitações.
+  O Kubernetes não roteia trabalho para um contêiner com uma análise de prontidão com falha. Uma análise de prontidão poderá falhar se um serviço não terminar de inicializar ou se estiver de outra forma ocupado, sobrecarregado ou incapaz de processar solicitações.
 
-- Uma análise de _**vivacidade**_ é usada para indicar se o processo deve ser reiniciado.
+- Uma análise de _**atividade**_ é usada para indicar se o processo deve ser reiniciado.
 
   O Kubernetes para e reinicia um contêiner com uma análise `liveness` com falha. Use as análises de vivacidade para limpar processos em um estado irrecuperável, por exemplo, se a memória estiver esgotada ou se o contêiner não foi parado corretamente após a falha de um processo interno.
 
@@ -41,14 +41,15 @@ Como uma nota para comparação, o Cloud Foundry usa um terminal de funcionament
 
 A seguinte tabela fornece diretrizes sobre as respostas que os terminais de prontidão, vivacidade e funcionamento singular devem fornecer.
 
-| Estado    | Prontidão                   | Vivacidade                   | Saúde                    |
+| Estado    | Prontidão                   | Atividade                   | Funcionamento                    |
 |----------|-----------------------------|----------------------------|---------------------------|
 |          | Não OK causa nenhum carregamento       | Não OK causa reinicialização      | Não OK causa reinicialização     |
-| Iniciando | 503 - Indisponível           | 200 - OK                   | Use o atraso para evitar o teste   |
-| Ativo       | 200 - OK                    | 200 - OK                   | 200 - OK                  |
+| Iniciando | 503 - Indisponível           | 200 - OK                   | Usar atraso para evitar teste   |
+| Ativado       | 200 - OK                    | 200 - OK                   | 200 - OK                  |
 | Parando | 503 - Indisponível           | 200 - OK                   | 503 - Indisponível         |
 | Inativo     | 503 - Indisponível           | 503 - Indisponível          | 503 - Indisponível         |
 | Com erro  | 500 - Erro do servidor          | 500 - Erro do servidor         | 500 - Erro do servidor        |
+{: caption="Tabela 1. Códigos de status de HTTP." caption-side="bottom"}
 
 ## Incluindo uma verificação de funcionamento em um app Node.js existente
 {: #add-healthcheck-existing}

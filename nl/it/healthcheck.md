@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-06-05"
 
 keywords: healthcheck node, add healthcheck node, healthcheck endpoint nodes, readiness node, liveness node, endpoint node, probes node, health check node
 
@@ -20,9 +20,9 @@ subcollection: nodejs
 # Utilizzo di un controllo di integrità nelle applicazioni Node.js
 {: #node-healthcheck}
 
-I controlli di integrità forniscono un semplice meccanismo per determinare se un'applicazione lato server sta funzionando correttamente o meno. Ambienti cloud come [Kubernetes](https://www.ibm.com/cloud/container-service){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") e [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") possono essere configurati per eseguire il polling di endpoint di integrità per determinare se un'istanza del tuo servizio è pronta ad accettare traffico.
+I controlli di integrità forniscono un semplice meccanismo per determinare se un'applicazione lato server sta funzionando correttamente o meno. Gli ambienti cloud come [Kubernetes](https://www.ibm.com/cloud/container-service){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") e [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") possono essere configurati per eseguire il polling degli endpoint di integrità periodicamente per determinare se un'istanza del tuo servizio è pronta ad accettare traffico.
 
-## Panoramica dei controlli di integrità
+## Panoramica sul controllo di integrità
 {: #node-healthcheck-overview}
 
 I controlli di integrità forniscono un semplice meccanismo per determinare se un'applicazione lato server sta funzionando correttamente o meno. Normalmente sono utilizzati tramite HTTP e utilizzano i codici di ritorno standard per indicare lo stato UP o DOWN. Il valore di ritorno di un controllo di integrità è variabile, ma una risposta JSON minima, come `{"status": "UP"}`, è normale.
@@ -49,6 +49,7 @@ La seguente tabella fornisce le indicazioni sulle risposte che devono essere for
 | In arresto | 503 - Non disponibile           | 200 - OK                   | 503 - Non disponibile         |
 | Non attivo     | 503 - Non disponibile           | 503 - Non disponibile          | 503 - Non disponibile         |
 | In errore  | 500 - Errore server          | 500 - Errore server         | 500 - Errore server        |
+{: caption="Tabella 1. Codici di stato HTTP. " caption-side="bottom"}
 
 ## Aggiunta di un controllo di integrità a un'applicazione Node.js esistente
 {: #add-healthcheck-existing}
@@ -138,4 +139,4 @@ spec:
 ```
 {: codeblock}
 
-Per ulteriori informazioni, vedi [Configure liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
+Per ulteriori informazioni, consulta [Configure Liveness and Readiness Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").

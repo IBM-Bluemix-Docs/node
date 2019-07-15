@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-30"
+lastupdated: "2019-06-11"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
 
@@ -26,13 +26,13 @@ Node.js 애플리케이션 메트릭을 설치하고 액세스하는 방법과 �
 ## 문제점을 시각적으로 식별
 {: #identify-problems}
 
-애플리케이션 메트릭은 애플리케이션의 성능을 모니터하는 데 있어서 중요합니다. CPU, 메모리, 대기 시간 등의 메트릭과 HTTP 메트릭에 대한 실시간 보기를 확보하는 것은 애플리케이션이 시간 경과에 따라 효율적으로 실행되고 있는지 확인하는 데 있어서 필수적입니다. 메트릭에 의존하는 Cloud Foundry의 [Auto-Scaling](/docs/services/Auto-Scaling?topic=Auto-Scaling-get-started)과 같은 클라우드 서비스를 사용하여 현재 워크로드에 맞도록 인스턴스를 동적으로 스케일링할 수 있습니다. 애플리케이션 메트릭을 사용하면 인스턴스의 스케일링 업, 스케일링 다운 또는 정리 시점을 정확하게 파악하여 사용 비용을 적게 유지할 수 있습니다.
+애플리케이션 메트릭은 애플리케이션의 성능을 모니터하는 데 중요합니다. CPU, 메모리, 대기 시간 등의 메트릭과 HTTP 메트릭에 대한 실시간 보기를 확보하는 것은 애플리케이션이 시간 경과에 따라 효율적으로 실행되고 있는지 확인하는 데 있어서 필수적입니다. 메트릭에 의존하는 Cloud Foundry의 [Auto-Scaling](/docs/services/Auto-Scaling?topic=Auto-Scaling)과 같은 클라우드 서비스를 사용하여 현재 워크로드에 맞게 동적으로 인스턴스를 스케일링할 수 있습니다. 애플리케이션 메트릭을 사용하면 인스턴스를 확장 또는 축소하거나, 비용을 낮게 유지하기 위해 더 이상 필요하지 않은 인스턴스를 정리할 시기를 정확하게 알 수 있습니다.
 
-애플리케이션 메트릭은 시계열 데이터로 캡처됩니다. 캡처된 메트릭을 집계하고 시각화하면 다음과 같은 일반적인 성능 문제점을 식별하는 데 도움이 됩니다.
+애플리케이션 메트릭은 시계열 데이터로 캡처됩니다. 캡처된 메트릭의 집계 및 시각화는 다음과 같은 일반적인 성능 문제점을 식별하는 데 도움이 될 수 있습니다.
 
-* 일부 또는 모든 라우트의 느린 HTTP 응답 시간
+* 일부 또는 모든 라우트에서의 느린 HTTP 응답 시간
 * 애플리케이션의 낮은 처리량
-* 속도를 저하시키는 수요의 급증
+* 성능 저하의 원인이 되는 수요의 급증
 * 예상보다 높은 CPU 사용량
 * 높거나 증가하는 메모리 사용량(잠재적 메모리 누수)
 
@@ -61,7 +61,7 @@ Node.js 애플리케이션 메트릭을 설치하고 액세스하는 방법과 �
   ```
   {: codeblock}
 
-2. 다음 [npm](https://nodejs.org/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘") 명령을 사용하여 `appmetrics` 대시보드를 설치하십시오.
+2. 다음 [npm](https://nodejs.org/en/){: new_window} ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘") 명령을 사용하여 `appmetrics` 대시보드를 설치하십시오.
   ```
   npm install appmetrics-dash
   ```
@@ -75,7 +75,7 @@ Node.js 애플리케이션 메트릭을 설치하고 액세스하는 방법과 �
 
   이 명령은 `appmetrics-dash`에게 이미 작성된 서버를 사용하고, `appmetrics-dash` 엔드포인트를 추가하도록 지시합니다.
 
-  개정된 코드는 이제 다음 예와 같습니다.
+  개정된 코드는 이제 다음 예와 유사합니다.
   ```js
   var express = require('express')
   var app = express()
@@ -118,7 +118,7 @@ Node.js용 애플리케이션 메트릭 모니터링 대시보드 UI는 동영�
 ## 데이터 이해
 {: #understanding-data}
 
-![Appmetrics 대시보드](images/appmetricsdash-1.png)
+![Appmetrics 대시보드](images/appmetricsdash-1.png "Appmetrics 대시보드.")
 
 대부분의 데이터는 선 그래프로 표시됩니다. HTTP 수신 요청, HTTP 발신 요청 및 기타 요청은 시간에 대해 이벤트 지속 시간을 표시합니다. HTTP 처리량은 초당 요청 수를 보여줍니다. 평균 응답 시간은 평균적으로 가장 오랜 시간이 소요된, 다섯 개의 가장 많이 사용된 HTTP 요청을 보여줍니다. CPU 및 메모리 그래프는 시간 경과에 따른 시스템 및 프로세스 사용량을 보여줍니다. 힙은 최대 힙 크기와 시간 경과에 따라 사용된 힙 크기를 보여줍니다. 이벤트 루프 대기 시간은 Node.js 이벤트 루프의 간격에서 취한 대기 시간 샘플을 보여주며, 취한 각 샘플에 대해 대기 시간이 가장 짧은 지점, 평균인 지점, 가장 긴 지점을 하나씩 보여줍니다.
 

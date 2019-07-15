@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-30"
+lastupdated: "2019-06-10"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -21,10 +21,10 @@ subcollection: nodejs
 
 <!-- Sample Code for the SDK: https://github.com/ibm/ibm-cos-sdk-js#example-code -->
 
-<!-- More sample code: https://cloud.ibm.com/docs/services/cloud-object-storage/libraries/node.html#using-node-js -->
+<!-- More sample code: https://cloud.ibm.com/docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-node -->
 
 <!-- Object storage tutorial under the Storing and sharing data topicgroup:
-https://cloud.ibm.com/docs/services/cloud-object-storage/about-cos.html#about-ibm-cloud-object-storage -->
+https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-about -->
 
 {{site.data.keyword.cos_full_notm}} è un componente fondamentale dell'elaborazione cloud e fornisce delle potenti funzionalità agli sviluppatori Apple e alle loro applicazioni. A differenza dell'archiviazione di informazioni in una gerarchia di file, (come l'archiviazione blocchi o file), un'archiviazione oggetti consiste solo nei file e nei loro metadati. Questi file sono archiviati in raccolte note come bucket. Per definizione, questi oggetti sono immutabili, il che li rende perfetti per dati quali immagini, video e altri documenti statici. Per dati che cambiano spesso o di tipo relazionale, puoi utilizzare il servizio database [{{site.data.keyword.cloudant_short_notm}}](/docs/node?topic=nodejs-cloudant).
 
@@ -33,20 +33,20 @@ COS ({{site.data.keyword.cos_short}}) è un sistema di archiviazione che può es
 ## Prima di cominciare
 {: #prereqs-cos}
 
-Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
-1. Devi disporre di un [account {{site.data.keyword.cloud}}](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
+Assicurati di avere i seguenti prerequisiti pronti:
+1. Devi disporre di un [account {{site.data.keyword.cloud}}](https://cloud.ibm.com/registration){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
 2. Devi avere il [{{site.data.keyword.cos_short}} SDK for Node.js ](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
 3. Devi avere Node 4.x+.
-4. Individua i valori chiave delle credenziali da utilizzare in seguito per l'inizializzazione SDK:
+4. Individua i valori chiave delle credenziali da utilizzare in seguito per l'inizializzazione dell'SDK:
 
-    * _**endpoint**_ - l'endpoint pubblico per il tuo Cloud Object Storage. L'endpoint è disponibile dal [dashboard {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/dashboard/apps){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
+    * _**endpoint**_ - l'endpoint pubblico per il tuo Cloud Object Storage. L'endpoint è disponibile dal [Dashboard {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
     * _**api-key**_ - la chiave API generata quando vengono create le credenziali del servizio. Per gli esempi di creazione ed eliminazione, è necessario l'accesso in scrittura.
-    * _**resource-instance-id**_ - l'ID risorsa per il tuo Cloud Object Storage. L'ID risorsa è disponibile tramite la [CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) o il [dashboard {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/dashboard/apps){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
+    * _**resource-instance-id**_ - l'ID risorsa per il tuo Cloud Object Storage. L'ID risorsa è disponibile tramite la [CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started) o il [Dashboard {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
 
 ## Passo 1. Creazione di un'istanza di {{site.data.keyword.cos_short}}
 {: #create-instance-cos}
 
-1. Nel [catalogo {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"), seleziona la categoria **Archiviazione** e fai clic su {{site.data.keyword.cos_short}}. Viene aperta la pagina di configurazione del servizio.
+1. Nel [Catalogo {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno"), seleziona la categoria **Archiviazione** e fai clic su {{site.data.keyword.cos_short}}. Viene aperta la pagina di configurazione del servizio.
 2. Dai un nome alla tua istanza del servizio oppure utilizza il nome preimpostato.
 3. Seleziona il tuo piano dei prezzi e fai clic su **Crea**. Viene aperta la pagina della tua istanza di Object Storage.
 4. Nel menu di navigazione, seleziona **Credenziali del servizio**.
@@ -56,7 +56,7 @@ Assicurati di disporre dei seguenti prerequisiti pronti a essere utilizzati:
 ## Passo 2. Installazione dell'SDK
 {: #install-cos}
 
-Installa SDK for Node.js {{site.data.keyword.cos_short}} utilizzando il gestore pacchetti [npm](https://nodejs.org/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") dalla riga di comando.
+Installa il {{site.data.keyword.cos_short}} SDK for Node.js utilizzando il gestore pacchetti [npm](https://nodejs.org/en/){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno") dalla riga di comando:
 ```
 npm install ibm-cos-sdk
 ```
@@ -65,7 +65,7 @@ npm install ibm-cos-sdk
 ## Passo 3. Inizializzazione dell'SDK
 {: #initialize-cos}
 
-Dopo che hai inizializzato l'SDK nella tua applicazione, puoi utilizzare {{site.data.keyword.cos_short}} per archiviare i dati. Inizializza la tua connessione fornendo le tue credenziali e fornendo una funzione di callback da eseguire quando tutto è pronto.
+Dopo aver inizializzato l'SDK nella tua applicazione, puoi utilizzare {{site.data.keyword.cos_short}} per archiviare i dati. Inizializza la tua connessione fornendo le tue credenziali e fornendo una funzione di callback da eseguire quando tutto è pronto.
 
 1. Carica la libreria client aggiungendo le seguenti definizioni `require` al tuo file `server.js`.
   ```js
@@ -84,7 +84,7 @@ Dopo che hai inizializzato l'SDK nella tua applicazione, puoi utilizzare {{site.
   ```
   {: codeblock}
 
-  Se hai bisogno di aiuto per trovare i valori chiave delle credenziali per la tua applicazione, consulta il *passo 4* della sezione [Prima di cominciare](#prereqs-cos) per i dettagli relativi a dove trovarli.
+  Se hai bisogno di aiuto per trovare i valori chiave delle credenziali per la tua applicazione, consulta il *passo 4* della sezione [Prima di cominciare](#prereqs-cos) per i dettagli relativi a dove trovarli. Vedi anche [Credenziali del servizio per {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials).
   {: tip}
 
 3. Aggiungi il seguente codice al tuo file `server.js`.
@@ -111,7 +111,7 @@ function doCreateBucket() {
 ```
 {: codeblock}
 
-#### Creazione,caricamento o sovrascrittura di un oggetto
+#### Creazione, caricamento e sovrascrittura di un oggetto
 ```js
 function doCreateObject() {
     console.log('Creating object');
@@ -151,7 +151,7 @@ function doDeleteObject() {
 
 Consulta la [documentazione completa](/docs/services/cloud-object-storage?topic=cloud-object-storage-node) per i caricamenti a più parti, le funzioni di sicurezza e altre operazioni.
 
-## Passo 4. Esecuzione di test della tua applicazione
+## Passo 4. Verifica la tua applicazione
 {: #test-cos}
 
 Tutto è configurato correttamente? Verificalo eseguendo dei test.
@@ -165,7 +165,7 @@ Hai riscontrato dei problemi? Consulta la [guida di riferimento API {{site.data.
 ## Passi successivi
 {: #next-cos notoc}
 
-Ottimo lavoro! Hai aggiunto un livello di persistenza protetta alla tua applicazione. Non fermarti ora e continua provando una delle seguenti opzioni:
+Ottimo lavoro. Hai aggiunto un livello di persistenza protetta alla tua applicazione. Non fermarti ora e continua provando una delle seguenti opzioni:
 
 * Visualizza il codice sorgente di [{{site.data.keyword.cos_short}} SDK for Node.js ](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
 * Consulta il [codice di esempio per le operazioni bucket e oggetto ](https://github.com/ibm/ibm-cos-sdk-js#example-code){: new_window} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno").
