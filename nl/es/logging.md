@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-06-10"
 
 keywords: nodejs logging, view logs nodejs, add logging nodejs, log4j nodejs, stdout nodejs, nodejs log, output nodejs, nodejs logger
 
@@ -33,7 +33,7 @@ Puede utilizar [Log4js](https://github.com/log4js-node/log4js-node){: new_window
 ## Adición de soporte de Log4js a una app Node.js existente
 {: #add_log4j}
 
-1. Primero, instale `log4js` ejecutando el siguiente mandato de [npm](https://nodejs.org/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo") en el directorio raíz de la aplicación, que instala el paquete y lo añade al archivo `package.json`.
+1. Primero, instale `log4js` ejecutando el siguiente mandato de [npm](https://nodejs.org/en/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo") en el directorio raíz de la aplicación, que instala el paquete y lo añade al archivo `package.json`.
   ```bash
   npm install --save log4js
   ```
@@ -85,21 +85,21 @@ De forma predeterminada, el `Nivel de registro` se establece en `OFF` (desactiva
 ### Visualización de la salida de registro
 {: #node-view-log-output}
 
-Consulte la siguiente salida de registro de ejemplo resultante de la ejecución de la app de forma nativa o en un entorno de nube:
+VeR el siguiente ejemplo de salida de registro de la ejecución de la app de forma nativa o en un entorno de nube:
 ```
 2018-07-26 12:40:15.121 [INFO] MyAppName - MyAppName listening on http://localhost:3000
 ```
 {: screen}
 
-Puede ver la salida de registro utilizando los siguientes métodos:
+Puede visualizar la salida del registro utilizando los métodos siguientes:
 * Para entornos locales, utilice `stdout`.
-* Para despliegues de [Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html), puede acceder a los registros ejecutando:
+* Para despliegues [Cloud Foundry](/docs/cli/reference?topic=cloud-cli-ibmcloud_commands_apps#ibmcloud_app_logs), puede acceder a los registros ejecutando:
   ```
   ibmcloud app logs --recent <APP_NAME>
   ```
   {: codeblock}
 
-* Para despliegues de [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/), puede acceder a los registros ejecutando:
+* Para despliegues de [Kubernetes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"), puede acceder a los registros ejecutando:
   ```
   kubectl logs <deployment name>
   ```
@@ -109,9 +109,9 @@ Puede ver la salida de registro utilizando los siguientes métodos:
 {: #next_steps-logging notoc}
 
 Para obtener más información sobre la visualización de registros en cada entorno:
-* [Registros de Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")
-* [Registros de Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps#logging_cf_apps)
-* [Registros y supervisión de {{site.data.keyword.openwhisk}}](/docs/openwhisk?topic=cloud-functions-openwhisk_logs#openwhisk_logs)
+* [Registros de Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/#basic-logging-in-kubernetes){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")
+* [Registros de Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps)
+* [Registros y supervisión de {{site.data.keyword.openwhisk}}](/docs/openwhisk?topic=cloud-functions-logs)
 
 Utilización de un agregador de registros:
 * [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis?topic=cloudloganalysis-log_analysis_ov#log_analysis_ov)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-06-05"
 
 keywords: healthcheck node, add healthcheck node, healthcheck endpoint nodes, readiness node, liveness node, endpoint node, probes node, health check node
 
@@ -25,7 +25,7 @@ Las comprobaciones de estado proporcionan un mecanismo simple para determinar si
 ## Visión general de la comprobación de estado
 {: #node-healthcheck-overview}
 
-Las comprobaciones de estado proporcionan un mecanismo simple para determinar si una aplicación del lado del servidor se está comportando correctamente. Normalmente se consumen a través de HTTP y utilizan códigos de retorno estándares para indicar el estado UP (activo) o DOWN (inactivo). El valor de retorno de una comprobación de estado es variable, pero típicamente es una respuesta JSON mínima, como `{"status": "UP"}`.
+Las comprobaciones de estado proporcionan un mecanismo simple para determinar si una aplicación del lado del servidor se está comportando correctamente. Normalmente se consumen a través de HTTP y utilizan códigos de retorno estándares para indicar el estado UP (activo) o DOWN(inactivo). El valor de retorno de una comprobación de estado es variable, pero típicamente es una respuesta JSON mínima, como `{"status": "UP"}`.
 
 Kubernetes tiene una noción matizada del estado del proceso. Define dos análisis:
 
@@ -49,6 +49,7 @@ La tabla siguiente proporciona una orientación sobre las respuestas que los pun
 | Deteniendo | 503 - No disponible           | 200 - Correcto                   | 503 - No disponible         |
 | Inactivo     | 503 - No disponible           | 503 - No disponible          | 503 - No disponible         |
 | Con errores  | 500 - Error del servidor          | 500 - Error del servidor         | 500 - Error del servidor        |
+{: caption="Tabla 1. Códigos de estado HTTP." caption-side="bottom"}
 
 ## Adición de una comprobación de estado a una app Node.js existente
 {: #add-healthcheck-existing}

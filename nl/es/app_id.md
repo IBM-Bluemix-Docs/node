@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-10"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -31,9 +31,9 @@ Para obtener más información sobre todas las formas en que puede utilizar {{si
 {: #prereqs-appid}
 
 Asegúrese de que dispone de los siguientes requisitos previos listos para utilizar:
-1. Debe tener una [cuenta de {{site.data.keyword.cloud}}](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
-2. Instale la [CLI de {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli).
-3. Instale el soporte de gestión de paquetes [npm](https://nodejs.org/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
+1. Debe tener una [cuenta de {{site.data.keyword.cloud}}](https://cloud.ibm.com/registration){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
+2. Instale la [CLI de {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started).
+3. Instale el soporte de gestión de paquetes [npm](https://nodejs.org/en/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
 4. Implemente el servidor de Node.js con la [infraestructura Express](http://expressjs.com/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"). Para instalar la infraestructura Express, utilice la línea de mandatos para abrir el directorio con la app Node.js y ejecute el mandato siguiente:
   ```
   npm install --save express
@@ -64,7 +64,7 @@ Asegúrese de que dispone de los siguientes requisitos previos listos para utili
 
 Suministre una instancia del servicio:
 
-1. En el [catálogo de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"), seleccione la categoría **Web y móvil** y pulse {{site.data.keyword.appid_short_notm}}. Se abre la página de configuración del servicio.
+1. En el [catálogo de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"), seleccione la categoría **Web y móvil** y pulse {{site.data.keyword.appid_short_notm}}. Se abre la página de configuración del servicio.
 2. Dé un nombre a la instancia de servicio, o utilice el nombre preestablecido.
 3. Seleccione el plan de precios y pulse **Crear**.
 
@@ -119,7 +119,7 @@ Suministre una instancia del servicio:
     Si necesita ayuda para encontrar los valores de clave de credenciales para la app, consulte el *paso 5* de la sección [Antes de empezar](#prereqs-appid) para obtener detalles sobre dónde encontrarlos. 
     {: tip}
 
-4. Configurar passport con serialización y deserialización. Este paso de configuración es necesario para la persistencia de la sesión autenticada en las solicitudes HTTP. Para obtener más información, consulte la [documentación de passport](http://passportjs.org/docs){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
+4. Configurar passport con serialización y deserialización. Este paso de configuración es necesario para la persistencia de la sesión autenticada en las solicitudes HTTP. Para obtener más información, consulte la [documentación de passport](http://www.passportjs.org/docs/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
   ```js
   passport.serializeUser(function(user, cb) {
     cb(null, user);
@@ -212,6 +212,10 @@ Consulte la tabla siguiente para ver qué páginas puede visualizar para cada ti
 | Contraseña olvidada |  | <img src="images/confirm.png" width="32" alt="Característica disponible" style="width:32px;" /> |
 | Cambio de contraseña |  | <img src="images/confirm.png" width="32" alt="Característica disponible" style="width:32px;" /> |
 | Detalles de la cuenta |  | <img src="images/confirm.png" width="32" alt="Característica disponible" style="width:32px;" /> |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="Comparación de tabla. Se muestran páginas para los proveedores de identidad social y el directorio en la nube." caption-side="bottom"}
+{: summary="This table has row and column headers. The row headers identify the account pages that can be displayed. The column headers identify which identity service can display them. To understand where an account page can be displayed in the table, navigate to the row for the account page, and find the column for the identity service that you are interested in."}
 
 Para mostrar las páginas predeterminadas:
 
@@ -304,5 +308,5 @@ Para mostrar las páginas predeterminadas:
 
 ¡Buen trabajo! Ha añadido un paso de autenticación a la app. Mantenga el ritmo probando una de las opciones siguientes:
 
-* Para obtener más información y aproveche todas las características que {{site.data.keyword.appid_short_notm}} ofrece, [consulte los documentos](/docs/services/appid?topic=appid-getting-started#getting-started).
+* Para obtener más información y aprovechar todas las características que {{site.data.keyword.appid_short_notm}} ofrece, [consulte la documentación](/docs/services/appid?topic=appid-getting-started).
 * Los kits de inicio son una de las formas más rápidas de utilizar las prestaciones de {{site.data.keyword.cloud}}. Vea los kits de inicio disponibles en el [panel de control de desarrollador de Mobile](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"). Descargue el código. Ejecute la app.

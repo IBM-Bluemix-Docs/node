@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-13"
 
 keywords: configure node env, node environment, node credentials, ibm-cloud-env node
 
@@ -16,6 +16,7 @@ subcollection: nodejs
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
 
 # Configuración del entorno Node.js
 {: #configure-nodejs}
@@ -103,7 +104,13 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## Utilización del gestor de configuración de Node.js desde apps del Kit de inicio
 {: #nodejs-config-skit}
 
-Las apps Node.js creadas con [Kits de inicio](https://cloud.ibm.com/developer/appservice/starter-kits/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo") se proporcionan automáticamente con las credenciales y la configuración necesarias para ejecutarse en muchos entornos de despliegue de nube (CF, K8s, VSI y Functions).
+Las apps Node.js que se crean con [kits de inicio](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo") incluyen de forma automática credenciales y configuraciones necesarias para su ejecución en muchos destinos de despliegue en la nube, como
+[Kubernetes](/docs/containers?topic=containers-getting-started), [Cloud Foundry](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf), [{{site.data.keyword.cfee_full_notm}}](/docs/cloud-foundry?topic=cloud-foundry-about), [un servidor virtual (VSI)](/docs/vsi?topic=virtual-servers-getting-started-tutorial) o
+[{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started).
+
+  El despliegue de VSI está disponible para algunos kits de inicio. Para utilizar esta característica, vaya al
+[panel de control de {{site.data.keyword.cloud_notm}}](https://{DomainName}) y pulse **Crear una app** en el mosaico **Apps**.
+  {: note} 
 
 ### Comprensión de las credenciales de servicio
 {: #credentials-nodejs}
@@ -116,7 +123,7 @@ Las aplicaciones que se ejecutan localmente se pueden conectar a los servicios d
 
 Cuando envía la aplicación a {{site.data.keyword.cloud_notm}}, estos valores ya no se utilizan. En su lugar, la aplicación se conecta automáticamente a los servicios enlazados utilizando variables de entorno.
 
-* **Cloud Foundry**: Las credenciales de servicio se toman de la variable de entorno `VCAP_SERVICES`. Para Cloud Foundry Enrprise Edition, consulte esta [Guía de aprendizaje de iniciación](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started) para obtener más información.
+* **Cloud Foundry**: Las credenciales de servicio se toman de la variable de entorno `VCAP_SERVICES`. Para Cloud Foundry Enterprise Edition, consulte esta [Guía de aprendizaje de iniciación](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started) para obtener más información.
 
 * **Kubernetes**: Las credenciales de servicio se toman de variables de entorno individuales por servicio.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-06-07"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 
@@ -18,9 +18,9 @@ subcollection: nodejs
 {:tip: .tip}
 
 # Guía de aprendizaje de iniciación
-{: #node-getting-started}
+{: #getting-started}
 
-En la siguiente guía de aprendizaje se indican los pasos para crear, ejecutar localmente y desplegar una app Node.js utilizando las herramientas proporcionadas por {{site.data.keyword.cloud_notm}}. Puede utilizar [{{site.data.keyword.dev_cli_long}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) en la línea de mandatos o [{{site.data.keyword.cloud}} {{site.data.keyword.dev_console}}](https://cloud.ibm.com/developer/appservice/dashboard){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo") basado en web, tal como se muestra en los siguientes pasos de la guía de aprendizaje. Al utilizar cualquiera de estos métodos, puede generar una aplicación Node.js lista para producción en tan solo unos minutos.
+En la siguiente guía de aprendizaje se indican los pasos para crear, ejecutar localmente y desplegar una app Node.js utilizando las herramientas proporcionadas por {{site.data.keyword.cloud_notm}}. Puede utilizar [{{site.data.keyword.dev_cli_long}}](/docs/cli?topic=cloud-cli-getting-started) en la línea de mandatos o [{{site.data.keyword.cloud}} {{site.data.keyword.dev_console}}](https://cloud.ibm.com/developer/appservice/dashboard){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo") basado en web, tal como se muestra en los siguientes pasos de la guía de aprendizaje. Al utilizar cualquiera de estos métodos, puede generar una aplicación Node.js lista para producción en tan solo unos minutos.
 
 Asegúrese de utilizar el release más reciente de Node.js LTS.
 
@@ -36,9 +36,9 @@ Asegúrese de utilizar el release más reciente de Node.js LTS.
 3. Dé un **Nombre** a su app. Se proporciona un nombre de app genérico si desea utilizarlo.
 4. Pulse **Crear**. Una vez que se haya creado el proyecto, puede desplegarlo utilizando una cadena de herramientas o puede seguir compilando y desplegando el proyecto desde la línea de mandatos.
 5. Para crear una cadena de herramientas de despliegue en el panel de control, pulse **Desplegar**. Configure el destino del despliegue de acuerdo con las instrucciones correspondientes al método que elija:
-  * **Desplegar en el [servicio IBM Kubernetes](/docs/apps/deploying?topic=creating-apps-containers-kube#containers)**. Esta opción crea un clúster de hosts, denominado nodos trabajadores, para desplegar y gestionar contenedores de aplicaciones de alta disponibilidad. Puede crear un clúster o desplegar en un clúster existente.
-  * **Desplegar en Cloud Foundry**. Esta opción despliega la app nativa de la nube sin necesidad de gestionar la infraestructura subyacente. Si la cuenta tiene acceso a {{site.data.keyword.cfee_full_notm}}, puede seleccionar el tipo de desplegador de **[nube pública](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf#about-cf)** o de **[entorno de empresa](/docs/cloud-foundry-public?topic=cloud-foundry-public-cfee#cfee)**, que puede utilizar para crear y gestionar entornos aislados para alojar aplicaciones de Cloud Foundry exclusivamente para su empresa.
-  * **Desplegar en un [servidor virtual](/docs/apps?topic=creating-apps-vsi-deploy#vsi-deploy)**. Esta opción proporciona una instancia de servidor virtual, carga una imagen que incluye la app, crea una cadena de herramientas DevOps e inicia automáticamente el primer ciclo de despliegue.
+  * **Desplegar en el [servicio IBM Kubernetes](/docs/containers?topic=containers-app)**. Esta opción crea un clúster de hosts, denominado nodos trabajadores, para desplegar y gestionar contenedores de aplicaciones de alta disponibilidad. Puede crear un clúster o desplegar en un clúster existente.
+  * **Desplegar en Cloud Foundry**. Esta opción despliega la app nativa de la nube sin necesidad de gestionar la infraestructura subyacente. Si la cuenta tiene acceso a {{site.data.keyword.cfee_full_notm}}, puede seleccionar el tipo de desplegador de **[nube pública](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf)** o de **[entorno de empresa](/docs/cloud-foundry-public?topic=cloud-foundry-public-cfee)**, que puede utilizar para crear y gestionar entornos aislados para alojar aplicaciones de Cloud Foundry exclusivamente para su empresa.
+  * **Desplegar en un [servidor virtual](/docs/vsi?topic=virtual-servers-deploying-to-a-virtual-server)**. Esta opción proporciona una instancia de servidor virtual, carga una imagen que incluye la app, crea una cadena de herramientas DevOps e inicia automáticamente el primer ciclo de despliegue.
 
 6. Finalice las opciones y, a continuación, pulse **Crear** para crear la cadena de herramientas.
 7. Si opta por continuar con la CLI en lugar de la cadena de herramientas, descargue el proyecto en la máquina local, haga `unzip` y `cd` en el directorio raíz. Ahora puede instalar los requisitos previos utilizando el método de mandato de las plataformas:
@@ -59,7 +59,7 @@ Asegúrese de utilizar el release más reciente de Node.js LTS.
 {: #node-add-service}
 
 1. Vuelva a su proyecto en {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}}.
-2. Pulse **Añadir servicio**, seleccione la categoría del servicio que desea añadir, pulse **Siguiente** y, a continuación, elija el servicio. Por ejemplo, para añadir una base de datos NoSQL a la aplicación, pulse en la categoría **Datos** y, a continuación, seleccione **Cloudant**, que ofrece un plan lite para el desarrollo gratuito. {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} suministra el servicio por usted de acuerdo con el plan seleccionado.
+2. Pulse **Añadir servicio**, seleccione la categoría del servicio que desea añadir, pulse **Siguiente** y, a continuación, elija el servicio. Por ejemplo, para añadir una base de datos NoSQL a la aplicación, seleccione la categoría **Datos** y, a continuación, seleccione **Cloudant**, que ofrece un plan lite para el desarrollo gratuito. {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} suministra el servicio por usted de acuerdo con el plan seleccionado.
 Nota: Si anteriormente ha suministrado el servicio que tiene previsto utilizar, elija la categoría **Existente**.
 3. Cuando se haya suministrado el servicio, pulse **Descargar código** para volver a generar el proyecto con el SDK que se conecta al servicio.
 
@@ -96,7 +96,7 @@ ibmcloud dev deploy –target container
 Siga consultando los temas de la guía de programación de Node.js o, para despliegues más avanzados, puede aprender a crear un clúster de Kubernetes y desplegar la app Node.js en él.
 
 ### Configurar un clúster de Kubernetes
-Para obtener más información sobre la configuración de un clúster de Kubernetes en {{site.data.keyword.cloud_notm}}, consulte los [pasos de la guía de aprendizaje](/docs/containers?topic=containers-clusters#clusters).
+Para obtener más información sobre la configuración de un clúster de Kubernetes en {{site.data.keyword.cloud_notm}}, consulte los [pasos de la guía de aprendizaje](/docs/containers?topic=containers-clusters).
 
 ### Desplegar apps Node.js en un clúster de Kubernetes
-Obtenga más información sobre cómo [desplegar apps Node.js en un clúster Kubernetes](/docs/containers?topic=containers-cs_apps_tutorial#cs_apps_tutorial).
+Obtenga más información sobre cómo [desplegar apps Node.js en un clúster Kubernetes](/docs/containers?topic=containers-cs_apps_tutorial).

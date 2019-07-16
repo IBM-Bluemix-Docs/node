@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-30"
+lastupdated: "2019-06-10"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -21,10 +21,10 @@ subcollection: nodejs
 
 <!-- Sample Code for the SDK: https://github.com/ibm/ibm-cos-sdk-js#example-code -->
 
-<!-- More sample code: https://cloud.ibm.com/docs/services/cloud-object-storage/libraries/node.html#using-node-js -->
+<!-- More sample code: https://cloud.ibm.com/docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-node -->
 
 <!-- Object storage tutorial under the Storing and sharing data topicgroup:
-https://cloud.ibm.com/docs/services/cloud-object-storage/about-cos.html#about-ibm-cloud-object-storage -->
+https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-about -->
 
 {{site.data.keyword.cos_full_notm}} es un componente fundamental de la computación en la nube y proporciona potentes funciones a los desarrolladores de Apple y sus aplicaciones. A diferencia del almacenamiento de información en una jerarquía de archivos (por ejemplo, almacenamiento en bloque o archivo), un almacén de objetos consta únicamente de los archivos y sus metadatos. Estos archivos están almacenados en colecciones conocidas como grupos (buckets). Por definición, estos objetos son inmutables, lo que los convierte en perfectos para datos como imágenes, vídeos y otros documentos estáticos. Para los datos que cambian con frecuencia o que son relacionales, puede utilizar el servicio de base de datos [{{site.data.keyword.cloudant_short_notm}}](/docs/node?topic=nodejs-cloudant).
 
@@ -34,19 +34,19 @@ https://cloud.ibm.com/docs/services/cloud-object-storage/about-cos.html#about-ib
 {: #prereqs-cos}
 
 Asegúrese de que dispone de los siguientes requisitos previos listos para utilizar:
-1. Debe tener una [cuenta de {{site.data.keyword.cloud}}](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
+1. Debe tener una [cuenta de {{site.data.keyword.cloud}}](https://cloud.ibm.com/registration){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
 2. Debe tener el [SDK de {{site.data.keyword.cos_short}} para Node.js](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
 3. Debe tener Node 4.x +.
 4. Localice los valores de clave de credenciales que se utilizarán posteriormente para la inicialización del SDK:
 
-    * _**endpoint**_: Punto final público para Cloud Object Storage. El punto final está disponible en el [panel de control de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/dashboard/apps){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
+    * _**endpoint**_: Punto final público para Cloud Object Storage. El punto final está disponible en el [panel de control de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
     * _**api-key**_: La clave de API que se genera cuando se crean las credenciales de servicio. Es necesario tener acceso de escritura para crear y suprimir ejemplos.
-    * _**resource-instance-id**_: el ID de recurso para Cloud Object Storage. El ID de recurso está disponible a través de la [CLI de {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) o del [Panel de control de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/dashboard/apps){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
+    * _**resource-instance-id**_: el ID de recurso para Cloud Object Storage. El ID de recurso está disponible a través de la [CLI de {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started) o del [Panel de control de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/resources){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo").
 
 ## Paso 1. Creación de una instancia de {{site.data.keyword.cos_short}}
 {: #create-instance-cos}
 
-1. En el [catálogo de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"), seleccione la categoría **Almacenamiento** y pulse {{site.data.keyword.cos_short}}. Se abre la página de configuración del servicio.
+1. En el [catálogo de {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"), seleccione la categoría **Almacenamiento** y pulse {{site.data.keyword.cos_short}}. Se abre la página de configuración del servicio.
 2. Dé un nombre a la instancia de servicio, o utilice el nombre preestablecido.
 3. Seleccione el plan de precios y pulse **Crear**. Se abrirá la página de la instancia de Object Storage instance.
 4. En el menú de navegación, seleccione **Credenciales de servicio**.
@@ -56,7 +56,7 @@ Asegúrese de que dispone de los siguientes requisitos previos listos para utili
 ## Paso 2. Instalación del SDK
 {: #install-cos}
 
-Instale el SDK de {{site.data.keyword.cos_short}} para Node.js mediante el gestor de paquetes [npm](https://nodejs.org/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo") desde la línea de mandatos:
+Instale el SDK de {{site.data.keyword.cos_short}} para Node.js mediante el gestor de paquetes [npm](https://nodejs.org/en/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo") desde la línea de mandatos:
 ```
 npm install ibm-cos-sdk
 ```
@@ -84,7 +84,7 @@ Después de inicializar el SDK en la app, puede utilizar {{site.data.keyword.cos
   ```
   {: codeblock}
 
-  Si necesita ayuda para encontrar los valores de clave de credenciales para la app, consulte el *paso 4* de la sección [Antes de empezar](#prereqs-cos) para obtener detalles sobre dónde encontrarlos.
+  Si necesita ayuda para encontrar los valores de clave de credenciales para la app, consulte el *paso 4* de la sección [Antes de empezar](#prereqs-cos) para obtener detalles sobre dónde encontrarlos. Consulte también [Credenciales de servicio para {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials).
   {: tip}
 
 3. Añada el código siguiente al archivo `server.js`.
@@ -160,7 +160,7 @@ Consulte la [documentación completa](/docs/services/cloud-object-storage?topic=
 2. Vuelva a la instancia de servicio de {{site.data.keyword.cos_short}} que ha creado anteriormente en el navegador web y abra el panel de control del servicio.
 3. Seleccione el grupo que se utiliza, y verá los objetos recién creados en el panel de control.
 
-¿Tiene problemas? Consulte la [Referencia de API de {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api).
+¿Tiene problemas? Consulte la [Referencia de la API de {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-api).
 
 ## Pasos siguientes
 {: #next-cos notoc}

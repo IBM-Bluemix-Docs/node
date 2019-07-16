@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-30"
+lastupdated: "2019-06-11"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
 
@@ -26,7 +26,7 @@ Obtenga información sobre cómo instalar, acceder y comprender las métricas de
 ## Identificación visual de problemas
 {: #identify-problems}
 
-Las métricas de aplicación son importantes para supervisar el rendimiento de la aplicación. Tener una vista en directo de métricas como CPU, memoria, latencia y métricas HTTP es esencial para asegurarse de que la aplicación se ejecuta de forma efectiva a lo largo del tiempo. Puede utilizar un servicio de nube como el [escalado automático](/docs/services/Auto-Scaling?topic=Auto-Scaling-get-started) de Cloud Foundry, que se basa en métricas para escalar dinámicamente las instancias para que coincidan con la carga de trabajo actual. Con el uso de métricas de aplicación, estará informado forma precisa para saber cuando se deben aumentar, reducir o borrar las instancias que ya no se necesitan para mantener los costes bajos.
+Las métricas de aplicación son importantes para supervisar el rendimiento de la aplicación. Tener una vista en directo de métricas como CPU, memoria, latencia y métricas HTTP es esencial para asegurarse de que la aplicación se ejecuta de forma efectiva a lo largo del tiempo. Puede utilizar un servicio de nube como el [escalado automático](/docs/services/Auto-Scaling?topic=Auto-Scaling) de Cloud Foundry, que se basa en métricas para escalar dinámicamente las instancias para que coincidan con la carga de trabajo actual. Con el uso de métricas de aplicación, estará informado forma precisa para saber cuando se deben aumentar, reducir o borrar las instancias que ya no se necesitan para mantener los costes bajos.
 
 Las métricas de aplicación se capturan como datos de serie temporal. La agregación y visualización de métricas capturadas puede ayudar a identificar problemas de rendimiento comunes como, por ejemplo:
 
@@ -61,7 +61,7 @@ Añada características de supervisión a las aplicaciones Express existentes co
   ```
   {: codeblock}
 
-2. Instale el panel de control `appmetrics` con el siguiente mandato [npm](https://nodejs.org/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"):
+2. Instale el panel de control `appmetrics` con el siguiente mandato [npm](https://nodejs.org/en/){: new_window} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo"):
   ```
   npm install appmetrics-dash
   ```
@@ -118,7 +118,7 @@ La interfaz de usuario de panel de control de supervisión de métricas de aplic
 ## Explicación de los datos
 {: #understanding-data}
 
-![Panel de control de appmetrics](images/appmetricsdash-1.png)
+![Panel de control de appmetrics](images/appmetricsdash-1.png "Panel de control de appmetrics.")
 
 La mayoría de los datos se muestran en forma de gráficos de líneas. HTTP Incoming Requests, HTTP Outgoing Requests y Other Requests muestran la duración del suceso a lo largo del tiempo. HTTP Throughput muestra las solicitudes por segundo. Average Response Times muestra las cinco solicitudes HTTP entrantes más utilizadas que han tardado más tiempo en promedio. Los gráficos CPU y Memory muestran el uso del sistema y de proceso a lo largo del tiempo. Heap muestra el tamaño máximo de almacenamiento dinámico y el tamaño de almacenamiento dinámico utilizado a lo largo del tiempo. Event Loop Latency muestra los ejemplos de latencia que se toman a intervalos desde el bucle de sucesos de Node.js, con un punto para la latencia más corta, uno para el promedio y uno para el más largo para cada muestra tomada.
 

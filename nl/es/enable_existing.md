@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-06-05"
 
 keywords: ibmcloud dev enable, nodejs cloud deployment, cloud enable nodejs, deploy nodejs, build nodejs cloud, nodejs debug
 
@@ -138,7 +138,8 @@ services:
 ```
 {: codeblock}
 
-Esto expondrá la aplicación en el puerto `3000` y el servidor de MongoDB estará disponible para la conexión del cliente por el puerto `27017`.
+La aplicación se expone en el puerto `3000`, y el servidor MongoDB está disponible para la conexión de cliente en el puerto
+`27017`.
 
 Debe actualizar la siguiente línea del archivo `cli-config.yml` para que haga referencia al nuevo Dockerfile: 
 ```yaml
