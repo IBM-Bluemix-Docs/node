@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-06-10"
 
 keywords: nodejs storage, nodejs cloudant, nodejs iam, initialize sdk nodejs, test nodejs app, dbaas nodejs, nodejs-cloudant, store documents nodejs
 
@@ -23,15 +23,15 @@ subcollection: nodejs
 {{site.data.keyword.cloudantfull}} 是文件導向的「資料庫即服務 (DBaaS)」。它會將資料儲存為 JSON 格式的文件。{{site.data.keyword.cloudant_short_notm}} 已內建可調整性、高可用性及延續性，而且可以輕鬆地配置成在 Node.js 應用程式中使用。並且隨附各種檢索選項，包括 MapReduce、{{site.data.keyword.cloudant_short_notm}} 查詢、全文檢索及地理空間檢索。抄寫功能讓您能輕鬆保持資料庫叢集、桌上型電腦和行動裝置之間的資料同步。
 {:shortdesc}
 
-如需相關資訊，請參閱 [{{site.data.keyword.cloudant_short_notm}} 基本](/docs/services/Cloudant/basics?topic=cloudant-ibm-cloudant-basics#ibm-cloudant-basics)。
+如需相關資訊，請參閱 [{{site.data.keyword.cloudant_short_notm}} 基本](/docs/services/Cloudant/basics?topic=cloudant-ibm-cloudant-basics)。
 
 ## 開始之前
 {: #prereqs-cloudant}
 
 請確定已備妥下列必要條件：
  * [Nodejs-cloudant ](https://github.com/cloudant/nodejs-cloudant){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 2.3.0+ 用戶端程式庫。
- * 您必須具有 [{{site.data.keyword.cloud}} 帳戶](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
- * 若要存取 {{site.data.keyword.cloudant_short_notm}}，您必須在 [{{site.data.keyword.cloud_notm}} 儀表板](https://cloud.ibm.com/dashboard/apps){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中建立服務，然後從該服務實例啟動「{{site.data.keyword.cloudant_short_notm}} 儀表板」。
+ * 您必須具有 [{{site.data.keyword.cloud}} 帳戶](https://cloud.ibm.com/registration){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
+ * 若要存取 {{site.data.keyword.cloudant_short_notm}}，必須在 [{{site.data.keyword.cloud_notm}} 儀表板](https://cloud.ibm.com/resources){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中建立服務，然後從該服務實例啟動 {{site.data.keyword.cloudant_short_notm}} 儀表板。
  * 這些指示中的程式碼 Snippet 使用 IAM 鑑別。
  
 ### 使用 {{site.data.keyword.cloudant_short_notm}} 啟用 IAM
@@ -39,7 +39,7 @@ subcollection: nodejs
 
 只有新的 {{site.data.keyword.cloudant_short_notm}} 服務實例才能與 {{site.data.keyword.cloud_notm}} IAM 搭配使用。
 
-已啟用所有新的 {{site.data.keyword.cloudant_short_notm}} 服務實例，以在佈建時使用 {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)。當您從「{{site.data.keyword.cloud_notm}} 型錄」中佈建新的實例時，請選擇**僅使用 IAM** 鑑別方法。此模式表示服務連結及認證產生僅提供 IAM 認證。您可以在 [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/services/Cloudant/guides?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) 找到相關資訊。
+已啟用所有新的 {{site.data.keyword.cloudant_short_notm}} 服務實例，以在佈建時使用 {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)。透過 {{site.data.keyword.cloud_notm}} 型錄佈建新實例時，請選擇**僅使用 IAM** 鑑別方法。此模式表示服務連結及認證產生僅提供 IAM 認證。您可以在 [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/services/Cloudant/guides?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) 找到相關資訊。
 
 ## 步驟 1. 建立 {{site.data.keyword.cloudant_short_notm}} 實例
 {: #create-instance-cloudant}
@@ -47,8 +47,8 @@ subcollection: nodejs
 當您建立 {{site.data.keyword.cloudant_short_notm}} 的實例時，同時會建立資料庫。
 
 1. 登入 {{site.data.keyword.cloud_notm}} 帳戶。
-2. 從 [{{site.data.keyword.cloud_notm}} 儀表板](https://cloud.ibm.com/dashboard/apps){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中，按一下**建立資源**。即會開啟「{{site.data.keyword.cloud_notm}} 型錄」。
-3. 在 [{{site.data.keyword.cloud_notm}} 型錄](https://cloud.ibm.com/catalog/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中，選取**資料庫**種類，然後按一下 {{site.data.keyword.cloudant_short_notm}}。即會開啟服務配置頁面。
+2. 從 [{{site.data.keyword.cloud_notm}} 儀表板](https://cloud.ibm.com/resources){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中，按一下**建立資源**。即會開啟 {{site.data.keyword.cloud_notm}} 型錄。
+3. 在 [{{site.data.keyword.cloud_notm}} 型錄](https://cloud.ibm.com/catalog){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中，選取**資料庫**種類，然後按一下 {{site.data.keyword.cloudant_short_notm}}。即會開啟服務配置頁面。
 4. 完成下列欄位中的資訊：
   * **服務名稱** - 鍵入服務實例的名稱，或是使用預設名稱。
   * **選擇要在其中部署的地區/位置** - 選取要在其中部署服務的地區。
@@ -181,7 +181,7 @@ var deleteDocument = function(callback) {
 所有項目都正確設定嗎？請測試看看！
 
 1. 執行應用程式，確定啟動起始設定及個別作業，例如，建立文件。
-2. 從 [{{site.data.keyword.cloud_notm}} 儀表板](https://cloud.ibm.com/dashboard/apps){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中，按一下您先前建立的 {{site.data.keyword.cloudant_short_notm}} 服務實例。服務實例開啟時，請按一下**啟動 Cloudant 儀表板**。
+2. 從 [{{site.data.keyword.cloud_notm}} 儀表板](https://cloud.ibm.com/resources){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中，按一下您先前建立的 {{site.data.keyword.cloudant_short_notm}} 服務實例。服務實例開啟時，請按一下**啟動 Cloudant 儀表板**。
 3. 在「{{site.data.keyword.cloudant_short_notm}} 儀表板」中，選取您已在其中建立新文件的資料庫。
 
 有困難嗎？請參閱 [{{site.data.keyword.cloudant_short_notm}} API 參考資料](/docs/services/Cloudant?topic=cloudant-api-reference-overview)。
@@ -194,4 +194,4 @@ var deleteDocument = function(callback) {
 * 檢視 [{{site.data.keyword.cloudant_short_notm}} SDK for Node.js](https://github.com/cloudant/nodejs-cloudant){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 原始碼。
 * 請參閱[資料庫及文件作業範例程式碼](https://github.com/cloudant/nodejs-cloudant/tree/master/example){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
 * 「入門範本套件」是使用 {{site.data.keyword.cloud}} 功能最快的方式之一。請檢視[行動開發人員儀表板 ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中的可用入門範本套件。下載程式碼。執行應用程式！
-* 若要進一步瞭解並充分運用 {{site.data.keyword.cloudant_short_notm}} 提供的所有特性，[請參閱文件](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started-with-cloudant)。
+* 若要進一步瞭解並充分運用 {{site.data.keyword.cloudant_short_notm}} 提供的所有特性，[請參閱文件](/docs/services/Cloudant?topic=cloudant-getting-started)。

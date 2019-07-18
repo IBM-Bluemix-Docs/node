@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-06-10"
 
 keywords: nodejs logging, view logs nodejs, add logging nodejs, log4j nodejs, stdout nodejs, nodejs log, output nodejs, nodejs logger
 
@@ -33,7 +33,7 @@ subcollection: nodejs
 ## 將 Log4js 支援新增至現有 Node.js 應用程式
 {: #add_log4j}
 
-1. 首先，在應用程式的根目錄中執行下列 [npm](https://nodejs.org/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 指令，以安裝 `log4js`，這個指令會安裝套件並將其新增至 `package.json` 檔案。
+1. 首先，在應用程式的根目錄中執行下列 [npm](https://nodejs.org/en/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 指令，以安裝 `log4js`，這個指令會安裝套件並將其新增至 `package.json` 檔案。
   ```bash
   npm install --save log4js
   ```
@@ -93,13 +93,13 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
 
 您可以使用下列方法，檢視日誌輸出：
 * 若為本端環境，請使用 `stdout`。
-* 若為 [Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html) 部署，您可以執行下列指令來存取日誌：
+* 若為 [Cloud Foundry](/docs/cli/reference?topic=cloud-cli-ibmcloud_commands_apps#ibmcloud_app_logs) 部署，您可以執行下列指令來存取日誌：
   ```
   ibmcloud app logs --recent <APP_NAME>
   ```
   {: codeblock}
 
-* 若為 [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/) 部署，您可以執行下列指令來存取日誌：
+* 若為 [Kubernetes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 部署，您可以執行下列指令來存取日誌：
   ```
   kubectl logs <deployment name>
   ```
@@ -109,9 +109,9 @@ app.use(log4js.connectLogger(logger, { level: process.env.LOG_LEVEL || 'info' })
 {: #next_steps-logging notoc}
 
 進一步瞭解在每個部署環境中檢視日誌：
-* [Kubernetes 日誌](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")
-* [Cloud Foundry 日誌](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps#logging_cf_apps)
-* [{{site.data.keyword.openwhisk}} 日誌 & 監視](/docs/openwhisk?topic=cloud-functions-openwhisk_logs#openwhisk_logs)
+* [Kubernetes 日誌](https://kubernetes.io/docs/concepts/cluster-administration/logging/#basic-logging-in-kubernetes){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")
+* [Cloud Foundry 日誌](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps)
+* [{{site.data.keyword.openwhisk}} Logs & Monitoring](/docs/openwhisk?topic=cloud-functions-logs)
 
 使用日誌聚集器：
 * [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis?topic=cloudloganalysis-log_analysis_ov#log_analysis_ov)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-06-05"
 
 keywords: ibmcloud dev enable, nodejs cloud deployment, cloud enable nodejs, deploy nodejs, build nodejs cloud, nodejs debug
 
@@ -109,7 +109,7 @@ ibmcloud dev deploy
 ### 手動修改所產生的雲端啟用檔案
 {: #manual_modify}
 
-啟用之後，您的應用程式會使用 docker 在本端執行。如果您尚未有 Dockerfile，則會為您建立一個，並公開埠 `3000`。
+啟用之後，您的應用程式會使用 Docker 在本端執行。如果您尚未有 Dockerfile，則會為您建立一個，並公開埠 `3000`。
 
 不過，如果您的應用程式需要在個別容器執行的服務，例如 MongoDB 或 Redis，我們建議使用 `docker-compose` 同步啟動應用程式和必要服務。
 
@@ -138,7 +138,7 @@ services:
 ```
 {: codeblock}
 
-這會在埠 `3000` 上公開您的應用程式，而 MongoDB 伺服器將可以透過埠 `27017` 接受用戶端連線。
+您的應用程式在埠 `3000` 上公開，MongoDB 伺服器可用於埠 `27017` 上的用戶端連線。
 
 您必須在 `cli-config.yml` 中更新以下這行，以指向新的 Dockerfile： 
 ```yaml

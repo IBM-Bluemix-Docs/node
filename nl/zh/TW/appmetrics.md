@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-30"
+lastupdated: "2019-06-11"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
 
@@ -26,7 +26,7 @@ subcollection: nodejs
 ## 以視覺化方式識別問題
 {: #identify-problems}
 
-應用程式度量值對於監視應用程式的效能而言，非常重要。具有 CPU、記憶體、延遲及 HTTP 這類度量值的度量值即時視圖非常重要，可確保應用程式有效地執行一段時間。您可以使用 Cloud Foundry 的[自動調整](/docs/services/Auto-Scaling?topic=Auto-Scaling-get-started)這類雲端服務，根據度量值動態調整實例，以符合現行工作負載。使用應用程式度量值，您可以精確地通知何時擴增、縮減或清除不再需要的實例以保留低成本。
+應用程式度量值對於監視應用程式的效能而言，非常重要。具有 CPU、記憶體、延遲及 HTTP 這類度量值的度量值即時視圖非常重要，可確保應用程式有效地執行一段時間。您可以使用 Cloud Foundry 的[自動調整](/docs/services/Auto-Scaling?topic=Auto-Scaling)這類雲端服務，根據度量值動態調整實例，以符合現行工作負載。使用應用程式度量值，您可以精確地通知何時擴增、縮減或清除不再需要的實例以保留低成本。
 
 應用程式度量值會擷取為時間序列資料。聚集及視覺化擷取的度量值有助於識別一般效能問題，例如：
 
@@ -61,7 +61,7 @@ subcollection: nodejs
   ```
   {: codeblock}
 
-2. 使用下列 [npm](https://nodejs.org/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 指令來安裝 `appmetrics` 儀表板：
+2. 使用下列 [npm](https://nodejs.org/en/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 指令來安裝 `appmetrics` 儀表板：
   ```
   npm install appmetrics-dash
   ```
@@ -94,7 +94,7 @@ subcollection: nodejs
 
 依預設，從「入門範本套件」建立的 Node.js 應用程式會自動隨附 `appmetrics-dash` 及其儀表板，但必須啟用才能使用。
 
-您可以在產生的應用程式原始檔（名為 `/app_name/server/server.js`）中找到 appmetrics 程式碼：
+您可以在產生的應用程式原始檔（名稱為 `/app_name/server/server.js`）中找到 appmetrics 程式碼：
 ```js
 // Uncomment following to enable zipkin tracing, tailor to fit your network configuration:
 var appzip = require('appmetrics-zipkin')({
@@ -118,9 +118,9 @@ var appzip = require('appmetrics-zipkin')({
 ## 瞭解資料
 {: #understanding-data}
 
-![Appmetrics 儀表板](images/appmetricsdash-1.png)
+![Appmetrics 儀表板](images/appmetricsdash-1.png "Appmetrics 儀表板。")
 
-大部分的資料會繪製為折線圖。「HTTP 送入要求」、「HTTP 送出要求」及「其他要求」會針對時間顯示事件持續時間。「HTTP 傳輸量」顯示每秒要求數。「平均回應時間」顯示所花時間平均最長的最常用五個送入 HTTP 要求。CPU 及「記憶體」圖形顯示一段時間的系統和處理程序用量。「資料堆」顯示一段時間的資料堆大小上限及已使用的資料堆大小。「事件迴圈延遲」顯示從 Node.js 事件迴圈中間隔取得的延遲樣本，其中一個點代表最短延遲、一個點代表平均值，而一個點代表每個樣本所花的最長延遲。
+大部分的資料會繪製為折線圖。「HTTP 送入要求」、「HTTP 送出要求」及「其他要求」會針對時間顯示事件持續時間。「HTTP 傳輸量」顯示每秒要求數。「平均回應時間」顯示所花時間平均最長的最常用五個送入 HTTP 要求。CPU 及「記憶體」圖形顯示一段時間的系統和處理程序用量。「資料堆」顯示一段時間的資料堆大小上限及已使用的資料堆大小。「事件迴圈延遲」顯示從 Node.js 事件迴圈中間隔取得的延遲範例，其中一個點代表最短延遲、一個點代表平均值，而一個點代表每個範例所花的最長延遲。
 
 如果圖形有數個點，則將游標移至其上方會提供其他資訊。例如，`HTTP 送入要求`會顯示回應時間，以及所要求的 URL。
 

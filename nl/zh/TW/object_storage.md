@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-30"
+lastupdated: "2019-06-10"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -21,10 +21,10 @@ subcollection: nodejs
 
 <!-- Sample Code for the SDK: https://github.com/ibm/ibm-cos-sdk-js#example-code -->
 
-<!-- More sample code: https://cloud.ibm.com/docs/services/cloud-object-storage/libraries/node.html#using-node-js -->
+<!-- More sample code: https://cloud.ibm.com/docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-node -->
 
 <!-- Object storage tutorial under the Storing and sharing data topicgroup:
-https://cloud.ibm.com/docs/services/cloud-object-storage/about-cos.html#about-ibm-cloud-object-storage -->
+https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-about -->
 
 {{site.data.keyword.cos_full_notm}} 是雲端運算的基礎元件，提供強大的功能給 Apple 開發人員及其應用程式。與將資訊儲存在檔案階層（例如「區塊」或「檔案」儲存空間）中不同，物件儲存庫只包含檔案及其 meta 資料。這些檔案儲存在稱為儲存區的集合中。依據定義，這些物件都是不可變的，因此非常適用於影像、視訊及其他靜態文件等資料。對於經常變更的資料或關聯式資料，您可以使用 [{{site.data.keyword.cloudant_short_notm}}](/docs/node?topic=nodejs-cloudant) 資料庫服務。
 
@@ -34,19 +34,19 @@ https://cloud.ibm.com/docs/services/cloud-object-storage/about-cos.html#about-ib
 {: #prereqs-cos}
 
 請確定已備妥下列必要條件：
-1. 您必須具有 [{{site.data.keyword.cloud}} 帳戶 ](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
+1. 您必須具有 [{{site.data.keyword.cloud}} 帳戶](https://cloud.ibm.com/registration){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
 2. 您必須具有 [{{site.data.keyword.cos_short}} SDK for Node.js ](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
 3. 您必須具有 Node 4.x+。
 4. 找出稍後要用於 SDK 起始設定的認證金鑰值：
 
-    * _**endpoint**_ - Cloud Object Storage 的公用端點。您可以從 [{{site.data.keyword.cloud_notm}} 儀表板 ](https://cloud.ibm.com/dashboard/apps){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 取得端點。
+    * _**endpoint**_ - Cloud Object Storage 的公用端點。您可以從 [{{site.data.keyword.cloud_notm}} 儀表板 ](https://cloud.ibm.com/resources){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 取得端點。
     * _**api-key**_ - 建立服務認證時產生的 API 金鑰。需要有寫入權，才能建立及刪除範例。
-    * _**resource-instance-id**_ - Cloud Object Storage 的資源 ID。您可以透過 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) 或 [{{site.data.keyword.cloud_notm}} 儀表板 ](https://cloud.ibm.com/dashboard/apps){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 取得資源 ID。
+    * _**resource-instance-id**_ - Cloud Object Storage 的資源 ID。您可以透過 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started) 或 [{{site.data.keyword.cloud_notm}} 儀表板 ](https://cloud.ibm.com/resources){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 取得資源 ID。
 
 ## 步驟 1. 建立 {{site.data.keyword.cos_short}} 實例
 {: #create-instance-cos}
 
-1. 在 [{{site.data.keyword.cloud_notm}} 型錄](https://cloud.ibm.com/catalog/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中，選取**儲存空間**種類，然後按一下 {{site.data.keyword.cos_short}}。即會開啟服務配置頁面。
+1. 在 [{{site.data.keyword.cloud_notm}} 型錄](https://cloud.ibm.com/catalog){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中，選取**儲存空間**種類，然後按一下 {{site.data.keyword.cos_short}}。即會開啟服務配置頁面。
 2. 提供服務實例的名稱，或使用預設名稱。
 3. 選取定價方案，然後按一下**建立**。即會開啟 Object Storage 實例頁面。
 4. 在導覽功能表中，選取**服務認證**。
@@ -56,7 +56,7 @@ https://cloud.ibm.com/docs/services/cloud-object-storage/about-cos.html#about-ib
 ## 步驟 2. 安裝 SDK
 {: #install-cos}
 
-從指令行使用 [npm](https://nodejs.org/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 套件管理程式來安裝 {{site.data.keyword.cos_short}} SDK for Node.js：
+從指令行使用 [npm](https://nodejs.org/en/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 套件管理程式來安裝 {{site.data.keyword.cos_short}} SDK for Node.js：
 ```
 npm install ibm-cos-sdk
 ```
@@ -84,7 +84,8 @@ npm install ibm-cos-sdk
   ```
   {: codeblock}
 
-  如果您需要協助尋找應用程式的認證金鑰值，請檢查[開始之前](#prereqs-cos)小節的*步驟 4*，以取得在何處尋找它們的詳細資料。
+  如果需要協助尋找應用程式的認證金鑰值，請查看[開始之前](#prereqs-cos)區段中的*步驟 4*，以瞭解有關在何處尋找這些值的詳細資料。
+    還可以參閱 [{{site.data.keyword.cos_short}} 的服務認證](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials)。
   {: tip}
 
 3. 將下列程式碼新增至 `server.js` 檔案。

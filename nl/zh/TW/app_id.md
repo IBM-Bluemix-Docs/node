@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-10"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -31,9 +31,9 @@ subcollection: nodejs
 {: #prereqs-appid}
 
 請確定已備妥下列必要條件：
-1. 您必須具有 [{{site.data.keyword.cloud}} 帳戶](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
-2. 安裝 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)。
-3. 安裝 [npm](https://nodejs.org/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 套件管理支援。
+1. 您必須具有 [{{site.data.keyword.cloud}} 帳戶](https://cloud.ibm.com/registration){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
+2. 安裝 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started)。
+3. 安裝 [npm](https://nodejs.org/en/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 套件管理支援。
 4. 使用 [Express 架構](http://expressjs.com/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 實作 Node.js 伺服器。若要安裝 Express 架構，請使用指令行來開啟含有 Node.js 應用程式的目錄，然後執行下列指令：
   ```
   npm install --save express
@@ -54,8 +54,8 @@ subcollection: nodejs
     * _**clientID**_、_**secret**_、_**oauth-server-url**_ - 您可以在服務儀表板的**服務認證**標籤中按一下**檢視認證**，以找到這些值。
     * _**CALLBACK_URL**_ - 使用者在登入之後看到之頁面的 URL。
     * _**redirectUri**_ - 可以透過三種方式提供 `redirectUri` 值：
-      * 在新的 `WebAppStrategy({redirectUri: "...."})` 中手動加入
-      * 作為名為 `redirectUri` 的環境變數。 
+      * 在新的 `WebAppStrategy({redirectUri: "...."})`
+      * 作為名稱為 `redirectUri` 的環境變數。 
       * 如果未提供 `redirectUri` 值，則 App ID SDK 會擷取在 {{site.data.keyword.cloud_notm}} 上執行之應用程式的 `application_uri`，並加上預設字尾 `/ibm/cloud/appid/callback`。
 
 ## 步驟 1. 建立 {{site.data.keyword.appid_short_notm}} 實例
@@ -63,7 +63,7 @@ subcollection: nodejs
 
 佈建服務的實例：
 
-1. 在 [{{site.data.keyword.cloud_notm}} 型錄](https://cloud.ibm.com/catalog/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中，選取 **Web 及行動**種類，然後按一下 {{site.data.keyword.appid_short_notm}}。即會開啟服務配置頁面。
+1. 在 [{{site.data.keyword.cloud_notm}} 型錄](https://cloud.ibm.com/catalog){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中，選取 **Web 及行動**種類，然後按一下 {{site.data.keyword.appid_short_notm}}。即會開啟服務配置頁面。
 2. 提供服務實例的名稱，或使用預設名稱。
 3. 選取定價方案，然後按一下**建立**。
 
@@ -115,10 +115,10 @@ subcollection: nodejs
     ```
     {: codeblock}
 
-    如果您需要協助尋找應用程式的認證金鑰值，請檢查[開始之前](#prereqs-appid)小節的*步驟 5*，以取得在何處尋找它們的詳細資料。
+    如果需要協助尋找應用程式的認證金鑰值，請查看[開始之前](#prereqs-appid)區段中的*步驟 5*，以瞭解在何處尋找這些值的相關詳細資料。
     {: tip}
 
-4. 使用序列化及解除序列化來配置通行證。跨 HTTP 要求的已鑑別階段作業持續性需要此配置步驟。如需相關資訊，請參閱[通行證文件](http://passportjs.org/docs){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
+4. 使用序列化及解除序列化來配置通行證。跨 HTTP 要求的已鑑別階段作業持續性需要此配置步驟。如需相關資訊，請參閱[通行證文件](http://www.passportjs.org/docs/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
   ```js
   passport.serializeUser(function(user, cb) {
     cb(null, user);
@@ -141,7 +141,7 @@ subcollection: nodejs
 
   服務會依下列順序重新導向：
   1. 觸發鑑別處理程序之要求的原始 URL 會持續保存在 HTTP 階段作業的 `WebAppStrategy.ORIGINAL_URL` 金鑰下。
-  2. 成功重新導向，如 `passport.authenticate(name, {successRedirect: "...."})` 中所指定。
+  2. 成功重新導向，如 `passport.authenticate(name, {successRedirect: "...."})`.
   3. 應用程式根目錄 ("/")。
 
 如需相關資訊，請參閱 [{{site.data.keyword.appid_short_notm}} Node.js GitHub 儲存庫 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")。
@@ -211,6 +211,10 @@ subcollection: nodejs
 | 忘記密碼 |  | <img src="images/confirm.png" width="32" alt="可用特性" style="width:32px;" /> |
 | 變更密碼 |  | <img src="images/confirm.png" width="32" alt="可用特性" style="width:32px;" /> |
 | 帳戶詳細資料 |  | <img src="images/confirm.png" width="32" alt="可用特性" style="width:32px;" /> |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="表格比較。顯示社交身分提供者和雲端目錄的頁面。" caption-side="bottom"}
+{: summary="This table has row and column headers. The row headers identify the account pages that can be displayed. The column headers identify which identity service can display them. To understand where an account page can be displayed in the table, navigate to the row for the account page, and find the column for the identity service that you are interested in."}
 
 若要顯示預設頁面，請執行下列動作：
 
@@ -303,5 +307,5 @@ subcollection: nodejs
 
 做得好！您已將鑑別步驟新增至應用程式。嘗試下列其中一個選項，以保持動力：
 
-* 若要進一步瞭解並充分運用 {{site.data.keyword.appid_short_notm}} 提供的所有特性，[請參閱文件](/docs/services/appid?topic=appid-getting-started#getting-started)！
+* 若要瞭解有關 {{site.data.keyword.appid_short_notm}} 提供的所有特性的更多資訊並利用這些特性，請[查看文件](/docs/services/appid?topic=appid-getting-started)。
 * 入門範本套件是使用 {{site.data.keyword.cloud}} 功能最快的方式之一。請檢視[行動開發人員儀表板 ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 中的可用入門範本套件。下載程式碼。執行應用程式！

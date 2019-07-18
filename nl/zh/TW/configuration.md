@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-13"
 
 keywords: configure node env, node environment, node credentials, ibm-cloud-env node
 
@@ -16,6 +16,7 @@ subcollection: nodejs
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
 
 # 配置 Node.js 環境
 {: #configure-nodejs}
@@ -103,7 +104,10 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## 透過入門範本套件應用程式使用 Node.js 配置管理程式
 {: #nodejs-config-skit}
 
-使用[入門範本套件](https://cloud.ibm.com/developer/appservice/starter-kits/){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 建立的 Node.js 應用程式，會自動隨附在許多雲端部署環境（CF、K8、VSI 及 Functions）中執行所需的認證及配置。
+使用[入門範本套件](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示") 建立的 Node.js應用程式會自動隨附在許多雲端部署目標中執行所需的認證和配置，例如 [Kubernetes](/docs/containers?topic=containers-getting-started)、[Cloud Foundry](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf)、[{{site.data.keyword.cfee_full_notm}}](/docs/cloud-foundry?topic=cloud-foundry-about)、[Virtual Server (VSI)](/docs/vsi?topic=virtual-servers-getting-started-tutorial) 或 [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started)。
+
+  VSI 部署適用於部分入門範本套件。若要使用此特性，請前往 [{{site.data.keyword.cloud_notm}} 儀表板](https://{DomainName})，然後按一下**應用程式**磚中的**建立應用程式**。
+  {: note} 
 
 ### 瞭解服務認證
 {: #credentials-nodejs}
@@ -116,7 +120,7 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 
 當您將應用程式推送至 {{site.data.keyword.cloud_notm}} 時，不會再使用這些值。相反地，應用程式會使用環境變數自動連接至連結服務。
 
-* **Cloud Foundry**：服務認證取自 `VCAP_SERVICES` 環境變數。若為 Cloud Foundry Enrprise Edition，如需相關資訊，請參閱此[入門指導教學](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started)。
+* **Cloud Foundry**：服務認證取自 `VCAP_SERVICES` 環境變數。對於 Cloud Foundry Enterprise Edition，請參閱此[入門指導教學](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started)以取得相關資訊。
 
 * **Kubernetes**：服務認證取自每個服務的個別環境變數。
 
