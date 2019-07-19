@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-06-05"
 
 keywords: healthcheck node, add healthcheck node, healthcheck endpoint nodes, readiness node, liveness node, endpoint node, probes node, health check node
 
@@ -20,7 +20,7 @@ subcollection: nodejs
 # Statusprüfung in Node.js-Apps verwenden
 {: #node-healthcheck}
 
-Statusprüfungen bieten einen einfachen Mechanismus, um festzustellen, ob eine serverseitige Anwendung sich ordnungsgemäß verhält. Cloudumgebungen wie [Kubernetes](https://www.ibm.com/cloud/container-service){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") und [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") können so konfiguriert werden, dass in regelmäßigen Abständen Statusendpunkte abgefragt werden, um festzustellen, ob eine Instanz Ihres Service bereit ist, Datenverkehr zu akzeptieren. 
+Statusprüfungen bieten einen einfachen Mechanismus, um festzustellen, ob eine serverseitige Anwendung sich ordnungsgemäß verhält. Cloudumgebungen wie [Kubernetes](https://www.ibm.com/cloud/container-service){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") und [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") können so konfiguriert werden, dass in regelmäßigen Abständen Statusendpunkte abgefragt werden, um festzustellen, ob eine Instanz Ihres Service bereit ist, Datenverkehr zu akzeptieren.
 
 ## Übersicht über die Statusprüfung
 {: #node-healthcheck-overview}
@@ -49,6 +49,7 @@ Die folgende Tabelle stellt eine Übersicht der Antworten bereit, die die Readin
 | Wird gestoppt | 503 - Nicht verfügbar           | 200 - OK                   | 503 - Nicht verfügbar         |
 | Inaktiv     | 503 - Nicht verfügbar           | 503 - Nicht verfügbar          | 503 - Nicht verfügbar         |
 | Fehlerhaft  | 500 - Serverfehler          | 500 - Serverfehler         | 500 - Serverfehler        |
+{: caption="Tabelle 1. HTTP-Statuscodes. " caption-side="bottom"}
 
 ## Statusprüfung zu einer vorhandenen Node.js-App hinzufügen
 {: #add-healthcheck-existing}
@@ -95,7 +96,7 @@ Ein Liveness-Test hingegen verhält sich Überprüfungen gegenüber vorsichtig, 
 ### Unterstützung für Kubernetes-Readiness und -Liveness hinzufügen
 {: #kube-readiness-add}
 
-Die Bibliothek [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") aus [CloudNativeJS](https://github.com/cloudnativejs){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") stellt ein Framework für die Definition separater Liveness- und Readiness-Endpunkte in Node bereit; diese ermöglichen die Erstellung von Quellen für den Zustand der einzelnen Endpunkte. 
+Die Bibliothek [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") aus [CloudNativeJS](https://github.com/cloudnativejs){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") stellt ein Framework für die Definition separater Liveness- und Readiness-Endpunkte in Node bereit; diese ermöglichen die Erstellung von Quellen für den Zustand der einzelnen Endpunkte.
 
 ## Readiness- und Liveness-Tests in Kubernetes konfigurieren
 {: #kube-readiness-config}
@@ -138,4 +139,4 @@ spec:
 ```
 {: codeblock}
 
-Weitere Informationen finden Sie in [Configure Liveness and Readiness Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link"). 
+Weitere Informationen finden Sie in [Configure Liveness and Readiness Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link").

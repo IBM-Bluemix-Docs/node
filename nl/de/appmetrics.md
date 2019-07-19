@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-30"
+lastupdated: "2019-06-11"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
 
@@ -26,7 +26,7 @@ Hier erfahren Sie, wie Sie die Node.js-Anwendungsmetriken installieren, auf sie 
 ## Probleme in visueller Form darstellen
 {: #identify-problems}
 
-Anwendungsmetriken sind wichtig für die Überwachung der Leistung Ihrer Anwendung. Eine Live-Ansicht von Metriken wie CPU-, Speicher-, Latenzzeit- und HTTP-Metriken ist erforderlich, um sicherzustellen, dass Ihre Anwendung über einen bestimmten Zeitraum hinweg effektiv ausgeführt wird. Sie können einen Cloud-Service wie die [automatische Skalierung](/docs/services/Auto-Scaling?topic=Auto-Scaling-get-started) von Cloud Foundry verwenden, der auf Metriken angewiesen ist, um Instanzen dynamisch entsprechend der aktuellen Workload zu skalieren. Durch die Verwendung von Anwendungsmetriken werden Sie genau informiert, wann Sie ein Scale-up oder ein Scale-down für Instanzen durchführen oder Instanzen löschen müssen, wenn diese nicht mehr benötigt werden, um die Kosten niedrig zu halten.
+Anwendungsmetriken sind wichtig für die Überwachung der Leistung Ihrer Anwendung. Eine Live-Ansicht von Metriken wie CPU-, Speicher-, Latenzzeit- und HTTP-Metriken ist erforderlich, um sicherzustellen, dass Ihre Anwendung über einen bestimmten Zeitraum hinweg effektiv ausgeführt wird. Zur Anpassung an die aktuelle Workload durch dynamische Skalierung von Instanzen können Sie einen Cloud-Service wie den [Auto-Scaling-Service](/docs/services/Auto-Scaling?topic=Auto-Scaling) von Cloud Foundry verwenden, der sich auf Metriken stützt. Durch die Verwendung von Anwendungsmetriken werden Sie genau informiert, wann Sie ein Scale-up oder ein Scale-down für Instanzen durchführen oder Instanzen löschen müssen, wenn diese nicht mehr benötigt werden, um die Kosten niedrig zu halten.
 
 Anwendungsmetriken werden als Zeitreihendaten erfasst. Das Zusammenfassen und Visualisieren erfasster Metriken kann helfen, allgemeine Leistungsprobleme wie die folgenden zu erkennen:
 
@@ -61,7 +61,7 @@ Fügen Sie Überwachungsfunktionen zu vorhandenen Express-Anwendungen mit dem Ko
   ```
   {: codeblock}
 
-2. Installieren Sie das Dashboard `appmetrics` mit dem folgenden Befehl [npm](https://nodejs.org/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link"):
+2. Installieren Sie das Dashboard `appmetrics` mit dem folgenden Befehl [npm](https://nodejs.org/en/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link"):
   ```
   npm install appmetrics-dash
   ```
@@ -118,7 +118,7 @@ Die Benutzerschnittstelle des Überwachungsdashboards von Application Metrics fo
 ## Informationen zu den Daten
 {: #understanding-data}
 
-![Appmetrics-Dashboard](images/appmetricsdash-1.png)
+![Appmetrics-Dashboard](images/appmetricsdash-1.png "Appmetrics-Dashboard.")
 
 Die meisten Daten werden in Form von Kurvendiagrammen dargestellt. 'Eingehende HTTP-Anforderungen', 'Abgehende HTTP-Anforderungen' und 'Weitere Anforderungen' zeigen die Ereignisdauer im Zeitverlauf an. 'HTTP-Durchsatz' zeigt Anforderungen pro Sekunde an. 'Durchschnittliche Antwortzeiten' zeigt die fünf eingehenden HTTP-Anforderungen an, die im Durchschnitt am längsten dauerten. Die Diagramme zu CPU und Speicher zeigen die System- und Prozessnutzung im Zeitverlauf an. Heapspeicher zeigt die maximale Größe des Heapspeichers und die belegte Größe des Heapspeichers im Laufe der Zeit an. Die Latenz von Ereignisschleifen zeigt Latenzbeispiele, die in Intervallen aus der Node.js-Ereignisschleife entnommen werden, mit einem Punkt für die kürzeste Latenzzeit, einem Punkt für die durchschnittliche Latenzzeit und einem Punkt für die längste Latenzzeit für jede entnommene Stichprobe.
 

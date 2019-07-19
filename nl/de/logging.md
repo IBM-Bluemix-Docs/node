@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-06-10"
 
 keywords: nodejs logging, view logs nodejs, add logging nodejs, log4j nodejs, stdout nodejs, nodejs log, output nodejs, nodejs logger
 
@@ -33,7 +33,7 @@ Sie können [Log4js](https://github.com/log4js-node/log4js-node){: new_window} !
 ## Log4js-Unterstützung zu einer vorhandenen Node.js-App hinzufügen
 {: #add_log4j}
 
-1. Installieren Sie als ersten Schritt `log4js`, indem Sie den folgenden [npm](https://nodejs.org/){: new_window}-Befehl ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") im Stammverzeichnis der Anwendung ausführen. Hierdurch wird das Paket installiert und zur Datei `package.json` hinzugefügt.
+1. Installieren Sie zuerst `log4js`, indem Sie den folgenden Befehl [npm](https://nodejs.org/en/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") im Stammverzeichnis Ihrer Anwendung ausführen. Dadurch wird das Paket installiert und Ihrer Datei `package.json` hinzugefügt. 
   ```bash
   npm install --save log4js
   ```
@@ -93,13 +93,13 @@ Die folgende Beispielprotokollausgabe stammt von einer nativen Ausführung der A
 
 Zum Anzeigen der Protokollausgabe können die folgenden Methoden verwendet werden:
 * Für lokale Umgebungen `stdout` verwenden.
-* Für [Cloud Foundry](/docs/services/CloudLogAnalysis/cfapps/logging_cf_apps.html)-Bereitstellungen können Sie auf Protokolle zugreifen, indem Sie Folgendes ausführen:
+* Bei [Cloud Foundry](/docs/cli/reference?topic=cloud-cli-ibmcloud_commands_apps#ibmcloud_app_logs)-Bereitstellungen können Sie auf Protokolle zugreifen, indem Sie Folgendes ausführen: 
   ```
   ibmcloud app logs --recent <APP-NAME>
   ```
   {: codeblock}
 
-* Für [Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/)-Bereitstellungen können Sie auf Protokolle zugreifen, indem Sie Folgendes ausführen: 
+* Bei [Kubernetes-Bereitstellungen](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für exernen Link") können Sie auf Protokolle zugreifen, indem Sie Folgendes ausführen:
   ```
   kubectl logs <Bereitstellungsname>
   ```
@@ -109,9 +109,9 @@ Zum Anzeigen der Protokollausgabe können die folgenden Methoden verwendet werde
 {: #next_steps-logging notoc}
 
 Weitere Informationen zum Anzeigen von Protokollen in der jeweiligen Bereitstellungsumgebung:
-* [Kubernetes-Protokolle ](https://kubernetes.io/docs/concepts/cluster-administration/logging/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link")
-* [Cloud Foundry-Protokolle](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps#logging_cf_apps)
-* [{{site.data.keyword.openwhisk}}-Protokolle & -Überwachung](/docs/openwhisk?topic=cloud-functions-openwhisk_logs#openwhisk_logs)
+* [Kubernetes-Protokolle](https://kubernetes.io/docs/concepts/cluster-administration/logging/#basic-logging-in-kubernetes){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link")
+* [Cloud Foundry-Protokolle](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps)
+* [Protokolle & Überwachung in {{site.data.keyword.openwhisk}}](/docs/openwhisk?topic=cloud-functions-logs)
 
 Verwendung eines Protokollaggregators:
 * [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis?topic=cloudloganalysis-log_analysis_ov#log_analysis_ov)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-30"
+lastupdated: "2019-06-10"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -21,10 +21,10 @@ subcollection: nodejs
 
 <!-- Sample Code for the SDK: https://github.com/ibm/ibm-cos-sdk-js#example-code -->
 
-<!-- More sample code: https://cloud.ibm.com/docs/services/cloud-object-storage/libraries/node.html#using-node-js -->
+<!-- More sample code: https://cloud.ibm.com/docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-node -->
 
 <!-- Object storage tutorial under the Storing and sharing data topicgroup:
-https://cloud.ibm.com/docs/services/cloud-object-storage/about-cos.html#about-ibm-cloud-object-storage -->
+https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-about -->
 
 {{site.data.keyword.cos_full_notm}} ist eine grundlegende Komponente des Cloud-Computing und stellt leistungsfähige Funktionen für Apple-Entwickler und deren Anwendungen bereit. Im Gegensatz zum Speichern von Informationen in einer Dateihierarchie (z. B. in einem Block- oder Dateispeicher) besteht ein Objektspeicher nur aus den Dateien und den zugehörigen Metadaten. Diese Dateien werden in Datensammlung gespeichert, die als Buckets bezeichnet werden. Diese Objekte sind definitionsgemäß unveränderlich, wodurch sie perfekt für Daten wie Bilder, Videos und andere statische Dokumente sind. Für Daten, die sich entweder häufig ändern oder relationale Daten sind, können Sie den [{{site.data.keyword.cloudant_short_notm}}](/docs/node?topic=nodejs-cloudant)-Datenbankservice verwenden.
 
@@ -34,19 +34,19 @@ https://cloud.ibm.com/docs/services/cloud-object-storage/about-cos.html#about-ib
 {: #prereqs-cos}
 
 Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
-1. Sie müssen über ein [{{site.data.keyword.cloud}}-Konto ](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") verfügen.
+1. Sie müssen über ein [{{site.data.keyword.cloud}}-Konto ](https://cloud.ibm.com/registration){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") verfügen.
 2. Sie müssen über das [{{site.data.keyword.cos_short}} SDK for Node.js ](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") verfügen.
 3. Sie müssen über Node 4.x+ verfügen.
 4. Suchen Sie nach den Schlüsselwerten des Berechtigungsnachweises, die später für die SDK-Initialisierung verwendet werden sollen:
 
-    * _**endpoint**_: Der öffentliche Endpunkt für Ihre Cloud Object Storage-Instanz. Der Endpunkt ist über das [{{site.data.keyword.cloud_notm}}-Dashboard ](https://cloud.ibm.com/dashboard/apps){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") verfügbar.
+    * _**endpoint**_: Der öffentliche Endpunkt für Ihre Cloud Object Storage-Instanz. Der Endpunkt ist über das [{{site.data.keyword.cloud_notm}}-Dashboard ](https://cloud.ibm.com/resources){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") verfügbar.
     * _**api-key**_: Der API-Schlüssel, der generiert wird, wenn die Serviceberechtigungsnachweise erstellt werden. Für das Erstellen und Löschen von Beispielen ist ein Schreibzugriff erforderlich.
-    * _ **resource-instance-id**_: Die Ressourcen-ID für Ihre Cloud Object Storage-Instanz. Die Ressourcen-ID steht über die [{{site.data.keyword.cloud_notm}}-CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) oder das [{{site.data.keyword.cloud_notm}}-Dashboard ](https://cloud.ibm.com/dashboard/apps){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") zur Verfügung.
+    * _ **resource-instance-id**_: Die Ressourcen-ID für Ihre Cloud Object Storage-Instanz. Die Ressourcen-ID steht über die [{{site.data.keyword.cloud_notm}}-CLI](/docs/cli?topic=cloud-cli-getting-started) oder das [{{site.data.keyword.cloud_notm}}-Dashboard ](https://cloud.ibm.com/resources){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") zur Verfügung.
 
 ## Schritt 1. Instanz von {{site.data.keyword.cos_short}} erstellen
 {: #create-instance-cos}
 
-1. Im [{{site.data.keyword.cloud_notm}}-Katalog](https://cloud.ibm.com/catalog/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") wählen Sie die Kategorie **Speicher** aus und klicken Sie auf {{site.data.keyword.cos_short}}. Die Seite mit der Servicekonfiguration wird geöffnet.
+1. Wählen Sie im [{{site.data.keyword.cloud_notm}}-Katalog](https://cloud.ibm.com/catalog){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") die Kategorie **Speicher** aus und klicken Sie auf {{site.data.keyword.cos_short}}. Die Seite mit der Servicekonfiguration wird geöffnet.
 2. Geben Sie der Serviceinstanz entweder einen Namen oder verwenden Sie den voreingestellten Namen.
 3. Wählen Sie Ihren Preistarif aus und klicken Sie auf **Erstellen**. Die Seite für die Object Storage-Instanz wird geöffnet.
 4. Wählen Sie im Navigationsmenü die Option **Serviceberechtigungsnachweise** aus.
@@ -56,7 +56,7 @@ Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
 ## Schritt 2. SDK installieren
 {: #install-cos}
 
-Installieren Sie das {{site.data.keyword.cos_short}} SDK for Node.js mithilfe des Paketmanagers [npm](https://nodejs.org/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") über die Befehlszeile:
+Installieren Sie das {{site.data.keyword.cos_short}} SDK for Node.js mithilfe des Paketmanagers [npm](https://nodejs.org/en/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") über die Befehlszeile:
 ```
 npm install ibm-cos-sdk
 ```
@@ -84,7 +84,7 @@ Nachdem Sie das SDK in Ihrer App initialisiert haben, können Sie {{site.data.ke
   ```
   {: codeblock}
 
-  Wenn Sie Hilfe bei der Suche nach den Schlüsselwerten für den Berechtigungsnachweis für Ihre App benötigen, finden Sie in *Schritt 4* des Abschnitts [Vorbereitende Schritte](#prereqs-cos) entsprechende Details.
+  Wenn Sie bei der Suche nach den den Schlüsselwerten für die Berechtigungsnachweise für Ihre App Hilfe benötigen, finden Sie in *Schritt 4* im Abschnitt [Vorbereitende Schritte](#prereqs-cos) Informationen dazu, wo Sie sie finden. Siehe auch [Serviceberechtigungsnachweise für {{site.data.keyword.cos_short}}](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials).
   {: tip}
 
 3. Fügen Sie den folgenden Code zur Datei `server.js` hinzu.

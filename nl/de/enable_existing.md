@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-06-05"
 
 keywords: ibmcloud dev enable, nodejs cloud deployment, cloud enable nodejs, deploy nodejs, build nodejs cloud, nodejs debug
 
@@ -104,7 +104,7 @@ ibmcloud dev deploy
 
 Es werden nicht alle Anwendungen erfolgreich durch den Befehl `enable` aktiviert. Es werden alle Möglichkeiten ausgeschöpft, um die Konfiguration zu bestimmen, die erforderlich ist, um Ihre Anwendung cloudfähig zu machen. Die Ursprungsanwendung muss mindestens die Befehle `npm install` und `npm start` erfolgreich ausführen können. Bei einer Anwendung, die mit einem anderen Ausführungsbefehl als `npm start` arbeitet, können Sie die `CMD`-Zeile in der `Dockerfile` ändern.
 
-Wird Ihre Anwendung nach der Ausführung von `ibmcloud dev enable` nicht erstellt und/oder bereitgestellt, können Sie die generierten Dateien manuell ändern, um die Cloudaktivierung abzuschließen.
+Wenn Ihre Anwendung nach der Ausführung von `ibmcloud dev enable` nicht erstellt und/oder bereitgestellt wird, können Sie die generierten Dateien manuell ändern, um die Cloudaktivierung abzuschließen. 
 
 ### Generierte Dateien zur Cloudaktivierung manuell ändern
 {: #manual_modify}
@@ -138,7 +138,7 @@ services:
 ```
 {: codeblock}
 
-Dadurch wird Ihre Anwendung bei Port `3000` zugänglich gemacht; der MongoDB-Server ist für die Clientverbindung über Port `27017` verfügbar.
+Ihre Anwendung ist an Port `3000` zugänglich und der MongoDB-Server ist für die Clientverbindung an Port `27017` verfügbar. 
 
 Sie müssen die folgende Zeile in `cli-config.yml` aktualisieren, damit auf die neue Dockerfile verwiesen wird: 
 ```yaml

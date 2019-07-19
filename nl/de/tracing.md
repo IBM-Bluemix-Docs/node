@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-06-05"
 
 keywords: nodejs tracing, debug nodejs apps, troubleshooting nodejs, appmetrics-zipkin node, zipkin docker nodejs, nodejs slow, nodejs tracing
 
@@ -20,14 +20,14 @@ subcollection: nodejs
 # Umfassendes Tracing einrichten
 {: #e2e-tracing}
 
-Das folgende Lernprogramm konzentriert sich auf Zipkin und die Verwendung des Moduls [appmetrics-zipkin](https://github.com/CloudNativeJS/appmetrics-zipkin){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") für das Tracing von Node.js-Anwendungen. Weitere Informationen zu Zipkin finden Sie in der ursprünglichen [Ankündigung zu appmetrics-zipkin](https://developer.ibm.com/node/2017/10/26/add-zipkin-open-tracing-support-node-js-application-one-line-code/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link").  
+Das folgende Lernprogramm konzentriert sich auf Zipkin und die Verwendung des Moduls [appmetrics-zipkin](https://github.com/CloudNativeJS/appmetrics-zipkin){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") für das Tracing von Node.js-Anwendungen. Weitere Informationen zu Zipkin finden Sie in der ursprünglichen [Ankündigung zu appmetrics-zipkin](https://developer.ibm.com/node/2017/10/26/add-zipkin-open-tracing-support-node-js-application-one-line-code/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link"). 
 
 In den folgenden Schritten werden zwei kleine Anwendungen (ein Front-End, ein Back-End) verwendet, um mit dem Modul `appmetrics-zipkin` zwischen zwei Endpunkten ein Trace zu erstellen. Sie können bei Null anfangen oder die hier beschriebenen Prinzipien auf Ihre vorhandenen Node.js-Anwendungen anwenden. 
 
 ## Schritt 1. Modul 'appmetrics-zipkin' installieren und aktivieren
 {: #install-zipkin}
 
-Geben Sie an der Position, an der sich auch die Datei `package.json` Ihrer Node.js-Anwendung befindet, den folgenden Befehl [npm](https://nodejs.org/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") ein, um das Modul `appmetrics-zipkin` Ihrer Abhängigkeitsliste hinzuzufügen: 
+Geben Sie an der Position, an der sich auch die Datei `package.json` Ihrer Node.js-Anwendung befindet, den folgenden Befehl [npm](https://nodejs.org/en/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") ein, um das Modul `appmetrics-zipkin` Ihrer Abhängigkeitsliste hinzuzufügen:
 ```
 npm install --save appmetrics-zipkin
 ```
@@ -164,7 +164,7 @@ Das Lernprogramm endet hier für Bereitstellungen ohne Kubernetes. Schauen Sie s
 ## Nächste Schritte
 {: #next-steps-tracing}
 
-* Erfahren Sie, wie Sie für die Cloud native Node.js-Anwendungen mithilfe des Community-Projekts [CloudNativeJS](https://www.cloudnativejs.io/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") erstellen können, das Assets und Tools für die Bereitstellung dieser Anwendungen in Docker- und Kubernetes-basierten Clouds bietet. 
+* Erfahren Sie, wie Sie für die Cloud native Node.js-Anwendungen mithilfe des Community-Projekts [CloudNativeJS](https://www.cloudnativejs.io/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") erstellen können, das Assets und Tools für die Bereitstellung dieser Anwendungen in Docker- und Kubernetes-basierten Clouds bietet.
 
-* Wenn Sie bereit sind, Tracing zu Ihren Node.js-Anwendungen hinzuzufügen, die unter Kubernetes ausgeführt werden, lesen Sie sich den Abschnitt zu [Tracing für Node.js-Anwendungen, die Kubernetes verwenden](https://developer.ibm.com/node/tutorial-end-end-tracing-node-js-applications/#appservice){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") durch. 
+* Wenn Sie bereit sind, Tracing zu Ihren Node.js-Anwendungen hinzuzufügen, die unter Kubernetes ausgeführt werden, lesen Sie sich den Abschnitt zu [Tracing für Node.js-Anwendungen, die Kubernetes verwenden](https://developer.ibm.com/node/tutorial-end-end-tracing-node-js-applications/#appservice){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") durch.
 

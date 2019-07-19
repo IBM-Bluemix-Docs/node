@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-13"
 
 keywords: configure node env, node environment, node credentials, ibm-cloud-env node
 
@@ -16,6 +16,7 @@ subcollection: nodejs
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
 
 # Node.js-Umgebung konfigurieren
 {: #configure-nodejs}
@@ -29,7 +30,7 @@ Unabhängig davon, ob Sie {{site.data.keyword.cloud}}-Unterstützung zu vorhande
 ## {{site.data.keyword.cloud_notm}}-Konfiguration zu vorhandenen Node.js-Anwendungen hinzufügen
 {: #addcloud-env-nodejs}
 
-Das Modul [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") fasst Umgebungsvariablen von verschiedenen Cloud-Providern wie Cloud Foundry und Kubernetes zusammen, sodass die Anwendung von der Umgebung unabhängig ist. 
+Das Modul [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") fasst Umgebungsvariablen von verschiedenen Cloud-Providern wie Cloud Foundry und Kubernetes zusammen, sodass die Anwendung von der Umgebung unabhängig ist.
 
 ### Modul `ibm-cloud-env` installieren
 {: #install-module-nodejs}
@@ -100,10 +101,13 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ```
 {: codeblock}
 
-## Node.js-Konfigurationsmanager über Starter-Kit-Apps verwenden
+## Node.js-Konfigurationsmanager von Starter-Kit-Apps verwenden
 {: #nodejs-config-skit}
 
-Mit [Starter-Kits](https://cloud.ibm.com/developer/appservice/starter-kits/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") erstellte Node.js-Apps werden automatisch mit Berechtigungsnachweisen und Konfigurationen ausgestattet, die für die Ausführung in vielen Cloudbereitstellungsumgebungen (CF, K8s, VSI und Functions) erforderlich sind. 
+Mit [Starter-Kits](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") erstellte Node.js-Apps werden automatisch mit Berechtigungsnachweisen und Konfigurationen ausgestattet, die für die Ausführung in vielen Cloudbereitstellungszielen benötigt werden, z. B. [Kubernetes](/docs/containers?topic=containers-getting-started), [Cloud Foundry](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf), [{{site.data.keyword.cfee_full_notm}}](/docs/cloud-foundry?topic=cloud-foundry-about), [Virtual Server (VSI)](/docs/vsi?topic=virtual-servers-getting-started-tutorial) oder [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started). 
+
+  VSI-Bereitstellung ist für einige Starter-Kits verfügbar. Wenn Sie diese Funktion verwenden möchten, rufen Sie das [{{site.data.keyword.cloud_notm}}-Dashboard](https://{DomainName}) auf und klicken Sie auf **App erstellen** in der Kachel **Apps**.
+  {: note} 
 
 ### Informationen zu Serviceberechtigungsnachweisen
 {: #credentials-nodejs}
@@ -112,11 +116,11 @@ Ihre Anwendungskonfigurationsdaten für Services sind in der Datei `localdev-con
 
 Die Anwendung verwendet den Konfigurationsmanager, um die Verbindungs- und Konfigurationsinformationen aus der Umgebung und dieser Datei zu lesen. Sie verwendet eine kundenspezifische Datei `mappings.json` im Verzeichnis `server/config`, um zu kommunizieren, wo sich die Berechtigungsnachweise für jeden Service befinden.
 
-Lokal ausgeführte Anwendungen können mithilfe von nicht gebundenen Berechtigungsnachweisen, die aus der Datei `mappings.json` gelesen werden, eine Verbindung zu {{site.data.keyword.cloud_notm}}-Services herstellen. Wenn Sie nicht gebundene Berechtigungsnachweise erstellen müssen, können Sie dazu die {{site.data.keyword.cloud_notm}}-Webkonsole oder den Befehl `cf create-service-key` der [Cloud Foundry-CLI](https://docs.cloudfoundry.org/cf-cli/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") verwenden. 
+Lokal ausgeführte Anwendungen können mithilfe von nicht gebundenen Berechtigungsnachweisen, die aus der Datei `mappings.json` gelesen werden, eine Verbindung zu {{site.data.keyword.cloud_notm}}-Services herstellen. Wenn Sie nicht gebundene Berechtigungsnachweise erstellen müssen, können Sie dazu die {{site.data.keyword.cloud_notm}}-Webkonsole oder den Befehl `cf create-service-key` der [Cloud Foundry-CLI](https://docs.cloudfoundry.org/cf-cli/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") verwenden.
 
 Wenn Sie Ihre Anwendung mit einer Push-Operation an {{site.data.keyword.cloud_notm}} übertragen, werden diese Werte nicht mehr verwendet. Stattdessen stellt die Anwendung automatisch durch die Verwendung von Umgebungsvariablen eine Verbindung zu gebundenen Services her.
 
-* **Cloud Foundry**: Serviceberechtigungsnachweise werden aus der Umgebungsvariablen `VCAP_SERVICES` abgerufen. Weitere Informationen zu Cloud Foundry Enrprise Edition enthält dieses [Lernprogramm zur Einführung](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started).
+* **Cloud Foundry**: Serviceberechtigungsnachweise werden aus der Umgebungsvariablen `VCAP_SERVICES` abgerufen. Weitere Informationen zu Cloud Foundry Enterprise Edition finden Sie in diesem [Lernprogramm zu Einführung](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started). 
 
 * **Kubernetes**: Serviceberechtigungsnachweise werden pro Service aus einzelnen Umgebungsvariablen abgerufen.
 
@@ -125,4 +129,4 @@ Wenn Sie Ihre Anwendung mit einer Push-Operation an {{site.data.keyword.cloud_no
 ## Nächste Schritte
 {: #next_steps-config notoc}
 
-`ibm-cloud-config` unterstützt die Suche nach Werten unter Verwendung von drei Suchmustertypen: `cloudfoundry`, `env` und `file`. Wenn Sie sich weitere unterstützte Suchmuster und Suchmusterbeispiele ansehen möchten, lesen Sie den Abschnitt zur [Syntax](https://github.com/ibm-developer/ibm-cloud-env#usage){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link"). 
+`ibm-cloud-config` unterstützt die Suche nach Werten unter Verwendung von drei Suchmustertypen: `cloudfoundry`, `env` und `file`. Wenn Sie sich weitere unterstützte Suchmuster und Suchmusterbeispiele ansehen möchten, lesen Sie den Abschnitt zur [Syntax](https://github.com/ibm-developer/ibm-cloud-env#usage){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link").

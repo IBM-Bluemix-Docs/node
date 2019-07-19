@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-10"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -31,9 +31,9 @@ Weitere Informationen zur möglichen Verwendung von {{site.data.keyword.appid_sh
 {: #prereqs-appid}
 
 Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
-1. Sie müssen über ein [{{site.data.keyword.cloud}}-Konto ](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") verfügen.
-2. Installieren Sie die [{{site.data.keyword.cloud_notm}}-CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli).
-3. Installieren Sie die Unterstützung für das Paketmanagement mit [npm ](https://nodejs.org/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link").
+1. Sie müssen über ein [{{site.data.keyword.cloud}}-Konto ](https://cloud.ibm.com/registration){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") verfügen.
+2. Installieren Sie die [{{site.data.keyword.cloud_notm}}-CLI](/docs/cli?topic=cloud-cli-getting-started).
+3. Installieren Sie die Unterstützung für das Paketmanagement mit [npm ](https://nodejs.org/en/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link").
 4. Implementieren Sie Ihren Node.js-Server mit dem [Express-Framework](http://expressjs.com/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link"). Verwenden Sie zum Installieren des Express-Frameworks die Befehlszeile, um das Verzeichnis mit der Node.js-App zu öffnen, und führen Sie den folgenden Befehl aus:
   ```
   npm install --save express
@@ -64,7 +64,7 @@ Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
 
 Stellen Sie eine Instanz des Service bereit:
 
-1. Im [{{site.data.keyword.cloud_notm}}-Katalog](https://cloud.ibm.com/catalog/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") wählen Sie die Kategorie **Web und Mobil** aus und klicken Sie auf {{site.data.keyword.appid_short_notm}}. Die Seite mit der Servicekonfiguration wird geöffnet.
+1. Wählen Sie im [{{site.data.keyword.cloud_notm}}-Katalog](https://cloud.ibm.com/catalog){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") die Kategorie **Web und Mobil** aus und klicken Sie auf {{site.data.keyword.appid_short_notm}}. Die Seite mit der Servicekonfiguration wird geöffnet.
 2. Geben Sie der Serviceinstanz entweder einen Namen oder verwenden Sie den voreingestellten Namen.
 3. Wählen Sie Ihren Preistarif aus und klicken Sie auf **Erstellen**.
 
@@ -116,10 +116,10 @@ Stellen Sie eine Instanz des Service bereit:
     ```
     {: codeblock}
 
-    Wenn Sie Hilfe bei der Suche nach den Schlüsselwerten für den Berechtigungsnachweis für Ihre App benötigen, finden Sie in *Schritt 5* des Abschnitts [Vorbereitende Schritte](#prereqs-appid) entsprechende Details. 
+    Wenn Sie bei der Suche nach den den Schlüsselwerten für die Berechtigungsnachweise für Ihre App Hilfe benötigen, finden Sie in *Schritt 5* im Abschnitt [Vorbereitende Schritte](#prereqs-appid) Informationen dazu, wo Sie sie finden.
     {: tip}
 
-4. Konfigurieren Sie Passport mit Serialisierung und Deserialisierung. Dieser Konfigurationsschritt ist für eine authentifizierte Sitzungspersistenz über HTTP-Anforderungen hinweg erforderlich. Weitere Informationen finden Sie in der [Dokumentation zu Passport ](http://passportjs.org/docs){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link").
+4. Konfigurieren Sie Passport mit Serialisierung und Deserialisierung. Dieser Konfigurationsschritt ist für eine authentifizierte Sitzungspersistenz über HTTP-Anforderungen hinweg erforderlich. Weitere Informationen finden Sie in der [Dokumentation zu Passport ](http://www.passportjs.org/docs/){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link").
   ```js
   passport.serializeUser(function(user, cb) {
     cb(null, user);
@@ -212,6 +212,10 @@ Sehen Sie sich die folgende Tabelle an, um zu sehen, welche Seiten Sie für die 
 | Kennwort vergessen |  | <img src="images/confirm.png" width="32" alt="Feature verfügbar" style="width:32px;" /> |
 | Kennwort ändern |  | <img src="images/confirm.png" width="32" alt="Feature verfügbar" style="width:32px;" /> |
 | Kontodetails |  | <img src="images/confirm.png" width="32" alt="Feature verfügbar" style="width:32px;" /> |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="Tabellenvergleich. Seiten für Social Media-Identitätsprovider und Cloud Directory anzeigen. " caption-side="bottom"}
+{: summary="This table has row and column headers. The row headers identify the account pages that can be displayed. The column headers identify which identity service can display them. To understand where an account page can be displayed in the table, navigate to the row for the account page, and find the column for the identity service that you are interested in."}
 
 Gehen Sie folgendermaßen vor, um die Standardseiten anzuzeigen:
 
@@ -304,5 +308,5 @@ Haben Sie Schwierigkeiten? Werfen Sie einen Blick in den Abschnitt zur [Fehlerbe
 
 Gut gemacht! Sie haben einen Authentifizierungsschritt zu Ihrer App hinzugefügt. Machen Sie am besten gleich weiter, indem Sie eine der folgenden Optionen ausprobieren:
 
-* Um mehr zu Cloud Object Storage und darüber zu erfahren, wie Sie alle Funktionen von {{site.data.keyword.appid_short_notm}} optimal nutzen können, [sehen Sie sich die zugehörige Dokumentation an](/docs/services/appid?topic=appid-getting-started#getting-started)!
+* Wenn Sie mehr zu den Funktionen von {{site.data.keyword.appid_short_notm}} und deren Verwendung erfahren möchten, [lesen Sie die Dokumentation](/docs/services/appid?topic=appid-getting-started). 
 * Mit Starter-Kits können Sie die Funktionalität von {{site.data.keyword.cloud}} sehr schnell nutzen. Zeigen Sie die verfügbaren Starter-Kits im [Mobile-Enwicklerdashboard ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link") an. Laden Sie den Code herunter. Führen Sie die App aus!
