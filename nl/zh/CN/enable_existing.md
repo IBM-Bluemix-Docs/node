@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-06-05"
 
 keywords: ibmcloud dev enable, nodejs cloud deployment, cloud enable nodejs, deploy nodejs, build nodejs cloud, nodejs debug
 
@@ -138,7 +138,7 @@ services:
 ```
 {: codeblock}
 
-这将在端口 `3000` 上公开应用程序，并且 MongoDB 服务器将通过端口 `27017` 可用于客户机连接。
+您的应用程序在端口 `3000` 上公开，MongoDB 服务器可用于端口 `27017` 上的客户连接。
 
 您必须更新 `cli-config.yml` 中的以下行，以指向新 Dockerfile： 
 ```yaml

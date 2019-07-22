@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-06-05"
 
 keywords: nodejs tracing, debug nodejs apps, troubleshooting nodejs, appmetrics-zipkin node, zipkin docker nodejs, nodejs slow, nodejs tracing
 
@@ -27,7 +27,7 @@ subcollection: nodejs
 ## 步骤 1. 安装和启用 appmetrics-zipkin 模块
 {: #install-zipkin}
 
-在 Node.js 应用程序的 `package.json` 文件所在的位置中，输入以下 [npm](https://nodejs.org/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 命令以将 `appmetrics-zipkin` 模块添加到依赖项列表中：
+在 Node.js 应用程序的 `package.json` 文件所在的位置中，输入以下 [npm](https://nodejs.org/en/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 命令以将 `appmetrics-zipkin` 模块添加到依赖项列表中：
 ```
 npm install --save appmetrics-zipkin
 ```
@@ -50,7 +50,6 @@ var appzip = require('appmetrics-zipkin')({
 {: codeblock}
 
 如常发送请求。例如：
-
 ```
 http.request(options, callback).end();
 ```

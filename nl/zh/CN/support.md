@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-06-06"
 
 keywords: nodejs support, nodejs help, dwanswers nodejs, nodejs runtimes, nodejs buildpack, ibm support nodejs, foundation support nodejs, runtime support nodejs, nodejs app support
 
@@ -24,7 +24,7 @@ subcollection: nodejs
 ## 在 dWanswers 上请求帮助
 {: #dwanswers-nodejs}
 
-在 [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/index.html){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 上使用 `#nodejs` 标记提问，或加入 [{{site.data.keyword.cloud_notm}} Slack](https://slack-invite-ibm-cloud-tech.mybluemix.net/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 中 `#nodejs-at-ibm` 通道内的讨论。
+在 [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/index.html){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 上使用 `#nodejs` 标记提问，或加入 [{{site.data.keyword.cloud_notm}} Slack](https://ibm-cloud-tech.slack.com){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 中 `#nodejs-at-ibm` 通道内的讨论。
 
 ## 使用官方 IBM Support for Runtimes
 {: #runtimes-support-nodejs}
@@ -35,9 +35,9 @@ IBM Foundation Support for Runtimes 的覆盖范围包括 Node.js、Swift 和 Ja
 
 IBM Advanced Support for Runtimes 在 Foundation Support 的基础上进行了扩展，覆盖范围还包括 Express.js、Loopback 和 Kitura（Swift 框架）框架（包括软件包依赖关系）。
 
-要了解更多信息，请访问 [IBM 的数字市场](https://www.ibm.com/us-en/marketplace/support-for-runtimes){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")。
+要了解更多信息，请参阅 [IBM 的数字市场](https://www.ibm.com/cloud/support-for-runtimes){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")。
 
 ## Buildpack 支持声明
 {: #buildpack-nodejs}
 
-[Buildpack 支持声明](/docs/runtimes-common?topic=runtimes-common-buildpack_support_statement)
+可针对 {{site.data.keyword.cloud_notm}} 上当前支持的任何版本的内置 IBM buildpack 报告问题，但是，必须针对最新版本进行验证。如果发现缺陷，IBM 将在运行时的未来级别以及相应的 buildpack 中提供修订。有关更多信息，请参阅 [buildpack 支持声明](/docs/runtimes-common?topic=runtimes-common-buildpack_support_statement)。

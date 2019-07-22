@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-13"
 
 keywords: configure node env, node environment, node credentials, ibm-cloud-env node
 
@@ -16,6 +16,7 @@ subcollection: nodejs
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
 
 # 配置 Node.js 环境
 {: #configure-nodejs}
@@ -55,14 +56,14 @@ subcollection: nodejs
   {
     "service1-credentials": {
         "searchPatterns": [
-            "cloudfoundry:my-service1-instance-name", 
+      "cloudfoundry:my-service1-instance-name", 
             "env:my-service1-credentials", 
             "file:/localdev/my-service1-credentials.json" 
         ]
     },
     "service2-username": {
-        "searchPatterns":[
-            "cloudfoundry:$.service2[@.name=='my-service2-instance-name'].credentials.username",
+        "searchPatterns": [
+      "cloudfoundry:$.service2[@.name=='my-service2-instance-name'].credentials.username",
             "env:my-service2-credentials:$.username",
             "file:/localdev/my-service1-credentials.json:$.username" 
         ]
@@ -103,7 +104,10 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## 使用入门模板工具包应用程序中的 Node.js 配置管理器
 {: #nodejs-config-skit}
 
-使用[入门模板工具包](https://cloud.ibm.com/developer/appservice/starter-kits/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 创建的 Node.js 应用程序会自动随附在许多云部署环境（CF、K8s、VSI 和 Functions）中运行所需的凭证和配置。
+使用[入门模板工具包](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 创建的 Node.js 应用程序会自动随附在许多云部署目标中运行所需的凭证和配置，例如 [Kubernetes](/docs/containers?topic=containers-getting-started)、[Cloud Foundry](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf)、[{{site.data.keyword.cfee_full_notm}}](/docs/cloud-foundry?topic=cloud-foundry-about)、[Virtual Server (VSI)](/docs/vsi?topic=virtual-servers-getting-started-tutorial) 或 [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started)。
+
+  VSI 部署可用于某些入门模板工具包。要使用此功能，请转至 [{{site.data.keyword.cloud_notm}} 仪表板](https://{DomainName})，然后单击**应用程序**磁贴中的**创建应用程序**。
+  {: note} 
 
 ### 了解服务凭证
 {: #credentials-nodejs}
@@ -116,7 +120,7 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 
 将应用程序推送到 {{site.data.keyword.cloud_notm}} 时，不会再使用这些值。应用程序将改为使用环境变量来自动连接到绑定的服务。
 
-* **Cloud Foundry**：从 `VCAP_SERVICES` 环境变量获取服务凭证。对于 Cloud Foundry Enrprise Edition，请参阅此[入门教程](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started)以获取更多信息。
+* **Cloud Foundry**：从 `VCAP_SERVICES` 环境变量获取服务凭证。对于 Cloud Foundry Enterprise Edition，请参阅此[入门教程](/docs/cloud-foundry?topic=cloud-foundry-getting-started#getting-started)以获取更多信息。
 
 * **Kubernetes**：从每个服务的不同环境变量获取服务凭证。
 

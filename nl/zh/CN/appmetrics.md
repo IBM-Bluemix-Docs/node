@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-30"
+lastupdated: "2019-06-11"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
 
@@ -26,7 +26,7 @@ subcollection: nodejs
 ## 直观地识别问题
 {: #identify-problems}
 
-应用程序度量值对于监视应用程序的性能非常重要。能实时查看度量值（如 CPU、内存、等待时间和 HTTP 度量值）是确保应用程序持续有效运行所必需的。您可以使用云服务（如 Cloud Foundry 的[自动缩放](/docs/services/Auto-Scaling?topic=Auto-Scaling-get-started)），依靠度量值来动态缩放实例，以便与当前工作负载相匹配。通过使用应用程序度量值，您可以精确地获悉何时扩展、缩减或清除不再需要的实例，从而使成本保持在较低水平。
+应用程序度量值对于监视应用程序的性能非常重要。能实时查看度量值（如 CPU、内存、等待时间和 HTTP 度量值）是确保应用程序持续有效运行所必需的。您可以使用云服务（如 Cloud Foundry 的[自动缩放](/docs/services/Auto-Scaling?topic=Auto-Scaling)），依靠度量值来动态缩放实例，以便与当前工作负载相匹配。通过使用应用程序度量值，您可以精确地获悉何时扩展、缩减或清除不再需要的实例，从而使成本保持在较低水平。
 
 应用程序度量值将作为时间序列数据进行捕获。聚集和可视化捕获的度量值可帮助识别常见的性能问题，例如：
 
@@ -34,7 +34,7 @@ subcollection: nodejs
 * 应用程序中的吞吐量差
 * 导致性能下降的需求峰值
 * 高于预期 CPU 使用率
-* 内存使用率高或逐渐上升（潜在内存泄漏）
+* 内存使用量高或不断增长（潜在内存泄漏）
 
 内置的应用程序度量值仪表板 ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")) 还包含表示“其他请求”的图表，该图表显示支持的数据库（MongoDB、MySQL、Postgres、LevelDB 和 Redis）的数据库请求持续时间、Socket.IO 和 Riak 事件。
 
@@ -61,7 +61,7 @@ subcollection: nodejs
   ```
   {: codeblock}
 
-2. 使用以下 [npm](https://nodejs.org/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 命令安装 `appmetrics` 仪表板：
+2. 使用以下 [npm](https://nodejs.org/en/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 命令安装 `appmetrics` 仪表板：
   ```
   npm install appmetrics-dash
   ```
@@ -118,7 +118,7 @@ Application Metrics for Node.js 监视仪表板 UI 提供了一系列度量值�
 ## 了解数据
 {: #understanding-data}
 
-![Appmetrics 仪表板](images/appmetricsdash-1.png)
+![Appmetrics 仪表板](images/appmetricsdash-1.png "Appmetrics 仪表板。")
 
 大多数数据会绘制成折线图。“HTTP 传入请求”、“HTTP 传出请求”和“其他请求”显示随时间变化的事件持续时间。“HTTP 吞吐量”显示每秒请求数。“平均响应时间”显示平均所用时间最长的最常用的 5 个传入 HTTP 请求。“CPU”和“内存”图形显示随时间变化的系统和进程使用情况。“堆”显示最大堆大小，以及随时间变化的使用堆大小。“事件循环等待时间”显示从 Node.js 事件循环定期采集的等待时间样本，其中采集每个样本的最短等待时间、平均等待时间和最长等待时间分别用一个点表示。
 

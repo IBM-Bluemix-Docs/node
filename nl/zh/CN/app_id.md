@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-10"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -21,7 +21,7 @@ subcollection: nodejs
 # 添加用户认证
 {: #authentication}
 
-应用程序安全性复杂程度之深令人难以置信。对于大多数开发者而言，这是创建应用程序中最困难的其中一个部分。如何确信您保护了用户的信息呢？通过将 {{site.data.keyword.appid_full}} 集成到应用程序中，可以保护资源和添加认证，即便您没有太多安全经验也能做到。
+应用程序安全性复杂程度之深令人难以置信。对于大多数开发者而言，这是创建应用程序中最困难的其中一个部分。如何确信您保护了用户的信息呢？通过将 {{site.data.keyword.appid_full}} 集成到应用程序中，您可以保护资源并添加认证，即使您没有太多安全方面的经验，也没关系。
 
 通过要求用户登录到应用程序，可以存储用户数据，例如应用程序首选项或公共社交概要文件。然后，可以使用这些数据来定制每个用户在应用程序中的体验。{{site.data.keyword.appid_short_notm}} 提供了登录框架，但您也可以将自己的品牌登录页面与 Cloud Directory 配合使用。
 
@@ -31,9 +31,9 @@ subcollection: nodejs
 {: #prereqs-appid}
 
 确保以下先决条件准备就绪：
-1. 您必须具有 [{{site.data.keyword.cloud}} 帐户 ](https://cloud.ibm.com/registration/?target=%2Fdeveloper%2Fappservice%2Fcreate-app){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")。
-2. 安装 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)。
-3. 安装 [npm ](https://nodejs.org/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 软件包管理支持。
+1. 您必须具有 [{{site.data.keyword.cloud}} 帐户 ](https://cloud.ibm.com/registration){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")。
+2. 安装 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started)。
+3. 安装 [npm ](https://nodejs.org/en/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 软件包管理支持。
 4. 使用 [Express 框架 ](http://expressjs.com/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 实现 Node.js 服务器。要安装 Express 框架，请使用命令行打开包含 Node.js 应用程序的目录，然后运行以下命令：
   ```
   npm install --save express
@@ -64,7 +64,7 @@ subcollection: nodejs
 
 供应服务的实例：
 
-1. 在 [{{site.data.keyword.cloud_notm}} 目录](https://cloud.ibm.com/catalog/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 中，选择 **Web 和移动**类别，然后单击 {{site.data.keyword.appid_short_notm}}。这将打开服务配置页面。
+1. 在 [{{site.data.keyword.cloud_notm}} 目录](https://cloud.ibm.com/catalog){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 中，选择 **Web 和移动**类别，然后单击 {{site.data.keyword.appid_short_notm}}。这将打开服务配置页面。
 2. 为服务实例提供名称或使用预设名称。
 3. 选择价格套餐，然后单击**创建**。
 
@@ -119,7 +119,7 @@ subcollection: nodejs
     如果需要帮助查找应用程序的凭证密钥值，请查看[开始之前](#prereqs-appid)部分中的*步骤 5*，以了解有关在何处查找这些值的详细信息。
     {: tip}
 
-4. 为 Passport 配置序列化和反序列化。为了实现跨 HTTP 请求的认证会话持久性，此配置步骤是必需的。有关更多信息，请参阅 [passport 文档 ](http://passportjs.org/docs){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")。
+4. 为 Passport 配置序列化和反序列化。为了实现跨 HTTP 请求的认证会话持久性，此配置步骤是必需的。有关更多信息，请参阅 [passport 文档 ](http://www.passportjs.org/docs/){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")。
   ```js
   passport.serializeUser(function(user, cb) {
     cb(null, user);
@@ -156,21 +156,21 @@ subcollection: nodejs
 
 应用程序配置为使用身份提供者时，对该应用程序的访问者将通过登录窗口小部件定向到登录页面。缺省情况下，当只有一个提供者设置为**开启**时，会将访问者重定向到该身份提供者的认证页面。借助登录窗口小部件，可以显示缺省登录页面，或者通过 Cloud Directory，可以复用现有 UI。
 
-身份提供者会为您的用户提供认证信息，以便您可以对其进行授权。通过 {{site.data.keyword.appid_short_notm}}，可以使用社交身份提供者（例如，Facebook 和 Google+），也可以使用 Cloud Directory 来管理用户注册表。
+身份提供者为您的用户提供认证信息，以便您可以对这些用户进行授权。通过 {{site.data.keyword.appid_short_notm}}，可以使用社交身份提供者（例如，Facebook 和 Google+），也可以使用 Cloud Directory 来管理用户注册表。
 
 您可以随时更新登录流程，而无需以任何方式更改源代码！
 {: tip}
 
 此服务使用 `OAuth 2` 授权类型映射授权过程。配置社交身份提供者（例如 Facebook）时，将使用 [OAuth2 授权流程 ](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 来调用登录窗口小部件。显示自己的 UI 页面时，将使用[资源所有者密码凭证流程 ](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 来登录并获取访问和身份令牌。
 
-配置[社交身份提供者](/docs/services/appid?topic=appid-social#social)和[云目录](/docs/services/appid?topic=appid-cloud-directory#cloud-directory)的设置后，即可以开始实现代码。
+配置[社交身份提供者](/docs/services/appid?topic=appid-social#social)和 [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory#cloud-directory) 的设置后，即可以开始实现代码。
 
 ### 配置社交身份提供者
 {: #social-identity-appid}
 
 要配置社交身份提供者，请完成以下步骤：
 
-1. 打开 {{site.data.keyword.appid_short_notm}} 仪表板中的**身份提供者 > 管理**。
+1. 打开 {{site.data.keyword.appid_short_notm}} 仪表板至**身份提供者 > 管理**。
 2. 将要使用的身份提供者设置为**开启**。可以使用身份提供者的任何组合，但如果要启动定制登录页面，请仅启用云目录。
 3. 将[缺省配置](/docs/services/appid?topic=appid-social#social)更新为您自己的凭证。{{site.data.keyword.appid_short_notm}} 提供了可用于试用服务的 IBM 凭证。发布应用程序之前，必须更新该配置。
 4. [定制预配置的登录页面](#login-widget)以显示您选择的图像和颜色。
@@ -178,7 +178,7 @@ subcollection: nodejs
 ### 配置云目录
 {: #cloud-directory-appid}
 
-通过 {{site.data.keyword.appid_short_notm}}，您可以管理自己的用户注册表（称为云目录）。通过云目录，用户可以使用自己的电子邮件和密码登录到移动和 Web 应用程序。
+通过 {{site.data.keyword.appid_short_notm}}，您可以管理自己的用户注册表（称为云目录）。通过云目录，用户可以使用自己的电子邮件和密码注册并登录到移动和 Web 应用程序。
 
 要配置云目录，请参阅[云目录](/docs/services/appid?topic=appid-cloud-directory#cloud-directory)。
 
@@ -205,21 +205,31 @@ subcollection: nodejs
 
 查看下表以了解针对每种类型的身份提供者可以显示哪些页面。
 
-|显示页|社交身份提供者|云目录| 
+|显示页|社交身份提供者|Cloud Directory| 
 |:-----|:-----|:-----|
-|登录| <img src="images/confirm.png" width="32" alt="功能可用" style="width:32px;" /> | <img src="images/confirm.png" width="32" alt="功能可用" style="width:32px;" /> |
-|注册|  | <img src="images/confirm.png" width="32" alt="功能可用" style="width:32px;" /> |
-|忘记密码|  | <img src="images/confirm.png" width="32" alt="功能可用" style="width:32px;" /> |
-|更改密码|  | <img src="images/confirm.png" width="32" alt="功能可用" style="width:32px;" /> |
-|帐户详细信息|  | <img src="images/confirm.png" width="32" alt="功能可用" style="width:32px;" /> |
+|登录
+        | <img src="images/confirm.png" width="32" alt="功能可用" style="width:32px;" /> | <img src="images/confirm.png" width="32" alt="功能可用" style="width:32px;" /> |
+|注册
+        |  | <img src="images/confirm.png" width="32" alt="功能可用" style="width:32px;" /> |
+|忘记密码
+        |  | <img src="images/confirm.png" width="32" alt="功能可用" style="width:32px;" /> |
+|更改密码
+        |  | <img src="images/confirm.png" width="32" alt="功能可用" style="width:32px;" /> |
+|帐户详细信息
+        |  | <img src="images/confirm.png" width="32" alt="功能可用" style="width:32px;" /> |
+{: row-headers}
+{: class="comparison-table"}
+{: caption="表比较。显示社交身份提供者和云目录的页面。" caption-side="bottom"}
+{: summary="This table has row and column headers. The row headers identify the account pages that can be displayed. The column headers identify which identity service can display them. To understand where an account page can be displayed in the table, navigate to the row for the account page, and find the column for the identity service that you are interested in."}
 
 要显示缺省页面，请执行以下操作：
 
-1. 打开 {{site.data.keyword.appid_short_notm}} 仪表板中的**管理身份提供者**选项卡，并将云目录设置为**开启**。
+1. 将 {{site.data.keyword.appid_short_notm}} 仪表板打开到**管理身份提供者**选项卡，并将云目录设置为**开启**。
 2. 配置[目录和消息设置](/docs/services/appid?topic=appid-cloud-directory#cloud-directory)。
 3. 选择要显示的登录页面的组合，并在应用程序中放入用于调用这些页面的代码。
 
 #### 登录
+        
 
 1. 在身份提供者设置中，将云目录设置为**开启**，然后指定回调端点。
 2. 将发布路径添加到应用程序（该应用程序可以使用用户名和密码参数进行调用），并使用资源所有者密码登录。
@@ -236,6 +246,7 @@ subcollection: nodejs
   {: tip}
 
 #### 注册
+        
 
 1. 在云目录设置中，将**允许用户注册并重置密码**设置为**开启**。如果设置为“否”，那么到该流程结束也不会检索访问令牌和身份令牌。
 2. 传递 WebAppStrategy `show` 属性并将其设置为 `WebAppStrategy.SIGN_UP`。
@@ -248,6 +259,7 @@ subcollection: nodejs
   {: codeblock}
 
 #### 忘记密码
+        
 
 1. 在云目录设置中，将**允许用户注册并重置密码**和**忘记密码电子邮件**设置为**开启**。如果设置为“否”，那么到该流程结束也不会检索访问令牌和身份令牌。
 2. 传递 WebAppStrategy `show` 属性并将其设置为 `WebAppStrategy.FORGOT_PASSWORD`。
@@ -260,6 +272,7 @@ subcollection: nodejs
   {: codeblock}
 
 #### 更改密码
+        
 
 1. 在云目录设置中，将**允许用户注册并重置密码**设置为**开启**。
 2. 传递 WebAppStrategy `show` 属性并将其设置为 `WebAppStrategy.CHANGE_PASSWORD`。
@@ -272,6 +285,7 @@ subcollection: nodejs
   {: codeblock}
 
 #### 帐户详细信息
+        
 
 {: #default-account-details}
 1. 在云目录设置中，将**允许用户注册并重置密码**设置为**开启**。
@@ -290,19 +304,19 @@ subcollection: nodejs
 ## 步骤 5. 测试应用程序
 {: #test-appid}
 
-是否一切设置正确？您可以进行测试！
+是否一切设置正确？您可以对其进行测试！
 
 1. 安装依赖项并启动应用程序服务器。
-2. 使用 GUI 完成登录到应用程序的过程。如果已配置云目录，请确保所有页面均按您所需的方式显示。
+2. 使用 GUI 逐步完成登录到应用程序的过程。如果已配置云目录，请确保所有页面均按您所需的方式显示。
 3. 更新 {{site.data.keyword.appid_short_notm}} 仪表板中的身份提供者或登录窗口小部件页面。单击**复查活动**以查看所发生的认证事件。
-4. 重复步骤 1 和 2 以查看更新是否会立即实现。不需要对应用程序代码进行更新。
+4. 重复步骤 1 和 2，以查看更改是否立即实施。无需更新应用程序代码。
 
-遇到困难？请查看[有关 {{site.data.keyword.appid_short_notm}} 的故障诊断](/docs/services/appid?topic=appid-troubleshooting#troubleshooting)。
+遇到困难？请查看 [{{site.data.keyword.appid_short_notm}} 故障诊断](/docs/services/appid?topic=appid-troubleshooting#troubleshooting)。
 
 ## 后续步骤
 {: #next-appid notoc}
 
 太棒了！您已将认证步骤添加到应用程序。请一鼓作气尝试下列其中一个选项：
 
-* 要了解有关 {{site.data.keyword.appid_short_notm}} 提供的所有功能的更多信息并利用这些功能，请[查看文档](/docs/services/appid?topic=appid-getting-started#getting-started)！
+* 要了解有关 {{site.data.keyword.appid_short_notm}} 提供的所有功能的更多信息并利用这些功能，请[查看文档](/docs/services/appid?topic=appid-getting-started)。
 * 入门模板工具包是使用 {{site.data.keyword.cloud}} 的功能的最快方法之一。请在[移动开发者仪表板 ](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![外部链接图标](../icons/launch-glyph.svg "外部链接图标") 中查看可用的入门模板工具包。下载代码。运行应用程序！
