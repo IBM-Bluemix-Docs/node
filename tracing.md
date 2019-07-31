@@ -60,26 +60,24 @@ http.request(options, callback).end();
 
 You now need a place to send your data to, specifically the traces, which are made up of spans. Before you deploy to any cloud, you can test the e2e tracing configuration by setting up a Zipkin server locally or in a container. 
 
-### Setting up Zipkin locally
+### Setting up Zipkin Server locally
 {: #local-setup-zipkin}
 
 Zipkin is provided in a single `jar` file so you can download and run it using the following commands on the system where you want Zipkin to be available:
 
-1. Downloading Zipkin:
+1. Downloading Zipkin Server:
   ```
-  wget zipkin.jar 'https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=1.31.3&c=exec'
+  curl -sSL https://zipkin.io/quickstart.sh | bash -s
   ```
   {: codeblock}
 
-2. Starting Zipkin:
+2. Starting Zipkin Server:
   ```
   java -jar zipkin.jar
   ```
   {: codeblock}
 
-  The `wget` command downloads the Zipkin file, and the `java -jar` command starts the Zipkin server. You can download Zipkin from other locations too, but it’s important that you use version 1.x for this tutorial so the trace format matches what the Zipkin server is expecting.
-
-  If the output from this command is too verbose or you’d like to run Zipkin in the background, you can add `-q -O` for the `wget` command and `/dev/null 2>&1 &` for Zipkin. At this stage, you're downloading the Zipkin `.jar` file, and running the main method to start the Zipkin server.
+  The quickstart.sh script downloads the Zipkin Server jar file, and the `java -jar` command starts the Zipkin server.
 
 ### Setting up Zipkin in a Docker container
 {: #setup-docker-zipkin}
