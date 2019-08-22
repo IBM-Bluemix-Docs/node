@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-13"
+lastupdated: "2019-08-22"
 
 keywords: deploy nodejs app, serverless nodejs, back-end nodejs, generated sdk nodejs, cloud foundry deploy nodejs, kubernetes deploy nodejs, virtual nodejs
 
@@ -33,13 +33,6 @@ To facilitate serverless development, you can use the IBM Functions as a Service
 {{site.data.keyword.openwhisk_short}} performs system administration like auto-scaling, availability management, and maintenance, allowing developers to remain focused on writing application logic.
 
 For more information, see [Developing serverless apps](/docs/apps/deploying?topic=creating-apps-serverless).
-
-## Integrating back-end services with a generated SDK
-{: #backend_gensdk}
-
-The {{site.data.keyword.IBM_notm}} SDK Generator plug-in easily integrates back-end services to your app with a generated SDK. When a change to a REST API occurs, you can regenerate the SDK and replace the old one for a seamless SDK upgrade. You can also integrate the CLI into a DevOps pipeline and ensure that the SDK is always consistent with the API spec each time the app is built.
-
-For more information, see [Integrating back-end services with a generated SDK](/docs/swift/backend?topic=swift-sdkgen-cli).
 
 ## Deploying to a Kubernetes cluster
 {: #deploy_kube}
