@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-05"
+lastupdated: "2019-08-26"
 
 keywords: nodejs tracing, debug nodejs apps, troubleshooting nodejs, appmetrics-zipkin node, zipkin docker nodejs, nodejs slow, nodejs tracing
 
@@ -60,24 +60,24 @@ http.request(options, callback).end();
 
 You now need a place to send your data to, specifically the traces, which are made up of spans. Before you deploy to any cloud, you can test the e2e tracing configuration by setting up a Zipkin server locally or in a container. 
 
-### Setting up Zipkin Server locally
+### Setting up Zipkin server locally
 {: #local-setup-zipkin}
 
 Zipkin is provided in a single `jar` file so you can download and run it using the following commands on the system where you want Zipkin to be available:
 
-1. Downloading Zipkin Server:
+1. Downloading Zipkin server:
   ```
   curl -sSL https://zipkin.io/quickstart.sh | bash -s
   ```
   {: codeblock}
 
-2. Starting Zipkin Server:
+2. Starting Zipkin server:
   ```
   java -jar zipkin.jar
   ```
   {: codeblock}
 
-  The quickstart.sh script downloads the Zipkin Server jar file, and the `java -jar` command starts the Zipkin server.
+  The `quickstart.sh` script downloads the Zipkin server JAR file, and the `java -jar` command starts the Zipkin server.
 
 ### Setting up Zipkin in a Docker container
 {: #setup-docker-zipkin}
@@ -97,7 +97,7 @@ The following image shows the Zipkin server that runs on `localhost` on port `94
 
 ![ZipkinNoData](images/ZipkinNoData.png)
 
-You can click **Find traces** and modify the search options to selectively show only traces within a certain time period. You can also filter to show traces that involve specific service names. The service names are specified when you instrument your code, and in the example scenario we use “getter” and “pusher”.
+You can click **Find traces** and modify the search options to selectively show only traces within a certain time period. You can also filter to show traces that involve specific service names. The service names are specified when you instrument your code, and in the example scenario “getter” and “pusher” are used.
 
 ## Step 3. Testing an example scenario
 {: #node-example-tracing}
@@ -114,7 +114,7 @@ If you follow the [GitHub project’s documentation](https://github.com/ibm-deve
 ### Front-end app (pusher)
 {: #tracing-pusher}
 
-The front-end app (pusher) service sends the request (our simple front end):
+The front-end app (pusher) service sends the request (simple front end):
 ![frontend_app](images/frontend_app.png)
 
 ### Back-end app (getter)
@@ -127,7 +127,7 @@ The back-end app (getter) receives the request, which is listening on a differen
 {: #tracing-request}
 
 Send a request from the pusher to the getter:
-![500please](images/500Please.png)
+![500 please](images/500Please.png)
 
 ### Viewing traces with the Zipkin web UI
 {: #tracing-viewing}
