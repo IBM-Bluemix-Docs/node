@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-07"
+lastupdated: "2019-10-22"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 
@@ -29,7 +29,7 @@ Make sure that you are using the latest Node.js LTS release.
 
 1. From the [Starter Kits](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") page in the {{site.data.keyword.dev_console}}, select a starter kit that is written in `Node.js`. You can also create a blank starter app by clicking **Create app** and selecting `Node.js` as the language.
 
-    You must be logged in to an {{site.data.keyword.cloud_notm}} account to create an app. If you do not have an account, you can [register for a free account](https://cloud.ibm.com/registration){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+    You must be logged in to an {{site.data.keyword.cloud_notm}} account to create an app. If you do not have an account, you can [sign up for a free account](https://cloud.ibm.com/registration){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
     {: tip}
 
 2. Click **Create app**.
@@ -59,7 +59,7 @@ Make sure that you are using the latest Node.js LTS release.
 {: #node-add-service}
 
 1. Return to your project in the {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}}.
-2. Click **Add service**, select the category of the service you want to add, click **Next**, then choose your service. For example, to add a NoSQL database to your application, select the **Data** category, then select **Cloudant**, which offers a lite plan for free development. {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} provisions the service for you based on the selected plan.
+2. Click **Add service**, select the category of the service you want to add, click **Next**, then choose your service. For example, to add a NoSQL database to your application, select the **Data** category, then select **Cloudant**, which offers a Lite plan for free development. {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} provisions the service for you based on the selected plan.
 Note: If you previously provisioned the service that you plan to use, choose the **Existing** category.
 3. After the service is provisioned, click **Download code** to regenerate the project with the SDK that connects to your service.
 
@@ -73,7 +73,6 @@ Note: If you previously provisioned the service that you plan to use, choose the
 1. Use the `ibmcloud dev build` command to build your application.
 2. Use the `ibmcloud dev run` command to run the application locally. Your application is run in the Docker containers on your local system. You can test your application in a browser by accessing `http://localhost:3000`.
 3. A health check endpoint is available at `http://localhost:3000/health`.
-4. You can access the [App Metrics](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") dashboard at `http://localhost:3000/appmetrics-dash`.
 
 <!--
 <video>

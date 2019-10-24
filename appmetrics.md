@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-11"
+lastupdated: "2019-10-22"
 
-keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dashs nodejs
+keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dash nodejs, node.js application metrics dashboard
 
 subcollection: nodejs
 
@@ -36,7 +36,7 @@ Application metrics are captured as time series data. Aggregating and visualizin
 * Higher than expected CPU usage
 * High or growing memory usage (potential memory leak)
 
-The built-in Application Metrics Dashboard ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon")) also includes a chart for ‘Other Requests’, which shows the database request duration for supported databases (MongoDB, MySQL, Postgres, LevelDB, and Redis), Socket.IO, and Riak events.
+The Application Metrics Dashboard ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon")) also includes a chart for ‘Other Requests’, which shows the database request duration for supported databases (MongoDB, MySQL, Postgres, LevelDB, and Redis), Socket.IO, and Riak events.
 
 A Node Report or a Heap Snapshot can be generated from the dashboard to enable a more in-depth analysis.
 
@@ -89,22 +89,6 @@ Add monitoring features to existing Express applications with the [`appmetrics-d
   ```
   {: codeblock}
 
-## Using metrics from Starter Kits
-{: #appmetrics-starterkits}
-
-The Node.js applications that are created from Starter Kits automatically come with `appmetrics-dash`, and its dashboard by default but must be enabled for use.
-
-The appmetrics code can be found in the generated application source file named `/app_name/server/server.js`:
-```js
-// Uncomment following to enable zipkin tracing, tailor to fit your network configuration:
-var appzip = require('appmetrics-zipkin')({
-    host: 'localhost',
-    port: 9411,
-    serviceName:'frontend'
-});
-```
-{: codeblock}
-
 ## Accessing the dashboard
 {: #access-dashboard}
 
@@ -118,7 +102,7 @@ The Application Metrics for Node.js monitoring dashboard UI provides a range of 
 ## Understanding the data
 {: #understanding-data}
 
-![Appmetrics Dashboard](images/appmetricsdash-1.png "Appmetrics dashboard."){: caption="Figure 1. Application Metrics dashboard for Node.js." caption-side="bottom"}
+![App Metrics Dashboard](images/appmetricsdash-1.png "Appmetrics dashboard."){: caption="Figure 1. Application Metrics dashboard for Node.js." caption-side="bottom"}
 
 Most of the data is plotted as line graphs. HTTP Incoming Requests, HTTP Outgoing Requests, and Other Requests show event duration against time. HTTP Throughput shows requests per second. Average Response Times shows the most-used five incoming HTTP requests that took the longest on average. CPU and Memory graphs show system and process usage over time. Heap shows the maximum heap size, and used heap size over time. Event Loop Latency shows latency samples that are taken at intervals from the Node.js event loop, with one point for the shortest latency, one for the average, and one for the longest for each sample taken.
 
