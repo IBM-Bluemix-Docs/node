@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-10-22"
+lastupdated: "2019-11-14"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 
@@ -36,8 +36,8 @@ Make sure that you are using the latest Node.js LTS release.
 3. **Name** your app. A generic app name is provided if you want to use that.
 4. Click **Create**. After your project is created, you can deploy by using a toolchain or you can continue to build, and deploy your project from the command line.
 5. To create a deployment toolchain in the dashboard, click **Deploy**. Set up your deployment target according to the instructions for the method you choose:
-  * **Deploy to [IBM Kubernetes Service](/docs/containers?topic=containers-app)**. This option creates a cluster of hosts, called worker nodes, to deploy and manage highly available application containers. You can create a cluster or deploy to an existing cluster.
-  * **Deploy to Cloud Foundry**. This option deploys your cloud-native app without you needing to manage the underlying infrastructure. If your account has access to {{site.data.keyword.cfee_full_notm}}, you can select a deployer type of either **[Public Cloud](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf)** or **[Enterprise Environment](/docs/cloud-foundry-public?topic=cloud-foundry-public-cfee)**, which you can use to create and manage isolated environments for hosting Cloud Foundry applications exclusively for your enterprise.
+  * **Deploy to [{{site.data.keyword.containerlong_notm}}(/docs/containers?topic=containers-app)**. This option creates a cluster of hosts, called worker nodes, to deploy and manage highly available application containers. You can create a cluster or deploy to an existing cluster.
+  * **Deploy to Cloud Foundry**. This option deploys your cloud-native app without you needing to manage the underlying infrastructure. If your account has access to {{site.data.keyword.cfee_full_notm}}, you can select a deployer type of either **[Public Cloud or Enterprise Environment](/docs/cloud-foundry?topic=cloud-foundry-what-is-cloud-foundry#ibmcf-offerings)**, which you can use to create and manage isolated environments for hosting Cloud Foundry applications exclusively for your enterprise.
   * **Deploy to a [Virtual Server](/docs/vsi?topic=virtual-servers-deploying-to-a-virtual-server)**. This option provisions a virtual server instance, loads an image that includes your app, creates a DevOps toolchain, and initiates the first deployment cycle for you.
 
 6. Finalize your options, and then click **Create** to create the toolchain.

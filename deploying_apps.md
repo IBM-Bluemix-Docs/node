@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-08-22"
+lastupdated: "2019-11-14"
 
 keywords: deploy nodejs app, serverless nodejs, back-end nodejs, generated sdk nodejs, cloud foundry deploy nodejs, kubernetes deploy nodejs, virtual nodejs
 
@@ -37,7 +37,7 @@ For more information, see [Developing serverless apps](/docs/apps/deploying?topi
 ## Deploying to a Kubernetes cluster
 {: #deploy_kube}
 
-You can learn how to use {{site.data.keyword.cloud_notm}} Kubernetes Service to deploy a containerized Node.js app that uses Watson Tone Analyzer. In provided scenario, a fictional PR firm uses the {{site.data.keyword.cloud_notm}} service to analyze their press releases and receive feedback on the tone of their messages. For more information, see the tutorial [Deploying apps into Kubernetes clusters](/docs/containers?topic=containers-cs_apps_tutorial).
+You can learn how to use {{site.data.keyword.containerlong_notm}} to deploy a containerized Node.js app that uses Watson Tone Analyzer. In provided scenario, a fictional PR firm uses the {{site.data.keyword.cloud_notm}} service to analyze their press releases and receive feedback on the tone of their messages. For more information, see the tutorial [Deploying apps into Kubernetes clusters](/docs/containers?topic=containers-cs_apps_tutorial).
 
 ## Deploying to Cloud Foundry
 {: #node-deploy-cf}
@@ -46,7 +46,7 @@ This option deploys your cloud-native app without you needing to manage the unde
 
 If you plan to deploy your app to [{{site.data.keyword.cfee_full}}](/docs/cloud-foundry?topic=cloud-foundry-about), you must [prepare your {{site.data.keyword.cloud_notm}} account](/docs/cloud-foundry?topic=cloud-foundry-prepare).
 
-If your account has access to {{site.data.keyword.cfee_full_notm}}, you can select a deployer type of either **[Public Cloud](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf)** or **[Enterprise Environment](/docs/cloud-foundry-public?topic=cloud-foundry-public-cfee)**, which you can use to create and manage isolated environments for hosting Cloud Foundry applications exclusively for your enterprise.
+If your account has access to {{site.data.keyword.cfee_full_notm}}, you can select a deployer type of either [Public Cloud or Enterprise Environment](/docs/cloud-foundry?topic=cloud-foundry-what-is-cloud-foundry#ibmcf-offerings), which you can use to create and manage isolated environments for hosting Cloud Foundry applications exclusively for your enterprise.
 
 ## Deploying to a Virtual Server
 {: #virtual_deploy}

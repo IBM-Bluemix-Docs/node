@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-13"
+lastupdated: "2019-11-14"
 
 keywords: configure node env, node environment, node credentials, ibm-cloud-env node
 
@@ -30,7 +30,7 @@ Whether you need to add {{site.data.keyword.cloud}} support to existing applicat
 ## Adding {{site.data.keyword.cloud_notm}} configuration to existing Node.js applications
 {: #addcloud-env-nodejs}
 
-The [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") module aggregates environment variables from various Cloud providers, such as CloudFoundry and Kubernetes, so the application is independent of the environment.
+The [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") module aggregates environment variables from various Cloud providers, such as Cloud Foundry and Kubernetes, so the application is independent of the environment.
 
 ### Installing the `ibm-cloud-env` module
 {: #install-module-nodejs}
@@ -104,7 +104,7 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## Using the Node.js configuration manager from Starter Kit apps
 {: #nodejs-config-skit}
 
-Node.js apps that are created with [Starter Kits](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") automatically come with credentials and configurations that are needed to run in many cloud deployment targets, such as [Kubernetes](/docs/containers?topic=containers-getting-started), [Cloud Foundry](/docs/cloud-foundry-public?topic=cloud-foundry-public-about-cf), [{{site.data.keyword.cfee_full_notm}}](/docs/cloud-foundry?topic=cloud-foundry-about), [Virtual Server (VSI)](/docs/vsi?topic=virtual-servers-getting-started-tutorial), or [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started).
+Node.js apps that are created with [Starter Kits](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") automatically come with credentials and configurations that are needed to run in many cloud deployment targets, such as [Kubernetes](/docs/containers?topic=containers-getting-started), [Cloud Foundry and {{site.data.keyword.cfee_full_notm}}](/docs/cloud-foundry?topic=cloud-foundry-what-is-cloud-foundry#ibmcf-offerings), [Virtual Server (VSI)](/docs/vsi?topic=virtual-servers-getting-started-tutorial), or [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting-started).
 
   VSI deployment is available for some starter kits. To use this feature, go to the [{{site.data.keyword.cloud_notm}} dashboard](https://{DomainName}), and click **Create an app** in the **Apps** tile.
   {: note} 
@@ -116,7 +116,7 @@ Your application configuration information for services is stored in the `locald
 
 The application uses the configuration manager to read the connection and configuration information from the environment and this file. It uses a custom-built `mappings.json`, which is located in the `server/config` directory, to communicate where the credentials can be found for each service.
 
-Locally running applications can connect to {{site.data.keyword.cloud_notm}} services by using unbound credentials that are read from the `mappings.json` file. If you need to create unbound credentials, you can do so from the {{site.data.keyword.cloud_notm}} web console, or by using the [CloudFoundry CLI](https://docs.cloudfoundry.org/cf-cli/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") `cf create-service-key` command.
+Locally running applications can connect to {{site.data.keyword.cloud_notm}} services by using unbound credentials that are read from the `mappings.json` file. If you need to create unbound credentials, you can do so from the {{site.data.keyword.cloud_notm}} web console, or by using the [Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") `cf create-service-key` command.
 
 When you push your application to {{site.data.keyword.cloud_notm}}, these values are no longer used. Instead, the application automatically connects to bound services by using environment variables.
 
