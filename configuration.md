@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-14"
+lastupdated: "2019-12-02"
 
-keywords: configure node env, node environment, node credentials, ibm-cloud-env node
+keywords: configure node env, node environment, node credentials, ibm-cloud-env node, service credentials, credentials, variables, configuration
 
 subcollection: nodejs
 
@@ -104,7 +104,7 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## Using the Node.js configuration manager from Starter Kit apps
 {: #nodejs-config-skit}
 
-Node.js apps that are created with [Starter Kits](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") automatically come with credentials and configurations that are needed to run in many cloud deployment targets, such as [Kubernetes](/docs/containers?topic=containers-getting-started), [Cloud Foundry and {{site.data.keyword.cfee_full_notm}}](/docs/cloud-foundry?topic=cloud-foundry-what-is-cloud-foundry#ibmcf-offerings), [Virtual Server (VSI)](/docs/vsi?topic=virtual-servers-getting-started-tutorial), or [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting-started).
+Node.js apps that are created with [Starter Kits](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") automatically come with credentials and configurations that are needed to run in many cloud deployment targets, such as [Kubernetes](/docs/containers?topic=containers-getting-started), [Cloud Foundry and {{site.data.keyword.cfee_full_notm}}](/docs/cloud-foundry?topic=cloud-foundry-what-is-cloud-foundry#ibmcf-offerings), or [Virtual Server (VSI)](/docs/vsi?topic=virtual-servers-getting-started-tutorial).
 
   VSI deployment is available for some starter kits. To use this feature, go to the [{{site.data.keyword.cloud_notm}} dashboard](https://{DomainName}), and click **Create an app** in the **Apps** tile.
   {: note} 
@@ -124,7 +124,7 @@ When you push your application to {{site.data.keyword.cloud_notm}}, these values
 
 * **Kubernetes**: Service credentials are taken from individual environment variables per service.
 
-* **{{site.data.keyword.cloud_notm}} Container Service**: Service credentials are taken from VSIs or {{site.data.keyword.openwhisk}} (Openwhisk).
+* **{{site.data.keyword.containerlong_notm}}**: Service credentials are taken from virtual server instances or {{site.data.keyword.openwhisk}}.
 
 ## Next Steps
 {: #next_steps-config notoc}
