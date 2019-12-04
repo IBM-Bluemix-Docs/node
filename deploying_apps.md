@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-12-02"
+lastupdated: "2019-12-04"
 
-keywords: deploy nodejs app, serverless nodejs, back-end nodejs, generated sdk nodejs, cloud foundry deploy nodejs, kubernetes deploy nodejs, virtual nodejs
+keywords: deploy nodejs app, serverless nodejs, back-end nodejs, generated sdk nodejs, cloud foundry deploy nodejs, kubernetes deploy nodejs, nodejs
 
 subcollection: nodejs
 
@@ -50,13 +50,3 @@ This option deploys your cloud-native app without you needing to manage the unde
 If you plan to deploy your app to [{{site.data.keyword.cfee_full}}](/docs/cloud-foundry?topic=cloud-foundry-about), you must [prepare your {{site.data.keyword.cloud_notm}} account](/docs/cloud-foundry?topic=cloud-foundry-prepare).
 
 If your account has access to {{site.data.keyword.cfee_full_notm}}, you can select a deployer type of either [Public Cloud or Enterprise Environment](/docs/cloud-foundry?topic=cloud-foundry-what-is-cloud-foundry#ibmcf-offerings), which you can use to create and manage isolated environments for hosting Cloud Foundry applications exclusively for your enterprise.
-
-## Deploying to a Virtual Server
-{: #virtual_deploy}
-
-A virtual service delivers a higher degree of transparency, predictability, and automation for all workload types. Terraform is used for building, changing, and versioning your infrastructure safely and efficiently.
-
-  VSI deployment is available for some starter kits. To use this feature, go to the [{{site.data.keyword.cloud_notm}} dashboard](https://{DomainName}), and click **Create an app** in the **Apps** tile.
-  {: note} 
-
-For more information, see [Deploying to a Virtual Server](/docs/vsi?topic=virtual-servers-deploying-to-a-virtual-server).

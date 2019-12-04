@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-14"
+lastupdated: "2019-12-04"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 
@@ -38,7 +38,6 @@ Make sure that you are using the latest Node.js LTS release.
 5. To create a deployment toolchain in the dashboard, click **Deploy**. Set up your deployment target according to the instructions for the method you choose:
   * **Deploy to [{{site.data.keyword.containerlong_notm}}(/docs/containers?topic=containers-app)**. This option creates a cluster of hosts, called worker nodes, to deploy and manage highly available application containers. You can create a cluster or deploy to an existing cluster.
   * **Deploy to Cloud Foundry**. This option deploys your cloud-native app without you needing to manage the underlying infrastructure. If your account has access to {{site.data.keyword.cfee_full_notm}}, you can select a deployer type of either **[Public Cloud or Enterprise Environment](/docs/cloud-foundry?topic=cloud-foundry-what-is-cloud-foundry#ibmcf-offerings)**, which you can use to create and manage isolated environments for hosting Cloud Foundry applications exclusively for your enterprise.
-  * **Deploy to a [Virtual Server](/docs/vsi?topic=virtual-servers-deploying-to-a-virtual-server)**. This option provisions a virtual server instance, loads an image that includes your app, creates a DevOps toolchain, and initiates the first deployment cycle for you.
 
 6. Finalize your options, and then click **Create** to create the toolchain.
 7. If you choose to continue with the CLI instead of the toolchain, download the project to your local machine, `unzip`, and `cd` into the root directory. Now you can install the prerequisites by using your platforms command method:
