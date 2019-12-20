@@ -76,7 +76,7 @@ ibmcloud dev deploy –target container
 ## Next steps
 {: #node-tutorial-nextsteps notoc}
 
-Continue checking out the topics the Node.js programming guide, or for more advanced deployments, you can learn to create a Kubernetes cluster and deploy your Node.js app to it.
+Continue checking out the topics the Node.js programming guide, or for more advanced deployments, you can learn to create a Kubernetes cluster and deploy your Node.js app to it. For more information, see [Deploying and integrating Node.js apps](/docs/node?topic=nodejs-deploy_apps-nodejs).
 
 ### Set up a Kubernetes cluster
 For more information about setting up a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, check out the [tutorial steps](/docs/containers?topic=containers-clusters).
