@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-12-04"
+lastupdated: "2019-12-19"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 
@@ -27,19 +27,12 @@ Make sure that you are using the latest Node.js LTS release.
 ## Creating a Node.js app
 {: #node-create-project}
 
-1. From the [Starter Kits](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") page in the {{site.data.keyword.dev_console}}, select a starter kit that is written in `Node.js`. You can also create a blank starter app by clicking **Create app** and selecting `Node.js` as the language.
-
-    You must be logged in to an {{site.data.keyword.cloud_notm}} account to create an app. If you do not have an account, you can [sign up for a free account](https://cloud.ibm.com/registration){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
-    {: tip}
-
-2. Click **Create app**.
-3. **Name** your app. A generic app name is provided if you want to use that.
-4. Click **Create**. After your project is created, you can deploy by using a toolchain or you can continue to build, and deploy your project from the command line.
-5. To create a deployment toolchain in the dashboard, click **Deploy**. Set up your deployment target according to the instructions for the method you choose:
-  * **Deploy to [{{site.data.keyword.containerlong_notm}}(/docs/containers?topic=containers-app)**. This option creates a cluster of hosts, called worker nodes, to deploy and manage highly available application containers. You can create a cluster or deploy to an existing cluster.
-  * **Deploy to Cloud Foundry**. This option deploys your cloud-native app without you needing to manage the underlying infrastructure. If your account has access to {{site.data.keyword.cfee_full_notm}}, you can select a deployer type of either **[Public Cloud or Enterprise Environment](/docs/cloud-foundry?topic=cloud-foundry-what-is-cloud-foundry#ibmcf-offerings)**, which you can use to create and manage isolated environments for hosting Cloud Foundry applications exclusively for your enterprise.
-
-6. Finalize your options, and then click **Create** to create the toolchain.
+1. Log in to your {{site.data.keyword.cloud_notm}} account. If you don't have an account, you can [register for a free account](https://{DomainName}/registration){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+2. Go to the [App Service Starter Kits](https://{DomainName}/developer/appservice/starter-kits){: new_window} ![External link icon](../../icons/launch-glyph.svg "External link icon") page in the {{site.data.keyword.dev_console}} console, and select a starter kit that is written in `Node.js`, or select the **Create App** tile to use a blank starter kit.
+3. In the App details page for the starter kit, name your app, and select a resource group.
+4. Optional. Provide tags to classify your app. For more information, see [Working with tags](/docs/resources?topic=resources-tag).
+5. Optional. To inspect the source code before you add services or deploy your app, click **View source code**. The app code includes a `README.md` file that contains technical details about the app. Check the `README.md` file to find out whether you need to take more actions to get your app up and running.
+6. Ensure that **Node.js** is selected as the platform, and then click **Create**. After your app is created, you can add services and then deploy it by using a toolchain, or you can continue to build and deploy your project from the [command line](/docs/cli?topic=cloud-cli-getting-started).
 7. If you choose to continue with the CLI instead of the toolchain, download the project to your local machine, `unzip`, and `cd` into the root directory. Now you can install the prerequisites by using your platforms command method:
 
     MacOS:
@@ -62,20 +55,12 @@ Make sure that you are using the latest Node.js LTS release.
 Note: If you previously provisioned the service that you plan to use, choose the **Existing** category.
 3. After the service is provisioned, click **Download code** to regenerate the project with the SDK that connects to your service.
 
-<!--
-<video of creating a project and adding a service>
--->
-
 ## Running apps locally
 {: #node-run-local}
 
 1. Use the `ibmcloud dev build` command to build your application.
 2. Use the `ibmcloud dev run` command to run the application locally. Your application is run in the Docker containers on your local system. You can test your application in a browser by accessing `http://localhost:3000`.
 3. A health check endpoint is available at `http://localhost:3000/health`.
-
-<!--
-<video>
--->
 
 ## Deploying to IBM Cloud
 {: #deploy_cloud}
@@ -88,7 +73,7 @@ ibmcloud dev deploy –target container
 ```
 {: codeblock}
 
-## Next Steps
+## Next steps
 {: #node-tutorial-nextsteps notoc}
 
 Continue checking out the topics the Node.js programming guide, or for more advanced deployments, you can learn to create a Kubernetes cluster and deploy your Node.js app to it.
