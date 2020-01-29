@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-06-10"
+  years: 2018, 2020
+lastupdated: "2020-01-28"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -17,6 +17,7 @@ subcollection: nodejs
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
+{:external: target="_blank" .external}
 
 # Adding user authentication
 {: #authentication}
@@ -31,10 +32,10 @@ For more information about all of the ways that you can use {{site.data.keyword.
 {: #prereqs-appid}
 
 Be sure that you have the following prerequisites ready to go:
-1. You must have an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/registration){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+1. You must have an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/registration){: external}.
 2. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started).
-3. Install [npm](https://nodejs.org/en/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") package management support.
-4. Implement your Node.js server with the [Express framework](http://expressjs.com/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"). To install the Express framework, use the command line to open the directory with your Node.js app, and run the following command:
+3. Install [npm](https://nodejs.org/en/){: external} package management support.
+4. Implement your Node.js server with the [Express framework](http://expressjs.com/){: external}. To install the Express framework, use the command line to open the directory with your Node.js app, and run the following command:
   ```
   npm install --save express
   ```
@@ -64,7 +65,7 @@ Be sure that you have the following prerequisites ready to go:
 
 Provision an instance of the service:
 
-1. In the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"), select the **Web and Mobile** category, and click {{site.data.keyword.appid_short_notm}}. The service configuration page opens.
+1. In the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external}, select the **Web and Mobile** category, and click {{site.data.keyword.appid_short_notm}}. The service configuration page opens.
 2. Give your service instance a name, or use the preset name.
 3. Select your pricing plan and click **Create**.
 
@@ -91,7 +92,7 @@ Provision an instance of the service:
     ```
     {: codeblock}
 
-2. Set up your express app to use express-session middleware. **Note**: You must configure the middleware with the proper session storage for production environments. For more information, see the [expressjs docs](https://github.com/expressjs/session){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+2. Set up your express app to use express-session middleware. **Note**: You must configure the middleware with the proper session storage for production environments. For more information, see the [expressjs docs](https://github.com/expressjs/session){: external}.
     ```js
     var app = express();
     app.use(session({
@@ -119,7 +120,7 @@ Provision an instance of the service:
     If you need help with finding the credential key values for your app, check *step 5* of the [Before you begin](#prereqs-appid) section for details on where to find them. 
     {: tip}
 
-4. Configure passport with serialization and deserialization. This configuration step is required for authenticated session persistence across HTTP requests. For more information, see the [passport docs](http://www.passportjs.org/docs/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+4. Configure passport with serialization and deserialization. This configuration step is required for authenticated session persistence across HTTP requests. For more information, see the [passport docs](http://www.passportjs.org/docs/){: external}.
   ```js
   passport.serializeUser(function(user, cb) {
     cb(null, user);
@@ -145,7 +146,7 @@ Provision an instance of the service:
   2. A successful redirect, as specified in `passport.authenticate(name, {successRedirect: "...."})`.
   3. The application root directory ("/").
 
-For more information, see the [{{site.data.keyword.appid_short_notm}} Node.js GitHub repository ![External link icon](../icons/launch-glyph.svg "External link icon")](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+For more information, see the [{{site.data.keyword.appid_short_notm}} Node.js GitHub repository](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external}.
 
 ## Step 4. Managing the sign-in experience
 {: #manage-signin-appid}
@@ -161,7 +162,7 @@ An identity provider provides the authentication information for your users so t
 You can update your sign-in flow at any time, without changing your source code in any way!
 {: tip}
 
-The service uses `OAuth 2` grant types to map the authorization process. When you configure social identity providers such as Facebook, the [Oauth2 Authorization Grant flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") is used to call the login widget. When you display your own UI pages, the [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") is used to log in and gain access and identity tokens.
+The service uses `OAuth 2` grant types to map the authorization process. When you configure social identity providers such as Facebook, the [Oauth2 Authorization Grant flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: external} is used to call the login widget. When you display your own UI pages, the [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: external} is used to log in and gain access and identity tokens.
 
 After you configure the settings for [social identity providers](/docs/services/appid?topic=appid-social#social) and [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory#cloud-directory), you can start implementing the code.
 
@@ -201,7 +202,7 @@ To customize the page:
 
 {{site.data.keyword.appid_short_notm}} provides a default login page that you can call if you don't have your own UI pages to display.
 
-Depending on your identity provider configuration, the pages that you can display differ. The service doesn't provide advanced functions for social identity providers because we never have access to a user's account information. Users must go to the identity provider to manage their information. For example, if they want to change their Facebook password, they must go to [https://www.facebook.com](https://www.facebook.com){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+Depending on your identity provider configuration, the pages that you can display differ. The service doesn't provide advanced functions for social identity providers because we never have access to a user's account information. Users must go to the identity provider to manage their information. For example, if they want to change their Facebook password, they must go to [https://www.facebook.com](https://www.facebook.com){: external}.
 
 Check out the following table to see which pages you can display for each type of identity provider.
 
@@ -309,4 +310,4 @@ Having trouble? Check out [troubleshooting {{site.data.keyword.appid_short_notm}
 Great job! You added an authentication step to your app. Keep the momentum by trying one of the following options:
 
 * To learn more about, and take advantage of all of the features that {{site.data.keyword.appid_short_notm}} offers, [check out the docs](/docs/services/appid?topic=appid-getting-started).
-* Starter kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud}}. View the available starter kits in the [Mobile developer dashboard](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"). Download the code. Run the app!
+* Starter kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud}}. View the available starter kits in the [App Development console](https://{DomainName}/developer/appservice/starter-kits){: external}.

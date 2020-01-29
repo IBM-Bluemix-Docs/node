@@ -16,11 +16,12 @@ subcollection: nodejs
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:external: target="_blank" .external}
 
 # Using application metrics with Node.js apps
 {: #metrics}
 
-Learn how to install, access, and understand Node.js application metrics. You can monitor Node.js apps with the [Node Application Metrics](https://developer.ibm.com/open/projects/node-application-metrics/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") Dashboard to visualize the performance of your Node.js application by displaying metrics in a web-based front end.
+Learn how to install, access, and understand Node.js application metrics. You can monitor Node.js apps with the [Node Application Metrics](https://developer.ibm.com/open/projects/node-application-metrics/){: external} Dashboard to visualize the performance of your Node.js application by displaying metrics in a web-based front end.
 {: shortdesc}
 
 ## Identifying problems visually
@@ -36,14 +37,14 @@ Application metrics are captured as time series data. Aggregating and visualizin
 * Higher than expected CPU usage
 * High or growing memory usage (potential memory leak)
 
-The Application Metrics Dashboard ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon")) also includes a chart for ‘Other Requests’, which shows the database request duration for supported databases (MongoDB, MySQL, Postgres, LevelDB, and Redis), Socket.IO, and Riak events.
+The Application Metrics Dashboard ([`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: external}) also includes a chart for ‘Other Requests’, which shows the database request duration for supported databases (MongoDB, MySQL, Postgres, LevelDB, and Redis), Socket.IO, and Riak events.
 
 A Node Report or a Heap Snapshot can be generated from the dashboard to enable a more in-depth analysis.
 
 ## Adding metrics to existing Node.js apps
 {: #add-appmetrics-existing}
 
-Add monitoring features to existing Express applications with the [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") constructor to pass in a number of configuration options. For example, one of the options uses an existing server rather than have `appmetrics-dash` start an extra server.
+Add monitoring features to existing Express applications with the [`appmetrics-dash`](https://github.com/RuntimeTools/appmetrics-dash){: external} constructor to pass in a number of configuration options. For example, one of the options uses an existing server rather than have `appmetrics-dash` start an extra server.
 
 ### Installing the dashboard
 {: #install-appmetrics}
@@ -61,7 +62,7 @@ Add monitoring features to existing Express applications with the [`appmetrics-d
   ```
   {: codeblock}
 
-2. Install the `appmetrics` dashboard with the following [npm](https://nodejs.org/en/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") command:
+2. Install the `appmetrics` dashboard with the following [npm](https://nodejs.org/en/){: external} command:
   ```
   npm install appmetrics-dash
   ```
@@ -97,7 +98,7 @@ After you start your application, go to `http://<hostname>:<port>/appmetrics-das
 Use the default `localhost:3001/appmetrics-dash` for apps that are running locally.
 {: tip}
 
-The Application Metrics for Node.js monitoring dashboard UI provides a range of metrics, including HTTP requests and event loop latency as seen in the following video [Monitoring Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+The Application Metrics for Node.js monitoring dashboard UI provides a range of metrics, including HTTP requests and event loop latency as seen in the following video [Monitoring Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be){: external}.
 
 ## Understanding the data
 {: #understanding-data}

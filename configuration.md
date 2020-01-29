@@ -17,6 +17,7 @@ subcollection: nodejs
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
+{:external: target="_blank" .external}
 
 # Configuring the Node.js environment
 {: #configure-nodejs}
@@ -30,7 +31,7 @@ Whether you need to add {{site.data.keyword.cloud}} support to existing applicat
 ## Adding {{site.data.keyword.cloud_notm}} configuration to existing Node.js applications
 {: #addcloud-env-nodejs}
 
-The [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") module aggregates environment variables from various Cloud providers, such as Cloud Foundry and Kubernetes, so the application is independent of the environment.
+The [`ibm-cloud-env`](https://github.com/ibm-developer/ibm-cloud-env){: external} module aggregates environment variables from various Cloud providers, such as Cloud Foundry and Kubernetes, so the application is independent of the environment.
 
 ### Installing the `ibm-cloud-env` module
 {: #install-module-nodejs}
@@ -104,7 +105,7 @@ var filtered_credentials = IBMCloudEnv.getCredentialsForServiceLabel('tag', 'lab
 ## Using the Node.js configuration manager from starter kit apps
 {: #nodejs-config-skit}
 
-Node.js apps that are created with [starter kits](https://cloud.ibm.com/developer/appservice/starter-kits){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") automatically come with credentials and configurations that are needed to run in many cloud deployment targets, such as [Kubernetes](/docs/containers?topic=containers-getting-started) and [Cloud Foundry](/docs/cloud-foundry?topic=cloud-foundry-what-is-cloud-foundry#ibmcf-offerings).
+Node.js apps that are created with [starter kits](https://cloud.ibm.com/developer/appservice/starter-kits){: external} automatically come with credentials and configurations that are needed to run in many cloud deployment targets, such as [Kubernetes](/docs/containers?topic=containers-getting-started) and [Cloud Foundry](/docs/cloud-foundry?topic=cloud-foundry-what-is-cloud-foundry#ibmcf-offerings).
 
 ### Understanding service credentials
 {: #credentials-nodejs}
@@ -113,7 +114,7 @@ Your application configuration information for services is stored in the `locald
 
 The application uses the configuration manager to read the connection and configuration information from the environment and this file. It uses a custom-built `mappings.json`, which is located in the `server/config` directory, to communicate where the credentials can be found for each service.
 
-Locally running applications can connect to {{site.data.keyword.cloud_notm}} services by using unbound credentials that are read from the `mappings.json` file. If you need to create unbound credentials, you can do so from the {{site.data.keyword.cloud_notm}} web console, or by using the [Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") `cf create-service-key` command.
+Locally running applications can connect to {{site.data.keyword.cloud_notm}} services by using unbound credentials that are read from the `mappings.json` file. If you need to create unbound credentials, you can do so from the {{site.data.keyword.cloud_notm}} web console, or by using the [Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/){: external} `cf create-service-key` command.
 
 When you push your application to {{site.data.keyword.cloud_notm}}, these values are no longer used. Instead, the application automatically connects to bound services by using environment variables.
 
@@ -124,4 +125,4 @@ When you push your application to {{site.data.keyword.cloud_notm}}, these values
 ## Next steps
 {: #next_steps-config notoc}
 
-The `ibm-cloud-config` supports searching for values by using three search pattern types: `cloudfoundry`, `env`, and `file`. If you would like to check out other supported search patterns and search pattern examples, check the [Usage](https://github.com/ibm-developer/ibm-cloud-env#usage){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") section.
+The `ibm-cloud-config` supports searching for values by using three search pattern types: `cloudfoundry`, `env`, and `file`. If you would like to check out other supported search patterns and search pattern examples, check the [Usage](https://github.com/ibm-developer/ibm-cloud-env#usage){: external} section.

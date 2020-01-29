@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-06-10"
+  years: 2018, 2020
+lastupdated: "2020-01-28"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -169,5 +169,5 @@ Great job! You added a level of secure persistence to your app. Keep the momentu
 
 * View the [{{site.data.keyword.cos_short}} SDK for Node.js](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") source code.
 * Check out the [example code for bucket and object operations](https://github.com/ibm/ibm-cos-sdk-js#example-code){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
-* Starter Kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud_notm}}. View the available starter kits in the [Mobile developer dashboard](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"). Download the code. Run the app!
+* Starter kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud_notm}}. View the available starter kits in the [App Development console](https://{DomainName}/developer/appservice/starter-kits){: new_window} ![External link icon](../../icons/launch-glyph.svg "External link icon").
 * To learn more about and take advantage of all of the features that {{site.data.keyword.cos_short}} offers, [check out the docs](/docs/services/cloud-object-storage?topic=cloud-object-storage-about).

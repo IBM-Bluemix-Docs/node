@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-06-10"
+  years: 2017, 2020
+lastupdated: "2020-01-28"
 
 keywords: nodejs storage, nodejs cloudant, nodejs iam, initialize sdk nodejs, test nodejs app, dbaas nodejs, nodejs-cloudant, store documents nodejs
 
@@ -16,6 +16,7 @@ subcollection: nodejs
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:external: target="_blank" .external}
 
 # Storing documents in {{site.data.keyword.cloud_notm}}
 {: #cloudant}
@@ -29,9 +30,9 @@ For more information, see [{{site.data.keyword.cloudant_short_notm}} Basics](/do
 {: #prereqs-cloudant}
 
 Be sure that you have the following prerequisites ready to go:
- * [Nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") 2.3.0+ client library.
- * You must have an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/registration){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
- * To access {{site.data.keyword.cloudant_short_notm}}, you must create a service in the [{{site.data.keyword.cloud_notm}} dashboard](https://cloud.ibm.com/resources){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"), and then start the {{site.data.keyword.cloudant_short_notm}} Dashboard from that service instance.
+ * [Nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant){: external} 2.3.0+ client library.
+ * You must have an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/registration){: external}.
+ * To access {{site.data.keyword.cloudant_short_notm}}, you must create a service in the [{{site.data.keyword.cloud_notm}} dashboard](https://cloud.ibm.com/resources){: external}, and then start the {{site.data.keyword.cloudant_short_notm}} Dashboard from that service instance.
  * The code snippets in these instructions use IAM authentication.
  
 ### Enabling IAM with {{site.data.keyword.cloudant_short_notm}}
@@ -47,8 +48,8 @@ All new {{site.data.keyword.cloudant_short_notm}} service instances are enabled 
 When you create an instance of {{site.data.keyword.cloudant_short_notm}}, you also create the database.
 
 1. Log in to your {{site.data.keyword.cloud_notm}} account.
-2. From the [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/resources){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"), click **Create resource**. The {{site.data.keyword.cloud_notm}} catalog opens.
-3. In the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"), select the **Databases** category, and then click {{site.data.keyword.cloudant_short_notm}}. The service configuration page opens.
+2. From the [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/resources){{: external}, click **Create resource**. The {{site.data.keyword.cloud_notm}} catalog opens.
+3. In the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external}, select the **Databases** category, and then click {{site.data.keyword.cloudant_short_notm}}. The service configuration page opens.
 4. Complete the information in the following fields:
   * **Service name** - Either type a name for your service instance, or use the preset name.
   * **Choose a region/location to deploy in** - Select a region in which to deploy your service.
@@ -71,7 +72,7 @@ If you want to see related information about provisioning an instance of the {{s
 
 <!--From github.com/cloudant/nodejs-cloudant#installation-and-usage-->
 
-Begin with your own Node.js project, and define this work as your dependency. In other words, put {{site.data.keyword.cloudant_short_notm}} in your package.json dependencies. Use the [npm](https://nodejs.org/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") package manager from the command line to install the SDK:
+Begin with your own Node.js project, and define this work as your dependency. In other words, put {{site.data.keyword.cloudant_short_notm}} in your package.json dependencies. Use the [npm](https://nodejs.org/){: external} package manager from the command line to install the SDK:
 ```
 npm install --save @cloudant/cloudant
 ```
@@ -181,7 +182,7 @@ var deleteDocument = function(callback) {
 Is everything set up correctly? Test it out!
 
 1. Run your application, making sure to start the initialization and respective operations, such as creating a document.
-2. From the [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/resources){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"), click the {{site.data.keyword.cloudant_short_notm}} service instance that you previously created. When the service instance opens, click **Launch Cloudant Dashboard**.
+2. From the [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/resources){: external}, click the {{site.data.keyword.cloudant_short_notm}} service instance that you previously created. When the service instance opens, click **Launch Cloudant Dashboard**.
 3. In the {{site.data.keyword.cloudant_short_notm}} Dashboard, select the database where you created the new documents.
 
 Having trouble? Check out the [{{site.data.keyword.cloudant_short_notm}} API Reference](/docs/services/Cloudant?topic=cloudant-api-reference-overview).
@@ -191,7 +192,7 @@ Having trouble? Check out the [{{site.data.keyword.cloudant_short_notm}} API Ref
 
 Great job! You added a level of secure persistence to your app. Keep the momentum by trying one of the following options:
 
-* View the [{{site.data.keyword.cloudant_short_notm}} SDK for Node.js](https://github.com/cloudant/nodejs-cloudant){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") source code.
-* Check out the [example code for database and document operations](https://github.com/cloudant/nodejs-cloudant/tree/master/example){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
-* Starter Kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud}}. View the available starter kits in the [Mobile developer dashboard](https://cloud.ibm.com/developer/mobile/dashboard){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"). Download the code. Run the app!
+* View the [{{site.data.keyword.cloudant_short_notm}} SDK for Node.js](https://github.com/cloudant/nodejs-cloudant){: external} source code.
+* Check out the [example code for database and document operations](https://github.com/cloudant/nodejs-cloudant/tree/master/example){: external}.
+* Starter kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud}}. [App Development console](https://{DomainName}/developer/appservice/starter-kits){: external}.
 * To learn more about and take advantage of all of the features that {{site.data.keyword.cloudant_short_notm}} offers, [check out the docs](/docs/services/Cloudant?topic=cloudant-getting-started).
