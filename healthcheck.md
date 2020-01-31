@@ -16,11 +16,12 @@ subcollection: nodejs
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:external: target="_blank" .external}
 
 # Using a health check in Node.js apps
 {: #node-healthcheck}
 
-Health checks provide a simple mechanism to determine whether a server-side application is behaving properly. Cloud environments like [Kubernetes](https://www.ibm.com/cloud/container-service){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") and [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"), can be configured to poll health endpoints periodically to determine whether an instance of your service is ready to accept traffic.
+Health checks provide a simple mechanism to determine whether a server-side application is behaving properly. Cloud environments like [Kubernetes](https://www.ibm.com/cloud/container-service){: external} and [Cloud Foundry](https://www.ibm.com/cloud/cloud-foundry){: external}, can be configured to poll health endpoints periodically to determine whether an instance of your service is ready to accept traffic.
 
 ## Health check overview
 {: #node-healthcheck-overview}
@@ -96,7 +97,7 @@ A liveness probe, by contrast, is deliberate about what is checked, as a failure
 ### Adding support for Kubernetes readiness and liveness
 {: #kube-readiness-add}
 
-The [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") library from [CloudNativeJS](https://github.com/cloudnativejs){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"), provides a framework for defining separate liveness and readiness endpoints in Node that allow composition of sources for the state of each endpoint.
+The [`cloud-health-connect`](https://github.com/CloudNativeJS/cloud-health-connect){: external} library from [CloudNativeJS](https://github.com/cloudnativejs){: external}, provides a framework for defining separate liveness and readiness endpoints in Node that allow composition of sources for the state of each endpoint.
 
 ## Configuring readiness and liveness probes in Kubernetes
 {: #kube-readiness-config}
@@ -139,4 +140,4 @@ spec:
 ```
 {: codeblock}
 
-For more information, see how to [Configure liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+For more information, see how to [Configure liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){: external}.

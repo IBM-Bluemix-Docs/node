@@ -16,6 +16,7 @@ subcollection: nodejs
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:external: target="_blank" .external}
 
 # Logging in Node.js
 {: #logging_nodejs}
@@ -24,7 +25,7 @@ Log messages are strings with contextual information about the state and activit
 
 Given the transient nature of processes in cloud environments, logs must be collected and sent elsewhere, usually to a centralized location for analysis. The most consistent way to log in cloud environments is to send log entries to standard output and error streams, which leaves the infrastructure to handle the rest.
 
-You can use [Log4js](https://github.com/log4js-node/log4js-node){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"), which is a popular logging framework for Node.js, and provides many native benefits that include: 
+You can use [Log4js](https://github.com/log4js-node/log4js-node){: external}, which is a popular logging framework for Node.js, and provides many native benefits that include: 
 * Logging to `stdout` or `stderr`
 * Various appending options
 * Configurable log message layout and patterns
@@ -33,7 +34,7 @@ You can use [Log4js](https://github.com/log4js-node/log4js-node){: new_window} !
 ## Adding Log4js support to existing Node.js app
 {: #add_log4j}
 
-1. First, install `log4js` by running the following [npm](https://nodejs.org/en/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") command in the root directory of your application, which installs the package and adds it to your `package.json` file.
+1. First, install `log4js` by running the following [npm](https://nodejs.org/en/){: external} command in the root directory of your application, which installs the package and adds it to your `package.json` file.
   ```bash
   npm install --save log4js
   ```
@@ -66,12 +67,12 @@ You can use [Log4js](https://github.com/log4js-node/log4js-node){: new_window} !
   ```
   {: codeblock}
 
-  For more information about customizing the log messages with appenders, `Log Levels`, and configuration details, see the official [log4js-node documentation](https://log4js-node.github.io/log4js-node/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+  For more information about customizing the log messages with appenders, `Log Levels`, and configuration details, see the official [log4js-node documentation](https://log4js-node.github.io/log4js-node/){: external}.
 
 ## Monitoring with App Service apps
 {: #monitoring}
 
-Node.js apps that are created by using the {{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") come with Log4js by default. You can open the `server/server.js` file to see the following Log4js code:
+Node.js apps that are created by using the {{site.data.keyword.cloud_notm}} [App Service](https://cloud.ibm.com/developer/appservice/dashboard){: external} come with Log4js by default. You can open the `server/server.js` file to see the following Log4js code:
 ```js
 var logger = log4js.getLogger(appName);
 var app = express();
@@ -99,7 +100,7 @@ You can view log output by using the following methods:
   ```
   {: codeblock}
 
-* For [Kubernetes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") deployments, you can access logs by running:
+* For [Kubernetes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs){: external} deployments, you can access logs by running:
   ```
   kubectl logs <deployment name>
   ```
@@ -109,10 +110,10 @@ You can view log output by using the following methods:
 {: #next_steps-logging notoc}
 
 Learn more about viewing logs in each deployment environment:
-* [Kubernetes Logs](https://kubernetes.io/docs/concepts/cluster-administration/logging/#basic-logging-in-kubernetes){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon")
+* [Kubernetes Logs](https://kubernetes.io/docs/concepts/cluster-administration/logging/#basic-logging-in-kubernetes){: external}
 * [Cloud Foundry Logs](/docs/services/CloudLogAnalysis/cfapps?topic=cloudloganalysis-logging_cf_apps)
 * [{{site.data.keyword.openwhisk}} Logs & Monitoring](/docs/openwhisk?topic=cloud-functions-logs)
 
 Using a Log aggregator:
 * [{{site.data.keyword.cloud_notm}} Log Analysis](/docs/services/CloudLogAnalysis?topic=cloudloganalysis-log_analysis_ov#log_analysis_ov)
-* [{{site.data.keyword.cloud_notm}} Private ELK stack](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.2/manage_metrics/logging_elk.html){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon")
+* [{{site.data.keyword.cloud_notm}} Private ELK stack](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.2/manage_metrics/logging_elk.html){: external}

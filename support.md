@@ -17,6 +17,7 @@ subcollection: nodejs
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
+{:external: target="_blank" .external}
 
 # Getting Node.js app support
 {: #support-nodejs}
@@ -24,18 +25,18 @@ subcollection: nodejs
 ## Asking for help on dWanswers
 {: #dwanswers-nodejs}
 
-Ask questions on [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/index.html){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") by using the `#nodejs` tag or join the discussion in the [{{site.data.keyword.cloud_notm}} Slack](https://ibm-cloud-tech.slack.com){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") within the `#nodejs-at-ibm` channel.
+Ask questions on [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs/index.html){: external} by using the `#nodejs` tag or join the discussion in the [{{site.data.keyword.cloud_notm}} Slack](https://ibm-cloud-tech.slack.com){: external} within the `#nodejs-at-ibm` channel.
 
 ## Using official IBM Support for Runtimes
 {: #runtimes-support-nodejs}
 
-IBM Foundation Support for Runtimes provides coverage for Node.js, Swift, and Java. Support is available for Node.js 6 and 8 LTS binaries from the [Nodejs.org](https://nodejs.org/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") community, including the IBM SDK for Node.js, that uses the open-sourced [App Metrics](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") monitoring framework.
+IBM Foundation Support for Runtimes provides coverage for Node.js, Swift, and Java. Support is available for Node.js 6 and 8 LTS binaries from the [Nodejs.org](https://nodejs.org/){: external} community, including the IBM SDK for Node.js, that uses the open-sourced [App Metrics](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/){: external} monitoring framework.
 
 The Node.js runtime support is available regardless of which modules you are using within your application. Support is available for wherever you want to deploy the runtime, whether that’s on your own computers, in {{site.data.keyword.cloud_notm}}, or elsewhere.
 
 IBM Advanced Support for Runtimes expands on Foundation Support, providing coverage for Express.js, Loopback, and Kitura (Swift framework) frameworks (including package dependencies).
 
-To learn more, see [IBM's Digital Marketplace](https://www.ibm.com/cloud/support-for-runtimes){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+To learn more, see [IBM's Digital Marketplace](https://www.ibm.com/cloud/support-for-runtimes){: external}.
 
 ## Buildpack Support Statement
 {: #buildpack-nodejs}

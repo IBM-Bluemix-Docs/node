@@ -16,18 +16,19 @@ subcollection: nodejs
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:external: target="_blank" .external}
 
 # Setting up End-to-End tracing
 {: #e2e-tracing}
 
-The following tutorial focuses on Zipkin and the use of the [appmetrics-zipkin](https://github.com/CloudNativeJS/appmetrics-zipkin){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") module for tracing Node.js applications. You can learn more about Zipkin in the original [appmetrics-zipkin announcement](https://developer.ibm.com/node/2017/10/26/add-zipkin-open-tracing-support-node-js-application-one-line-code/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"). 
+The following tutorial focuses on Zipkin and the use of the [appmetrics-zipkin](https://github.com/CloudNativeJS/appmetrics-zipkin){: external} module for tracing Node.js applications. You can learn more about Zipkin in the original [appmetrics-zipkin announcement](https://developer.ibm.com/node/2017/10/26/add-zipkin-open-tracing-support-node-js-application-one-line-code/){: external}. 
 
 In the following steps, two small applications (one front end, one back end) are used to trace between two endpoints by using the `appmetrics-zipkin` module. You can start from scratch or apply the principles that are described here to your existing Node.js applications. 
 
 ## Step 1. Installing and enabling the appmetrics-zipkin module
 {: #install-zipkin}
 
-In the same location as your Node.js application’s `package.json` file, enter the following [npm](https://nodejs.org/en/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") command to add the `appmetrics-zipkin` module into your dependency list:
+In the same location as your Node.js application’s `package.json` file, enter the following [npm](https://nodejs.org/en/){: external} command to add the `appmetrics-zipkin` module into your dependency list:
 ```
 npm install --save appmetrics-zipkin
 ```
@@ -102,7 +103,7 @@ You can click **Find traces** and modify the search options to selectively show 
 ## Step 3. Testing an example scenario
 {: #node-example-tracing}
 
-If you follow the [GitHub project’s documentation](https://github.com/ibm-developer/nodejs-zipkin-tracing){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"), you end up with the following sample application. It’s a simple process that involves tracing a request and response between two endpoints. The following images show the Zipkin server with collected trace data on display. The key point to remember is the inclusion of `require('appmetrics-zipkin')`, and optionally the Zipkin server configuration code. The following example scenario shows how you can quickly add Zipkin tracing into your existing Node.js applications.
+If you follow the [GitHub project’s documentation](https://github.com/ibm-developer/nodejs-zipkin-tracing){: external}, you end up with the following sample application. It’s a simple process that involves tracing a request and response between two endpoints. The following images show the Zipkin server with collected trace data on display. The key point to remember is the inclusion of `require('appmetrics-zipkin')`, and optionally the Zipkin server configuration code. The following example scenario shows how you can quickly add Zipkin tracing into your existing Node.js applications.
 
 ### Tracing scenario overview
 {: #tracing-scenario}
@@ -162,7 +163,7 @@ The tutorial finishes here for deployments without Kubernetes. Check out the nex
 ## Next steps
 {: #next-steps-tracing}
 
-* Learn to build Cloud Native Node.js applications with the help of the [CloudNativeJS](https://www.cloudnativejs.io/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") community project that provides assets and tools to help you deploy them to Docker and Kubernetes based clouds.
+* Learn to build Cloud Native Node.js applications with the help of the [CloudNativeJS](https://www.cloudnativejs.io/){: external} community project that provides assets and tools to help you deploy them to Docker and Kubernetes based clouds.
 
-* If you're ready to add tracing to your Node.js applications that run on Kubernetes, check out [tracing Node.js applications that use Kubernetes](https://developer.ibm.com/node/tutorial-end-end-tracing-node-js-applications/#appservice){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+* If you're ready to add tracing to your Node.js applications that run on Kubernetes, check out [tracing Node.js applications that use Kubernetes](https://developer.ibm.com/node/tutorial-end-end-tracing-node-js-applications/#appservice){: external}.
 

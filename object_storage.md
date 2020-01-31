@@ -15,6 +15,7 @@ subcollection: nodejs
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:external: target="_blank" .external}
 
 # Storing static content in Object Storage
 {: #object-storage}
@@ -34,19 +35,19 @@ https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-stor
 {: #prereqs-cos}
 
 Be sure that you have the following prerequisites ready to go:
-1. You must have an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/registration){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
-2. You must have the [{{site.data.keyword.cos_short}} SDK for Node.js](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+1. You must have an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/registration){: external}.
+2. You must have the [{{site.data.keyword.cos_short}} SDK for Node.js](https://github.com/ibm/ibm-cos-sdk-js){: external}.
 3. You must have Node 4.x+.
 4. Locate the credential key values to be used later for SDK initialization:
 
-    * _**endpoint**_ - The public endpoint for your Cloud Object Storage. The endpoint is available from the [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/resources){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+    * _**endpoint**_ - The public endpoint for your Cloud Object Storage. The endpoint is available from the [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/resources){: external}.
     * _**api-key**_ - The API key that is generated when the service credentials are created. Write access is required for creation and deletion examples.
-    * _**resource-instance-id**_ - The resource ID for your Cloud Object Storage. The resource ID is available through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started) or [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/resources){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
+    * _**resource-instance-id**_ - The resource ID for your Cloud Object Storage. The resource ID is available through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started) or [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/resources){: external}.
 
 ## Step 1. Creating an instance of {{site.data.keyword.cos_short}}
 {: #create-instance-cos}
 
-1. In the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon"), select the **Storage** category, and click {{site.data.keyword.cos_short}}. The service configuration page opens.
+1. In the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external}, select the **Storage** category, and click {{site.data.keyword.cos_short}}. The service configuration page opens.
 2. Give your service instance a name, or use the preset name.
 3. Select your pricing plan and click **Create**. Your Object Storage instance page opens.
 4. In the navigation menu, select **Service credentials**.
@@ -56,7 +57,7 @@ Be sure that you have the following prerequisites ready to go:
 ## Step 2. Installing the SDK
 {: #install-cos}
 
-Install the {{site.data.keyword.cos_short}} SDK for Node.js by using the [npm](https://nodejs.org/en/){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") package manager from the command line:
+Install the {{site.data.keyword.cos_short}} SDK for Node.js by using the [npm](https://nodejs.org/en/){: external} package manager from the command line:
 ```
 npm install ibm-cos-sdk
 ```
@@ -167,7 +168,7 @@ Having trouble? Check out the [{{site.data.keyword.cos_short}} API Reference](/d
 
 Great job! You added a level of secure persistence to your app. Keep the momentum by trying one of the following options:
 
-* View the [{{site.data.keyword.cos_short}} SDK for Node.js](https://github.com/ibm/ibm-cos-sdk-js){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon") source code.
-* Check out the [example code for bucket and object operations](https://github.com/ibm/ibm-cos-sdk-js#example-code){: new_window} ![External link icon](../icons/launch-glyph.svg "External link icon").
-* Starter kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud_notm}}. View the available starter kits in the [App Development console](https://{DomainName}/developer/appservice/starter-kits){: new_window} ![External link icon](../../icons/launch-glyph.svg "External link icon").
+* View the [{{site.data.keyword.cos_short}} SDK for Node.js](https://github.com/ibm/ibm-cos-sdk-js){: external} source code.
+* Check out the [example code for bucket and object operations](https://github.com/ibm/ibm-cos-sdk-js#example-code){: external}.
+* Starter kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud_notm}}. View the available starter kits in the [App Development console](https://{DomainName}/developer/appservice/starter-kits){: external}.
 * To learn more about and take advantage of all of the features that {{site.data.keyword.cos_short}} offers, [check out the docs](/docs/services/cloud-object-storage?topic=cloud-object-storage-about).
