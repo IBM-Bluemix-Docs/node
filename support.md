@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-06-06"
+  years: 2018, 2020
+lastupdated: "2020-03-19"
 
 keywords: nodejs support, nodejs help, dwanswers nodejs, nodejs runtimes, nodejs buildpack, ibm support nodejs, foundation support nodejs, runtime support nodejs, nodejs app support
 
@@ -30,7 +30,7 @@ Ask questions on [dWAnswers](https://developer.ibm.com/answers/smartspace/nodejs
 ## Using official IBM Support for Runtimes
 {: #runtimes-support-nodejs}
 
-IBM Foundation Support for Runtimes provides coverage for Node.js, Swift, and Java. Support is available for Node.js 6 and 8 LTS binaries from the [Nodejs.org](https://nodejs.org/){: external} community, including the IBM SDK for Node.js, that uses the open-sourced [App Metrics](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/){: external} monitoring framework.
+IBM Foundation Support for Runtimes provides coverage for Node.js, Swift, and Java. Support is available for Node.js 6 and 8 LTS binaries from the [Nodejs.org](https://nodejs.org/en/){: external} community, including the IBM SDK for Node.js, that uses the open-sourced [App Metrics](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/){: external} monitoring framework.
 
 The Node.js runtime support is available regardless of which modules you are using within your application. Support is available for wherever you want to deploy the runtime, whether that’s on your own computers, in {{site.data.keyword.cloud_notm}}, or elsewhere.
 

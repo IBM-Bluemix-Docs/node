@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-03-19"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 
@@ -81,6 +81,3 @@ Continue checking out the topics the Node.js programming guide, or for more adva
 
 ### Set up a Kubernetes cluster
 For more information about setting up a Kubernetes cluster in {{site.data.keyword.cloud_notm}}, check out the [tutorial steps](/docs/containers?topic=containers-clusters).
-
-### Deploy Node.js apps to Kubernetes cluster
-Learn how to [deploy Node.js apps to a Kubernetes cluster](/docs/containers?topic=containers-cs_apps_tutorial).

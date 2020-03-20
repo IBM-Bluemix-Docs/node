@@ -6,6 +6,7 @@ Programming with Node.js on IBM Cloud
 
     {: .navgroup id="learn"}
     index.md
+    [What are cloud native apps?](https://www.ibm.com/cloud/learn/cloud-native)
        
     {: .topicgroup}
     Related links

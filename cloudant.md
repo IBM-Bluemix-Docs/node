@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-03-19"
 
 keywords: nodejs storage, nodejs cloudant, nodejs iam, initialize sdk nodejs, test nodejs app, dbaas nodejs, nodejs-cloudant, store documents nodejs
 
@@ -31,8 +31,8 @@ For more information, see [{{site.data.keyword.cloudant_short_notm}} Basics](/do
 
 Be sure that you have the following prerequisites ready to go:
  * [Nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant){: external} 2.3.0+ client library.
- * You must have an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/registration){: external}.
- * To access {{site.data.keyword.cloudant_short_notm}}, you must create a service in the [{{site.data.keyword.cloud_notm}} dashboard](https://cloud.ibm.com/resources){: external}, and then start the {{site.data.keyword.cloudant_short_notm}} Dashboard from that service instance.
+ * You must have an [{{site.data.keyword.cloud}} account](https://{DomainName}/registration){: external}.
+ * To access {{site.data.keyword.cloudant_short_notm}}, you must create a service in the [{{site.data.keyword.cloud_notm}} dashboard](https://{DomainName}/resources){: external}, and then start the {{site.data.keyword.cloudant_short_notm}} Dashboard from that service instance.
  * The code snippets in these instructions use IAM authentication.
  
 ### Enabling IAM with {{site.data.keyword.cloudant_short_notm}}
@@ -48,8 +48,8 @@ All new {{site.data.keyword.cloudant_short_notm}} service instances are enabled 
 When you create an instance of {{site.data.keyword.cloudant_short_notm}}, you also create the database.
 
 1. Log in to your {{site.data.keyword.cloud_notm}} account.
-2. From the [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/resources){{: external}, click **Create resource**. The {{site.data.keyword.cloud_notm}} catalog opens.
-3. In the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external}, select the **Databases** category, and then click {{site.data.keyword.cloudant_short_notm}}. The service configuration page opens.
+2. From the [{{site.data.keyword.cloud_notm}} Dashboard](https://{DomainName}/resources){{: external}, click **Create resource**. The {{site.data.keyword.cloud_notm}} catalog opens.
+3. In the [{{site.data.keyword.cloud_notm}} catalog](https://{DomainName}/catalog){: external}, select the **Databases** category, and then click {{site.data.keyword.cloudant_short_notm}}. The service configuration page opens.
 4. Complete the information in the following fields:
   * **Service name** - Either type a name for your service instance, or use the preset name.
   * **Choose a region/location to deploy in** - Select a region in which to deploy your service.
@@ -72,7 +72,7 @@ If you want to see related information about provisioning an instance of the {{s
 
 <!--From github.com/cloudant/nodejs-cloudant#installation-and-usage-->
 
-Begin with your own Node.js project, and define this work as your dependency. In other words, put {{site.data.keyword.cloudant_short_notm}} in your package.json dependencies. Use the [npm](https://nodejs.org/){: external} package manager from the command line to install the SDK:
+Begin with your own Node.js project, and define this work as your dependency. In other words, put {{site.data.keyword.cloudant_short_notm}} in your package.json dependencies. Use the [npm](https://nodejs.org/en/){: external} package manager from the command line to install the SDK:
 ```
 npm install --save @cloudant/cloudant
 ```
@@ -182,7 +182,7 @@ var deleteDocument = function(callback) {
 Is everything set up correctly? Test it out!
 
 1. Run your application, making sure to start the initialization and respective operations, such as creating a document.
-2. From the [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/resources){: external}, click the {{site.data.keyword.cloudant_short_notm}} service instance that you previously created. When the service instance opens, click **Launch Cloudant Dashboard**.
+2. From the [{{site.data.keyword.cloud_notm}} Dashboard](https://{DomainName}/resources){: external}, click the {{site.data.keyword.cloudant_short_notm}} service instance that you previously created. When the service instance opens, click **Launch Cloudant Dashboard**.
 3. In the {{site.data.keyword.cloudant_short_notm}} Dashboard, select the database where you created the new documents.
 
 Having trouble? Check out the [{{site.data.keyword.cloudant_short_notm}} API Reference](/docs/services/Cloudant?topic=cloudant-api-reference-overview).

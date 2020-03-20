@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-03-19"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -22,10 +22,10 @@ subcollection: nodejs
 
 <!-- Sample Code for the SDK: https://github.com/ibm/ibm-cos-sdk-js#example-code -->
 
-<!-- More sample code: https://cloud.ibm.com/docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-node -->
+<!-- More sample code: /docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-node -->
 
 <!-- Object storage tutorial under the Storing and sharing data topicgroup:
-https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-about -->
+/docs/services/cloud-object-storage?topic=cloud-object-storage-about -->
 
 {{site.data.keyword.cos_full_notm}} is a fundamental component of cloud computing and provides powerful capabilities to Apple developers and their applications. Unlike storing information in a file hierarchy (such as Block or File storage), an object store consists only of the files and their metadata. These files are stored in collections that are known as buckets. By definition, these objects are immutable, which makes them perfect for data such as images, videos, and other static documents. For data that either changes often or is relational data, you can use the [{{site.data.keyword.cloudant_short_notm}}](/docs/node?topic=nodejs-cloudant) database service.
 
@@ -35,19 +35,19 @@ https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-stor
 {: #prereqs-cos}
 
 Be sure that you have the following prerequisites ready to go:
-1. You must have an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/registration){: external}.
+1. You must have an [{{site.data.keyword.cloud}} account](https://{DomainName}/registration){: external}.
 2. You must have the [{{site.data.keyword.cos_short}} SDK for Node.js](https://github.com/ibm/ibm-cos-sdk-js){: external}.
 3. You must have Node 4.x+.
 4. Locate the credential key values to be used later for SDK initialization:
 
-    * _**endpoint**_ - The public endpoint for your Cloud Object Storage. The endpoint is available from the [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/resources){: external}.
+    * _**endpoint**_ - The public endpoint for your Cloud Object Storage. The endpoint is available from the [{{site.data.keyword.cloud_notm}} Dashboard](https://{DomainName}/resources){: external}.
     * _**api-key**_ - The API key that is generated when the service credentials are created. Write access is required for creation and deletion examples.
-    * _**resource-instance-id**_ - The resource ID for your Cloud Object Storage. The resource ID is available through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started) or [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/resources){: external}.
+    * _**resource-instance-id**_ - The resource ID for your Cloud Object Storage. The resource ID is available through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started) or [{{site.data.keyword.cloud_notm}} Dashboard](https://{DomainName}/resources){: external}.
 
 ## Step 1. Creating an instance of {{site.data.keyword.cos_short}}
 {: #create-instance-cos}
 
-1. In the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external}, select the **Storage** category, and click {{site.data.keyword.cos_short}}. The service configuration page opens.
+1. In the [{{site.data.keyword.cloud_notm}} catalog](https://{DomainName}/catalog){: external}, select the **Storage** category, and click {{site.data.keyword.cos_short}}. The service configuration page opens.
 2. Give your service instance a name, or use the preset name.
 3. Select your pricing plan and click **Create**. Your Object Storage instance page opens.
 4. In the navigation menu, select **Service credentials**.

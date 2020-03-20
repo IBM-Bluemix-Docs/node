@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-06-05"
+  years: 2018, 2020
+lastupdated: "2020-03-19"
 
 keywords: healthcheck node, add healthcheck node, healthcheck endpoint nodes, readiness node, liveness node, endpoint node, probes node, health check node
 
@@ -140,4 +140,4 @@ spec:
 ```
 {: codeblock}
 
-For more information, see how to [Configure liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/){: external}.
+For more information, see how to [Configure liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/){: external}.
