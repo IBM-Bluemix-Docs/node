@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-06-05"
+  years: 2018, 2020
+lastupdated: "2020-03-26"
 
 keywords: ibmcloud dev enable, nodejs cloud deployment, cloud enable nodejs, deploy nodejs, build nodejs cloud, nodejs debug
 
@@ -20,7 +20,7 @@ subcollection: nodejs
 # Enabling existing Node.js applications for cloud deployment
 {: #enable_existing}
 
-You can generate the files that are needed to enable your Node.js application to run on {{site.data.keyword.cloud}} by using the [{{site.data.keyword.dev_cli_long}} CLI enable command](/docs/cli/idt?topic=cloud-cli-idt-cli#enable).
+You can generate the files that are needed to enable your Node.js application to run on {{site.data.keyword.cloud}} by using the [{{site.data.keyword.dev_cli_short}} `ibmcloud dev enable` command](/docs/cli/idt?topic=cloud-cli-idt-cli#enable).
 
 ## Enabling your application
 {: #enable_app}
@@ -157,4 +157,4 @@ dockerfile-run : "docker-compose.yml"
 ## Next Steps
 {: #next_steps-existing notoc}
 
-For more information, see [IBM Cloud Developer Tools CLI](/docs/cli/idt?topic=cloud-cli-idt-cli#idt-cli).
+For more information, see [{{site.data.keyword.dev_cli_short}} (ibmcloud dev) commands](/docs/cli/idt?topic=cloud-cli-idt-cli#idt-cli).
