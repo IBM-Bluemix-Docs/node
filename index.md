@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-03-26"
+lastupdated: "2020-04-14"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 
@@ -51,10 +51,16 @@ Make sure that you are using the latest Node.js LTS release.
 ## Adding a service
 {: #node-add-service}
 
-1. Return to your project in the {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}}.
-2. Click **Add service**, select the category of the service you want to add, click **Next**, then choose your service. For example, to add a NoSQL database to your application, select the **Data** category, then select **Cloudant**, which offers a Lite plan for free development. {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}} provisions the service for you based on the selected plan.
-Note: If you previously provisioned the service that you plan to use, choose the **Existing** category.
-3. After the service is provisioned, click **Download code** to regenerate the project with the SDK that connects to your service.
+1. Return to your app in the {{site.data.keyword.cloud_notm}} {{site.data.keyword.dev_console}}.
+2. On the App details page, click **Create service** or **Connect existing services**, depending on whether you already have services that you want to connect to this app.
+3. Select the kind of service you want, and follow the prompts to either add an existing service to your app or create a service instance. For example, to add a NoSQL database to your application, select the **Databases** category, then select **Cloudant**, which offers a Lite plan for free development. {{site.data.keyword.cloud_notm}} provisions the service for you, based on the selected plan.
+4. After the service is provisioned, click **Download code** to regenerate the app with the SDK that connects to your service.
+
+After you add all the services that you want, the services are displayed in the App details page.
+
+After you connect a service to your app, you can navigate to the service documentation and API references. Simply click the links within the **Services** card to view the related docs.
+
+For more information, see [Adding a service to your app](/docs/apps?topic=creating-apps-add-service).
 
 ## Running apps locally
 {: #node-run-local}
