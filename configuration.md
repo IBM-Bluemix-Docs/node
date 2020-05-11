@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-12-04"
+  years: 2018, 2020
+lastupdated: "2020-05-05"
 
 keywords: configure node env, node environment, node credentials, ibm-cloud-env node, service credentials, credentials, variables, configuration
 
@@ -114,7 +114,7 @@ Your application configuration information for services is stored in the `locald
 
 The application uses the configuration manager to read the connection and configuration information from the environment and this file. It uses a custom-built `mappings.json`, which is located in the `server/config` directory, to communicate where the credentials can be found for each service.
 
-Locally running applications can connect to {{site.data.keyword.cloud_notm}} services by using unbound credentials that are read from the `mappings.json` file. If you need to create unbound credentials, you can do so from the {{site.data.keyword.cloud_notm}} web console, or by using the [Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/){: external} `cf create-service-key` command.
+Locally running applications can connect to {{site.data.keyword.cloud_notm}} services by using unbound credentials that are read from the `mappings.json` file. If you need to create unbound credentials, you can do so from the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}){: external}, or by using the [Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/){: external} `cf create-service-key` command.
 
 When you push your application to {{site.data.keyword.cloud_notm}}, these values are no longer used. Instead, the application automatically connects to bound services by using environment variables.
 
