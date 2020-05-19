@@ -6,7 +6,7 @@ lastupdated: "2020-03-19"
 
 keywords: nodejs support, nodejs help, dwanswers nodejs, nodejs runtimes, nodejs buildpack, ibm support nodejs, foundation support nodejs, runtime support nodejs, nodejs app support
 
-subcollection: nodejs
+subcollection: node
 
 ---
 

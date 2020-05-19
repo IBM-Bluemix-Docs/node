@@ -6,7 +6,7 @@ lastupdated: "2020-03-19"
 
 keywords: nodejs storage, nodejs cloudant, nodejs iam, initialize sdk nodejs, test nodejs app, dbaas nodejs, nodejs-cloudant, store documents nodejs
 
-subcollection: nodejs
+subcollection: node
 
 ---
 

@@ -6,7 +6,7 @@ lastupdated: "2019-12-19"
 
 keywords: deploy nodejs app, serverless nodejs, back-end nodejs, generated sdk nodejs, cloud foundry deploy nodejs, kubernetes deploy nodejs, nodejs
 
-subcollection: nodejs
+subcollection: node
 
 ---
 

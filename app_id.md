@@ -6,7 +6,7 @@ lastupdated: "2020-01-28"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
-subcollection: nodejs
+subcollection: node
 
 ---
 

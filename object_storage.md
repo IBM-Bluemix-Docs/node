@@ -6,7 +6,7 @@ lastupdated: "2020-03-19"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
-subcollection: nodejs
+subcollection: node
 
 ---
 
@@ -27,7 +27,7 @@ subcollection: nodejs
 <!-- Object storage tutorial under the Storing and sharing data topicgroup:
 /docs/services/cloud-object-storage?topic=cloud-object-storage-about -->
 
-{{site.data.keyword.cos_full_notm}} is a fundamental component of cloud computing and provides powerful capabilities to Apple developers and their applications. Unlike storing information in a file hierarchy (such as Block or File storage), an object store consists only of the files and their metadata. These files are stored in collections that are known as buckets. By definition, these objects are immutable, which makes them perfect for data such as images, videos, and other static documents. For data that either changes often or is relational data, you can use the [{{site.data.keyword.cloudant_short_notm}}](/docs/node?topic=nodejs-cloudant) database service.
+{{site.data.keyword.cos_full_notm}} is a fundamental component of cloud computing and provides powerful capabilities to Apple developers and their applications. Unlike storing information in a file hierarchy (such as Block or File storage), an object store consists only of the files and their metadata. These files are stored in collections that are known as buckets. By definition, these objects are immutable, which makes them perfect for data such as images, videos, and other static documents. For data that either changes often or is relational data, you can use the [{{site.data.keyword.cloudant_short_notm}}](/docs/node?topic=node-cloudant) database service.
 
 {{site.data.keyword.cos_short}} (COS) is a storage system that can be used to store unstructured data that is flexible, cost-effective, and scalable. The data is accessible through SDKs or by using the IBM user interface. You can use {{site.data.keyword.cos_short}} to access your unstructured data through a self-service portal that is backed by RESTful APIs and SDKs.
 

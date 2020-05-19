@@ -6,7 +6,7 @@ lastupdated: "2019-10-22"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dash nodejs, node.js application metrics dashboard
 
-subcollection: nodejs
+subcollection: node
 
 ---
 

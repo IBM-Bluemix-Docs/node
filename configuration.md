@@ -6,7 +6,7 @@ lastupdated: "2020-05-05"
 
 keywords: configure node env, node environment, node credentials, ibm-cloud-env node, service credentials, credentials, variables, configuration
 
-subcollection: nodejs
+subcollection: node
 
 ---
 

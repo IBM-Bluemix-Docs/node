@@ -6,7 +6,7 @@ lastupdated: "2020-03-19"
 
 keywords: healthcheck node, add healthcheck node, healthcheck endpoint nodes, readiness node, liveness node, endpoint node, probes node, health check node
 
-subcollection: nodejs
+subcollection: node
 
 ---
 

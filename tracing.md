@@ -6,7 +6,7 @@ lastupdated: "2019-08-26"
 
 keywords: nodejs tracing, debug nodejs apps, troubleshooting nodejs, appmetrics-zipkin node, zipkin docker nodejs, nodejs slow, nodejs tracing
 
-subcollection: nodejs
+subcollection: node
 
 ---
 

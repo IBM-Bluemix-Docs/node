@@ -6,7 +6,7 @@ lastupdated: "2020-03-26"
 
 keywords: ibmcloud dev enable, nodejs cloud deployment, cloud enable nodejs, deploy nodejs, build nodejs cloud, nodejs debug
 
-subcollection: nodejs
+subcollection: node
 
 ---
 
