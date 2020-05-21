@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-05-21"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -135,9 +135,10 @@ Provision an instance of the service:
 5. Add the following code to your `server.js` file to issue the service redirects:
   ```js
   app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
-  app.get("/protected", passport.authenticate(WebAppStrategy.STRATEGY_NAME)), function(req, res)
-  res.json(req.user);
-  }); 
+  app.get("/protected_resource", passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res){
+     res.json(req.user);
+ });
+
   ```
   {: codeblock}
 
