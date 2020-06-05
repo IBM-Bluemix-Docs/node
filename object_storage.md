@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-06-05"
 
 keywords: cos nodejs, object storage nodejs, nodejs data, file storage nodejs, ibm-cos-sdk nodejs, creating object nodejs, downloading object nodejs, static nodejs
 
@@ -25,7 +25,7 @@ subcollection: node
 <!-- More sample code: /docs/services/cloud-object-storage/libraries?topic=cloud-object-storage-node -->
 
 <!-- Object storage tutorial under the Storing and sharing data topicgroup:
-/docs/services/cloud-object-storage?topic=cloud-object-storage-about -->
+/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage -->
 
 {{site.data.keyword.cos_full_notm}} is a fundamental component of cloud computing and provides powerful capabilities to Apple developers and their applications. Unlike storing information in a file hierarchy (such as Block or File storage), an object store consists only of the files and their metadata. These files are stored in collections that are known as buckets. By definition, these objects are immutable, which makes them perfect for data such as images, videos, and other static documents. For data that either changes often or is relational data, you can use the [{{site.data.keyword.cloudant_short_notm}}](/docs/node?topic=node-cloudant) database service.
 
@@ -42,7 +42,7 @@ Be sure that you have the following prerequisites ready to go:
 
     * _**endpoint**_ - The public endpoint for your Cloud Object Storage. The endpoint is available from the [{{site.data.keyword.cloud_notm}} Dashboard](https://{DomainName}/resources){: external}.
     * _**api-key**_ - The API key that is generated when the service credentials are created. Write access is required for creation and deletion examples.
-    * _**resource-instance-id**_ - The resource ID for your Cloud Object Storage. The resource ID is available through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started) or [{{site.data.keyword.cloud_notm}} Dashboard](https://{DomainName}/resources){: external}.
+    * _**resource-instance-id**_ - The resource ID for your Cloud Object Storage. The resource ID is available through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started) or [{{site.data.keyword.cloud_notm}} Dashboard](https://{DomainName}/resources){: external}.
 
 ## Step 1. Creating an instance of {{site.data.keyword.cos_short}}
 {: #create-instance-cos}
@@ -171,4 +171,4 @@ Great job! You added a level of secure persistence to your app. Keep the momentu
 * View the [{{site.data.keyword.cos_short}} SDK for Node.js](https://github.com/ibm/ibm-cos-sdk-js){: external} source code.
 * Check out the [example code for bucket and object operations](https://github.com/ibm/ibm-cos-sdk-js#example-code){: external}.
 * Starter kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud_notm}}. View the available starter kits in the [App Development console](https://{DomainName}/developer/appservice/starter-kits){: external}.
-* To learn more about and take advantage of all of the features that {{site.data.keyword.cos_short}} offers, [check out the docs](/docs/services/cloud-object-storage?topic=cloud-object-storage-about).
+* To learn more about and take advantage of all of the features that {{site.data.keyword.cos_short}} offers, [check out the docs](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-06-05"
 
 keywords: nodejs storage, nodejs cloudant, nodejs iam, initialize sdk nodejs, test nodejs app, dbaas nodejs, nodejs-cloudant, store documents nodejs
 
@@ -24,7 +24,7 @@ subcollection: node
 {{site.data.keyword.cloudantfull}} is a document-oriented Database as a Service (DBaaS). It stores data as documents in JSON format. {{site.data.keyword.cloudant_short_notm}} is built with scalability, high availability, and durability in mind, and is easy to configure for use in Node.js applications. It comes with a wide variety of indexing options that includes MapReduce, {{site.data.keyword.cloudant_short_notm}} Query, full-text indexing, and geospatial indexing. The replication capabilities make it easy to keep data in sync between database clusters, desktop PCs, and mobile devices.
 {:shortdesc}
 
-For more information, see [{{site.data.keyword.cloudant_short_notm}} Basics](/docs/services/Cloudant/basics?topic=cloudant-ibm-cloudant-basics).
+For more information, see [{{site.data.keyword.cloudant_short_notm}} Basics](/docs/Cloudant?topic=Cloudant-ibm-cloudant-basics).
 
 ## Before you begin
 {: #prereqs-cloudant}
@@ -40,7 +40,7 @@ Be sure that you have the following prerequisites ready to go:
 
 Only new {{site.data.keyword.cloudant_short_notm}} service instances can be used with {{site.data.keyword.cloud_notm}} IAM.
 
-All new {{site.data.keyword.cloudant_short_notm}} service instances are enabled to use {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) when provisioned. When you provision a new instance from the {{site.data.keyword.cloud_notm}} catalog, choose the **Use only IAM** authentication method. This mode means that only IAM credentials are provided by service binding and credential generation. You can find more information at [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/services/Cloudant/guides?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
+All new {{site.data.keyword.cloudant_short_notm}} service instances are enabled to use {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) when provisioned. When you provision a new instance from the {{site.data.keyword.cloud_notm}} catalog, choose the **Use only IAM** authentication method. This mode means that only IAM credentials are provided by service binding and credential generation. You can find more information at [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-).
 
 ## Step 1. Creating an instance of {{site.data.keyword.cloudant_short_notm}}
 {: #create-instance-cloudant}
@@ -65,7 +65,7 @@ When you create an instance of {{site.data.keyword.cloudant_short_notm}}, you al
 8. From the navigation menu, click the **Databases** icon.
 9. Click **Create Database**, provide a database name, and then click **Create.** Your database page opens.
 
-If you want to see related information about provisioning an instance of the {{site.data.keyword.cloud_notm}} service, see [Creating an IBM Cloudant instance on IBM Cloud tutorial](/docs/services/Cloudant/tutorials?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-a-cloudant-nosql-db-instance-on-ibm-cloud).
+If you want to see related information about provisioning an instance of the {{site.data.keyword.cloud_notm}} service, see [Creating an IBM Cloudant instance on IBM Cloud tutorial](/docs/Cloudant?topic=Cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud).
 
 ## Step 2. Installing the SDK
 {: #install-cloudant}
@@ -185,7 +185,7 @@ Is everything set up correctly? Test it out!
 2. From the [{{site.data.keyword.cloud_notm}} Dashboard](https://{DomainName}/resources){: external}, click the {{site.data.keyword.cloudant_short_notm}} service instance that you previously created. When the service instance opens, click **Launch Cloudant Dashboard**.
 3. In the {{site.data.keyword.cloudant_short_notm}} Dashboard, select the database where you created the new documents.
 
-Having trouble? Check out the [{{site.data.keyword.cloudant_short_notm}} API Reference](/docs/services/Cloudant?topic=cloudant-api-reference-overview).
+Having trouble? Check out the [{{site.data.keyword.cloudant_short_notm}} API Reference](/docs/Cloudant?topic=Cloudant-api-reference-overview).
 
 ## Next steps
 {: #next-cloudant notoc}
@@ -195,4 +195,4 @@ Great job! You added a level of secure persistence to your app. Keep the momentu
 * View the [{{site.data.keyword.cloudant_short_notm}} SDK for Node.js](https://github.com/cloudant/nodejs-cloudant){: external} source code.
 * Check out the [example code for database and document operations](https://github.com/cloudant/nodejs-cloudant/tree/master/example){: external}.
 * Starter kits are one of the fastest ways to use the capabilities of {{site.data.keyword.cloud}}. [App Development console](https://{DomainName}/developer/appservice/starter-kits){: external}.
-* To learn more about and take advantage of all of the features that {{site.data.keyword.cloudant_short_notm}} offers, [check out the docs](/docs/services/Cloudant?topic=cloudant-getting-started).
+* To learn more about and take advantage of all of the features that {{site.data.keyword.cloudant_short_notm}} offers, [check out the docs](/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant).

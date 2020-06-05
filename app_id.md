@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-05-21"
+lastupdated: "2020-06-05"
 
 keywords: nodejs authentication, nodejs security, nodejs identity provider, nodejs cloud directory, nodejs facebook, nodejs login, nodejs social identity, add security nodejs, nodejs user authentication
 
@@ -33,7 +33,7 @@ For more information about all of the ways that you can use {{site.data.keyword.
 
 Be sure that you have the following prerequisites ready to go:
 1. You must have an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/registration){: external}.
-2. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started).
+2. Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started).
 3. Install [npm](https://nodejs.org/en/){: external} package management support.
 4. Implement your Node.js server with the [Express framework](http://expressjs.com/){: external}. To install the Express framework, use the command line to open the directory with your Node.js app, and run the following command:
   ```
@@ -290,7 +290,7 @@ To display the default pages:
   ```
   {: codeblock}
 
-Want to provide your users with a custom experience? Check out the [{{site.data.keyword.appid_short_notm}} docs](/docs/services/appid?topic=appid-login-widget#branding) to see how you can display your own UI pages.
+Want to provide your users with a custom experience? Check out the [{{site.data.keyword.appid_short_notm}} docs](/docs/appid?topic=appid-branded) to see how you can display your own UI pages.
 {: tip}
 
 ## Step 5. Testing your app
