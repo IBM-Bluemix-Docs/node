@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-06-05"
+lastupdated: "2020-07-22"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 
@@ -30,7 +30,7 @@ Make sure that you are using the latest Node.js LTS release.
 1. Log in to your {{site.data.keyword.cloud_notm}} account. If you don't have an account, you can [register for a free account](https://{DomainName}/registration){: external}.
 2. Go to the [{{site.data.keyword.cloud_notm}} App Development console](https://{DomainName}/developer/appservice/starter-kits){: external}, and select a starter kit that is written in `Node.js`, or select the **Create App** tile to use a blank starter kit. Then select the **Create** tab.
 3. Name your app, and select a resource group.
-4. Optional. Provide tags to classify your app. For more information, see [Working with tags](/docs/resources?topic=resources-tag).
+4. Optional. Provide tags to classify your app. For more information, see [Working with tags](/docs/account?topic=account-tag).
 5. Ensure that **Node.js** is selected as the platform, and then click **Create**. After your app is created, you can add services and then deploy it by using a toolchain, or you can continue to build and deploy your project from the [command line](/docs/cli?topic=cli-getting-started).
 7. If you choose to continue with the CLI instead of the toolchain, download the project to your local machine, `unzip`, and `cd` into the root directory. Now you can install the prerequisites by using your platforms command method:
 
