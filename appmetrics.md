@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-06-05"
+lastupdated: "2020-08-03"
 
 keywords: nodejs metrics, application metrics nodejs, node appmetrics, nodejs autoscaling, nodejs dash, appmetrics-dash nodejs, node.js application metrics dashboard
 
@@ -97,7 +97,7 @@ After you start your application, go to `http://<hostname>:<port>/appmetrics-das
 Use the default `localhost:3001/appmetrics-dash` for apps that are running locally.
 {: tip}
 
-The Application Metrics for Node.js monitoring dashboard UI provides a range of metrics, including HTTP requests and event loop latency as seen in the following video [Monitoring Metrics for Node.js](https://www.youtube.com/watch?v=7hV8gKlMYLs&feature=youtu.be){: external}.
+The Application Metrics for Node.js monitoring dashboard UI provides a range of metrics, including HTTP requests and event loop latency as seen in the following video [Application Metrics for Node.js](https://youtu.be/7hV8gKlMYLs){: external}.
 
 ## Understanding the data
 {: #understanding-data}
