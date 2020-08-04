@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-07-22"
+lastupdated: "2020-08-03"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 
@@ -20,7 +20,7 @@ subcollection: node
 # Getting started tutorial
 {: #getting-started}
 
-The following tutorial walks you through the steps to build, run locally, and deploy a Node.js app by using {{site.data.keyword.cloud_notm}} provided tools. You can use the [{{site.data.keyword.dev_cli_short}} (`ibmcloud dev`) commands](/docs/cli?topic=cli-getting-started) on the command line or the web-based [{{site.data.keyword.cloud_notm}} App Development console](https://{DomainName}/developer/appservice/dashboard){: external} as shown in the following tutorial steps. By using either of these methods, you can generate a production-ready Node.js application in just minutes.
+The following tutorial walks you through the steps to build, run locally, and deploy a Node.js app by using {{site.data.keyword.cloud}} provided tools. You can use the [{{site.data.keyword.dev_cli_short}} (`ibmcloud dev`) commands](/docs/cli?topic=cli-getting-started) on the command line or the web-based [{{site.data.keyword.cloud_notm}} App Development console](https://{DomainName}/developer/appservice/dashboard){: external} as shown in the following tutorial steps. By using either of these methods, you can generate a production-ready Node.js application in just minutes.
 
 Make sure that you are using the latest Node.js LTS release.
 
@@ -34,7 +34,7 @@ Make sure that you are using the latest Node.js LTS release.
 5. Ensure that **Node.js** is selected as the platform, and then click **Create**. After your app is created, you can add services and then deploy it by using a toolchain, or you can continue to build and deploy your project from the [command line](/docs/cli?topic=cli-getting-started).
 7. If you choose to continue with the CLI instead of the toolchain, download the project to your local machine, `unzip`, and `cd` into the root directory. Now you can install the prerequisites by using your platforms command method:
 
-    MacOS:
+    macOS:
     ```
     curl -sL https://ibm.biz/idt-installer | bash
     ```

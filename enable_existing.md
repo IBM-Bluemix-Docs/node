@@ -19,7 +19,7 @@ subcollection: node
 # Enabling existing Node.js applications for cloud deployment
 {: #enable_existing}
 
-You can generate the files that are needed to enable your Node.js application to run on {{site.data.keyword.cloud}} by using the [{{site.data.keyword.dev_cli_short}} `ibmcloud dev enable` command](/docs/cli?topic=cli-idt-cli#enable).
+You can generate the files that are needed to enable your Node.js application to run on {{site.data.keyword.cloud}} by using the [{{site.data.keyword.dev_cli_long}} `ibmcloud dev enable` command](/docs/cli?topic=cli-idt-cli#enable).
 
 ## Enabling your application
 {: #enable_app}

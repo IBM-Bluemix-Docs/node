@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-06-05"
+lastupdated: "2020-08-03"
 
 keywords: deploy nodejs app, serverless nodejs, back-end nodejs, generated sdk nodejs, cloud foundry deploy nodejs, kubernetes deploy nodejs, nodejs
 
@@ -21,7 +21,7 @@ subcollection: node
 # Deploying and integrating Node.js apps
 {: #deploy_apps-nodejs}
 
-You can deploy your Node.js apps with a toolchain or by using the command-line interface. A toolchain is a set of tool integrations. The command-line interface is a simple way to deploy your apps and service instances.
+You can deploy your Node.js apps with a DevOps toolchain or by using the {{site.data.keyword.cloud}} Command Line Interface (CLI). A toolchain is a set of tool integrations. The CLI is a simple way to deploy your apps and service instances.
 
 For more information, see [Deploying apps](/docs/apps?topic=apps-deploying-apps).
 
@@ -30,7 +30,7 @@ For more information, see [Deploying apps](/docs/apps?topic=apps-deploying-apps)
 
 To facilitate serverless development, you can use the IBM Function as a Service (FaaS) offering, [{{site.data.keyword.openwhisk}}](https://www.ibm.com/cloud/functions){: external}. {{site.data.keyword.openwhisk_short}} enables application logic to be run in response to events or direct invocations from web or mobile apps over HTTP without provisioning or managing servers.
 
-{{site.data.keyword.openwhisk_short}} performs system administration like auto-scaling, availability management, and maintenance, allowing developers to remain focused on writing application logic.
+{{site.data.keyword.openwhisk_short}} performs system administration, such as availability management and maintenance, allowing developers to remain focused on writing application logic.
 
 For more information, see:
 * [Developing serverless apps](/docs/apps?topic=apps-serverless)
