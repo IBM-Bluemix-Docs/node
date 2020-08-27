@@ -124,4 +124,4 @@ When you push your application to {{site.data.keyword.cloud_notm}}, these values
 ## Next steps
 {: #next_steps-config notoc}
 
-The `ibm-cloud-config` supports searching for values by using three search pattern types: `cloudfoundry`, `env`, and `file`. If you would like to check out other supported search patterns and search pattern examples, check the [Usage](https://github.com/ibm-developer/ibm-cloud-env#usage){: external} section.
+The `ibm-cloud-config` supports searching for values by using four search pattern types: `user-provided`, `cloudfoundry`, `env`, and `file`. If you would like to check out other supported search patterns and search pattern examples, check the [Usage](https://github.com/ibm-developer/ibm-cloud-env#usage){: external} section.
