@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-06-19"
+lastupdated: "2020-07-10"
 
 keywords: nodejs support, nodejs help, dwanswers nodejs, nodejs runtimes, nodejs buildpack, ibm support nodejs, foundation support nodejs, runtime support nodejs, nodejs app support
 
@@ -33,7 +33,7 @@ IBM Foundation Support for Runtimes provides coverage for Node.js, Swift, and Ja
 
 The Node.js runtime support is available regardless of which modules you are using within your application. Support is available for wherever you want to deploy the runtime, whether that’s on your own computers, in {{site.data.keyword.cloud_notm}}, or elsewhere.
 
-IBM Advanced Support for Runtimes expands on Foundation Support, providing coverage for Express.js, Loopback, and Kitura (Swift framework) frameworks (including package dependencies).
+IBM Advanced Support for Runtimes expands on Foundation Support, providing coverage for Express.js, Loopback, and Swift frameworks (including package dependencies).
 
 To learn more, see [IBM's Digital Marketplace](https://www.ibm.com/cloud/support-for-runtimes){: external}.
 
