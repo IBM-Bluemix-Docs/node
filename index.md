@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-07"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 content-type: tutorial
@@ -90,7 +90,7 @@ ibmcloud dev deploy –target container
 {: codeblock}
 
 ## Next steps
-{: #node-tutorial-nextsteps notoc}
+{: #node-tutorial-nextsteps}
 
 Continue checking out the topics the Node.js programming guide, or for more advanced deployments, you can learn to create a Kubernetes cluster and deploy your Node.js app to it. For more information, see [Deploying and integrating Node.js apps](/docs/node?topic=node-deploy_apps-nodejs).
 
