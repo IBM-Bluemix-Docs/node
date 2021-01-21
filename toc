@@ -35,8 +35,3 @@ Programming with Node.js on IBM Cloud
         [Architecture Center](https://www.ibm.com/cloud/garage/category/architectures)
         [Node.js Developer Center](https://developer.ibm.com/technologies/node-js/)
     {: .navgroup-end}
-
-    {: .navgroup id="help"}
-    slack.md
-    support.md
-    {: .navgroup-end}
