@@ -15,7 +15,6 @@ Programming with Node.js on IBM Cloud
     app_id.md
     logging.md
     tracing.md
-    appmetrics.md
    
     {: .topicgroup}
     Storing and sharing data
