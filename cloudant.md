@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-06-05"
+  years: 2017, 2021
+lastupdated: "2021-03-19"
 
 keywords: nodejs storage, nodejs cloudant, nodejs iam, initialize sdk nodejs, test nodejs app, dbaas nodejs, nodejs-cloudant, store documents nodejs
 
@@ -39,7 +39,7 @@ Be sure that you have the following prerequisites ready to go:
 
 Only new {{site.data.keyword.cloudant_short_notm}} service instances can be used with {{site.data.keyword.cloud_notm}} IAM.
 
-All new {{site.data.keyword.cloudant_short_notm}} service instances are enabled to use {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) when provisioned. When you provision a new instance from the {{site.data.keyword.cloud_notm}} catalog, choose the **Use only IAM** authentication method. This mode means that only IAM credentials are provided by service binding and credential generation. You can find more information at [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/Cloudant?topic=Cloudant-ibm-cloud-identity-and-access-management-iam-).
+All new {{site.data.keyword.cloudant_short_notm}} service instances are enabled to use {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) when provisioned. When you provision a new instance from the {{site.data.keyword.cloud_notm}} catalog, choose the **Use only IAM** authentication method. This mode means that only IAM credentials are provided by service binding and credential generation. You can find more information at [Managing access for {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=Cloudant-managing-access-for-cloudant).
 
 ## Step 1. Creating an instance of {{site.data.keyword.cloudant_short_notm}}
 {: #create-instance-cloudant}
@@ -184,7 +184,7 @@ Is everything set up correctly? Test it out!
 2. From the [{{site.data.keyword.cloud_notm}} Dashboard](https://{DomainName}/resources){: external}, click the {{site.data.keyword.cloudant_short_notm}} service instance that you previously created. When the service instance opens, click **Launch Cloudant Dashboard**.
 3. In the {{site.data.keyword.cloudant_short_notm}} Dashboard, select the database where you created the new documents.
 
-Having trouble? Check out the [{{site.data.keyword.cloudant_short_notm}} API Reference](/docs/Cloudant?topic=Cloudant-api-reference-overview).
+Having trouble? Check out the [{{site.data.keyword.cloudant_short_notm}} API Reference](/apidocs/cloudant#introduction).
 
 ## Next steps
 {: #next-cloudant notoc}
