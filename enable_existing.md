@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-06-05"
+  years: 2018, 2021
+lastupdated: "2021-04-29"
 
 keywords: ibmcloud dev enable, nodejs cloud deployment, cloud enable nodejs, deploy nodejs, build nodejs cloud, nodejs debug
 
@@ -36,7 +36,7 @@ See the following sample output:
 ```
 demo: $ ibmcloud dev enable
 The enable feature is currently in Beta.
-Please provide your experience and feedback at: https://ibm-cloud-tech.slack.com/messages/developer-tools/
+Please provide your experience and feedback at: https://ic-devops-slack-invite.us-south.devops.cloud.ibm.com/
 Only server-side applications are supported by the enable feature
 ? Node application discovered. Do you want to proceed with this language choice? [y/n]> y
 
