@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-08-26"
+  years: 2018, 2021
+lastupdated: "2021-05-14"
 
 keywords: nodejs tracing, debug nodejs apps, troubleshooting nodejs, appmetrics-zipkin node, zipkin docker nodejs, nodejs slow, nodejs tracing
 
@@ -162,7 +162,7 @@ The tutorial finishes here for deployments without Kubernetes. Check out the nex
 ## Next steps
 {: #next-steps-tracing}
 
-* Learn to build Cloud Native Node.js applications with the help of the [CloudNativeJS](https://www.cloudnativejs.io/){: external} community project that provides assets and tools to help you deploy them to Docker and Kubernetes based clouds.
+* Learn to build Cloud Native Node.js applications with the help of the [CloudNativeJS](https://developer.ibm.com/languages/node-js/articles/introducing-cloudnativejsio-a-community-to-help-you-create-cloud-native-nodejs-apps/){: external} community project that provides assets and tools to help you deploy them to Docker and Kubernetes based clouds.
 
 * If you're ready to add tracing to your Node.js applications that run on Kubernetes, check out [tracing Node.js applications that use Kubernetes](https://developer.ibm.com/node/tutorial-end-end-tracing-node-js-applications/#appservice){: external}.
 
