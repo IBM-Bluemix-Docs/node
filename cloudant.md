@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-19"
+lastupdated: "2021-05-14"
 
 keywords: nodejs storage, nodejs cloudant, nodejs iam, initialize sdk nodejs, test nodejs app, dbaas nodejs, nodejs-cloudant, store documents nodejs
 
@@ -47,7 +47,7 @@ All new {{site.data.keyword.cloudant_short_notm}} service instances are enabled 
 When you create an instance of {{site.data.keyword.cloudant_short_notm}}, you also create the database.
 
 1. Log in to your {{site.data.keyword.cloud_notm}} account.
-2. From the [{{site.data.keyword.cloud_notm}} Dashboard](https://{DomainName}/resources){{: external}, click **Create resource**. The {{site.data.keyword.cloud_notm}} catalog opens.
+2. From the [{{site.data.keyword.cloud_notm}} Dashboard](https://{DomainName}/resources){: external}, click **Create resource**. The {{site.data.keyword.cloud_notm}} catalog opens.
 3. In the [{{site.data.keyword.cloud_notm}} catalog](https://{DomainName}/catalog){: external}, select the **Databases** category, and then click {{site.data.keyword.cloudant_short_notm}}. The service configuration page opens.
 4. Complete the information in the following fields:
   * **Service name** - Either type a name for your service instance, or use the preset name.
