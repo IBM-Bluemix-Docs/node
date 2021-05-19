@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-12-07"
+  years: 2018, 2021
+lastupdated: "2021-05-19"
 
 keywords: node getting started, node cloud native, create node app, add node service, node programming guide, node guide
 content-type: tutorial
@@ -41,19 +41,27 @@ Make sure that you are using the latest Node.js LTS release.
 3. Name your app, and select a resource group.
 4. Optional. Provide tags to classify your app. For more information, see [Working with tags](/docs/account?topic=account-tag).
 5. Ensure that **Node.js** is selected as the platform, and then click **Create**. After your app is created, you can add services and then deploy it by using a toolchain, or you can continue to build and deploy your project from the [command line](/docs/cli?topic=cli-getting-started).
-7. If you choose to continue with the CLI instead of the toolchain, download the project to your local machine, `unzip`, and `cd` into the root directory. Now you can install the prerequisites by using your platforms command method:
+7. If you choose to continue with the CLI instead of the toolchain, download the project to your local machine, `unzip`, and `cd` into the root directory. Now you can install the prerequisites by using your platform's command method:
 
-    macOS:
+  * For MacOS and Linux&trade;, run the following command:
     ```
-    curl -sL https://ibm.biz/idt-installer | bash
+    curl -sL https://raw.githubusercontent.com/IBM-Cloud/ibm-cloud-developer-tools/master/linux-installer/idt-installer | bash
     ```
     {: codeblock}
 
-    Windows (run as Administrator):
+    If you'd rather not pipe through bash, you can manually [install the IBM Cloud CLI](/docs/cli?topic=cli-install-ibmcloud-cli) and then [install the CLI plug-ins and tools](/docs/cli?topic=cli-install-devtools-manually) separately.
+    {: tip}
+
+  * For Windows&trade; 10 Pro, run the following command in PowerShell as an administrator:
     ```
-    Set-ExecutionPolicy Unrestricted; iex(New-Object Net.WebClient).DownloadString('http://ibm.biz/idt-win-installer')
+    [Net.ServicePointManager]::SecurityProtocol = "Tls12, Tls11, Tls, Ssl3"; iex(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/IBM-Cloud/ibm-cloud-developer-tools/master/windows-installer/idt-win-installer.ps1')
     ```
     {: codeblock}
+
+    To open PowerShell, right-click the Windows&trade; PowerShell icon, and select **Run as administrator**.
+    {: tip}
+
+   * For automating DevOps installations, you can also access the installer script directly from this [GitHub repo](https://github.com/IBM-Cloud/ibm-cloud-developer-tools){: external}.
 
 ## Adding a service
 {: #node-add-service}
